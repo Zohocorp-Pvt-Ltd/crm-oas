@@ -306,9 +306,9 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "modified_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "modified_by": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"},
                     "category": {"type": "boolean"},
-                    "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"}
+                    "created_by": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"}
                 },
                 "required": [
                     "name",

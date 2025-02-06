@@ -5,84 +5,160 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/email/v8/settings/compose": {
-        "get": {
-            "operationId": "Get Email composer default settings",
-            "parameters": [{"$ref": "#/components/parameters/type"}],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/email/v8/settings/compose": {
+            "get": {
+                "operationId": "Get Email composer default settings",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/FeatureNotEnabledError"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Update Email composer default settings",
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    },
+                    "required": true
                 },
-                "403": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/FeatureNotEnabledError"}]}}}
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "email_compose": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "code": {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                                "SUCCESS"
+                                                                            ],
+                                                                            "nullable": true
+                                                                        },
+                                                                        "message": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                                "success"
+                                                                            ],
+                                                                            "nullable": true
+                                                                        },
+                                                                        "details": {
+                                                                            "$ref": "#/components/schemas/TypeDetails"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "code",
+                                                                    "message",
+                                                                    "status",
+                                                                    "details"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "email_compose"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "email_compose": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/FeatureNotEnabledError"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "email_compose"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             }
-        },
-        "put": {
-            "operationId": "Update Email composer default settings",
-            "requestBody": {
-                "content": {"application/json": {}},
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"email_compose": {
-                            "items": {"oneOf": [{
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "code": {
-                                            "type": "string",
-                                            "enum": ["SUCCESS"],
-                                            "nullable": true
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "nullable": true
-                                        },
-                                        "status": {
-                                            "type": "string",
-                                            "enum": ["success"],
-                                            "nullable": true
-                                        },
-                                        "details": {"$ref": "#/components/schemas/TypeDetails"}
-                                    }
-                                },
-                                "required": [
-                                    "code",
-                                    "message",
-                                    "status",
-                                    "details"
-                                ]
-                            }]},
-                            "type": "array"
-                        }},
-                        "required": ["email_compose"]
-                    }]}}}
-                },
-                "403": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"email_compose": {
-                            "items": {"oneOf": [{"$ref": "#/components/schemas/FeatureNotEnabledError"}]},
-                            "type": "array"
-                        }},
-                        "required": ["email_compose"]
-                    }]}}}
-                },
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
-            }
         }
-    }},
-    "security": [{}],
+    },
+    "security": [
+        {}
+    ],
     "components": {
         "schemas": {
             "default_from_address": {
@@ -104,7 +180,9 @@
                         "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}$"
                     }
                 },
-                "required": ["email"]
+                "required": [
+                    "email"
+                ]
             },
             "default_replyto_address": {
                 "type": "object",
@@ -125,7 +203,9 @@
                         "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}$"
                     }
                 },
-                "required": ["email"]
+                "required": [
+                    "email"
+                ]
             },
             "font": {
                 "type": "object",
@@ -134,7 +214,9 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "family": {"type": "string"}
+                    "family": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "size",
@@ -143,21 +225,29 @@
             },
             "TypeDetails": {
                 "type": "object",
-                "properties": {"type": {
-                    "type": "string",
-                    "enum": [
-                        "default",
-                        "emailin",
-                        "mass_mail"
-                    ]
-                }}
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "default",
+                            "emailin",
+                            "mass_mail"
+                        ]
+                    }
+                }
             },
             "email_compose": {
                 "type": "object",
                 "properties": {
-                    "default_from_address": {"$ref": "#/components/schemas/default_from_address"},
-                    "default_replyto_address": {"$ref": "#/components/schemas/default_replyto_address"},
-                    "font": {"$ref": "#/components/schemas/font"},
+                    "default_from_address": {
+                        "$ref": "#/components/schemas/default_from_address"
+                    },
+                    "default_replyto_address": {
+                        "$ref": "#/components/schemas/default_replyto_address"
+                    },
+                    "font": {
+                        "$ref": "#/components/schemas/font"
+                    },
                     "type": {
                         "type": "string",
                         "enum": [
@@ -170,22 +260,32 @@
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"email_compose": {
-                    "items": {"$ref": "#/components/schemas/email_compose"},
-                    "type": "array"
-                }},
-                "required": ["email_compose"]
+                "properties": {
+                    "email_compose": {
+                        "items": {
+                            "$ref": "#/components/schemas/email_compose"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "email_compose"
+                ]
             },
             "InternalError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INTERNAL_ERROR"]
+                        "enum": [
+                            "INTERNAL_ERROR"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -196,7 +296,9 @@
             "InvalidParamDetails": {
                 "type": "object",
                 "properties": {
-                    "param_name": {"type": "string"},
+                    "param_name": {
+                        "type": "string"
+                    },
                     "supported_values": {
                         "type": "array",
                         "items": {
@@ -219,13 +321,19 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/InvalidParamDetails"}
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidParamDetails"
+                    }
                 },
                 "required": [
                     "code",
@@ -238,13 +346,19 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["FEATURE_NOT_ENABLED"]
+                        "enum": [
+                            "FEATURE_NOT_ENABLED"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/BodyErrorDetails"},
+                    "details": {
+                        "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/BodyErrorDetails"
+                    },
                     "message": {
                         "type": "string",
                         "nullable": true
@@ -262,11 +376,15 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -277,14 +395,20 @@
             "InvalidTypeError": {
                 "type": "object",
                 "properties": {
-                    "details": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/SupportedValueDetails"},
+                    "details": {
+                        "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/SupportedValueDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"],
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
                         "nullable": true
                     },
                     "message": {
@@ -302,29 +426,49 @@
             "Details1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "supported_values": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },
             "Details2": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "regex": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "regex": {
+                        "type": "string"
+                    }
                 }
             },
             "Details3": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "regex": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "regex": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 }
             },
             "Supported_Exception": {
@@ -332,17 +476,31 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Details1"},
-                        {"$ref": "#/components/schemas/Details2"},
-                        {"$ref": "#/components/schemas/Details3"}
-                    ]},
-                    "message": {"type": "string"},
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Details1"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Details2"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Details3"
+                            }
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -355,20 +513,32 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"},
-                            "expected_data_type": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            },
+                            "expected_data_type": {
+                                "type": "string"
+                            }
                         }
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -378,53 +548,107 @@
             },
             "InvalidParamWrapper": {
                 "type": "object",
-                "properties": {"email_compose": {
-                    "items": {"oneOf": [
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidIDError"},
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"},
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                        {"$ref": "#/components/schemas/Supported_Exception"},
-                        {"$ref": "#/components/schemas/InvalidDataError"},
-                        {"$ref": "#/components/schemas/Expected_Type_Exception"}
-                    ]},
-                    "type": "array"
-                }},
-                "required": ["email_compose"]
-            }
-        },
-        "responses": {"ErrorResponse": {
-            "description": "",
-            "content": {"application/json": {"schema": {"oneOf": [
-                {
-                    "type": "object",
-                    "properties": {"email_compose": {"oneOf": [
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"},
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}
-                    ]}}
+                "properties": {
+                    "email_compose": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidIDError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Supported_Exception"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidDataError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Expected_Type_Exception"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
                 },
-                {"$ref": "#/components/schemas/InvalidParamWrapper"}
-            ]}}}
-        }},
-        "parameters": {"type": {
-            "name": "type",
-            "in": "query",
-            "description": "updates respective preferences",
-            "required": false,
-            "schema": {
-                "type": "string",
-                "enum": [
-                    "default",
-                    "emailin",
-                    "mass_mail"
+                "required": [
+                    "email_compose"
                 ]
             }
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        },
+        "responses": {
+            "ErrorResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "email_compose": {
+                                            "oneOf": [
+                                                {
+                                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                                },
+                                                {
+                                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"
+                                                },
+                                                {
+                                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"
+                                                },
+                                                {
+                                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                                },
+                                                {
+                                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                                },
+                                                {
+                                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "parameters": {
+            "type": {
+                "name": "type",
+                "in": "query",
+                "description": "updates respective preferences",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "default",
+                        "emailin",
+                        "mass_mail"
+                    ]
+                }
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

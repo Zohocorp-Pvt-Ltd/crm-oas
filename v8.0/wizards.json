@@ -5,55 +5,119 @@
         "description": "Wizards",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
-        "/crm/v8/settings/wizards": {"get": {
-            "operationId": "Get Wizards",
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
-                },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/API_Exception"}]}}}
+        "/crm/v8/settings/wizards": {
+            "get": {
+                "operationId": "Get Wizards",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }},
-        "/crm/v8/settings/wizards/{wizard_id}": {"get": {
-            "operationId": "Get Wizard by ID",
-            "parameters": [
-                {"$ref": "#/components/parameters/wizard_id"},
-                {"$ref": "#/components/parameters/layout_id"}
-            ],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
-                },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/API_Exception"}]}}}
+        },
+        "/crm/v8/settings/wizards/{wizard_id}": {
+            "get": {
+                "operationId": "Get Wizard by ID",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/wizard_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": [
-        "ZohoCRM.modules.all",
-        "ZohoCRM.modules.attachments.all",
-        "ZohoCRM.modules.attachments.read",
-        "ZohoCRM.settings.wizards.all"
-    ]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.modules.all",
+                "ZohoCRM.modules.attachments.all",
+                "ZohoCRM.modules.attachments.read",
+                "ZohoCRM.settings.wizards.all"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Portal_User_Type": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "layout": {"$ref": "./layouts.json#/components/schemas/layouts"},
-                    "chart_data": {"$ref": "#/components/schemas/Chart_Data"},
+                    "id": {
+                        "type": "string"
+                    },
+                    "layout": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/layouts.json#/components/schemas/layouts"
+                    },
+                    "chart_data": {
+                        "$ref": "#/components/schemas/Chart_Data"
+                    },
                     "screens": {
-                        "items": {"$ref": "#/components/schemas/Screen"},
+                        "items": {
+                            "$ref": "#/components/schemas/Screen"
+                        },
                         "type": "array"
                     }
                 }
@@ -71,14 +135,20 @@
                         "format": "date-time",
                         "nullable": true
                     },
-                    "module": {"$ref": "./modules.json#/components/schemas/modules"},
+                    "module": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/modules.json#/components/schemas/modules"
+                    },
                     "name": {
                         "type": "string",
                         "nullable": true
                     },
-                    "modified_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "modified_by": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
                     "profiles": {
-                        "items": {"$ref": "./profiles.json#/components/schemas/Profile"},
+                        "items": {
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/profiles.json#/components/schemas/Profile"
+                        },
                         "type": "array"
                     },
                     "active": {
@@ -86,27 +156,41 @@
                         "nullable": true
                     },
                     "containers": {
-                        "items": {"$ref": "#/components/schemas/Container"},
+                        "items": {
+                            "$ref": "#/components/schemas/Container"
+                        },
                         "type": "array"
                     },
                     "id": {
                         "type": "string",
                         "nullable": true
                     },
-                    "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "created_by": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
                     "portal_user_types": {
-                        "items": {"$ref": "#/components/schemas/Portal_User_Type"},
+                        "items": {
+                            "$ref": "#/components/schemas/Portal_User_Type"
+                        },
                         "type": "array"
                     },
                     "exempted_portal_user_types": {
                         "type": "array",
                         "items": {
                             "type": "object",
-                            "properties": {"id": {"type": "string"}}
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                }
+                            }
                         }
                     },
-                    "parent_wizard": {"$ref": "#/components/schemas/Wizard"},
-                    "draft": {"type": "boolean"}
+                    "parent_wizard": {
+                        "$ref": "#/components/schemas/Wizard"
+                    },
+                    "draft": {
+                        "type": "boolean"
+                    }
                 },
                 "required": [
                     "created_time",
@@ -122,33 +206,51 @@
             "Container": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "layout": {"$ref": "./layouts.json#/components/schemas/layouts"},
-                    "chart_data": {"$ref": "#/components/schemas/Chart_Data"},
+                    "id": {
+                        "type": "string"
+                    },
+                    "layout": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/layouts.json#/components/schemas/layouts"
+                    },
+                    "chart_data": {
+                        "$ref": "#/components/schemas/Chart_Data"
+                    },
                     "screens": {
-                        "items": {"$ref": "#/components/schemas/Screen"},
+                        "items": {
+                            "$ref": "#/components/schemas/Screen"
+                        },
                         "type": "array"
                     }
                 },
-                "required": ["id"]
+                "required": [
+                    "id"
+                ]
             },
             "Chart_Data": {
                 "type": "object",
                 "properties": {
                     "nodes": {
-                        "items": {"$ref": "#/components/schemas/Node"},
+                        "items": {
+                            "$ref": "#/components/schemas/Node"
+                        },
                         "type": "array"
                     },
                     "connections": {
-                        "items": {"$ref": "#/components/schemas/Connection"},
+                        "items": {
+                            "$ref": "#/components/schemas/Connection"
+                        },
                         "type": "array"
                     },
                     "color_palette": {
                         "type": "object",
-                        "properties": {"button_background": {
-                            "type": "array",
-                            "items": {"type": "string"}
-                        }}
+                        "properties": {
+                            "button_background": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     },
                     "canvas_width": {
                         "type": "integer",
@@ -163,16 +265,28 @@
             "Screen": {
                 "type": "object",
                 "properties": {
-                    "display_label": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "id": {"type": "string"},
-                    "reference_id": {"type": "string"},
+                    "display_label": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "reference_id": {
+                        "type": "string"
+                    },
                     "conditional_rules": {
-                        "items": {"$ref": "#/components/schemas/Conditional_Rules"},
+                        "items": {
+                            "$ref": "#/components/schemas/Conditional_Rules"
+                        },
                         "type": "array"
                     },
                     "segments": {
-                        "items": {"$ref": "#/components/schemas/Segment"},
+                        "items": {
+                            "$ref": "#/components/schemas/Segment"
+                        },
                         "type": "array"
                     }
                 },
@@ -186,23 +300,41 @@
             "Actions": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "type": {"type": "string"},
-                    "segment": {"$ref": "#/components/schemas/Segment"},
-                    "fields": {"$ref": "./fields.json#/components/schemas/fields"},
-                    "field": {"$ref": "./fields.json#/components/schemas/fields"},
-                    "value": {"type": "object"},
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "segment": {
+                        "$ref": "#/components/schemas/Segment"
+                    },
+                    "fields": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/fields"
+                    },
+                    "field": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/fields"
+                    },
+                    "value": {
+                        "type": "object"
+                    },
                     "exempted_profiles": {
-                        "items": {"$ref": "./profiles.json#/components/schemas/Profile"},
+                        "items": {
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/profiles.json#/components/schemas/Profile"
+                        },
                         "type": "array"
                     }
                 },
-                "required": ["field"]
+                "required": [
+                    "field"
+                ]
             },
             "Conditional_Rules": {
                 "type": "object",
                 "properties": {
-                    "query_id": {"type": "string"},
+                    "query_id": {
+                        "type": "string"
+                    },
                     "execute_on": {
                         "type": "string",
                         "enum": [
@@ -211,9 +343,13 @@
                             "create"
                         ]
                     },
-                    "criteria": {"$ref": "#/components/schemas/Criteria"},
+                    "criteria": {
+                        "$ref": "#/components/schemas/Criteria"
+                    },
                     "actions": {
-                        "items": {"$ref": "#/components/schemas/Actions"},
+                        "items": {
+                            "$ref": "#/components/schemas/Actions"
+                        },
                         "type": "array"
                     }
                 },
@@ -235,8 +371,12 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "start_node": {"type": "boolean"},
-                    "screen": {"$ref": "#/components/schemas/Screen"}
+                    "start_node": {
+                        "type": "boolean"
+                    },
+                    "screen": {
+                        "$ref": "#/components/schemas/Screen"
+                    }
                 }
             },
             "Segment": {
@@ -246,19 +386,29 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "display_label": {"type": "string"},
+                    "display_label": {
+                        "type": "string"
+                    },
                     "column_count": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "id": {"type": "string"},
-                    "type": {"type": "string"},
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
                     "fields": {
-                        "items": {"$ref": "./fields.json#/components/schemas/fields"},
+                        "items": {
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/fields"
+                        },
                         "type": "array"
                     },
                     "buttons": {
-                        "items": {"$ref": "#/components/schemas/Button"},
+                        "items": {
+                            "$ref": "#/components/schemas/Button"
+                        },
                         "type": "array"
                     },
                     "elements": {
@@ -266,17 +416,25 @@
                         "items": {
                             "type": "object",
                             "properties": {
-                                "type": {"type": "string"},
+                                "type": {
+                                    "type": "string"
+                                },
                                 "resource": {
                                     "type": "object",
                                     "properties": {
-                                        "id": {"type": "string"},
-                                        "name": {"type": "string"}
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
                                     }
                                 }
                             }
                         },
-                        "required": ["type"]
+                        "required": [
+                            "type"
+                        ]
                     }
                 },
                 "required": [
@@ -291,34 +449,58 @@
             "Connection": {
                 "type": "object",
                 "properties": {
-                    "source_button": {"$ref": "#/components/schemas/Button"},
-                    "target_screen": {"$ref": "#/components/schemas/Screen"},
-                    "id": {"type": "string"}
+                    "source_button": {
+                        "$ref": "#/components/schemas/Button"
+                    },
+                    "target_screen": {
+                        "$ref": "#/components/schemas/Screen"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 },
-                "required": ["id"]
+                "required": [
+                    "id"
+                ]
             },
             "Transition": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
                 }
             },
             "Criteria": {
                 "type": "object",
                 "properties": {
-                    "comparator": {"type": "string"},
+                    "comparator": {
+                        "type": "string"
+                    },
                     "field": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "id": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
                         }
                     },
-                    "value": {"type": "object"},
-                    "group_operator": {"type": "string"},
+                    "value": {
+                        "type": "object"
+                    },
+                    "group_operator": {
+                        "type": "string"
+                    },
                     "group": {
-                        "items": {"$ref": "#/components/schemas/Criteria"},
+                        "items": {
+                            "$ref": "#/components/schemas/Criteria"
+                        },
                         "type": "array"
                     }
                 }
@@ -326,34 +508,64 @@
             "Button": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
+                    "id": {
+                        "type": "string"
+                    },
                     "sequence_number": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "display_label": {"type": "string"},
-                    "criteria": {"$ref": "#/components/schemas/Criteria"},
-                    "target_screen": {"$ref": "#/components/schemas/Screen"},
-                    "type": {"type": "string"},
+                    "display_label": {
+                        "type": "string"
+                    },
+                    "criteria": {
+                        "$ref": "#/components/schemas/Criteria"
+                    },
+                    "target_screen": {
+                        "$ref": "#/components/schemas/Screen"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
                     "message": {
                         "type": "object",
                         "properties": {
-                            "title": {"type": "string"},
-                            "content": {"type": "string"}
+                            "title": {
+                                "type": "string"
+                            },
+                            "content": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "title",
                             "content"
                         ]
                     },
-                    "color": {"type": "string"},
-                    "shape": {"type": "string"},
-                    "background_color": {"type": "string"},
-                    "visibility": {"type": "string"},
-                    "resource": {"type": "object"},
-                    "transition": {"$ref": "#/components/schemas/Transition"},
-                    "category": {"type": "string"},
-                    "reference_id": {"type": "string"}
+                    "color": {
+                        "type": "string"
+                    },
+                    "shape": {
+                        "type": "string"
+                    },
+                    "background_color": {
+                        "type": "string"
+                    },
+                    "visibility": {
+                        "type": "string"
+                    },
+                    "resource": {
+                        "type": "object"
+                    },
+                    "transition": {
+                        "$ref": "#/components/schemas/Transition"
+                    },
+                    "category": {
+                        "type": "string"
+                    },
+                    "reference_id": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "id",
@@ -373,10 +585,14 @@
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"wizards": {
-                    "items": {"$ref": "#/components/schemas/Wizard"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "wizards": {
+                        "items": {
+                            "$ref": "#/components/schemas/Wizard"
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "API_Exception": {
                 "type": "object",
@@ -394,7 +610,9 @@
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "message": {
                         "type": "string",
@@ -414,10 +632,16 @@
                         "properties": {
                             "permissions": {
                                 "type": "array",
-                                "items": {"type": "string"}
+                                "items": {
+                                    "type": "string"
+                                }
                             },
-                            "param_name": {"type": "string"},
-                            "api_name": {"type": "string"}
+                            "param_name": {
+                                "type": "string"
+                            },
+                            "api_name": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -427,7 +651,9 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["DEPENDENT_FIELD_MISSING"]
+                        "enum": [
+                            "DEPENDENT_FIELD_MISSING"
+                        ]
                     },
                     "details": {
                         "type": "object",
@@ -435,16 +661,24 @@
                             "dependee": {
                                 "type": "object",
                                 "properties": {
-                                    "api_name": {"type": "string"},
-                                    "json_path": {"type": "string"}
+                                    "api_name": {
+                                        "type": "string"
+                                    },
+                                    "json_path": {
+                                        "type": "string"
+                                    }
                                 },
                                 "required": [
                                     "api_name",
                                     "json_path"
                                 ]
                             },
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "dependee",
@@ -452,10 +686,14 @@
                             "json_path"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -470,19 +708,31 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "expected_data_type": {"type": "string"},
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "expected_data_type": {
+                                "type": "string"
+                            },
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "expected_data_type",
@@ -503,18 +753,28 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -534,14 +794,22 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_MODULE"]
+                        "enum": [
+                            "INVALID_MODULE"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"type": "object"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "status",
@@ -555,14 +823,22 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_URL_PATTERN"]
+                        "enum": [
+                            "INVALID_URL_PATTERN"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"type": "object"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "status",
@@ -576,17 +852,29 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["PATTERN_NOT_MATCHED"]
+                        "enum": [
+                            "PATTERN_NOT_MATCHED"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"api_name": {"type": "string"}},
-                        "required": ["api_name"]
+                        "properties": {
+                            "api_name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "api_name"
+                        ]
                     }
                 },
                 "required": [
@@ -601,17 +889,29 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["REQUIRED_PARAM_MISSING"]
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"api_name": {"type": "string"}},
-                        "required": ["api_name"]
+                        "properties": {
+                            "api_name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "api_name"
+                        ]
                     }
                 },
                 "required": [
@@ -627,15 +927,23 @@
                 "name": "wizard_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "layout_id": {
                 "name": "layout_id",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

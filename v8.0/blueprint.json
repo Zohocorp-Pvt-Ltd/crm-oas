@@ -5,43 +5,99 @@
         "description": "Blue Print",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/{module_api_name}/{record_id}/actions/blueprint": {
-        "get": {
-            "operationId": "Get BluePrint",
-            "parameters": [
-                {"$ref": "#/components/parameters/module_api_name"},
-                {"$ref": "#/components/parameters/record_id"}
-            ],
-            "responses": {"200": {
-                "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/Response_Wrapper"},
-                    {"$ref": "#/components/schemas/API_Exception"}
-                ]}}}
-            }},
-            "security": [{"iam-oauth2-schema": ["ZohoCRM.modules.all"]}]
-        },
-        "put": {
-            "operationId": "Update BluePrint",
-            "parameters": [
-                {"$ref": "#/components/parameters/module_api_name"},
-                {"$ref": "#/components/parameters/record_id"}
-            ],
-            "requestBody": {
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
-                "required": true
-            },
-            "responses": {"200": {
-                "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/Success_Response"},
-                    {"$ref": "#/components/schemas/API_Exception"}
-                ]}}}
-            }},
-            "security": [{"iam-oauth2-schema": ["ZohoCRM.modules.all"]}]
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
         }
-    }},
+    ],
+    "paths": {
+        "/crm/v8/{module_api_name}/{record_id}/actions/blueprint": {
+            "get": {
+                "operationId": "Get BluePrint",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module_api_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "iam-oauth2-schema": [
+                            "ZohoCRM.modules.all"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "operationId": "Update BluePrint",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module_api_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Response"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "iam-oauth2-schema": [
+                            "ZohoCRM.modules.all"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
     "components": {
         "schemas": {
             "Next_Transition": {
@@ -55,8 +111,12 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "criteria_matched": {"type": "boolean"},
-                    "type": {"type": "string"}
+                    "criteria_matched": {
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "id",
@@ -217,7 +277,9 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "status": {"type": "string"}
+                    "status": {
+                        "type": "string"
+                    }
                 }
             },
             "Process_Info": {
@@ -264,8 +326,12 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "escalation": {"$ref": "#/components/schemas/escalation"},
-                    "current_picklist": {"$ref": "#/components/schemas/current_picklist"}
+                    "escalation": {
+                        "$ref": "#/components/schemas/escalation"
+                    },
+                    "current_picklist": {
+                        "$ref": "#/components/schemas/current_picklist"
+                    }
                 },
                 "required": [
                     "field_id",
@@ -283,9 +349,15 @@
             "current_picklist": {
                 "type": "object",
                 "properties": {
-                    "colour_code": {"type": "string"},
-                    "id": {"type": "string"},
-                    "value": {"type": "string"}
+                    "colour_code": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
                 }
             },
             "Lookup_Field": {
@@ -308,8 +380,12 @@
             "Association_Details": {
                 "type": "object",
                 "properties": {
-                    "lookup_field": {"$ref": "#/components/schemas/Lookup_Field"},
-                    "related_field": {"$ref": "#/components/schemas/Lookup_Field"}
+                    "lookup_field": {
+                        "$ref": "#/components/schemas/Lookup_Field"
+                    },
+                    "related_field": {
+                        "$ref": "#/components/schemas/Lookup_Field"
+                    }
                 },
                 "required": [
                     "lookup_field",
@@ -384,7 +460,9 @@
             "Field": {
                 "type": "object",
                 "properties": {
-                    "external": {"$ref": "./fields.json#/components/schemas/external"},
+                    "external": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/external"
+                    },
                     "display_type": {
                         "type": "integer",
                         "format": "int32",
@@ -393,14 +471,22 @@
                             2
                         ]
                     },
-                    "filterable": {"type": "boolean"},
-                    "pick_list_values_sorted_lexically": {"type": "boolean"},
-                    "sortable": {"type": "boolean"},
+                    "filterable": {
+                        "type": "boolean"
+                    },
+                    "pick_list_values_sorted_lexically": {
+                        "type": "boolean"
+                    },
+                    "sortable": {
+                        "type": "boolean"
+                    },
                     "ui_type": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "private": {"$ref": "./fields.json#/components/schemas/private"},
+                    "private": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/private"
+                    },
                     "system_mandatory": {
                         "type": "boolean",
                         "nullable": true
@@ -413,17 +499,23 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "crypt": {"$ref": "#/components/schemas/Crypt"},
+                    "crypt": {
+                        "$ref": "#/components/schemas/Crypt"
+                    },
                     "field_label": {
                         "type": "string",
                         "nullable": true
                     },
-                    "tooltip": {"$ref": "#/components/schemas/ToolTip"},
+                    "tooltip": {
+                        "$ref": "#/components/schemas/ToolTip"
+                    },
                     "created_source": {
                         "type": "string",
                         "nullable": true
                     },
-                    "layouts": {"$ref": "#/components/schemas/Layout"},
+                    "layouts": {
+                        "$ref": "#/components/schemas/Layout"
+                    },
                     "field_read_only": {
                         "type": "boolean",
                         "nullable": true
@@ -444,9 +536,15 @@
                         "type": "boolean",
                         "nullable": true
                     },
-                    "association_details": {"$ref": "#/components/schemas/Association_Details"},
-                    "multi_module_lookup": {"$ref": "./fields.json#/components/schemas/multi_module_lookup"},
-                    "currency": {"$ref": "#/components/schemas/Currency"},
+                    "association_details": {
+                        "$ref": "#/components/schemas/Association_Details"
+                    },
+                    "multi_module_lookup": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/multi_module_lookup"
+                    },
+                    "currency": {
+                        "$ref": "#/components/schemas/Currency"
+                    },
                     "id": {
                         "type": "string",
                         "nullable": true
@@ -455,7 +553,9 @@
                         "type": "boolean",
                         "nullable": true
                     },
-                    "lookup": {"$ref": "#/components/schemas/Lookup_And_Subform"},
+                    "lookup": {
+                        "$ref": "#/components/schemas/Lookup_And_Subform"
+                    },
                     "convert_mapping": {
                         "type": "object",
                         "nullable": true
@@ -477,7 +577,9 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "view_type": {"$ref": "#/components/schemas/View_Type"},
+                    "view_type": {
+                        "$ref": "#/components/schemas/View_Type"
+                    },
                     "transition_sequence": {
                         "type": "integer",
                         "format": "int32",
@@ -487,7 +589,9 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "unique": {"$ref": "./fields.json#/components/schemas/unique"},
+                    "unique": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/unique"
+                    },
                     "history_tracking": {
                         "type": "boolean",
                         "nullable": true
@@ -496,17 +600,25 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "formula": {"$ref": "#/components/schemas/Formula"},
+                    "formula": {
+                        "$ref": "#/components/schemas/Formula"
+                    },
                     "decimal_place": {
                         "type": "string",
                         "nullable": true
                     },
-                    "multiselectlookup": {"$ref": "#/components/schemas/Multi_Select_Lookup"},
+                    "multiselectlookup": {
+                        "$ref": "#/components/schemas/Multi_Select_Lookup"
+                    },
                     "pick_list_values": {
-                        "items": {"$ref": "./fields.json#/components/schemas/pick_list_values"},
+                        "items": {
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/pick_list_values"
+                        },
                         "type": "array"
                     },
-                    "auto_number": {"$ref": "#/components/schemas/Auto_Number"},
+                    "auto_number": {
+                        "$ref": "#/components/schemas/Auto_Number"
+                    },
                     "personality_name": {
                         "type": "string",
                         "nullable": true
@@ -525,9 +637,15 @@
                         "items": {
                             "type": "object",
                             "properties": {
-                                "id": {"type": "string"},
-                                "name": {"type": "string"},
-                                "permission_type": {"type": "string"}
+                                "id": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "permission_type": {
+                                    "type": "string"
+                                }
                             }
                         }
                     }
@@ -576,7 +694,9 @@
             "Transition": {
                 "type": "object",
                 "properties": {
-                    "type": {"type": "string"},
+                    "type": {
+                        "type": "string"
+                    },
                     "execution_time": {
                         "type": "string",
                         "format": "date-time"
@@ -586,16 +706,22 @@
                         "format": "int32"
                     },
                     "next_transitions": {
-                        "items": {"$ref": "#/components/schemas/Next_Transition"},
+                        "items": {
+                            "$ref": "#/components/schemas/Next_Transition"
+                        },
                         "type": "array"
                     },
-                    "parent_transition": {"$ref": "#/components/schemas/Transition"},
+                    "parent_transition": {
+                        "$ref": "#/components/schemas/Transition"
+                    },
                     "percent_partial_save": {
                         "type": "number",
                         "format": "double",
                         "nullable": true
                     },
-                    "data": {"$ref": "./record.json#/components/schemas/Record"},
+                    "data": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/record.json#/components/schemas/Record"
+                    },
                     "next_field_value": {
                         "type": "string",
                         "nullable": true
@@ -618,7 +744,9 @@
                         "nullable": true
                     },
                     "fields": {
-                        "items": {"$ref": "#/components/schemas/Field"},
+                        "items": {
+                            "$ref": "#/components/schemas/Field"
+                        },
                         "type": "array"
                     },
                     "color_code": {
@@ -651,10 +779,16 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "data": {"$ref": "./record.json#/components/schemas/Record"},
-                    "process_info": {"$ref": "#/components/schemas/Process_Info"},
+                    "data": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/record.json#/components/schemas/Record"
+                    },
+                    "process_info": {
+                        "$ref": "#/components/schemas/Process_Info"
+                    },
                     "transitions": {
-                        "items": {"$ref": "#/components/schemas/Transition"},
+                        "items": {
+                            "$ref": "#/components/schemas/Transition"
+                        },
                         "type": "array"
                     }
                 },
@@ -667,25 +801,39 @@
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"blueprint": {"$ref": "#/components/schemas/Blue_Print"}},
-                "required": ["blueprint"]
+                "properties": {
+                    "blueprint": {
+                        "$ref": "#/components/schemas/Blue_Print"
+                    }
+                },
+                "required": [
+                    "blueprint"
+                ]
             },
             "Success_Response": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["transition updated successfully"]
+                        "enum": [
+                            "transition updated successfully"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "status",
@@ -696,18 +844,26 @@
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"blueprint": {
-                    "items": {"$ref": "#/components/schemas/Blue_Print"},
-                    "type": "array"
-                }},
-                "required": ["blueprint"]
+                "properties": {
+                    "blueprint": {
+                        "items": {
+                            "$ref": "#/components/schemas/Blue_Print"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "blueprint"
+                ]
             },
             "API_Exception": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
@@ -733,11 +889,21 @@
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "message": {"type": "string"},
-                            "expected_data_type": {"type": "string"},
-                            "info_message": {"type": "string"},
-                            "parent_api_name": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "message": {
+                                "type": "string"
+                            },
+                            "expected_data_type": {
+                                "type": "string"
+                            },
+                            "info_message": {
+                                "type": "string"
+                            },
+                            "parent_api_name": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -761,15 +927,23 @@
                 "name": "module_api_name",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "record_id": {
                 "name": "record_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

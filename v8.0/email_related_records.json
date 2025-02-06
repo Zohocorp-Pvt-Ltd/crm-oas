@@ -5,43 +5,95 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
-        "/crm/v8/{module_name}/{record_id}/Emails": {"get": {
-            "operationId": "Get Emails Related Records",
-            "parameters": [
-                {"$ref": "#/components/parameters/module_name"},
-                {"$ref": "#/components/parameters/record_id"},
-                {"$ref": "#/components/parameters/type"},
-                {"$ref": "#/components/parameters/filter"},
-                {"$ref": "#/components/parameters/index"},
-                {"$ref": "#/components/parameters/owner_id"}
-            ],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/Emails"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"},
-                "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+        "/crm/v8/{module_name}/{record_id}/Emails": {
+            "get": {
+                "operationId": "Get Emails Related Records",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/type"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    },
+                    {
+                        "$ref": "#/components/parameters/index"
+                    },
+                    {
+                        "$ref": "#/components/parameters/owner_id"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Emails"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
+                }
             }
-        }},
-        "/crm/v8/{module_name}/{record_id}/Emails/{message_id}": {"get": {
-            "operationId": "Get Emails Related Record",
-            "parameters": [
-                {"$ref": "#/components/parameters/module_name"},
-                {"$ref": "#/components/parameters/record_id"},
-                {"$ref": "#/components/parameters/type"},
-                {"$ref": "#/components/parameters/owner_id"},
-                {"$ref": "#/components/parameters/message_id"}
-            ],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/Emails"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"},
-                "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+        },
+        "/crm/v8/{module_name}/{record_id}/Emails/{message_id}": {
+            "get": {
+                "operationId": "Get Emails Related Record",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/type"
+                    },
+                    {
+                        "$ref": "#/components/parameters/owner_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/message_id"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Emails"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
+                }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": [""]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "UserDetails": {
@@ -89,7 +141,9 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "module": {"$ref": "#/components/schemas/module"}
+                    "module": {
+                        "$ref": "#/components/schemas/module"
+                    }
                 },
                 "required": [
                     "id",
@@ -104,7 +158,9 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "count": {"type": "string"},
+                    "count": {
+                        "type": "string"
+                    },
                     "type": {
                         "type": "string",
                         "nullable": true
@@ -122,8 +178,12 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "category": {"type": "string"},
-                    "sub_category": {"type": "string"}
+                    "category": {
+                        "type": "string"
+                    },
+                    "sub_category": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "type",
@@ -136,23 +196,33 @@
                 "properties": {
                     "attachments": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/attachments"}
+                        "items": {
+                            "$ref": "#/components/schemas/attachments"
+                        }
                     },
-                    "thread_id": {"type": "string"},
+                    "thread_id": {
+                        "type": "string"
+                    },
                     "cc": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/UserDetails"}
+                        "items": {
+                            "$ref": "#/components/schemas/UserDetails"
+                        }
                     },
                     "summary": {
                         "type": "string",
                         "nullable": true
                     },
-                    "owner": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "owner": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
                     "read": {
                         "type": "boolean",
                         "nullable": true
                     },
-                    "content": {"type": "string"},
+                    "content": {
+                        "type": "string"
+                    },
                     "sent": {
                         "type": "boolean",
                         "nullable": true
@@ -194,16 +264,24 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "linked_record": {"$ref": "#/components/schemas/linked_record"},
-                    "sent_time": {"type": "string"},
+                    "linked_record": {
+                        "$ref": "#/components/schemas/linked_record"
+                    },
+                    "sent_time": {
+                        "type": "string"
+                    },
                     "emotion": {
                         "type": "string",
                         "nullable": true
                     },
-                    "from": {"$ref": "#/components/schemas/UserDetails"},
+                    "from": {
+                        "$ref": "#/components/schemas/UserDetails"
+                    },
                     "to": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/UserDetails"}
+                        "items": {
+                            "$ref": "#/components/schemas/UserDetails"
+                        }
                     },
                     "time": {
                         "type": "string",
@@ -212,7 +290,9 @@
                     },
                     "status": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/status"}
+                        "items": {
+                            "$ref": "#/components/schemas/status"
+                        }
                     },
                     "has_attachment": {
                         "type": "boolean",
@@ -222,9 +302,15 @@
                         "type": "boolean",
                         "nullable": true
                     },
-                    "editable": {"type": "boolean"},
-                    "mail_format": {"type": "string"},
-                    "reply_to": {"$ref": "#/components/schemas/UserDetails"}
+                    "editable": {
+                        "type": "boolean"
+                    },
+                    "mail_format": {
+                        "type": "string"
+                    },
+                    "reply_to": {
+                        "$ref": "#/components/schemas/UserDetails"
+                    }
                 },
                 "required": [
                     "cc",
@@ -251,9 +337,15 @@
             "attachments": {
                 "type": "object",
                 "properties": {
-                    "size": {"type": "string"},
-                    "name": {"type": "string"},
-                    "id": {"type": "string"}
+                    "size": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 }
             },
             "info": {
@@ -294,10 +386,14 @@
                 "type": "object",
                 "properties": {
                     "Emails": {
-                        "items": {"$ref": "#/components/schemas/email"},
+                        "items": {
+                            "$ref": "#/components/schemas/email"
+                        },
                         "type": "array"
                     },
-                    "info": {"$ref": "#/components/schemas/info"}
+                    "info": {
+                        "$ref": "#/components/schemas/info"
+                    }
                 },
                 "required": [
                     "Emails",
@@ -306,11 +402,15 @@
             },
             "InvalidUrlDetails": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }},
-                "required": ["resource_path_index"]
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "resource_path_index"
+                ]
             },
             "InvalidUrlError": {
                 "type": "object",
@@ -322,11 +422,17 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/InvalidUrlDetails"},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidUrlDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -338,21 +444,35 @@
             },
             "InvalidParamDetails": {
                 "type": "object",
-                "properties": {"param_name": {"type": "string"}},
-                "required": ["param_name"]
+                "properties": {
+                    "param_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "param_name"
+                ]
             },
             "InvalidParamError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/InvalidParamDetails"},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidParamDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -367,13 +487,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INTERNAL_SERVER_ERROR"]
+                        "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                        ]
                     },
-                    "details": {"type": "object"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -387,19 +515,51 @@
         "responses": {
             "Emails": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidParamError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "InternalErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InternalError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -407,13 +567,17 @@
                 "name": "module_name",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "record_id": {
                 "name": "record_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "type": {
                 "name": "type",
@@ -436,19 +600,25 @@
                 "name": "owner_id",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "message_id": {
                 "name": "message_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "index": {
                 "name": "index",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "filter": {
                 "name": "filter",
@@ -457,6 +627,10 @@
                 "schema": {}
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

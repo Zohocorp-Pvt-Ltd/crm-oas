@@ -5,33 +5,65 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/settings/business_hours/shift_hours": {
             "get": {
                 "operationId": "Get Shift Hours",
-                "parameters": [{"$ref": "#/components/parameters/X-CRM-ORG"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/X-CRM-ORG"
+                    }
+                ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/ShiftHours"},
-                    "400": {"$ref": "#/components/responses/RRootResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/ShiftHours"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RRootResponse"
+                    }
                 }
             },
             "post": {
                 "operationId": "Create Shifts Hours",
-                "parameters": [{"$ref": "#/components/parameters/X-CRM-ORG"}],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/X-CRM-ORG"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "201": {
+                        "$ref": "#/components/responses/CreateSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Shift Hours",
-                "parameters": [{"$ref": "#/components/parameters/X-CRM-ORG"}],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/X-CRM-ORG"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             }
         },
@@ -39,41 +71,75 @@
             "get": {
                 "operationId": "Get Shift Hour",
                 "parameters": [
-                    {"$ref": "#/components/parameters/X-CRM-ORG"},
-                    {"$ref": "#/components/parameters/shift_id"}
+                    {
+                        "$ref": "#/components/parameters/X-CRM-ORG"
+                    },
+                    {
+                        "$ref": "#/components/parameters/shift_id"
+                    }
                 ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/ShiftHours"},
-                    "400": {"$ref": "#/components/responses/RRootResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/ShiftHours"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RRootResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Shift Hour",
                 "parameters": [
-                    {"$ref": "#/components/parameters/X-CRM-ORG"},
-                    {"$ref": "#/components/parameters/shift_id"}
+                    {
+                        "$ref": "#/components/parameters/X-CRM-ORG"
+                    },
+                    {
+                        "$ref": "#/components/parameters/shift_id"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Shift Hour",
                 "parameters": [
-                    {"$ref": "#/components/parameters/X-CRM-ORG"},
-                    {"$ref": "#/components/parameters/shift_id"}
+                    {
+                        "$ref": "#/components/parameters/X-CRM-ORG"
+                    },
+                    {
+                        "$ref": "#/components/parameters/shift_id"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/RootResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RootResponse"
+                    }
                 }
             }
         }
     },
-    "security": [{"iam-oauth2-schema": [""]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "holidays": {
@@ -125,14 +191,22 @@
             "users": {
                 "type": "object",
                 "properties": {
-                    "role": {"$ref": "#/components/schemas/role"},
-                    "name": {"type": "string"},
+                    "role": {
+                        "$ref": "#/components/schemas/role"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string",
                         "nullable": true
                     },
-                    "email": {"type": "string"},
-                    "zuid": {"type": "string"},
+                    "email": {
+                        "type": "string"
+                    },
+                    "zuid": {
+                        "type": "string"
+                    },
                     "effective_from": {
                         "type": "string",
                         "format": "date",
@@ -151,7 +225,9 @@
             "shift_custom_timing": {
                 "type": "object",
                 "properties": {
-                    "days": {"type": "string"},
+                    "days": {
+                        "type": "string"
+                    },
                     "shift_timing": {
                         "type": "array",
                         "items": {
@@ -168,7 +244,9 @@
             "break_custom_timing": {
                 "type": "object",
                 "properties": {
-                    "days": {"type": "string"},
+                    "days": {
+                        "type": "string"
+                    },
                     "break_timing": {
                         "type": "array",
                         "items": {
@@ -187,9 +265,13 @@
                 "properties": {
                     "break_days": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     },
-                    "same_as_everyday": {"type": "boolean"},
+                    "same_as_everyday": {
+                        "type": "boolean"
+                    },
                     "daily_timing": {
                         "type": "array",
                         "items": {
@@ -199,9 +281,13 @@
                     },
                     "custom_timing": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/break_custom_timing"}
+                        "items": {
+                            "$ref": "#/components/schemas/break_custom_timing"
+                        }
                     },
-                    "id": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "break_days",
@@ -214,10 +300,14 @@
             "shift_hours": {
                 "type": "object",
                 "properties": {
-                    "same_as_everyday": {"type": "boolean"},
+                    "same_as_everyday": {
+                        "type": "boolean"
+                    },
                     "shift_days": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "daily_timing": {
                         "type": "array",
@@ -228,27 +318,41 @@
                     },
                     "custom_timing": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/shift_custom_timing"}
+                        "items": {
+                            "$ref": "#/components/schemas/shift_custom_timing"
+                        }
                     },
-                    "id": {"type": "string"},
+                    "id": {
+                        "type": "string"
+                    },
                     "break_hours": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/break_hours"}
+                        "items": {
+                            "$ref": "#/components/schemas/break_hours"
+                        }
                     },
                     "users": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/users"}
+                        "items": {
+                            "$ref": "#/components/schemas/users"
+                        }
                     },
                     "holidays": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/holidays"}
+                        "items": {
+                            "$ref": "#/components/schemas/holidays"
+                        }
                     },
                     "users_count": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "timezone": {"type": "object"},
-                    "name": {"type": "string"}
+                    "timezone": {
+                        "type": "object"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "same_as_everyday",
@@ -287,10 +391,14 @@
                 "type": "object",
                 "properties": {
                     "shift_hours": {
-                        "items": {"$ref": "#/components/schemas/shift_hours"},
+                        "items": {
+                            "$ref": "#/components/schemas/shift_hours"
+                        },
                         "type": "array"
                     },
-                    "shift_count": {"$ref": "#/components/schemas/shift_count"}
+                    "shift_count": {
+                        "$ref": "#/components/schemas/shift_count"
+                    }
                 },
                 "required": [
                     "shift_hours",
@@ -299,35 +407,49 @@
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"shift_hours": {
-                    "items": {"$ref": "#/components/schemas/shift_hours"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "shift_hours": {
+                        "items": {
+                            "$ref": "#/components/schemas/shift_hours"
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "details": {
                 "type": "object",
-                "properties": {"id": {
-                    "type": "string",
-                    "nullable": true
-                }},
-                "required": ["id"]
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "id"
+                ]
             },
             "Success_Response": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"],
+                        "enum": [
+                            "SUCCESS"
+                        ],
                         "nullable": true
                     },
                     "message": {
                         "type": "string",
                         "nullable": true
                     },
-                    "details": {"$ref": "#/components/schemas/details"},
+                    "details": {
+                        "$ref": "#/components/schemas/details"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"],
+                        "enum": [
+                            "success"
+                        ],
                         "nullable": true
                     }
                 },
@@ -340,17 +462,31 @@
             },
             "Action_Wrapper": {
                 "type": "object",
-                "properties": {"shift_hours": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                    "type": "array"
-                }},
-                "required": ["shift_hours"]
+                "properties": {
+                    "shift_hours": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Success_Response"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "shift_hours"
+                ]
             },
             "MandatoryDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -360,8 +496,12 @@
             "MandatoryDetails1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "MandatoryError": {
@@ -369,13 +509,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/MandatoryDetails1"},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryDetails1"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -387,24 +535,36 @@
             },
             "InvalidUrlDetails": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }},
-                "required": ["resource_path_index"]
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "resource_path_index"
+                ]
             },
             "InvalidUrlError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/InvalidUrlDetails"},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidUrlDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -416,18 +576,34 @@
             },
             "MandatoryErrorWrapper": {
                 "type": "object",
-                "properties": {"shift_hours": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/MandatoryError"}]},
-                    "type": "array"
-                }},
-                "required": ["shift_hours"]
+                "properties": {
+                    "shift_hours": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "shift_hours"
+                ]
             },
             "DependeeDetails": {
                 "type": "object",
                 "properties": {
-                    "dependee": {"$ref": "#/components/schemas/MandatoryDetails"},
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "dependee": {
+                        "$ref": "#/components/schemas/MandatoryDetails"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "dependee",
@@ -440,13 +616,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["DEPENDENT_FIELD_MISSING"]
+                        "enum": [
+                            "DEPENDENT_FIELD_MISSING"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/DependeeDetails"},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/DependeeDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -458,11 +642,21 @@
             },
             "DependeeErrorWrapper": {
                 "type": "object",
-                "properties": {"shift_hours": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/DependeeError"}]},
-                    "type": "array"
-                }},
-                "required": ["shift_hours"]
+                "properties": {
+                    "shift_hours": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/DependeeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "shift_hours"
+                ]
             },
             "InvalidRegexDetails": {
                 "type": "object",
@@ -491,20 +685,30 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"],
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
                         "nullable": true
                     },
                     "message": {
                         "type": "string",
                         "nullable": true
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/MandatoryDetails1"},
-                        {"$ref": "#/components/schemas/InvalidRegexDetails"}
-                    ]},
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/MandatoryDetails1"
+                            },
+                            {
+                                "$ref": "#/components/schemas/InvalidRegexDetails"
+                            }
+                        ]
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     }
                 },
@@ -517,19 +721,37 @@
             },
             "InvalidValueErrorWrapper": {
                 "type": "object",
-                "properties": {"shift_hours": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidValueError"}]},
-                    "type": "array"
-                }},
-                "required": ["shift_hours"]
+                "properties": {
+                    "shift_hours": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "shift_hours"
+                ]
             },
             "TypeDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "expected_data_type": {"type": "string"},
-                    "regex": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "regex": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -541,9 +763,15 @@
             "ExpectedDataTypeDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -556,13 +784,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/ExpectedDataTypeDetails"},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/ExpectedDataTypeDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -575,9 +811,15 @@
             "InvalidTypeDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "details": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -590,16 +832,28 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/TypeDetails"},
-                        {"$ref": "#/components/schemas/InvalidTypeDetails"}
-                    ]},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/TypeDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/InvalidTypeDetails"
+                            }
+                        ]
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -611,11 +865,21 @@
             },
             "InvalidTypeErrorWrapper": {
                 "type": "object",
-                "properties": {"shift_hours": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidTypeError"}]},
-                    "type": "array"
-                }},
-                "required": ["shift_hours"]
+                "properties": {
+                    "shift_hours": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "shift_hours"
+                ]
             },
             "MaxLengthDetails": {
                 "type": "object",
@@ -643,8 +907,12 @@
             "MinLengthDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "minimum_length": {
                         "type": "integer",
                         "format": "int32"
@@ -661,16 +929,28 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/MinLengthDetails"},
-                        {"$ref": "#/components/schemas/MaxLengthDetails"}
-                    ]},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/MinLengthDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/MaxLengthDetails"
+                            }
+                        ]
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -682,53 +962,137 @@
             },
             "MinLengthErrorWrapper": {
                 "type": "object",
-                "properties": {"shift_hours": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/MinLengthError"}]},
-                    "type": "array"
-                }},
-                "required": ["shift_hours"]
+                "properties": {
+                    "shift_hours": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MinLengthError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "shift_hours"
+                ]
             }
         },
         "responses": {
             "ShiftHours": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "CreateSuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Action_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Action_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Action_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Action_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RootResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RRootResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/MandatoryErrorWrapper"},
-                    {"$ref": "#/components/schemas/DependeeErrorWrapper"},
-                    {"$ref": "#/components/schemas/InvalidValueErrorWrapper"},
-                    {"$ref": "#/components/schemas/InvalidTypeErrorWrapper"},
-                    {"$ref": "#/components/schemas/MinLengthErrorWrapper"},
-                    {"$ref": "#/components/schemas/ExpectedDataTypeError"},
-                    {"$ref": "#/components/schemas/InvalidValueError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/DependeeErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MinLengthErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/ExpectedDataTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -736,20 +1100,36 @@
                 "name": "X-CRM-ORG",
                 "in": "header",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "shift_id": {
                 "name": "shift_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "requestBodies": {"body": {
-            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
-            "required": true
-        }},
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Body_Wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
         "headers": {},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

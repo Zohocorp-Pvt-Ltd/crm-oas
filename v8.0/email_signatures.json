@@ -5,60 +5,114 @@
         "description": "Email Signatures",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/email/v8/settings/compose/email_signatures": {
             "get": {
                 "operationId": "Get All Email Signatures",
                 "parameters": [
-                    {"$ref": "#/components/parameters/X-ZCSRF-TOKEN"},
-                    {"$ref": "#/components/parameters/user_id"}
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    },
+                    {
+                        "$ref": "#/components/parameters/user_id"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponseGet200"},
-                    "204": {"$ref": "#/components/responses/success204"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse400"},
-                    "403": {"$ref": "#/components/responses/RErrorResponse403"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponseGet200"
+                    },
+                    "204": {
+                        "$ref": "#/components/responses/success204"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse400"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/RErrorResponse403"
+                    }
                 }
             },
             "post": {
                 "operationId": "Create Email Signatures",
                 "parameters": [
-                    {"$ref": "#/components/parameters/X-ZCSRF-TOKEN"},
-                    {"$ref": "#/components/parameters/user_id"}
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    },
+                    {
+                        "$ref": "#/components/parameters/user_id"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/SuccessResponse201"},
-                    "403": {"$ref": "#/components/responses/ErrorResponse403"},
-                    "207": {"$ref": "#/components/responses/SuccessResponse207"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse400"}
+                    "201": {
+                        "$ref": "#/components/responses/SuccessResponse201"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/ErrorResponse403"
+                    },
+                    "207": {
+                        "$ref": "#/components/responses/SuccessResponse207"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse400"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Email Signatures",
                 "parameters": [
-                    {"$ref": "#/components/parameters/X-ZCSRF-TOKEN"},
-                    {"$ref": "#/components/parameters/user_id"}
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    },
+                    {
+                        "$ref": "#/components/parameters/user_id"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse200"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse400"},
-                    "207": {"$ref": "#/components/responses/SuccessResponse207"},
-                    "403": {"$ref": "#/components/responses/ErrorResponse403"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse200"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse400"
+                    },
+                    "207": {
+                        "$ref": "#/components/responses/SuccessResponse207"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/ErrorResponse403"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Email Signatures",
                 "parameters": [
-                    {"$ref": "#/components/parameters/ids"},
-                    {"$ref": "#/components/parameters/X-ZCSRF-TOKEN"}
+                    {
+                        "$ref": "#/components/parameters/ids"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse200"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse400"},
-                    "207": {"$ref": "#/components/responses/SuccessResponse207"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse200"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse400"
+                    },
+                    "207": {
+                        "$ref": "#/components/responses/SuccessResponse207"
+                    }
                 }
             }
         },
@@ -66,14 +120,26 @@
             "get": {
                 "operationId": "Get Email Signature",
                 "parameters": [
-                    {"$ref": "#/components/parameters/id"},
-                    {"$ref": "#/components/parameters/X-ZCSRF-TOKEN"}
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponseGet200"},
-                    "204": {"$ref": "#/components/responses/success204"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse400"},
-                    "404": {"$ref": "#/components/responses/RErrorResponse404"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponseGet200"
+                    },
+                    "204": {
+                        "$ref": "#/components/responses/success204"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse400"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/RErrorResponse404"
+                    }
                 }
             },
             "put": {
@@ -83,15 +149,27 @@
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": {"type": "string"}
+                        "schema": {
+                            "type": "string"
+                        }
                     },
-                    {"$ref": "#/components/parameters/X-ZCSRF-TOKEN"}
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse200"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse400"},
-                    "403": {"$ref": "#/components/responses/ErrorResponse403"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse200"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse400"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/ErrorResponse403"
+                    }
                 }
             },
             "delete": {
@@ -101,19 +179,35 @@
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": {"type": "string"}
+                        "schema": {
+                            "type": "string"
+                        }
                     },
-                    {"$ref": "#/components/parameters/X-ZCSRF-TOKEN"}
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse200"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse400"},
-                    "404": {"$ref": "#/components/responses/ErrorResponse404"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse200"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse400"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ErrorResponse404"
+                    }
                 }
             }
         }
     },
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.emails.compose.ALL"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.emails.compose.ALL"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "EmailSignatures": {
@@ -128,7 +222,9 @@
                         "items": {
                             "type": "object",
                             "properties": {
-                                "email": {"type": "string"},
+                                "email": {
+                                    "type": "string"
+                                },
                                 "user_name": {
                                     "type": "string",
                                     "readOnly": true
@@ -147,8 +243,12 @@
                             "rich_text"
                         ]
                     },
-                    "id": {"type": "string"},
-                    "content": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "name",
@@ -163,7 +263,9 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"],
+                        "enum": [
+                            "SUCCESS"
+                        ],
                         "nullable": true
                     },
                     "message": {
@@ -172,13 +274,21 @@
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["success"],
+                        "enum": [
+                            "success"
+                        ],
                         "nullable": true
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"id": {"type": "string"}},
-                        "required": ["id"]
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ]
                     }
                 },
                 "required": [
@@ -191,23 +301,39 @@
             "ErrorDetails1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "supported_values": {"type": "object"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "supported_values": {
+                        "type": "object"
+                    },
                     "range": {
                         "type": "object",
                         "properties": {
-                            "from": {"type": "string"},
-                            "to": {"type": "string"}
+                            "from": {
+                                "type": "string"
+                            },
+                            "to": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "from",
                             "to"
                         ]
                     },
-                    "param_name": {"type": "string"},
-                    "regex": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "param_name": {
+                        "type": "string"
+                    },
+                    "regex": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -229,12 +355,18 @@
                             "INVALID_DATA"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/ErrorDetails1"}
+                    "details": {
+                        "$ref": "#/components/schemas/ErrorDetails1"
+                    }
                 },
                 "required": [
                     "code",
@@ -248,14 +380,22 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NO_PERMISSION"]
+                        "enum": [
+                            "NO_PERMISSION"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "code",
@@ -267,23 +407,39 @@
             "ErrorDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "supported_values": {"type": "object"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "supported_values": {
+                        "type": "object"
+                    },
                     "range": {
                         "type": "object",
                         "properties": {
-                            "from": {"type": "string"},
-                            "to": {"type": "string"}
+                            "from": {
+                                "type": "string"
+                            },
+                            "to": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "from",
                             "to"
                         ]
                     },
-                    "param_name": {"type": "string"},
-                    "regex": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "param_name": {
+                        "type": "string"
+                    },
+                    "regex": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -300,12 +456,18 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["LIMIT_EXCEEDED"]
+                        "enum": [
+                            "LIMIT_EXCEEDED"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "details": {
                         "type": "object",
@@ -315,7 +477,9 @@
                                 "format": "int32"
                             },
                             "limit_due_to": {
-                                "items": {"$ref": "#/components/schemas/ErrorDetails"},
+                                "items": {
+                                    "$ref": "#/components/schemas/ErrorDetails"
+                                },
                                 "type": "array"
                             }
                         },
@@ -337,23 +501,39 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["DEPENDENT_MISMATCH"]
+                        "enum": [
+                            "DEPENDENT_MISMATCH"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
                             "dependee": {
                                 "type": "object",
-                                "properties": {"dependee_value": {"type": "string"}},
-                                "required": ["dependee_value"]
+                                "properties": {
+                                    "dependee_value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "dependee_value"
+                                ]
                             },
-                            "supported_values": {"type": "object"},
-                            "expected_data_type": {"type": "string"}
+                            "supported_values": {
+                                "type": "object"
+                            },
+                            "expected_data_type": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "dependee",
@@ -379,12 +559,18 @@
                             "MANDATORY_NOT_FOUND"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/ErrorDetails1"}
+                    "details": {
+                        "$ref": "#/components/schemas/ErrorDetails1"
+                    }
                 },
                 "required": [
                     "code",
@@ -396,7 +582,9 @@
             "InvalidTypeError": {
                 "type": "object",
                 "properties": {
-                    "details": {"$ref": "#/components/schemas/ErrorDetails1"},
+                    "details": {
+                        "$ref": "#/components/schemas/ErrorDetails1"
+                    },
                     "code": {
                         "type": "string",
                         "enum": [
@@ -404,10 +592,14 @@
                             "INVALID_DATA"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -420,8 +612,12 @@
             "InvalidRegexTypeError": {
                 "type": "object",
                 "properties": {
-                    "regex": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/ErrorDetails1"},
+                    "regex": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/ErrorDetails1"
+                    },
                     "code": {
                         "type": "string",
                         "enum": [
@@ -429,10 +625,14 @@
                             "INVALID_DATA"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -448,13 +648,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_URL_PATTERN"]
+                        "enum": [
+                            "INVALID_URL_PATTERN"
+                        ]
                     },
-                    "details": {"type": "object"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             }
@@ -462,386 +670,646 @@
         "responses": {
             "SuccessResponse200": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{
-                    "type": "object",
-                    "properties": {"email_signatures": {
-                        "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                        "type": "array"
-                    }},
-                    "required": ["email_signatures"]
-                }]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "email_signatures": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Success_Response"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "email_signatures"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse404": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/INVALID_URL_PATTERN"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/INVALID_URL_PATTERN"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse404": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/INVALID_URL_PATTERN"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/INVALID_URL_PATTERN"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse201": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{
-                    "type": "object",
-                    "properties": {"email_signatures": {
-                        "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                        "type": "array"
-                    }},
-                    "required": ["email_signatures"]
-                }]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "email_signatures": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Success_Response"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "email_signatures"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponseGet200": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{
-                    "type": "object",
-                    "properties": {"email_signatures": {
-                        "items": {"$ref": "#/components/schemas/EmailSignatures"},
-                        "type": "array"
-                    }},
-                    "required": ["email_signatures"]
-                }]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "email_signatures": {
+                                            "items": {
+                                                "$ref": "#/components/schemas/EmailSignatures"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "email_signatures"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse400": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/InvalidError"},
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"},
-                    {"$ref": "#/components/schemas/DependentMismatchError"},
-                    {"$ref": "#/components/schemas/LimitExceedError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/DependentMismatchError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/LimitExceedError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse403": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/NoPermissionError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/NoPermissionError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse400": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {"email_signatures": {
-                            "items": {"oneOf": [
-                                {"$ref": "#/components/schemas/InvalidError"},
-                                {"$ref": "#/components/schemas/MandatoryError"},
-                                {"$ref": "#/components/schemas/InvalidTypeError"},
-                                {"$ref": "#/components/schemas/InvalidRegexTypeError"},
-                                {"$ref": "#/components/schemas/LimitExceedError"},
-                                {"$ref": "#/components/schemas/DependentMismatchError"},
-                                {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}
-                            ]},
-                            "type": "array"
-                        }},
-                        "required": ["email_signatures"]
-                    },
-                    {"$ref": "#/components/schemas/InvalidError"},
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"},
-                    {"$ref": "#/components/schemas/DependentMismatchError"},
-                    {"$ref": "#/components/schemas/LimitExceedError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "email_signatures": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/InvalidError"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/MandatoryError"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/InvalidTypeError"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/InvalidRegexTypeError"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/LimitExceedError"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/DependentMismatchError"
+                                                    },
+                                                    {
+                                                        "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "email_signatures"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/DependentMismatchError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/LimitExceedError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse207": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{
-                    "type": "object",
-                    "properties": {"email_signatures": {
-                        "items": {"oneOf": [
-                            {
-                                "type": "array",
-                                "items": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
                                     "type": "object",
                                     "properties": {
-                                        "code": {
-                                            "type": "string",
-                                            "enum": ["SUCCESS"],
-                                            "nullable": true
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "nullable": true
-                                        },
-                                        "status": {
-                                            "type": "string",
-                                            "enum": ["success"],
-                                            "nullable": true
-                                        },
-                                        "details": {
-                                            "type": "object",
-                                            "properties": {"id": {"type": "string"}},
-                                            "required": ["id"]
-                                        }
-                                    }
-                                },
-                                "required": [
-                                    "code",
-                                    "message",
-                                    "status",
-                                    "details"
-                                ]
-                            },
-                            {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "code": {
-                                            "type": "string",
-                                            "enum": [
-                                                "DUPLICATE_DATA",
-                                                "INVALID_DATA"
-                                            ]
-                                        },
-                                        "message": {"type": "string"},
-                                        "status": {
-                                            "type": "string",
-                                            "enum": ["error"]
-                                        },
-                                        "details": {"$ref": "#/components/schemas/ErrorDetails1"}
-                                    }
-                                },
-                                "required": [
-                                    "code",
-                                    "message",
-                                    "status",
-                                    "details"
-                                ]
-                            },
-                            {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "code": {
-                                            "type": "string",
-                                            "enum": [
-                                                "NOT_ALLOWED",
-                                                "MANDATORY_NOT_FOUND"
-                                            ]
-                                        },
-                                        "message": {"type": "string"},
-                                        "status": {
-                                            "type": "string",
-                                            "enum": ["error"]
-                                        },
-                                        "details": {"$ref": "#/components/schemas/ErrorDetails1"}
-                                    }
-                                },
-                                "required": [
-                                    "code",
-                                    "message",
-                                    "status",
-                                    "details"
-                                ]
-                            },
-                            {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "details": {"$ref": "#/components/schemas/ErrorDetails1"},
-                                        "code": {
-                                            "type": "string",
-                                            "enum": [
-                                                "DUPLICATE_DATA",
-                                                "INVALID_DATA"
-                                            ]
-                                        },
-                                        "message": {"type": "string"},
-                                        "status": {
-                                            "type": "string",
-                                            "enum": ["error"]
-                                        }
-                                    }
-                                },
-                                "required": [
-                                    "details",
-                                    "code",
-                                    "message",
-                                    "status"
-                                ]
-                            },
-                            {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "code": {
-                                            "type": "string",
-                                            "enum": ["DEPENDENT_MISMATCH"]
-                                        },
-                                        "message": {"type": "string"},
-                                        "status": {
-                                            "type": "string",
-                                            "enum": ["error"]
-                                        },
-                                        "details": {
-                                            "type": "object",
-                                            "properties": {
-                                                "dependee": {
-                                                    "type": "object",
-                                                    "properties": {"dependee_value": {"type": "string"}},
-                                                    "required": ["dependee_value"]
-                                                },
-                                                "supported_values": {"type": "object"},
-                                                "expected_data_type": {"type": "string"}
-                                            },
-                                            "required": [
-                                                "dependee",
-                                                "supported_values",
-                                                "expected_data_type"
-                                            ]
-                                        }
-                                    }
-                                },
-                                "required": [
-                                    "code",
-                                    "message",
-                                    "status",
-                                    "details"
-                                ]
-                            },
-                            {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "code": {
-                                            "type": "string",
-                                            "enum": ["API_NOT_SUPPORTED"],
-                                            "nullable": true
-                                        },
-                                        "details": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionDetails"},
-                                        "message": {
-                                            "type": "string",
-                                            "nullable": true
-                                        },
-                                        "status": {
-                                            "type": "string",
-                                            "enum": ["error"],
-                                            "nullable": true
-                                        }
-                                    }
-                                },
-                                "required": [
-                                    "code",
-                                    "details",
-                                    "message",
-                                    "status"
-                                ]
-                            },
-                            {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "code": {
-                                            "type": "string",
-                                            "enum": [
-                                                "DUPLICATE_DATA",
-                                                "INVALID_DATA"
-                                            ]
-                                        },
-                                        "message": {"type": "string"},
-                                        "status": {
-                                            "type": "string",
-                                            "enum": ["error"]
-                                        },
-                                        "details": {"oneOf": [{
-                                            "type": "object",
-                                            "properties": {
-                                                "api_name": {"type": "string"},
-                                                "json_path": {"type": "string"},
-                                                "supported_values": {"type": "object"},
-                                                "range": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "from": {"type": "string"},
-                                                        "to": {"type": "string"}
+                                        "email_signatures": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "SUCCESS"
+                                                                    ],
+                                                                    "nullable": true
+                                                                },
+                                                                "message": {
+                                                                    "type": "string",
+                                                                    "nullable": true
+                                                                },
+                                                                "status": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "success"
+                                                                    ],
+                                                                    "nullable": true
+                                                                },
+                                                                "details": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "id"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "code",
+                                                            "message",
+                                                            "status",
+                                                            "details"
+                                                        ]
                                                     },
-                                                    "required": [
-                                                        "from",
-                                                        "to"
-                                                    ]
-                                                },
-                                                "param_name": {"type": "string"},
-                                                "regex": {"type": "string"},
-                                                "expected_data_type": {"type": "string"}
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "DUPLICATE_DATA",
+                                                                        "INVALID_DATA"
+                                                                    ]
+                                                                },
+                                                                "message": {
+                                                                    "type": "string"
+                                                                },
+                                                                "status": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "error"
+                                                                    ]
+                                                                },
+                                                                "details": {
+                                                                    "$ref": "#/components/schemas/ErrorDetails1"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "code",
+                                                            "message",
+                                                            "status",
+                                                            "details"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "NOT_ALLOWED",
+                                                                        "MANDATORY_NOT_FOUND"
+                                                                    ]
+                                                                },
+                                                                "message": {
+                                                                    "type": "string"
+                                                                },
+                                                                "status": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "error"
+                                                                    ]
+                                                                },
+                                                                "details": {
+                                                                    "$ref": "#/components/schemas/ErrorDetails1"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "code",
+                                                            "message",
+                                                            "status",
+                                                            "details"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "details": {
+                                                                    "$ref": "#/components/schemas/ErrorDetails1"
+                                                                },
+                                                                "code": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "DUPLICATE_DATA",
+                                                                        "INVALID_DATA"
+                                                                    ]
+                                                                },
+                                                                "message": {
+                                                                    "type": "string"
+                                                                },
+                                                                "status": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "error"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "details",
+                                                            "code",
+                                                            "message",
+                                                            "status"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "DEPENDENT_MISMATCH"
+                                                                    ]
+                                                                },
+                                                                "message": {
+                                                                    "type": "string"
+                                                                },
+                                                                "status": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "error"
+                                                                    ]
+                                                                },
+                                                                "details": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "dependee": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "dependee_value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "dependee_value"
+                                                                            ]
+                                                                        },
+                                                                        "supported_values": {
+                                                                            "type": "object"
+                                                                        },
+                                                                        "expected_data_type": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "dependee",
+                                                                        "supported_values",
+                                                                        "expected_data_type"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "code",
+                                                            "message",
+                                                            "status",
+                                                            "details"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "API_NOT_SUPPORTED"
+                                                                    ],
+                                                                    "nullable": true
+                                                                },
+                                                                "details": {
+                                                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionDetails"
+                                                                },
+                                                                "message": {
+                                                                    "type": "string",
+                                                                    "nullable": true
+                                                                },
+                                                                "status": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "error"
+                                                                    ],
+                                                                    "nullable": true
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "code",
+                                                            "details",
+                                                            "message",
+                                                            "status"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "DUPLICATE_DATA",
+                                                                        "INVALID_DATA"
+                                                                    ]
+                                                                },
+                                                                "message": {
+                                                                    "type": "string"
+                                                                },
+                                                                "status": {
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "error"
+                                                                    ]
+                                                                },
+                                                                "details": {
+                                                                    "oneOf": [
+                                                                        {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "api_name": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "json_path": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "supported_values": {
+                                                                                    "type": "object"
+                                                                                },
+                                                                                "range": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "from": {
+                                                                                            "type": "string"
+                                                                                        },
+                                                                                        "to": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "from",
+                                                                                        "to"
+                                                                                    ]
+                                                                                },
+                                                                                "param_name": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "regex": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "expected_data_type": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "api_name",
+                                                                                "json_path",
+                                                                                "supported_values",
+                                                                                "range",
+                                                                                "param_name",
+                                                                                "regex",
+                                                                                "expected_data_type"
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "code",
+                                                            "message",
+                                                            "status",
+                                                            "details"
+                                                        ]
+                                                    }
+                                                ]
                                             },
-                                            "required": [
-                                                "api_name",
-                                                "json_path",
-                                                "supported_values",
-                                                "range",
-                                                "param_name",
-                                                "regex",
-                                                "expected_data_type"
-                                            ]
-                                        }]}
-                                    }
-                                },
-                                "required": [
-                                    "code",
-                                    "message",
-                                    "status",
-                                    "details"
-                                ]
-                            }
-                        ]},
-                        "type": "array"
-                    }},
-                    "required": ["email_signatures"]
-                }]}}}
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "email_signatures"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse403": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {"email_signatures": {
-                            "items": {"oneOf": [{"$ref": "#/components/schemas/NoPermissionError"}]},
-                            "type": "array"
-                        }},
-                        "required": ["email_signatures"]
-                    },
-                    {"$ref": "#/components/schemas/NoPermissionError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "email_signatures": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/NoPermissionError"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "email_signatures"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/components/schemas/NoPermissionError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
-            "success204": {"description": ""}
+            "success204": {
+                "description": ""
+            }
         },
         "parameters": {
             "X-ZCSRF-TOKEN": {
                 "name": "X-ZCSRF-TOKEN",
                 "in": "header",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "id": {
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "user_id": {
                 "name": "user_id",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "ids": {
                 "name": "ids",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "requestBodies": {"body": {
-            "content": {"application/json": {}},
-            "required": true
-        }},
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {}
+                },
+                "required": true
+            }
+        },
         "headers": {},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

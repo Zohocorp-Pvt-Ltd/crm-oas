@@ -244,7 +244,7 @@
                     "file_upolad_optionlist": {
                         "type": "array",
                         "items": {
-                            "$ref": "./fields.json#/components/schemas/file_upolad_option"
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/file_upolad_option"
                         }
                     },
                     "lookup": {
@@ -264,12 +264,12 @@
                         "nullable": true
                     },
                     "multiuserlookup": {
-                        "$ref": "./fields.json#/components/schemas/multiselectlookup"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/multiselectlookup"
                     },
                     "pick_list_values": {
                         "type": "array",
                         "items": {
-                            "$ref": "./fields.json#/components/schemas/pick_list_values"
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/pick_list_values"
                         }
                     },
                     "allowed_modules": {
@@ -283,7 +283,7 @@
                         "nullable": true
                     },
                     "hipaa_compliance": {
-                        "$ref": "./fields.json#/components/schemas/hipaa_compliance"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/hipaa_compliance"
                     },
                     "associated_module": {
                         "$ref": "#/components/schemas/Minified_Module"
@@ -292,7 +292,7 @@
                         "type": "string"
                     },
                     "operation_type": {
-                        "$ref": "./fields.json#/components/schemas/operation_type"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/operation_type"
                     },
                     "system_mandatory": {
                         "type": "boolean"
@@ -348,7 +348,7 @@
                     },
                     "layout_associations": {
                         "items": {
-                            "$ref": "./fields.json#/components/schemas/layout_association"
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/layout_association"
                         },
                         "type": "array"
                     },
@@ -396,14 +396,14 @@
                         "type": "string"
                     },
                     "email_parser": {
-                        "$ref": "./fields.json#/components/schemas/email_parser"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/email_parser"
                     },
                     "rollup_summary": {
                         "type": "object",
                         "nullable": true
                     },
                     "refer_from_field": {
-                        "$ref": "./fields.json#/components/schemas/refer_from_field"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/refer_from_field"
                     },
                     "created_time": {
                         "type": "string",
@@ -429,11 +429,11 @@
                     "profiles": {
                         "type": "array",
                         "items": {
-                            "$ref": "./fields.json#/components/schemas/profile"
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/profile"
                         }
                     },
                     "view_type": {
-                        "$ref": "./fields.json#/components/schemas/view_type"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/view_type"
                     },
                     "unique": {
                         "type": "object",
@@ -443,32 +443,32 @@
                         "$ref": "#/components/schemas/Minified_Module"
                     },
                     "external": {
-                        "$ref": "./fields.json#/components/schemas/external"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/external"
                     },
                     "private": {
-                        "$ref": "./fields.json#/components/schemas/private"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/private"
                     },
                     "convert_mapping": {
-                        "$ref": "./fields.json#/components/schemas/Convert_Mapping"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/Convert_Mapping"
                     },
                     "autonumber": {
-                        "$ref": "./fields.json#/components/schemas/auto_number"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/auto_number"
                     },
                     "auto_number": {
                         "type": "object",
                         "nullable": true
                     },
                     "crypt": {
-                        "$ref": "./fields.json#/components/schemas/crypt"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/crypt"
                     },
                     "tooltip": {
-                        "$ref": "./fields.json#/components/schemas/tooltip"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/tooltip"
                     },
                     "history_tracking": {
-                        "$ref": "./fields.json#/components/schemas/history_tracking"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/history_tracking"
                     },
                     "association_details": {
-                        "$ref": "./fields.json#/components/schemas/association_details"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/association_details"
                     },
                     "additional_column": {
                         "type": "string",
@@ -488,7 +488,7 @@
                         "type": "boolean"
                     },
                     "textarea": {
-                        "$ref": "./fields.json#/components/schemas/textarea"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/textarea"
                     },
                     "static_field": {
                         "type": "boolean"
@@ -576,7 +576,7 @@
                 "type": "object",
                 "properties": {
                     "query_details": {
-                        "$ref": "./fields.json#/components/schemas/query_details"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/query_details"
                     },
                     "module": {
                         "type": "object",
@@ -610,7 +610,7 @@
                     "show_fields": {
                         "type": "array",
                         "items": {
-                            "$ref": "./fields.json#/components/schemas/show_fields"
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/show_fields"
                         }
                     }
                 },
@@ -777,12 +777,12 @@
                         "type": "boolean"
                     },
                     "modified_by": {
-                        "$ref": "./users.json#/components/schemas/Minified_User"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
                     },
                     "profiles": {
                         "type": "array",
                         "items": {
-                            "$ref": "./profiles.json#/components/schemas/Minified_Profile"
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/profiles.json#/components/schemas/Minified_Profile"
                         }
                     },
                     "parent_module": {
@@ -877,7 +877,7 @@
                     "related_lists": {
                         "type": "array",
                         "items": {
-                            "$ref": "./related_lists.json#/components/schemas/related_list"
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/related_lists.json#/components/schemas/related_list"
                         }
                     },
                     "filter_status": {
@@ -888,7 +888,7 @@
                         "type": "object",
                         "properties": {
                             "sort_by": {
-                                "$ref": "./fields.json#/components/schemas/Minified_Field"
+                                "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/Minified_Field"
                             },
                             "fields": {
                                 "type": "array",
@@ -924,7 +924,7 @@
                         }
                     },
                     "custom_view": {
-                        "$ref": "./custom_views.json#/components/schemas/custom_views"
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/custom_views.json#/components/schemas/custom_views"
                     },
                     "zia_view": {
                         "type": "boolean",
@@ -933,7 +933,7 @@
                     "default_mapping_fields": {
                         "type": "array",
                         "items": {
-                            "$ref": "./fields.json#/components/schemas/Minified_Field"
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/Minified_Field"
                         }
                     },
                     "status": {
@@ -969,7 +969,7 @@
                     },
                     "layout_associations": {
                         "items": {
-                            "$ref": "./fields.json#/components/schemas/layout_association"
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/layout_association"
                         },
                         "type": "array"
                     }

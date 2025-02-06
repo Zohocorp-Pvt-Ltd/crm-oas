@@ -5,44 +5,104 @@
         "description": "org",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
-        "/crm/v8/org": {"get": {
-            "operationId": "Get Organization",
-            "parameters": [
-                {"$ref": "#/components/parameters/X-ZOHO-SERVICE"},
-                {"$ref": "#/components/parameters/X-ZCSRF-TOKEN"}
-            ],
-            "responses": {"200": {
-                "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/Response_Wrapper"},
-                    {"$ref": "#/components/schemas/Invalid_Data_Exception"}
-                ]}}}
-            }}
-        }},
+        "/crm/v8/org": {
+            "get": {
+                "operationId": "Get Organization",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/X-ZOHO-SERVICE"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Data_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/crm/v8/org/photo": {
             "get": {
                 "operationId": "Get Org Photo",
-                "responses": {"200": {
-                    "description": "",
-                    "content": {"image/png": {"schema": {"oneOf": [{"$ref": "#/components/schemas/File_Body_Wrapper"}]}}}
-                }}
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "image/png": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/File_Body_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "post": {
                 "operationId": "Upload Organization Photo",
                 "requestBody": {
-                    "content": {"multipart/form-data": {"schema": {"$ref": "#/components/schemas/File_Body_Wrapper"}}},
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/File_Body_Wrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Response"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Invalid_Data_Exception"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Data_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -51,17 +111,43 @@
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Response"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Invalid_Data_Exception"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Data_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     },
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.org.all"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.org.all"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "License_Details": {
@@ -83,9 +169,15 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "paid": {"type": "boolean"},
-                    "paid_type": {"type": "string"},
-                    "trial_action": {"type": "string"}
+                    "paid": {
+                        "type": "boolean"
+                    },
+                    "paid_type": {
+                        "type": "string"
+                    },
+                    "trial_action": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "paid_expiry",
@@ -107,7 +199,9 @@
                             "Reporting_To_Hierarchy"
                         ]
                     },
-                    "strictly_reporting": {"type": "boolean"}
+                    "strictly_reporting": {
+                        "type": "boolean"
+                    }
                 },
                 "required": [
                     "type",
@@ -116,16 +210,22 @@
             },
             "checkin_preferences": {
                 "type": "object",
-                "properties": {"restricted_event_types": {
-                    "type": "string",
-                    "nullable": true
-                }},
-                "required": ["restricted_event_types"]
+                "properties": {
+                    "restricted_event_types": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "restricted_event_types"
+                ]
             },
             "Org": {
                 "type": "object",
                 "properties": {
-                    "country": {"type": "string"},
+                    "country": {
+                        "type": "string"
+                    },
                     "photo_id": {
                         "type": "string",
                         "nullable": true
@@ -138,20 +238,32 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "mc_status": {"type": "boolean"},
-                    "gapps_enabled": {"type": "boolean"},
-                    "translation_enabled": {"type": "boolean"},
+                    "mc_status": {
+                        "type": "boolean"
+                    },
+                    "gapps_enabled": {
+                        "type": "boolean"
+                    },
+                    "translation_enabled": {
+                        "type": "boolean"
+                    },
                     "street": {
                         "type": "string",
                         "nullable": true
                     },
-                    "domain_name": {"type": "string"},
+                    "domain_name": {
+                        "type": "string"
+                    },
                     "alias": {
                         "type": "string",
                         "nullable": true
                     },
-                    "currency": {"type": "string"},
-                    "id": {"type": "string"},
+                    "currency": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
                     "state": {
                         "type": "string",
                         "nullable": true
@@ -164,44 +276,88 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "employee_count": {"type": "string"},
-                    "website": {"type": "string"},
-                    "currency_symbol": {"type": "string"},
+                    "employee_count": {
+                        "type": "string"
+                    },
+                    "website": {
+                        "type": "string"
+                    },
+                    "currency_symbol": {
+                        "type": "string"
+                    },
                     "mobile": {
                         "type": "string",
                         "nullable": true
                     },
-                    "currency_locale": {"type": "string"},
-                    "primary_zuid": {"type": "string"},
+                    "currency_locale": {
+                        "type": "string"
+                    },
+                    "primary_zuid": {
+                        "type": "string"
+                    },
                     "zia_portal_id": {
                         "type": "string",
                         "nullable": true
                     },
-                    "time_zone": {"type": "string"},
-                    "zgid": {"type": "string"},
-                    "country_code": {"type": "string"},
-                    "deletable_org_account": {"type": "boolean"},
-                    "license_details": {"$ref": "#/components/schemas/License_Details"},
-                    "hierarchy_preferences": {"$ref": "#/components/schemas/hierarchy_preferences"},
-                    "phone": {"type": "string"},
-                    "company_name": {"type": "string"},
-                    "privacy_settings": {"type": "boolean"},
-                    "primary_email": {"type": "string"},
-                    "iso_code": {"type": "string"},
-                    "hipaa_compliance_enabled": {"type": "boolean"},
-                    "lite_users_enabled": {"type": "boolean"},
+                    "time_zone": {
+                        "type": "string"
+                    },
+                    "zgid": {
+                        "type": "string"
+                    },
+                    "country_code": {
+                        "type": "string"
+                    },
+                    "deletable_org_account": {
+                        "type": "boolean"
+                    },
+                    "license_details": {
+                        "$ref": "#/components/schemas/License_Details"
+                    },
+                    "hierarchy_preferences": {
+                        "$ref": "#/components/schemas/hierarchy_preferences"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "company_name": {
+                        "type": "string"
+                    },
+                    "privacy_settings": {
+                        "type": "boolean"
+                    },
+                    "primary_email": {
+                        "type": "string"
+                    },
+                    "iso_code": {
+                        "type": "string"
+                    },
+                    "hipaa_compliance_enabled": {
+                        "type": "boolean"
+                    },
+                    "lite_users_enabled": {
+                        "type": "boolean"
+                    },
                     "max_per_page": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "ezgid": {"type": "string"},
-                    "call_icon": {"type": "string"},
-                    "oauth_presence": {"type": "boolean"},
+                    "ezgid": {
+                        "type": "string"
+                    },
+                    "call_icon": {
+                        "type": "string"
+                    },
+                    "oauth_presence": {
+                        "type": "boolean"
+                    },
                     "zia_zgid": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "checkin_preferences": {"$ref": "#/components/schemas/checkin_preferences"},
+                    "checkin_preferences": {
+                        "$ref": "#/components/schemas/checkin_preferences"
+                    },
                     "type": {
                         "type": "string",
                         "enum": [
@@ -260,18 +416,30 @@
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"org": {
-                    "items": {"$ref": "#/components/schemas/Org"},
-                    "type": "array"
-                }},
-                "required": ["org"]
+                "properties": {
+                    "org": {
+                        "items": {
+                            "$ref": "#/components/schemas/Org"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "org"
+                ]
             },
             "Expected_DataType": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -282,8 +450,12 @@
             "Error_Detail": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -293,8 +465,12 @@
             "Maximum_Length": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "maximum_length": {
                         "type": "integer",
                         "format": "int32"
@@ -326,10 +502,14 @@
             "Feature": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
+                    "name": {
+                        "type": "string"
+                    },
                     "resources": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/Resource"}
+                        "items": {
+                            "$ref": "#/components/schemas/Resource"
+                        }
                     }
                 },
                 "required": [
@@ -342,13 +522,21 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "features": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/Feature"}
+                        "items": {
+                            "$ref": "#/components/schemas/Feature"
+                        }
                     }
                 },
                 "required": [
@@ -363,20 +551,32 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["CANNOT_UPDATE"]
+                        "enum": [
+                            "CANNOT_UPDATE"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Company not created"]
+                        "enum": [
+                            "Company not created"
+                        ]
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Error_Detail"},
-                        {"$ref": "#/components/schemas/ShiftHour_Error_Detail"}
-                    ]}
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Error_Detail"
+                            },
+                            {
+                                "$ref": "#/components/schemas/ShiftHour_Error_Detail"
+                            }
+                        ]
+                    }
                 },
                 "required": [
                     "status",
@@ -390,14 +590,22 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/Error_Detail"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/Error_Detail"
+                    }
                 },
                 "required": [
                     "status",
@@ -411,17 +619,29 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"id": {"type": "string"}},
-                        "required": ["id"]
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ]
                     }
                 },
                 "required": [
@@ -436,18 +656,32 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Error_Detail"},
-                        {"$ref": "#/components/schemas/Expected_DataType"},
-                        {"$ref": "#/components/schemas/Maximum_Length"}
-                    ]}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Error_Detail"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Expected_DataType"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Maximum_Length"
+                            }
+                        ]
+                    }
                 },
                 "required": [
                     "status",
@@ -458,41 +692,75 @@
             },
             "Success_Response_Wrapper": {
                 "type": "object",
-                "properties": {"org": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                    "type": "array"
-                }},
-                "required": ["org"]
+                "properties": {
+                    "org": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Success_Response"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "org"
+                ]
             },
             "Action_Wrapper": {
                 "type": "object",
-                "properties": {"org": {
-                    "items": {"oneOf": [
-                        {"$ref": "#/components/schemas/Cannot_Update"},
-                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
-                        {"$ref": "#/components/schemas/Invalid_Data"}
-                    ]},
-                    "type": "array"
-                }},
-                "required": ["org"]
+                "properties": {
+                    "org": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Cannot_Update"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Mandatory_Not_Found"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Data"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "org"
+                ]
             },
             "File_Body_Wrapper": {
                 "type": "object",
-                "properties": {"file": {"type": "object"}}
+                "properties": {
+                    "file": {
+                        "type": "object"
+                    }
+                }
             },
             "Invalid_Data_Exception": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"type": "object"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object"
+                    }
                 }
             }
         },
@@ -503,17 +771,25 @@
                 "required": false,
                 "schema": {
                     "type": "string",
-                    "enum": ["crmmobile"]
+                    "enum": [
+                        "crmmobile"
+                    ]
                 }
             },
             "X-ZCSRF-TOKEN": {
                 "name": "X-ZCSRF-TOKEN",
                 "in": "header",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
         "headers": {},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

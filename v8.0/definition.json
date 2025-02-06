@@ -5,122 +5,214 @@
         "description": "Definition",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/definition": {"get": {
-        "operationId": "Get Definition",
-        "parameters": [{"$ref": "#/components/parameters/resource"}],
-        "responses": {
-            "200": {
-                "description": "",
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Response_Wrapper"}}}
-            },
-            "400": {
-                "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
-                    {"$ref": "#/components/schemas/Required_Param_API_Exception"}
-                ]}}}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/definition": {
+            "get": {
+                "operationId": "Get Definition",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/resource"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Required_Param_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
-    }}},
-    "security": [{"iam-oauth2-schema": [""]}],
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Minified_Property_1": {
                 "type": "object",
                 "properties": {
-                    "read_only": {"type": "boolean"},
-                    "api_name": {"type": "string"},
-                    "data_type": {"type": "string"},
+                    "read_only": {
+                        "type": "boolean"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "data_type": {
+                        "type": "string"
+                    },
                     "length": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "required": {"type": "boolean"}
+                    "required": {
+                        "type": "boolean"
+                    }
                 }
             },
             "Minified_Property": {
                 "type": "object",
                 "properties": {
-                    "read_only": {"type": "boolean"},
-                    "api_name": {"type": "string"},
-                    "data_type": {"type": "string"},
+                    "read_only": {
+                        "type": "boolean"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "data_type": {
+                        "type": "string"
+                    },
                     "length": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "required": {"type": "boolean"},
+                    "required": {
+                        "type": "boolean"
+                    },
                     "properties": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/Minified_Property"}
+                        "items": {
+                            "$ref": "#/components/schemas/Minified_Property"
+                        }
                     }
                 }
             },
             "Property": {
                 "type": "object",
                 "properties": {
-                    "display_label": {"type": "string"},
+                    "display_label": {
+                        "type": "string"
+                    },
                     "allowed_values": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "ui_type": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "regex": {"type": "string"},
-                    "read_only": {"type": "boolean"},
-                    "api_name": {"type": "string"},
-                    "field_label": {"type": "string"},
-                    "data_type": {"type": "string"},
+                    "regex": {
+                        "type": "string"
+                    },
+                    "read_only": {
+                        "type": "boolean"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "field_label": {
+                        "type": "string"
+                    },
+                    "data_type": {
+                        "type": "string"
+                    },
                     "length": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "available_in_user_layout": {"type": "boolean"},
-                    "required": {"type": "boolean"},
+                    "available_in_user_layout": {
+                        "type": "boolean"
+                    },
+                    "required": {
+                        "type": "boolean"
+                    },
                     "properties": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/Minified_Property"}
+                        "items": {
+                            "$ref": "#/components/schemas/Minified_Property"
+                        }
                     }
                 }
             },
             "Definition": {
                 "type": "object",
                 "properties": {
-                    "root_element_name": {"type": "string"},
-                    "extraDetails": {"type": "object"},
+                    "root_element_name": {
+                        "type": "string"
+                    },
+                    "extraDetails": {
+                        "type": "object"
+                    },
                     "properties": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/Property"}
+                        "items": {
+                            "$ref": "#/components/schemas/Property"
+                        }
                     }
                 }
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"definition": {"$ref": "#/components/schemas/Definition"}}
+                "properties": {
+                    "definition": {
+                        "$ref": "#/components/schemas/Definition"
+                    }
+                }
             },
             "Invalid_Data_API_Exception": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid param"]
+                        "enum": [
+                            "invalid param"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"param_name": {
-                            "type": "string",
-                            "enum": ["resource"]
-                        }}
+                        "properties": {
+                            "param_name": {
+                                "type": "string",
+                                "enum": [
+                                    "resource"
+                                ]
+                            }
+                        }
                     }
                 }
             },
@@ -129,38 +221,54 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["REQUIRED_PARAM_MISSING"]
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["One of the expected parameter is missing"]
+                        "enum": [
+                            "One of the expected parameter is missing"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"param": {
-                            "type": "string",
-                            "enum": ["resource"]
-                        }}
+                        "properties": {
+                            "param": {
+                                "type": "string",
+                                "enum": [
+                                    "resource"
+                                ]
+                            }
+                        }
                     }
                 }
             }
         },
-        "parameters": {"resource": {
-            "name": "resource",
-            "in": "query",
-            "required": false,
-            "schema": {
-                "type": "string",
-                "enum": [
-                    "org",
-                    "failed_executions"
-                ]
+        "parameters": {
+            "resource": {
+                "name": "resource",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "org",
+                        "failed_executions"
+                    ]
+                }
             }
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

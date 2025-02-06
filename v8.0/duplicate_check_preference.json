@@ -5,52 +5,106 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/settings/duplicate_check_preference": {
-        "get": {
-            "operationId": "Get Duplicate Check Preference",
-            "parameters": [{"$ref": "#/components/parameters/module"}],
-            "responses": {
-                "200": {"$ref": "#/components/responses/DuplicateCheckPreference"},
-                "400": {"$ref": "#/components/responses/RErrorResponse"}
-            }
-        },
-        "post": {
-            "operationId": "Create Duplicate Check Preference",
-            "parameters": [{"$ref": "#/components/parameters/module"}],
-            "requestBody": {"$ref": "#/components/requestBodies/body"},
-            "responses": {
-                "200": {"$ref": "#/components/responses/SuccessResponse"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
-            }
-        },
-        "put": {
-            "operationId": "Update Duplicate Check Preference",
-            "parameters": [{"$ref": "#/components/parameters/module"}],
-            "requestBody": {"$ref": "#/components/requestBodies/body"},
-            "responses": {
-                "200": {"$ref": "#/components/responses/SuccessResponse"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
-            }
-        },
-        "delete": {
-            "operationId": "Delete Duplicate Check Preference",
-            "parameters": [{"$ref": "#/components/parameters/module"}],
-            "responses": {
-                "200": {"$ref": "#/components/responses/SuccessResponse"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/settings/duplicate_check_preference": {
+            "get": {
+                "operationId": "Get Duplicate Check Preference",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/DuplicateCheckPreference"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "Create Duplicate Check Preference",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Update Duplicate Check Preference",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "Delete Duplicate Check Preference",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
             }
         }
-    }},
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.ALL"]}],
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.ALL"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "mapped_module": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "id",
@@ -61,9 +115,15 @@
             "current_field": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "id",
@@ -74,9 +134,15 @@
             "mapped_field": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "id",
@@ -92,8 +158,12 @@
                         "items": {
                             "type": "object",
                             "properties": {
-                                "current_field": {"$ref": "#/components/schemas/current_field"},
-                                "mapped_field": {"$ref": "#/components/schemas/mapped_field"}
+                                "current_field": {
+                                    "$ref": "#/components/schemas/current_field"
+                                },
+                                "mapped_field": {
+                                    "$ref": "#/components/schemas/mapped_field"
+                                }
                             },
                             "required": [
                                 "current_field",
@@ -101,7 +171,9 @@
                             ]
                         }
                     },
-                    "mapped_module": {"$ref": "#/components/schemas/mapped_module"}
+                    "mapped_module": {
+                        "$ref": "#/components/schemas/mapped_module"
+                    }
                 },
                 "required": [
                     "field_mappings",
@@ -120,7 +192,9 @@
                     },
                     "type_configurations": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/type_configuration"}
+                        "items": {
+                            "$ref": "#/components/schemas/type_configuration"
+                        }
                     }
                 },
                 "required": [
@@ -130,54 +204,118 @@
             },
             "wrapper": {
                 "type": "object",
-                "properties": {"duplicate_check_preference": {"$ref": "#/components/schemas/Duplicate_Check_Preference"}},
-                "required": ["duplicate_check_preference"]
+                "properties": {
+                    "duplicate_check_preference": {
+                        "$ref": "#/components/schemas/Duplicate_Check_Preference"
+                    }
+                },
+                "required": [
+                    "duplicate_check_preference"
+                ]
             },
             "body_wrapper": {
                 "type": "object",
-                "properties": {"duplicate_check_preference": {"$ref": "#/components/schemas/Duplicate_Check_Preference"}},
-                "required": ["duplicate_check_preference"]
+                "properties": {
+                    "duplicate_check_preference": {
+                        "$ref": "#/components/schemas/Duplicate_Check_Preference"
+                    }
+                },
+                "required": [
+                    "duplicate_check_preference"
+                ]
             },
             "SuccessWrapper": {
                 "type": "object",
-                "properties": {"duplicate_check_preference": {"oneOf": [{"$ref": "#/components/schemas/success"}]}},
-                "required": ["duplicate_check_preference"]
+                "properties": {
+                    "duplicate_check_preference": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/success"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "duplicate_check_preference"
+                ]
             },
             "success": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"type": "object"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object"
+                    }
                 }
             },
             "MandatoryWrapper": {
                 "type": "object",
-                "properties": {"duplicate_check_preference": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"}]}},
-                "required": ["duplicate_check_preference"]
+                "properties": {
+                    "duplicate_check_preference": {
+                        "oneOf": [
+                            {
+                                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "duplicate_check_preference"
+                ]
             },
             "InvalidValueWrapper": {
                 "type": "object",
-                "properties": {"duplicate_check_preference": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"}]}},
-                "required": ["duplicate_check_preference"]
+                "properties": {
+                    "duplicate_check_preference": {
+                        "oneOf": [
+                            {
+                                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "duplicate_check_preference"
+                ]
             },
             "InvalidTypeWrapper": {
                 "type": "object",
-                "properties": {"duplicate_check_preference": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]}},
-                "required": ["duplicate_check_preference"]
+                "properties": {
+                    "duplicate_check_preference": {
+                        "oneOf": [
+                            {
+                                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "duplicate_check_preference"
+                ]
             },
             "expected_fields": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -187,18 +325,28 @@
             "ExpectedFieldMissing_Error": {
                 "type": "object",
                 "properties": {
-                    "code": {"type": "string"},
-                    "message": {"type": "string"},
+                    "code": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"expected_fields": {
-                            "items": {"$ref": "#/components/schemas/expected_fields"},
-                            "type": "array"
-                        }}
+                        "properties": {
+                            "expected_fields": {
+                                "items": {
+                                    "$ref": "#/components/schemas/expected_fields"
+                                },
+                                "type": "array"
+                            }
+                        }
                     }
                 },
                 "required": [
@@ -211,18 +359,30 @@
             "DependentFieldMissing_Error": {
                 "type": "object",
                 "properties": {
-                    "code": {"type": "string"},
-                    "message": {"type": "string"},
+                    "code": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "dependee": {"$ref": "#/components/schemas/expected_fields"},
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "dependee": {
+                                "$ref": "#/components/schemas/expected_fields"
+                            },
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -239,13 +399,33 @@
             },
             "ExpectedFieldMissing": {
                 "type": "object",
-                "properties": {"duplicate_check_preference": {"oneOf": [{"$ref": "#/components/schemas/ExpectedFieldMissing_Error"}]}},
-                "required": ["duplicate_check_preference"]
+                "properties": {
+                    "duplicate_check_preference": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/ExpectedFieldMissing_Error"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "duplicate_check_preference"
+                ]
             },
             "DependentFieldMissing": {
                 "type": "object",
-                "properties": {"duplicate_check_preference": {"oneOf": [{"$ref": "#/components/schemas/DependentFieldMissing_Error"}]}},
-                "required": ["duplicate_check_preference"]
+                "properties": {
+                    "duplicate_check_preference": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/DependentFieldMissing_Error"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "duplicate_check_preference"
+                ]
             },
             "InvalidParamError": {
                 "type": "object",
@@ -253,8 +433,12 @@
                     "details": {
                         "type": "object",
                         "properties": {
-                            "param_name": {"type": "string"},
-                            "param": {"type": "string"}
+                            "param_name": {
+                                "type": "string"
+                            },
+                            "param": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "param_name",
@@ -268,10 +452,14 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -286,17 +474,25 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_URL_PATTERN"]
+                        "enum": [
+                            "INVALID_URL_PATTERN"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Please check if the URL trying to access is a correct one."]
+                        "enum": [
+                            "Please check if the URL trying to access is a correct one."
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "code",
@@ -324,12 +520,20 @@
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"param_name": {"type": "string"}},
-                        "required": ["param_name"]
+                        "properties": {
+                            "param_name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "param_name"
+                        ]
                     }
                 },
                 "required": [
@@ -344,23 +548,35 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NO_PERMISSION"]
+                        "enum": [
+                            "NO_PERMISSION"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["the user doesn't have permission for that module."]
+                        "enum": [
+                            "the user doesn't have permission for that module."
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"permissions": {
-                            "type": "array",
-                            "items": {"type": "string"}
-                        }},
-                        "required": ["permissions"]
+                        "properties": {
+                            "permissions": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "permissions"
+                        ]
                     }
                 },
                 "required": [
@@ -374,47 +590,123 @@
         "responses": {
             "DuplicateCheckPreference": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidParamError"},
-                    {"$ref": "#/components/schemas/MandatoryWrapper"},
-                    {"$ref": "#/components/schemas/ExpectedFieldMissing"},
-                    {"$ref": "#/components/schemas/DependentFieldMissing"},
-                    {"$ref": "#/components/schemas/InvalidValueWrapper"},
-                    {"$ref": "#/components/schemas/InvalidTypeWrapper"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/ExpectedFieldMissing"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/DependentFieldMissing"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/INVALID_URL_PATTERN"},
-                    {"$ref": "#/components/schemas/REQUIRED_PARAM_MISSING"},
-                    {"$ref": "#/components/schemas/NO_PERMISSION"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/INVALID_URL_PATTERN"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/REQUIRED_PARAM_MISSING"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/NO_PERMISSION"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
-        "parameters": {"module": {
-            "name": "module",
-            "in": "query",
-            "required": true,
-            "schema": {"type": "string"}
-        }},
-        "requestBodies": {"body": {
-            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/body_wrapper"}}},
-            "required": true
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "parameters": {
+            "module": {
+                "name": "module",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/body_wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

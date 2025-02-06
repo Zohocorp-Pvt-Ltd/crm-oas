@@ -197,10 +197,10 @@
                     },
                     "locked_for": {"type": "string"},
                     "excluded_fields": {
-                        "items": {"$ref": "./fields.json#/components/schemas/Minified_Field"},
+                        "items": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/fields.json#/components/schemas/Minified_Field"},
                         "type": "array"
                     },
-                    "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "created_by": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"},
                     "feature_type": {"type": "string"},
                     "locking_rules": {
                         "items": {"$ref": "#/components/schemas/locking_rules"},
@@ -220,7 +220,7 @@
                         "items": {"type": "string"}
                     },
                     "system_defined": {"type": "boolean"},
-                    "modified_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "modified_by": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"},
                     "id": {"type": "string"},
                     "lock_type": {
                         "type": "string",

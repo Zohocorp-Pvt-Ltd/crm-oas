@@ -5,59 +5,117 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/actions/watch": {
-        "get": {
-            "operationId": "Get Notifications",
-            "parameters": [
-                {"$ref": "#/components/parameters/page"},
-                {"$ref": "#/components/parameters/per_page"},
-                {"$ref": "#/components/parameters/channel_id"},
-                {"$ref": "#/components/parameters/module"}
-            ],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/Notification_Response"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
-            }
-        },
-        "post": {
-            "operationId": "Enable Notifications",
-            "requestBody": {"$ref": "#/components/requestBodies/body"},
-            "responses": {
-                "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
-                "202": {"$ref": "#/components/responses/WrappedErrorResponse"}
-            }
-        },
-        "put": {
-            "operationId": "Update Notifications",
-            "requestBody": {"$ref": "#/components/requestBodies/body"},
-            "responses": {
-                "200": {"$ref": "#/components/responses/SuccessResponse"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"},
-                "202": {"$ref": "#/components/responses/WrappedErrorResponse"}
-            }
-        },
-        "patch": {
-            "operationId": "Disable Notification",
-            "requestBody": {"$ref": "#/components/requestBodies/body"},
-            "responses": {
-                "200": {"$ref": "#/components/responses/SuccessResponse"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"},
-                "202": {"$ref": "#/components/responses/WrappedErrorResponse"}
-            }
-        },
-        "delete": {
-            "operationId": "Delete Notification",
-            "parameters": [{"$ref": "#/components/parameters/channel_ids"}],
-            "responses": {
-                "200": {"$ref": "#/components/responses/SuccessResponse"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"},
-                "202": {"$ref": "#/components/responses/WrappedErrorResponse"}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/actions/watch": {
+            "get": {
+                "operationId": "Get Notifications",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/per_page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/channel_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Notification_Response"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "Enable Notifications",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "201": {
+                        "$ref": "#/components/responses/CreateSuccessResponse"
+                    },
+                    "202": {
+                        "$ref": "#/components/responses/WrappedErrorResponse"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Update Notifications",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "202": {
+                        "$ref": "#/components/responses/WrappedErrorResponse"
+                    }
+                }
+            },
+            "patch": {
+                "operationId": "Disable Notification",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "202": {
+                        "$ref": "#/components/responses/WrappedErrorResponse"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "Delete Notification",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/channel_ids"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "202": {
+                        "$ref": "#/components/responses/WrappedErrorResponse"
+                    }
+                }
             }
         }
-    }},
-    "security": [{"iam-oauth2-schema": [""]}],
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Criteria": {
@@ -93,7 +151,9 @@
                         "nullable": true
                     },
                     "group": {
-                        "items": {"$ref": "#/components/schemas/Criteria"},
+                        "items": {
+                            "$ref": "#/components/schemas/Criteria"
+                        },
                         "type": "array"
                     }
                 },
@@ -108,17 +168,27 @@
             "event": {
                 "type": "object",
                 "properties": {
-                    "resource_name": {"type": "string"},
+                    "resource_name": {
+                        "type": "string"
+                    },
                     "channel_expiry": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
                     },
-                    "resource_id": {"type": "string"},
-                    "resource_uri": {"type": "string"},
-                    "channel_id": {"type": "string"},
+                    "resource_id": {
+                        "type": "string"
+                    },
+                    "resource_uri": {
+                        "type": "string"
+                    },
+                    "channel_id": {
+                        "type": "string"
+                    },
                     "notification_condition": {
-                        "items": {"$ref": "#/components/schemas/notification_condition"},
+                        "items": {
+                            "$ref": "#/components/schemas/notification_condition"
+                        },
                         "type": "array"
                     }
                 },
@@ -134,9 +204,15 @@
             "notification_condition": {
                 "type": "object",
                 "properties": {
-                    "type": {"type": "string"},
-                    "module": {"$ref": "#/components/schemas/Module"},
-                    "field_selection": {"$ref": "#/components/schemas/Criteria"}
+                    "type": {
+                        "type": "string"
+                    },
+                    "module": {
+                        "$ref": "#/components/schemas/Module"
+                    },
+                    "field_selection": {
+                        "$ref": "#/components/schemas/Criteria"
+                    }
                 },
                 "required": [
                     "module",
@@ -146,21 +222,29 @@
             "Module": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "id": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 }
             },
             "Notification": {
                 "type": "object",
                 "properties": {
-                    "channel_id": {"type": "object"},
+                    "channel_id": {
+                        "type": "object"
+                    },
                     "notify_url": {
                         "type": "string",
                         "pattern": "www[.][a-z]{5}zoho[.]com"
                     },
                     "events": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "token": {
                         "type": "string",
@@ -180,18 +264,28 @@
                     },
                     "_delete_events": {
                         "type": "boolean",
-                        "enum": [true]
+                        "enum": [
+                            true
+                        ]
                     },
-                    "resource_name": {"type": "string"},
+                    "resource_name": {
+                        "type": "string"
+                    },
                     "channel_expiry": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
                     },
-                    "resource_id": {"type": "string"},
-                    "resource_uri": {"type": "string"},
+                    "resource_id": {
+                        "type": "string"
+                    },
+                    "resource_uri": {
+                        "type": "string"
+                    },
                     "notification_condition": {
-                        "items": {"$ref": "#/components/schemas/notification_condition"},
+                        "items": {
+                            "$ref": "#/components/schemas/notification_condition"
+                        },
                         "type": "array"
                     }
                 },
@@ -245,10 +339,14 @@
                 "type": "object",
                 "properties": {
                     "watch": {
-                        "items": {"$ref": "#/components/schemas/Notification"},
+                        "items": {
+                            "$ref": "#/components/schemas/Notification"
+                        },
                         "type": "array"
                     },
-                    "info": {"$ref": "#/components/schemas/info"}
+                    "info": {
+                        "$ref": "#/components/schemas/info"
+                    }
                 },
                 "required": [
                     "watch",
@@ -257,21 +355,29 @@
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"watch": {
-                    "items": {"$ref": "#/components/schemas/Notification"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "watch": {
+                        "items": {
+                            "$ref": "#/components/schemas/Notification"
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Success_Response": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "message": {
                         "type": "string",
@@ -286,63 +392,123 @@
                         "type": "object",
                         "properties": {
                             "events": {
-                                "items": {"$ref": "#/components/schemas/event"},
+                                "items": {
+                                    "$ref": "#/components/schemas/event"
+                                },
                                 "type": "array"
                             },
-                            "resource_uri": {"type": "string"},
-                            "resource_id": {"type": "string"},
-                            "channel_id": {"type": "string"},
-                            "id": {"type": "string"}
+                            "resource_uri": {
+                                "type": "string"
+                            },
+                            "resource_id": {
+                                "type": "string"
+                            },
+                            "channel_id": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
                         }
                     }
                 },
-                "required": ["details"]
+                "required": [
+                    "details"
+                ]
             },
             "SuccessWrapper": {
                 "type": "object",
-                "properties": {"watch": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                    "type": "array"
-                }},
-                "required": ["watch"]
+                "properties": {
+                    "watch": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Success_Response"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "watch"
+                ]
             },
             "InvalidTypeWrapper": {
                 "type": "object",
-                "properties": {"watch": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]},
-                    "type": "array"
-                }},
-                "required": ["watch"]
+                "properties": {
+                    "watch": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "watch"
+                ]
             },
             "MandatoryWrapper": {
                 "type": "object",
-                "properties": {"watch": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"}]},
-                    "type": "array"
-                }},
-                "required": ["watch"]
+                "properties": {
+                    "watch": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "watch"
+                ]
             },
             "InvalidValueWrapper": {
                 "type": "object",
-                "properties": {"watch": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"}]},
-                    "type": "array"
-                }},
-                "required": ["watch"]
+                "properties": {
+                    "watch": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "watch"
+                ]
             },
             "InvalidParamError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NOT_SUBSCRIBED"]
+                        "enum": [
+                            "NOT_SUBSCRIBED"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "code",
@@ -353,44 +519,114 @@
             },
             "InvalidParamWrapper": {
                 "type": "object",
-                "properties": {"watch": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidParamError"}]},
-                    "type": "array"
-                }},
-                "required": ["watch"]
+                "properties": {
+                    "watch": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "watch"
+                ]
             }
         },
         "responses": {
             "Notification_Response": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "CreateSuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "WrappedErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/MandatoryWrapper"},
-                    {"$ref": "#/components/schemas/InvalidValueWrapper"},
-                    {"$ref": "#/components/schemas/InvalidTypeWrapper"},
-                    {"$ref": "#/components/schemas/InvalidParamWrapper"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamWrapper"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -398,19 +634,25 @@
                 "name": "channel_ids",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "channel_id": {
                 "name": "channel_id",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "module": {
                 "name": "module",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "page": {
                 "name": "page",
@@ -431,10 +673,22 @@
                 }
             }
         },
-        "requestBodies": {"body": {
-            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
-            "required": true
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Body_Wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

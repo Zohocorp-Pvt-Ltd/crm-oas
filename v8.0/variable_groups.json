@@ -5,61 +5,127 @@
         "description": "Variable Groups",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
-        "/crm/v8/settings/variable_groups": {"get": {
-            "operationId": "Get Variable Groups",
-            "responses": {"200": {
-                "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/Response_Wrapper"},
-                    {"$ref": "#/components/schemas/Variable_Group_API_Exception"}
-                ]}}}
-            }},
-            "security": [{"iam-oauth2-schema": [
-                "ZohoCRM.settings.all",
-                "ZohoCRM.settings.variable_groups.all",
-                "ZohoCRM.settings.variable_groups.read"
-            ]}]
-        }},
-        "/crm/v8/settings/variable_groups/{id}": {"get": {
-            "operationId": "Get Variable Group by ID",
-            "parameters": [{"$ref": "#/components/parameters/id"}],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {"$ref": "#/components/schemas/Response_Wrapper"},
-                        {"$ref": "#/components/schemas/Variable_Group_API_Exception"}
-                    ]}}}
+        "/crm/v8/settings/variable_groups": {
+            "get": {
+                "operationId": "Get Variable Groups",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Variable_Group_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 },
-                "204": {"description": ""}
-            },
-            "security": [{"iam-oauth2-schema": [
-                "ZohoCRM.settings.all",
-                "ZohoCRM.settings.variable_groups.all",
-                "ZohoCRM.settings.variable_groups.read"
-            ]}]
-        }},
-        "/crm/v8/settings/variable_groups/{api_name}": {"get": {
-            "operationId": "Get Variable Group by API Name",
-            "parameters": [{"$ref": "#/components/parameters/api_name"}],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {"$ref": "#/components/schemas/Response_Wrapper"},
-                        {"$ref": "#/components/schemas/Variable_Group_API_Exception"}
-                    ]}}}
+                "security": [
+                    {
+                        "iam-oauth2-schema": [
+                            "ZohoCRM.settings.all",
+                            "ZohoCRM.settings.variable_groups.all",
+                            "ZohoCRM.settings.variable_groups.read"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/crm/v8/settings/variable_groups/{id}": {
+            "get": {
+                "operationId": "Get Variable Group by ID",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Variable_Group_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": ""
+                    }
                 },
-                "204": {"description": ""}
-            },
-            "security": [{"iam-oauth2-schema": [
-                "ZohoCRM.settings.all",
-                "ZohoCRM.settings.variable_groups.all",
-                "ZohoCRM.settings.variable_groups.read"
-            ]}]
-        }}
+                "security": [
+                    {
+                        "iam-oauth2-schema": [
+                            "ZohoCRM.settings.all",
+                            "ZohoCRM.settings.variable_groups.all",
+                            "ZohoCRM.settings.variable_groups.read"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/crm/v8/settings/variable_groups/{api_name}": {
+            "get": {
+                "operationId": "Get Variable Group by API Name",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/api_name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Variable_Group_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": ""
+                    }
+                },
+                "security": [
+                    {
+                        "iam-oauth2-schema": [
+                            "ZohoCRM.settings.all",
+                            "ZohoCRM.settings.variable_groups.all",
+                            "ZohoCRM.settings.variable_groups.read"
+                        ]
+                    }
+                ]
+            }
+        }
     },
     "components": {
         "schemas": {
@@ -70,7 +136,9 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "api_name": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "id",
@@ -80,15 +148,25 @@
             "Variable_Group": {
                 "type": "object",
                 "properties": {
-                    "display_label": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "name": {"type": "string"},
+                    "display_label": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
                     "description": {
                         "type": "string",
                         "nullable": true
                     },
-                    "id": {"type": "string"},
-                    "source": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "display_label",
@@ -100,11 +178,17 @@
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"variable_groups": {
-                    "items": {"$ref": "#/components/schemas/Variable_Group"},
-                    "type": "array"
-                }},
-                "required": ["variable_groups"]
+                "properties": {
+                    "variable_groups": {
+                        "items": {
+                            "$ref": "#/components/schemas/Variable_Group"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "variable_groups"
+                ]
             },
             "Variable_Group_API_Exception": {
                 "type": "object",
@@ -120,7 +204,9 @@
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "message": {
                         "type": "string",
@@ -130,7 +216,9 @@
                             "The http request method type is not a valid one"
                         ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "code",
@@ -145,15 +233,23 @@
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "api_name": {
                 "name": "api_name",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

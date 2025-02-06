@@ -5,16 +5,38 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/settings/templates": {"get": {
-        "operationId": "GetTemplates",
-        "parameters": [{"$ref": "#/components/parameters/type"}],
-        "responses": {
-            "200": {"$ref": "#/components/responses/Templates"},
-            "400": {"$ref": "#/components/responses/ErrorResponse"}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
         }
-    }}},
-    "security": [{"iam-oauth2-schema": [""]}],
+    ],
+    "paths": {
+        "/crm/v8/settings/templates": {
+            "get": {
+                "operationId": "GetTemplates",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/Templates"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "folder": {
@@ -37,8 +59,12 @@
             "templates": {
                 "type": "object",
                 "properties": {
-                    "folder": {"$ref": "#/components/schemas/folder"},
-                    "modified_by": {"$ref": "#/components/schemas/folder"},
+                    "folder": {
+                        "$ref": "#/components/schemas/folder"
+                    },
+                    "modified_by": {
+                        "$ref": "#/components/schemas/folder"
+                    },
                     "module": {
                         "type": "string",
                         "nullable": true
@@ -88,37 +114,67 @@
             },
             "wrapper": {
                 "type": "object",
-                "properties": {"templates": {
-                    "items": {"$ref": "#/components/schemas/templates"},
-                    "type": "array"
-                }},
-                "required": ["templates"]
+                "properties": {
+                    "templates": {
+                        "items": {
+                            "$ref": "#/components/schemas/templates"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "templates"
+                ]
             },
             "MandatoryParamDetails": {
                 "type": "object",
-                "properties": {"param": {"type": "string"}},
-                "required": ["param"]
+                "properties": {
+                    "param": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "param"
+                ]
             },
             "InvalidParamDetails": {
                 "type": "object",
-                "properties": {"api_name": {"type": "string"}},
-                "required": ["api_name"]
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_name"
+                ]
             },
             "error": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["REQUIRED_PARAM_MISSING"]
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/MandatoryParamDetails"},
-                        {"$ref": "#/components/schemas/InvalidParamDetails"}
-                    ]},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/MandatoryParamDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/InvalidParamDetails"
+                            }
+                        ]
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -132,22 +188,42 @@
         "responses": {
             "Templates": {
                 "description": "",
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/wrapper"}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/wrapper"
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/error"}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/error"
+                        }
+                    }
+                }
             }
         },
-        "parameters": {"type": {
-            "name": "type",
-            "in": "query",
-            "required": true,
-            "schema": {
-                "type": "string",
-                "enum": ["email"]
+        "parameters": {
+            "type": {
+                "name": "type",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "email"
+                    ]
+                }
             }
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

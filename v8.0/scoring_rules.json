@@ -5,48 +5,104 @@
         "description": "Scoring Rules",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/settings/automation/scoring_rules": {
             "post": {
                 "operationId": "Create Scoring Rules",
                 "requestBody": {
-                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "201": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{
-                            "type": "object",
-                            "properties": {"scoring_rules": {
-                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                                "type": "array"
-                            }},
-                            "required": ["scoring_rules"]
-                        }]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "scoring_rules"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {
-                                "type": "object",
-                                "properties": {"scoring_rules": {
-                                    "items": {"oneOf": [
-                                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                                        {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
-                                        {"$ref": "#/components/schemas/Expected_Data_Type_API_Exception"},
-                                        {"$ref": "#/components/schemas/Max_Length_API_Exception"},
-                                        {"$ref": "#/components/schemas/Expected_Field_API_Exception"},
-                                        {"$ref": "#/components/schemas/Limit_API_Exception"},
-                                        {"$ref": "#/components/schemas/Duplicate_Data_Type_API_Exception"}
-                                    ]},
-                                    "type": "array"
-                                }},
-                                "required": ["scoring_rules"]
-                            },
-                            {"$ref": "#/components/schemas/Mandatory_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Expected_Data_Type_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Max_Length_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Expected_Field_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Limit_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Duplicate_Data_Type_API_Exception"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "scoring_rules"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -57,92 +113,212 @@
                         "name": "module",
                         "in": "query",
                         "required": false,
-                        "schema": {"type": "string"}
+                        "schema": {
+                            "type": "string"
+                        }
                     },
-                    {"$ref": "#/components/parameters/layout_id"},
-                    {"$ref": "#/components/parameters/active"},
-                    {"$ref": "#/components/parameters/name"},
-                    {"$ref": "#/components/parameters/page"},
-                    {"$ref": "#/components/parameters/per_page"}
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/active"
+                    },
+                    {
+                        "$ref": "#/components/parameters/name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/per_page"
+                    }
                 ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "204": {"description": ""},
+                    "204": {
+                        "description": ""
+                    },
                     "404": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/Invalid_Url_API_Exception"},
-                            {"$ref": "#/components/schemas/Resource_Path_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Url_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Resource_Path_API_Exception"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "put": {
                 "operationId": "Update Scoring Rules",
                 "requestBody": {
-                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{
-                            "type": "object",
-                            "properties": {"scoring_rules": {
-                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                                "type": "array"
-                            }}
-                        }]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {
-                                "type": "object",
-                                "properties": {"scoring_rules": {
-                                    "items": {"oneOf": [
-                                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                                        {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
-                                        {"$ref": "#/components/schemas/Expected_Data_Type_API_Exception"},
-                                        {"$ref": "#/components/schemas/Max_Length_API_Exception"},
-                                        {"$ref": "#/components/schemas/Expected_Field_API_Exception"}
-                                    ]},
-                                    "type": "array"
-                                }}
-                            },
-                            {"$ref": "#/components/schemas/Mandatory_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Expected_Data_Type_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Max_Length_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Expected_Field_API_Exception"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "delete": {
                 "operationId": "Delete Scoring Rules",
-                "parameters": [{"$ref": "#/components/parameters/ids"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ids"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{
-                            "type": "object",
-                            "properties": {"scoring_rules": {
-                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                                "type": "array"
-                            }},
-                            "required": ["scoring_rules"]
-                        }]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "scoring_rules"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/Invalid_Param_API_Exception"},
-                            {"$ref": "#/components/schemas/Required_Param_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Param_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Required_Param_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -150,91 +326,217 @@
         "/crm/v8/settings/automation/scoring_rules/{id}": {
             "put": {
                 "operationId": "Update Scoring Rule",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "requestBody": {
-                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{
-                            "type": "object",
-                            "properties": {"scoring_rules": {
-                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                                "type": "array"
-                            }},
-                            "required": ["scoring_rules"]
-                        }]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "scoring_rules"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {
-                                "type": "object",
-                                "properties": {"scoring_rules": {
-                                    "items": {"oneOf": [
-                                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                                        {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
-                                        {"$ref": "#/components/schemas/Expected_Data_Type_API_Exception"},
-                                        {"$ref": "#/components/schemas/Max_Length_API_Exception"},
-                                        {"$ref": "#/components/schemas/Expected_Field_API_Exception"}
-                                    ]},
-                                    "type": "array"
-                                }},
-                                "required": ["scoring_rules"]
-                            },
-                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                            {"$ref": "#/components/schemas/Resource_Path_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Expected_Data_Type_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Max_Length_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Expected_Field_API_Exception"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "scoring_rules"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "get": {
                 "operationId": "Get Scoring Rule",
                 "parameters": [
-                    {"$ref": "#/components/parameters/id"},
-                    {"$ref": "#/components/parameters/layout_id"},
-                    {"$ref": "#/components/parameters/active"},
-                    {"$ref": "#/components/parameters/name"}
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/active"
+                    },
+                    {
+                        "$ref": "#/components/parameters/name"
+                    }
                 ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "204": {"description": ""},
+                    "204": {
+                        "description": ""
+                    },
                     "404": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/Invalid_Url_API_Exception"},
-                            {"$ref": "#/components/schemas/Resource_Path_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Url_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Resource_Path_API_Exception"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "delete": {
                 "operationId": "Delete Scoring Rule",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{
-                            "type": "object",
-                            "properties": {"scoring_rules": {
-                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                                "type": "array"
-                            }},
-                            "required": ["scoring_rules"]
-                        }]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "scoring_rules"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Resource_Path_API_Exception"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -242,97 +544,227 @@
         "/crm/v8/settings/automation/scoring_rules/{id}/actions/activate": {
             "put": {
                 "operationId": "Activate Scoring Rule",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{
-                            "type": "object",
-                            "properties": {"scoring_rules": {
-                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                                "type": "array"
-                            }}
-                        }]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Resource_Path_API_Exception"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "delete": {
                 "operationId": "Deactivate Scoring Rule",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{
-                            "type": "object",
-                            "properties": {"scoring_rules": {
-                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                                "type": "array"
-                            }}
-                        }]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Resource_Path_API_Exception"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/crm/v8/settings/automation/scoring_rules/{id}/actions/clone": {"post": {
-            "operationId": "Clone Scoring Rule",
-            "parameters": [{"$ref": "#/components/parameters/id"}],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"scoring_rules": {
-                            "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                            "type": "array"
-                        }}
-                    }]}}}
-                },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Resource_Path_API_Exception"}]}}}
+        "/crm/v8/settings/automation/scoring_rules/{id}/actions/clone": {
+            "post": {
+                "operationId": "Clone Scoring Rule",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }},
-        "/crm/v8/{module}/actions/run_scoring_rules": {"put": {
-            "operationId": "Scoring Rule execution using Rule IDs",
-            "parameters": [{"$ref": "#/components/parameters/module"}],
-            "requestBody": {
-                "content": {"application/json": {}},
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"scoring_rules": {
-                            "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                            "type": "array"
-                        }}
-                    }]}}}
+        },
+        "/crm/v8/{module}/actions/run_scoring_rules": {
+            "put": {
+                "operationId": "Scoring Rule execution using Rule IDs",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {"$ref": "#/components/schemas/Resource_Path_API_Exception"},
-                        {"$ref": "#/components/schemas/Already_Scheduled_API_Exception"}
-                    ]}}}
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "scoring_rules": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Already_Scheduled_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": [
-        "ZohoCRM.settings.storage_analytics.READ",
-        "ZohoCRM.settings.storage_analytics.CREATE"
-    ]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.storage_analytics.READ",
+                "ZohoCRM.settings.storage_analytics.CREATE"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Criteria": {
@@ -345,8 +777,12 @@
                     "field": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "id": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
                         }
                     },
                     "value": {
@@ -358,7 +794,9 @@
                         "nullable": true
                     },
                     "group": {
-                        "items": {"$ref": "#/components/schemas/Criteria"},
+                        "items": {
+                            "$ref": "#/components/schemas/Criteria"
+                        },
                         "type": "array"
                     }
                 },
@@ -373,8 +811,12 @@
             "Layout": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "api_name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    }
                 }
             },
             "Scoring_Rule": {
@@ -393,13 +835,27 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "layout": {"$ref": "#/components/schemas/Layout"},
-                    "created_time": {"type": "string"},
-                    "modified_time": {"type": "string"},
-                    "module": {"$ref": "./modules.json#/components/schemas/modules"},
-                    "modified_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
-                    "active": {"type": "boolean"},
-                    "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "layout": {
+                        "$ref": "#/components/schemas/Layout"
+                    },
+                    "created_time": {
+                        "type": "string"
+                    },
+                    "modified_time": {
+                        "type": "string"
+                    },
+                    "module": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/modules.json#/components/schemas/modules"
+                    },
+                    "modified_by": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "created_by": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
                     "field_rules": {
                         "type": "array",
                         "items": {
@@ -409,8 +865,12 @@
                                     "type": "integer",
                                     "format": "int32"
                                 },
-                                "criteria": {"$ref": "#/components/schemas/Criteria"},
-                                "id": {"type": "string"}
+                                "criteria": {
+                                    "$ref": "#/components/schemas/Criteria"
+                                },
+                                "id": {
+                                    "type": "string"
+                                }
                             },
                             "required": [
                                 "score",
@@ -431,15 +891,21 @@
                                 "signal": {
                                     "type": "object",
                                     "properties": {
-                                        "namespace": {"type": "string"},
-                                        "id": {"type": "string"}
+                                        "namespace": {
+                                            "type": "string"
+                                        },
+                                        "id": {
+                                            "type": "string"
+                                        }
                                     },
                                     "required": [
                                         "namespace",
                                         "id"
                                     ]
                                 },
-                                "id": {"type": "string"}
+                                "id": {
+                                    "type": "string"
+                                }
                             },
                             "required": [
                                 "score",
@@ -469,17 +935,25 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_MODULE"]
+                        "enum": [
+                            "INVALID_MODULE"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["the module name given seems to be invalid"]
+                        "enum": [
+                            "the module name given seems to be invalid"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "status",
@@ -493,17 +967,23 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"],
+                        "enum": [
+                            "success"
+                        ],
                         "nullable": true
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"],
+                        "enum": [
+                            "SUCCESS"
+                        ],
                         "nullable": true
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["scoring rule created successfully"],
+                        "enum": [
+                            "scoring rule created successfully"
+                        ],
                         "nullable": true
                     },
                     "details": {
@@ -513,9 +993,13 @@
                                 "type": "string",
                                 "nullable": true
                             },
-                            "job_id": {"type": "string"}
+                            "job_id": {
+                                "type": "string"
+                            }
                         },
-                        "required": ["id"]
+                        "required": [
+                            "id"
+                        ]
                     }
                 },
                 "required": [
@@ -530,12 +1014,16 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["ALREADY_SCHEDULED"],
+                        "enum": [
+                            "ALREADY_SCHEDULED"
+                        ],
                         "nullable": true
                     },
                     "message": {
@@ -559,17 +1047,29 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["REQUIRED_PARAM_MISSING"]
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"param": {"type": "string"}},
-                        "required": ["param"]
+                        "properties": {
+                            "param": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "param"
+                        ]
                     }
                 },
                 "required": [
@@ -584,21 +1084,31 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid data"]
+                        "enum": [
+                            "invalid data"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -618,21 +1128,31 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid data"]
+                        "enum": [
+                            "invalid data"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -652,20 +1172,32 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid data"]
+                        "enum": [
+                            "invalid data"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"param_name": {"type": "string"}},
-                        "required": ["param_name"]
+                        "properties": {
+                            "param_name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "param_name"
+                        ]
                     }
                 },
                 "required": [
@@ -680,17 +1212,29 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["REQUIRED_PARAM_MISSING"]
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"param_name": {"type": "string"}},
-                        "required": ["param_name"]
+                        "properties": {
+                            "param_name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "param_name"
+                        ]
                     }
                 },
                 "required": [
@@ -705,23 +1249,33 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid data"]
+                        "enum": [
+                            "invalid data"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"resource_path_index": {
-                            "type": "integer",
-                            "format": "int32"
-                        }},
-                        "required": ["resource_path_index"]
+                        "properties": {
+                            "resource_path_index": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "required": [
+                            "resource_path_index"
+                        ]
                     }
                 },
                 "required": [
@@ -736,14 +1290,22 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_URL_PATTERN"]
+                        "enum": [
+                            "INVALID_URL_PATTERN"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"type": "object"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "status",
@@ -757,22 +1319,34 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid data"]
+                        "enum": [
+                            "invalid data"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "expected_data_type": {"type": "string"},
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "expected_data_type": {
+                                "type": "string"
+                            },
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "expected_data_type",
@@ -793,21 +1367,31 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["DUPLICATE_DATA"]
+                        "enum": [
+                            "DUPLICATE_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid data"]
+                        "enum": [
+                            "invalid data"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -827,13 +1411,19 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["LIMIT_EXCEEDED"]
+                        "enum": [
+                            "LIMIT_EXCEEDED"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
                         "properties": {
@@ -841,8 +1431,12 @@
                                 "type": "integer",
                                 "format": "int32"
                             },
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "limit",
@@ -863,15 +1457,21 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid data"]
+                        "enum": [
+                            "invalid data"
+                        ]
                     },
                     "details": {
                         "type": "object",
@@ -880,8 +1480,12 @@
                                 "type": "integer",
                                 "format": "int32"
                             },
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "maximum_length",
@@ -902,32 +1506,38 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["EXPECTED_FIELD_MISSING"],
+                        "enum": [
+                            "EXPECTED_FIELD_MISSING"
+                        ],
                         "nullable": true
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"expected_fields": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "api_name": {
-                                        "type": "string",
-                                        "nullable": true
+                        "properties": {
+                            "expected_fields": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "api_name": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "json_path": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
                                     },
-                                    "json_path": {
-                                        "type": "string",
-                                        "nullable": true
-                                    }
-                                },
-                                "required": [
-                                    "api_name",
-                                    "json_path"
-                                ]
+                                    "required": [
+                                        "api_name",
+                                        "json_path"
+                                    ]
+                                }
                             }
-                        }},
-                        "required": ["expected_fields"]
+                        },
+                        "required": [
+                            "expected_fields"
+                        ]
                     },
                     "message": {
                         "type": "string",
@@ -935,7 +1545,9 @@
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     }
                 },
@@ -948,32 +1560,48 @@
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"scoring_rules": {
-                    "items": {"$ref": "#/components/schemas/Scoring_Rule"},
-                    "type": "array"
-                }},
-                "required": ["scoring_rules"]
+                "properties": {
+                    "scoring_rules": {
+                        "items": {
+                            "$ref": "#/components/schemas/Scoring_Rule"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "scoring_rules"
+                ]
             },
             "Response_Wrapper": {
                 "type": "object",
                 "properties": {
                     "scoring_rules": {
-                        "items": {"$ref": "#/components/schemas/Scoring_Rule"},
+                        "items": {
+                            "$ref": "#/components/schemas/Scoring_Rule"
+                        },
                         "type": "array"
                     },
-                    "info": {"$ref": "#/components/schemas/Info"}
+                    "info": {
+                        "$ref": "#/components/schemas/Info"
+                    }
                 },
-                "required": ["scoring_rules"]
+                "required": [
+                    "scoring_rules"
+                ]
             },
             "Info": {
                 "type": "object",
                 "properties": {
-                    "call": {"type": "boolean"},
+                    "call": {
+                        "type": "boolean"
+                    },
                     "per_page": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "next_page_token": {"type": "string"},
+                    "next_page_token": {
+                        "type": "string"
+                    },
                     "count": {
                         "type": "integer",
                         "format": "int32"
@@ -982,13 +1610,19 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "previous_page_token": {"type": "string"},
+                    "previous_page_token": {
+                        "type": "string"
+                    },
                     "page_token_expiry": {
                         "type": "string",
                         "format": "date-time"
                     },
-                    "email": {"type": "boolean"},
-                    "more_records": {"type": "boolean"}
+                    "email": {
+                        "type": "boolean"
+                    },
+                    "more_records": {
+                        "type": "boolean"
+                    }
                 }
             }
         },
@@ -997,31 +1631,41 @@
                 "name": "module",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "id": {
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "ids": {
                 "name": "ids",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "layout_id": {
                 "name": "layout_id",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "name": {
                 "name": "name",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "active": {
                 "name": "active",
@@ -1054,6 +1698,10 @@
                 }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

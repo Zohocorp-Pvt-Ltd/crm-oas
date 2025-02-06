@@ -5,54 +5,120 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
-        "/crm/v8/{module}/actions/enrol_in_cadences": {"post": {
-            "operationId": "Enroll Cadences",
-            "parameters": [{"$ref": "#/components/parameters/module"}],
-            "requestBody": {"$ref": "#/components/requestBodies/GetEnrolBody"},
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/Success_Response"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
-            }
-        }},
-        "/crm/v8/{module}/actions/unenrol_from_cadences": {"post": {
-            "operationId": "Unenroll Cadences",
-            "parameters": [{"$ref": "#/components/parameters/module"}],
-            "requestBody": {"$ref": "#/components/requestBodies/GetEnrolBody"},
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/Success_Response"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
-            }
-        }},
-        "/crm/v8/settings/automation/cadences/{id}/actions/analytics": {"get": {
-            "operationId": "Cadences Analytics",
-            "parameters": [
-                {"$ref": "#/components/parameters/id"},
-                {"$ref": "#/components/parameters/followup_action_type"},
-                {"$ref": "#/components/parameters/from"},
-                {"$ref": "#/components/parameters/to"}
-            ],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"cadences": {
-                            "items": {"$ref": "#/components/schemas/Cadences_Analytics_Get"},
-                            "type": "array"
-                        }},
-                        "required": ["cadences"]
-                    }]}}}
+        "/crm/v8/{module}/actions/enrol_in_cadences": {
+            "post": {
+                "operationId": "Enroll Cadences",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/GetEnrolBody"
                 },
-                "204": {"description": ""},
-                "400": {"$ref": "#/components/responses/RErrorResponse"}
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Success_Response"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
             }
-        }}
+        },
+        "/crm/v8/{module}/actions/unenrol_from_cadences": {
+            "post": {
+                "operationId": "Unenroll Cadences",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/GetEnrolBody"
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Success_Response"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            }
+        },
+        "/crm/v8/settings/automation/cadences/{id}/actions/analytics": {
+            "get": {
+                "operationId": "Cadences Analytics",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/followup_action_type"
+                    },
+                    {
+                        "$ref": "#/components/parameters/from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "cadences": {
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Cadences_Analytics_Get"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "cadences"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
+                }
+            }
+        }
     },
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.roles.ALL"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.roles.ALL"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Body_Wrapper": {
@@ -60,14 +126,20 @@
                 "properties": {
                     "cadences_ids": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "ids": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
-                "required": ["cadences_ids"]
+                "required": [
+                    "cadences_ids"
+                ]
             },
             "Cadences_Analytics_Get": {
                 "type": "object",
@@ -75,20 +147,32 @@
                     "module": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "id": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
                         }
                     },
-                    "name": {"type": "string"},
+                    "name": {
+                        "type": "string"
+                    },
                     "follow_ups": {
                         "type": "array",
                         "items": {
                             "type": "object",
                             "properties": {
-                                "analytics": {"type": "object"},
+                                "analytics": {
+                                    "type": "object"
+                                },
                                 "parent_follow_up": {
                                     "type": "object",
-                                    "properties": {"id": {"type": "string"}}
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    }
                                 },
                                 "action": {
                                     "type": "object",
@@ -96,30 +180,48 @@
                                         "details": {
                                             "type": "object",
                                             "properties": {
-                                                "name": {"type": "string"},
+                                                "name": {
+                                                    "type": "string"
+                                                },
                                                 "template": {
                                                     "type": "object",
                                                     "properties": {
-                                                        "id": {"type": "string"},
-                                                        "name": {"type": "string"}
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
                                                     }
                                                 }
                                             }
                                         },
-                                        "type": {"type": "string"}
+                                        "type": {
+                                            "type": "string"
+                                        }
                                     }
                                 },
-                                "id": {"type": "string"}
+                                "id": {
+                                    "type": "string"
+                                }
                             },
-                            "required": ["analytics"]
+                            "required": [
+                                "analytics"
+                            ]
                         }
                     },
-                    "id": {"type": "string"},
+                    "id": {
+                        "type": "string"
+                    },
                     "created_by": {
                         "type": "object",
                         "properties": {
-                            "name": {"type": "string"},
-                            "id": {"type": "string"}
+                            "name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -172,7 +274,9 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "subject": {"type": "string"},
+                    "subject": {
+                        "type": "string"
+                    },
                     "completed_tasks_count": {
                         "type": "integer",
                         "format": "int32"
@@ -233,12 +337,18 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "details": {
                         "type": "object",
@@ -248,39 +358,75 @@
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "name": {"type": "string"},
-                                        "id": {"type": "string"}
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "id": {
+                                            "type": "string"
+                                        }
                                     }
                                 }
                             },
-                            "id": {"type": "string"}
+                            "id": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
             },
             "MandatoryWrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"}]},
-                    "type": "array"
-                }},
-                "required": ["data"]
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "data"
+                ]
             },
             "InvalidValueWrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"}]},
-                    "type": "array"
-                }},
-                "required": ["data"]
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "data"
+                ]
             },
             "InvalidTypeWrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]},
-                    "type": "array"
-                }},
-                "required": ["data"]
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "data"
+                ]
             },
             "InvalidParamError": {
                 "type": "object",
@@ -288,9 +434,15 @@
                     "details": {
                         "type": "object",
                         "properties": {
-                            "role_status": {"type": "string"},
-                            "param_name": {"type": "string"},
-                            "param": {"type": "string"}
+                            "role_status": {
+                                "type": "string"
+                            },
+                            "param_name": {
+                                "type": "string"
+                            },
+                            "param": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "role_status",
@@ -305,10 +457,14 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -322,39 +478,99 @@
         "responses": {
             "Success_Response": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{
-                    "type": "object",
-                    "properties": {"data": {
-                        "items": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]},
-                        "type": "array"
-                    }},
-                    "required": ["data"]
-                }]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/SuccessWrapper"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidParamError"},
-                    {"$ref": "#/components/schemas/MandatoryWrapper"},
-                    {"$ref": "#/components/schemas/InvalidValueWrapper"},
-                    {"$ref": "#/components/schemas/InvalidTypeWrapper"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidParamError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -380,25 +596,43 @@
                 "name": "followup_action_type",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "id": {
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "module": {
                 "name": "module",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "requestBodies": {"GetEnrolBody": {
-            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
-            "required": true
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "requestBodies": {
+            "GetEnrolBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Body_Wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

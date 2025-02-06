@@ -5,33 +5,65 @@
         "description": "Web forms",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/settings/webforms": {
             "get": {
                 "operationId": "Get Web Forms",
-                "parameters": [{"$ref": "#/components/parameters/module"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/WebForms"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/WebForms"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             },
             "post": {
                 "operationId": "Create Web Forms",
-                "parameters": [{"$ref": "#/components/parameters/module"}],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/Success_Response_Wrapper"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/Success_Response_Wrapper"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Web Forms",
-                "parameters": [{"$ref": "#/components/parameters/module"}],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/Success_Response_Wrapper"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/Success_Response_Wrapper"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             }
         },
@@ -39,58 +71,104 @@
             "get": {
                 "operationId": "Get Web Form",
                 "parameters": [
-                    {"$ref": "#/components/parameters/form_id"},
-                    {"$ref": "#/components/parameters/module"}
+                    {
+                        "$ref": "#/components/parameters/form_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/WebForms"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/WebForms"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Web Form",
                 "parameters": [
-                    {"$ref": "#/components/parameters/form_id"},
-                    {"$ref": "#/components/parameters/module"}
+                    {
+                        "$ref": "#/components/parameters/form_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/Success_Response_Wrapper"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/Success_Response_Wrapper"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Web Forms",
                 "parameters": [
-                    {"$ref": "#/components/parameters/form_id"},
-                    {"$ref": "#/components/parameters/module"}
+                    {
+                        "$ref": "#/components/parameters/form_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/Success_Response_Wrapper"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/Success_Response_Wrapper"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             }
         },
-        "/crm/v8/settings/webforms/{form_id}/actions/preview": {"get": {
-            "operationId": "Get Webforms Preview",
-            "parameters": [
-                {"$ref": "#/components/parameters/form_id"},
-                {"$ref": "#/components/parameters/module"}
-            ],
-            "responses": {
-                "200": {"$ref": "#/components/responses/WebForms"},
-                "400": {"$ref": "#/components/responses/RErrorResponse"}
+        "/crm/v8/settings/webforms/{form_id}/actions/preview": {
+            "get": {
+                "operationId": "Get Webforms Preview",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/form_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/WebForms"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
+                }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": ["settings.webforms"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "settings.webforms"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Owner": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"}
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "name",
@@ -100,8 +178,12 @@
             "User": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"}
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "name",
@@ -110,16 +192,22 @@
             },
             "auto_response_rule": {
                 "type": "object",
-                "properties": {"id": {
-                    "type": "string",
-                    "nullable": true
-                }},
-                "required": ["id"]
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "id"
+                ]
             },
             "Acknowledge_Visitor": {
                 "type": "object",
                 "properties": {
-                    "auto_response_rule": {"$ref": "#/components/schemas/auto_response_rule"},
+                    "auto_response_rule": {
+                        "$ref": "#/components/schemas/auto_response_rule"
+                    },
                     "template_id": {
                         "type": "string",
                         "nullable": true
@@ -182,7 +270,9 @@
                         "format": "int32",
                         "nullable": true
                     },
-                    "font_attributes": {"$ref": "#/components/schemas/Font_Attributes"},
+                    "font_attributes": {
+                        "$ref": "#/components/schemas/Font_Attributes"
+                    },
                     "align": {
                         "type": "string",
                         "nullable": true
@@ -237,8 +327,12 @@
             "Layout": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"}
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "name",
@@ -248,9 +342,15 @@
             "Module": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "module_name": {"type": "string"},
-                    "api_name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "module_name": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "id",
@@ -261,13 +361,19 @@
             "Fields": {
                 "type": "object",
                 "properties": {
-                    "layout": {"$ref": "#/components/schemas/Layout"},
+                    "layout": {
+                        "$ref": "#/components/schemas/Layout"
+                    },
                     "help": {
                         "type": "string",
                         "nullable": true
                     },
-                    "field": {"$ref": "#/components/schemas/Fields"},
-                    "module": {"$ref": "#/components/schemas/Module"},
+                    "field": {
+                        "$ref": "#/components/schemas/Fields"
+                    },
+                    "module": {
+                        "$ref": "#/components/schemas/Module"
+                    },
                     "secret_key": {
                         "type": "string",
                         "nullable": true
@@ -343,40 +449,76 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "encrypted_form_id": {"type": "string"},
-                    "owner": {"$ref": "#/components/schemas/Owner"},
-                    "user_type": {"$ref": "#/components/schemas/User"},
-                    "acknowledge_visitor": {"$ref": "#/components/schemas/Acknowledge_Visitors"},
+                    "encrypted_form_id": {
+                        "type": "string"
+                    },
+                    "owner": {
+                        "$ref": "#/components/schemas/Owner"
+                    },
+                    "user_type": {
+                        "$ref": "#/components/schemas/User"
+                    },
+                    "acknowledge_visitor": {
+                        "$ref": "#/components/schemas/Acknowledge_Visitors"
+                    },
                     "button_attributes": {
-                        "items": {"$ref": "#/components/schemas/Button_Attributes"},
+                        "items": {
+                            "$ref": "#/components/schemas/Button_Attributes"
+                        },
                         "type": "array"
                     },
-                    "encrypted_zgid": {"type": "string"},
+                    "encrypted_zgid": {
+                        "type": "string"
+                    },
                     "created_time": {
                         "type": "string",
                         "format": "date-time"
                     },
-                    "analytics_data": {"$ref": "#/components/schemas/AnalyticsData"},
-                    "module": {"$ref": "#/components/schemas/Module"},
-                    "encrypted_module": {"type": "string"},
-                    "active": {"type": "boolean"},
-                    "adword_enabled": {"type": "boolean"},
-                    "notify_owner": {"$ref": "#/components/schemas/Owner"},
-                    "created_by": {"$ref": "#/components/schemas/User"},
-                    "form_attributes": {"$ref": "#/components/schemas/Form_Attributes"},
+                    "analytics_data": {
+                        "$ref": "#/components/schemas/AnalyticsData"
+                    },
+                    "module": {
+                        "$ref": "#/components/schemas/Module"
+                    },
+                    "encrypted_module": {
+                        "type": "string"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "adword_enabled": {
+                        "type": "boolean"
+                    },
+                    "notify_owner": {
+                        "$ref": "#/components/schemas/Owner"
+                    },
+                    "created_by": {
+                        "$ref": "#/components/schemas/User"
+                    },
+                    "form_attributes": {
+                        "$ref": "#/components/schemas/Form_Attributes"
+                    },
                     "location_url": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     },
-                    "landing_url": {"type": "string"},
+                    "landing_url": {
+                        "type": "string"
+                    },
                     "double_optin_enabled": {
                         "type": "boolean",
                         "nullable": true
                     },
-                    "layout": {"$ref": "#/components/schemas/Layout"},
+                    "layout": {
+                        "$ref": "#/components/schemas/Layout"
+                    },
                     "tags": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/Tags"}
+                        "items": {
+                            "$ref": "#/components/schemas/Tags"
+                        }
                     },
                     "approval_request": {
                         "type": "boolean",
@@ -386,7 +528,9 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "create_contact": {"type": "boolean"},
+                    "create_contact": {
+                        "type": "boolean"
+                    },
                     "assignment_rule": {
                         "type": "object",
                         "properties": {
@@ -404,22 +548,32 @@
                             "id"
                         ]
                     },
-                    "name": {"type": "string"},
+                    "name": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string",
                         "nullable": true
                     },
-                    "spam_control": {"$ref": "#/components/schemas/Spam_Controll"},
+                    "spam_control": {
+                        "$ref": "#/components/schemas/Spam_Controll"
+                    },
                     "fields": {
-                        "items": {"$ref": "#/components/schemas/Fields"},
+                        "items": {
+                            "$ref": "#/components/schemas/Fields"
+                        },
                         "type": "array"
                     },
                     "form_fields": {
-                        "items": {"$ref": "#/components/schemas/Fields"},
+                        "items": {
+                            "$ref": "#/components/schemas/Fields"
+                        },
                         "type": "array"
                     },
                     "abtesting": {
-                        "items": {"$ref": "#/components/schemas/Abtesting"},
+                        "items": {
+                            "$ref": "#/components/schemas/Abtesting"
+                        },
                         "type": "array"
                     },
                     "visitor_tracking": {
@@ -431,16 +585,30 @@
                         "format": "date-time",
                         "nullable": true
                     },
-                    "action_on_submit": {"type": "string"},
-                    "action_value": {"type": "string"},
-                    "suggestion": {"$ref": "#/components/schemas/Suggestion"},
-                    "embed_code": {"type": "string"},
+                    "action_on_submit": {
+                        "type": "string"
+                    },
+                    "action_value": {
+                        "type": "string"
+                    },
+                    "suggestion": {
+                        "$ref": "#/components/schemas/Suggestion"
+                    },
+                    "embed_code": {
+                        "type": "string"
+                    },
                     "code_formats": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     },
-                    "source_code": {"type": "string"},
-                    "iframe_code": {"type": "string"}
+                    "source_code": {
+                        "type": "string"
+                    },
+                    "iframe_code": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "google_site",
@@ -486,11 +654,17 @@
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"webforms": {
-                    "items": {"$ref": "#/components/schemas/Web_Form"},
-                    "type": "array"
-                }},
-                "required": ["webforms"]
+                "properties": {
+                    "webforms": {
+                        "items": {
+                            "$ref": "#/components/schemas/Web_Form"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "webforms"
+                ]
             },
             "AnalyticsData": {
                 "type": "object",
@@ -545,10 +719,18 @@
             "Abtesting": {
                 "type": "object",
                 "properties": {
-                    "module": {"$ref": "#/components/schemas/Module"},
-                    "name": {"type": "string"},
-                    "id": {"type": "string"},
-                    "status": {"type": "string"}
+                    "module": {
+                        "$ref": "#/components/schemas/Module"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "module",
@@ -560,9 +742,15 @@
             "Acknowledge_Visitors": {
                 "type": "object",
                 "properties": {
-                    "template_name": {"type": "string"},
-                    "template_id": {"type": "string"},
-                    "from_address": {"$ref": "#/components/schemas/From_Address"}
+                    "template_name": {
+                        "type": "string"
+                    },
+                    "template_id": {
+                        "type": "string"
+                    },
+                    "from_address": {
+                        "$ref": "#/components/schemas/From_Address"
+                    }
                 },
                 "required": [
                     "template_name",
@@ -573,8 +761,12 @@
             "From_Address": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "type": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "id",
@@ -586,20 +778,30 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"id": {
-                            "type": "string",
-                            "nullable": true
-                        }},
-                        "required": ["id"]
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     }
                 },
                 "required": [
@@ -614,13 +816,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/Details"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/Details"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -633,8 +843,12 @@
             "Details": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -644,9 +858,15 @@
             "Expected_Data_Type": {
                 "type": "object",
                 "properties": {
-                    "expected_data_type": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "expected_data_type",
@@ -659,17 +879,31 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Details"},
-                        {"$ref": "#/components/schemas/Expected_Data_Type"},
-                        {"$ref": "#/components/schemas/Resource_Path_Index"}
-                    ]},
-                    "message": {"type": "string"},
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Details"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Expected_Data_Type"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Resource_Path_Index"
+                            }
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -681,27 +915,43 @@
             },
             "Resource_Path_Index": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }},
-                "required": ["resource_path_index"]
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "resource_path_index"
+                ]
             },
             "Required_Param_Missing": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["REQUIRED_PARAM_MISSING"]
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ]
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Param_Name"},
-                        {"$ref": "#/components/schemas/Param"}
-                    ]},
-                    "message": {"type": "string"},
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Param_Name"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Param"
+                            }
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -713,29 +963,47 @@
             },
             "Param_Name": {
                 "type": "object",
-                "properties": {"param_name": {"type": "string"}},
-                "required": ["param_name"]
+                "properties": {
+                    "param_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "param_name"
+                ]
             },
             "Param": {
                 "type": "object",
-                "properties": {"param": {"type": "string"}},
-                "required": ["param"]
+                "properties": {
+                    "param": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "param"
+                ]
             },
             "Invalid_Form_Id": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_FORM_ID"],
+                        "enum": [
+                            "INVALID_FORM_ID"
+                        ],
                         "nullable": true
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"id": {
-                            "type": "string",
-                            "nullable": true
-                        }},
-                        "required": ["id"]
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ]
                     },
                     "message": {
                         "type": "string",
@@ -743,7 +1011,9 @@
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     }
                 },
@@ -759,7 +1029,9 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_MODULE"],
+                        "enum": [
+                            "INVALID_MODULE"
+                        ],
                         "nullable": true
                     },
                     "details": {
@@ -772,7 +1044,9 @@
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     }
                 },
@@ -785,27 +1059,45 @@
             },
             "Error_Responses": {
                 "type": "object",
-                "properties": {"webforms": {
-                    "items": {"oneOf": [
-                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
-                        {"$ref": "#/components/schemas/Invalid_Data"}
-                    ]},
-                    "type": "array"
-                }},
-                "required": ["webforms"]
+                "properties": {
+                    "webforms": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Mandatory_Not_Found"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Data"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "webforms"
+                ]
             },
             "Expected_Field_Missing": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["EXPECTED_FIELD_MISSING"]
+                        "enum": [
+                            "EXPECTED_FIELD_MISSING"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/Expected_Details"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/Expected_Details"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -817,56 +1109,128 @@
             },
             "Expected_Details": {
                 "type": "object",
-                "properties": {"expected_fields": {
-                    "type": "array",
-                    "items": {"$ref": "#/components/schemas/Details"}
-                }},
-                "required": ["expected_fields"]
+                "properties": {
+                    "expected_fields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Details"
+                        }
+                    }
+                },
+                "required": [
+                    "expected_fields"
+                ]
             },
             "Action_Wrapper": {
                 "type": "object",
-                "properties": {"webforms": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                    "type": "array"
-                }},
-                "required": ["webforms"]
+                "properties": {
+                    "webforms": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Success_Response"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "webforms"
+                ]
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"webforms": {
-                    "items": {"$ref": "#/components/schemas/Web_Form"},
-                    "type": "array"
-                }},
-                "required": ["webforms"]
+                "properties": {
+                    "webforms": {
+                        "items": {
+                            "$ref": "#/components/schemas/Web_Form"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "webforms"
+                ]
             }
         },
         "responses": {
             "WebForms": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {"webforms": {
-                            "items": {"oneOf": [{"$ref": "#/components/schemas/Expected_Field_Missing"}]},
-                            "type": "array"
-                        }},
-                        "required": ["webforms"]
-                    },
-                    {"$ref": "#/components/schemas/Error_Responses"},
-                    {"$ref": "#/components/schemas/Required_Param_Missing"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "webforms": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Expected_Field_Missing"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "webforms"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Error_Responses"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Required_Param_Missing"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "Success_Response_Wrapper": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Action_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Action_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Required_Param_Missing"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Required_Param_Missing"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -874,19 +1238,35 @@
                 "name": "module",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "form_id": {
                 "name": "form_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "requestBodies": {"body": {
-            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
-            "required": true
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Body_Wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

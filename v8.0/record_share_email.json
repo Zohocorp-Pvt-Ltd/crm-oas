@@ -5,175 +5,411 @@
         "description": "RecordShareEmail API",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
-        "/crm/v8/{module_api_name}/{id}/actions/share_emails": {"post": {
-            "description": "To perform custom level record sharing",
-            "operationId": "Share Emails",
-            "parameters": [
-                {"$ref": "#/components/parameters/module_api_name"},
-                {"$ref": "#/components/parameters/id"}
-            ],
-            "responses": {
-                "200": {
-                    "description": "Emails shared successfully",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Shared_Successfully"}]}}}
-                },
-                "400": {
-                    "description": "Failure in email sharing",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {"$ref": "#/components/schemas/Invalid_Id"},
-                        {"$ref": "#/components/schemas/Invalid_Module"},
-                        {"$ref": "#/components/schemas/Module_not_supported"},
-                        {"$ref": "#/components/schemas/Custom_sharing_disabled"},
-                        {"$ref": "#/components/schemas/Email_not_configured"},
-                        {"$ref": "#/components/schemas/Already_Shared"},
-                        {"$ref": "#/components/schemas/Invalid_ID_API_Exception"},
-                        {"$ref": "#/components/schemas/Id_not_supported"}
-                    ]}}}
-                },
-                "403": {"$ref": "#/components/responses/Permission_Denied"}
+        "/crm/v8/{module_api_name}/{id}/actions/share_emails": {
+            "post": {
+                "description": "To perform custom level record sharing",
+                "operationId": "Share Emails",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module_api_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Emails shared successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Shared_Successfully"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failure in email sharing",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Id"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Module"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Module_not_supported"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Custom_sharing_disabled"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Email_not_configured"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Already_Shared"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_ID_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Id_not_supported"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/Permission_Denied"
+                    }
+                }
             }
-        }},
-        "/crm/v8/{module_api_name}/{id}/actions/unshare_emails": {"post": {
-            "description": "To perform custom level record sharing",
-            "operationId": "UnShare Emails",
-            "parameters": [
-                {"$ref": "#/components/parameters/module_api_name"},
-                {"$ref": "#/components/parameters/id"}
-            ],
-            "responses": {
-                "200": {
-                    "description": "Emails sharing revoked successfully",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Shared_Successfully"}]}}}
-                },
-                "400": {
-                    "description": "Failure in revoking",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {"$ref": "#/components/schemas/Invalid_Id"},
-                        {"$ref": "#/components/schemas/Invalid_Module"},
-                        {"$ref": "#/components/schemas/Module_not_supported"},
-                        {"$ref": "#/components/schemas/Custom_sharing_disabled"},
-                        {"$ref": "#/components/schemas/Email_not_configured"},
-                        {"$ref": "#/components/schemas/Already_Revoked"},
-                        {"$ref": "#/components/schemas/Invalid_ID_API_Exception"},
-                        {"$ref": "#/components/schemas/Id_not_supported"}
-                    ]}}}
-                },
-                "403": {"$ref": "#/components/responses/Permission_Denied"}
+        },
+        "/crm/v8/{module_api_name}/{id}/actions/unshare_emails": {
+            "post": {
+                "description": "To perform custom level record sharing",
+                "operationId": "UnShare Emails",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module_api_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Emails sharing revoked successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Shared_Successfully"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failure in revoking",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Id"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Module"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Module_not_supported"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Custom_sharing_disabled"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Email_not_configured"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Already_Revoked"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_ID_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Id_not_supported"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/Permission_Denied"
+                    }
+                }
             }
-        }},
-        "/crm/v8/{module_api_name}/actions/share_emails": {"post": {
-            "description": "To perform custom level record sharing",
-            "operationId": "Share Bulk Emails",
-            "parameters": [{"$ref": "#/components/parameters/module_api_name"}],
-            "requestBody": {
-                "description": "The request sent with list of ids",
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "Emails shared successfully",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Shared_Successfully"}]}}}
+        },
+        "/crm/v8/{module_api_name}/actions/share_emails": {
+            "post": {
+                "description": "To perform custom level record sharing",
+                "operationId": "Share Bulk Emails",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module_api_name"
+                    }
+                ],
+                "requestBody": {
+                    "description": "The request sent with list of ids",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "Failure in email sharing",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {
-                            "type": "object",
-                            "properties": {"data": {
-                                "items": {"oneOf": [
-                                    {"$ref": "#/components/schemas/Bulk_Invalid_Id"},
-                                    {"$ref": "#/components/schemas/Id_not_supported"},
-                                    {"$ref": "#/components/schemas/Duplicate_Data"}
-                                ]},
-                                "type": "array"
-                            }}
-                        },
-                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                        {"$ref": "#/components/schemas/Invalid_Module"},
-                        {"$ref": "#/components/schemas/Module_not_supported"},
-                        {"$ref": "#/components/schemas/Custom_sharing_disabled"},
-                        {"$ref": "#/components/schemas/Email_not_configured"},
-                        {"$ref": "#/components/schemas/Invalid_ID_API_Exception"}
-                    ]}}}
-                },
-                "207": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"data": {
-                            "items": {"oneOf": [
-                                {"$ref": "#/components/schemas/Already_Shared_Structure"},
-                                {"$ref": "#/components/schemas/Shared_Successfully_Structure"},
-                                {"$ref": "#/components/schemas/Bulk_Invalid_Id"},
-                                {"$ref": "#/components/schemas/Id_not_supported"},
-                                {"$ref": "#/components/schemas/Duplicate_Data"}
-                            ]},
-                            "type": "array"
-                        }}
-                    }]}}}
-                },
-                "403": {"$ref": "#/components/responses/Permission_Denied"}
+                "responses": {
+                    "200": {
+                        "description": "Emails shared successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Shared_Successfully"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failure in email sharing",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Bulk_Invalid_Id"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Id_not_supported"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Duplicate_Data"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Module"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Module_not_supported"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Custom_sharing_disabled"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Email_not_configured"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_ID_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "207": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Already_Shared_Structure"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Shared_Successfully_Structure"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Bulk_Invalid_Id"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Id_not_supported"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Duplicate_Data"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/Permission_Denied"
+                    }
+                }
             }
-        }},
-        "/crm/v8/{module_api_name}/actions/unshare_emails": {"post": {
-            "description": "To perform custom level record sharing",
-            "operationId": "UnShare Bulk Emails",
-            "parameters": [{"$ref": "#/components/parameters/module_api_name"}],
-            "requestBody": {
-                "description": "The request sent with list of ids",
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
-                "required": true
-            },
-            "responses": {
-                "207": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"data": {
-                            "items": {"oneOf": [
-                                {"$ref": "#/components/schemas/Already_Revoked_Structure"},
-                                {"$ref": "#/components/schemas/Bulk_Invalid_Id"},
-                                {"$ref": "#/components/schemas/Id_not_supported"},
-                                {"$ref": "#/components/schemas/Duplicate_Data"}
-                            ]},
-                            "type": "array"
-                        }}
-                    }]}}}
+        },
+        "/crm/v8/{module_api_name}/actions/unshare_emails": {
+            "post": {
+                "description": "To perform custom level record sharing",
+                "operationId": "UnShare Bulk Emails",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module_api_name"
+                    }
+                ],
+                "requestBody": {
+                    "description": "The request sent with list of ids",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
+                    "required": true
                 },
-                "200": {
-                    "description": "Emails sharing revoked successfully",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Shared_Successfully"}]}}}
-                },
-                "400": {
-                    "description": "Failure in revoking",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {
-                            "type": "object",
-                            "properties": {"data": {
-                                "items": {"oneOf": [
-                                    {"$ref": "#/components/schemas/Bulk_Invalid_Id"},
-                                    {"$ref": "#/components/schemas/Id_not_supported"},
-                                    {"$ref": "#/components/schemas/Duplicate_Data"}
-                                ]},
-                                "type": "array"
-                            }}
-                        },
-                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                        {"$ref": "#/components/schemas/Invalid_Module"},
-                        {"$ref": "#/components/schemas/Module_not_supported"},
-                        {"$ref": "#/components/schemas/Custom_sharing_disabled"},
-                        {"$ref": "#/components/schemas/Email_not_configured"},
-                        {"$ref": "#/components/schemas/Invalid_ID_API_Exception"}
-                    ]}}}
-                },
-                "403": {"$ref": "#/components/responses/Permission_Denied"}
+                "responses": {
+                    "207": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Already_Revoked_Structure"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Bulk_Invalid_Id"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Id_not_supported"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Duplicate_Data"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Emails sharing revoked successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Shared_Successfully"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failure in revoking",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Bulk_Invalid_Id"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Id_not_supported"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Duplicate_Data"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Module"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Module_not_supported"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Custom_sharing_disabled"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Email_not_configured"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_ID_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/Permission_Denied"
+                    }
+                }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.modules.ALL"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.modules.ALL"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Email_not_configured": {
@@ -181,16 +417,24 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NOT_ALLOWED"]
+                        "enum": [
+                            "NOT_ALLOWED"
+                        ]
                     },
-                    "details": {"type": "object"},
+                    "details": {
+                        "type": "object"
+                    },
                     "message": {
                         "type": "string",
-                        "enum": ["Email Configuration does not exist"]
+                        "enum": [
+                            "Email Configuration does not exist"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -205,16 +449,24 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NOT_ALLOWED"]
+                        "enum": [
+                            "NOT_ALLOWED"
+                        ]
                     },
-                    "details": {"type": "object"},
+                    "details": {
+                        "type": "object"
+                    },
                     "message": {
                         "type": "string",
-                        "enum": ["User did not enable custom sharing"]
+                        "enum": [
+                            "User did not enable custom sharing"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -229,16 +481,24 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["DUPLICATE_DATA"]
+                        "enum": [
+                            "DUPLICATE_DATA"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/details_id"},
+                    "details": {
+                        "$ref": "#/components/schemas/details_id"
+                    },
                     "message": {
                         "type": "string",
-                        "enum": ["Duplicate Data"]
+                        "enum": [
+                            "Duplicate Data"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -250,27 +510,39 @@
             },
             "module_path_details": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }},
-                "required": ["resource_path_index"]
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "resource_path_index"
+                ]
             },
             "Module_not_supported": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NOT_SUPPORTED"]
+                        "enum": [
+                            "NOT_SUPPORTED"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/module_path_details"},
+                    "details": {
+                        "$ref": "#/components/schemas/module_path_details"
+                    },
                     "message": {
                         "type": "string",
-                        "enum": ["the given module is not supported in api"]
+                        "enum": [
+                            "the given module is not supported in api"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -285,13 +557,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NOT_ALLOWED"]
+                        "enum": [
+                            "NOT_ALLOWED"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/module_path_details"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/module_path_details"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -306,16 +586,24 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_MODULE"]
+                        "enum": [
+                            "INVALID_MODULE"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/module_path_details"},
+                    "details": {
+                        "$ref": "#/components/schemas/module_path_details"
+                    },
                     "message": {
                         "type": "string",
-                        "enum": ["the module name given seems to be invalid"]
+                        "enum": [
+                            "the module name given seems to be invalid"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -330,16 +618,24 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/module_path_details"},
+                    "details": {
+                        "$ref": "#/components/schemas/module_path_details"
+                    },
                     "message": {
                         "type": "string",
-                        "enum": ["the related id given seems to be invalid"]
+                        "enum": [
+                            "the related id given seems to be invalid"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -354,16 +650,24 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/details_id"},
+                    "details": {
+                        "$ref": "#/components/schemas/details_id"
+                    },
                     "message": {
                         "type": "string",
-                        "enum": ["The id given seems to be invalid"]
+                        "enum": [
+                            "The id given seems to be invalid"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -375,24 +679,38 @@
             },
             "details_id": {
                 "type": "object",
-                "properties": {"id": {"type": "string"}},
-                "required": ["id"]
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
             },
             "Already_Shared_Structure": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["ALREADY_SHARED"]
+                        "enum": [
+                            "ALREADY_SHARED"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/details_id"},
+                    "details": {
+                        "$ref": "#/components/schemas/details_id"
+                    },
                     "message": {
                         "type": "string",
-                        "enum": ["Emails are already shared to the colleagues already"]
+                        "enum": [
+                            "Emails are already shared to the colleagues already"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -407,16 +725,24 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NOT_SHARED"]
+                        "enum": [
+                            "NOT_SHARED"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/details_id"},
+                    "details": {
+                        "$ref": "#/components/schemas/details_id"
+                    },
                     "message": {
                         "type": "string",
-                        "enum": ["Emails are not  shared to the colleagues already"]
+                        "enum": [
+                            "Emails are not  shared to the colleagues already"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -428,48 +754,80 @@
             },
             "Already_Shared": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Already_Shared_Structure"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Already_Shared_Structure"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"ids": {
-                    "type": "array",
-                    "items": {"type": "string"}
-                }},
-                "required": ["ids"]
+                "properties": {
+                    "ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "ids"
+                ]
             },
             "Already_Revoked": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Already_Revoked_Structure"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Already_Revoked_Structure"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Invalid_ID_API_Exception": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "expected_data_type": {"type": "string"},
-                            "api_name": {"type": "string"}
+                            "expected_data_type": {
+                                "type": "string"
+                            },
+                            "api_name": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "expected_data_type",
                             "api_name"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -484,9 +842,13 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/details_id"},
+                    "details": {
+                        "$ref": "#/components/schemas/details_id"
+                    },
                     "message": {
                         "type": "string",
                         "enum": [
@@ -496,7 +858,9 @@
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     }
                 },
                 "required": [
@@ -508,30 +872,50 @@
             },
             "Shared_Successfully": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Shared_Successfully_Structure"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Shared_Successfully_Structure"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Mandatory_API_Exception": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["expected key is missing"]
+                        "enum": [
+                            "expected key is missing"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"api_name": {"type": "string"}},
-                        "required": ["api_name"]
+                        "properties": {
+                            "api_name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "api_name"
+                        ]
                     }
                 },
                 "required": [
@@ -542,53 +926,81 @@
                 ]
             }
         },
-        "responses": {"Permission_Denied": {
-            "description": "Permission denied",
-            "content": {"application/json": {"schema": {"oneOf": [{
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "enum": ["NO_PERMISSION"]
-                    },
-                    "details": {
-                        "type": "object",
-                        "properties": {"permissions": {
-                            "type": "array",
-                            "items": {"type": "string"}
-                        }}
-                    },
-                    "message": {
-                        "type": "string",
-                        "enum": ["permission denied"]
-                    },
-                    "status": {
-                        "type": "string",
-                        "enum": ["error"]
+        "responses": {
+            "Permission_Denied": {
+                "description": "Permission denied",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string",
+                                            "enum": [
+                                                "NO_PERMISSION"
+                                            ]
+                                        },
+                                        "details": {
+                                            "type": "object",
+                                            "properties": {
+                                                "permissions": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "enum": [
+                                                "permission denied"
+                                            ]
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "error"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "code",
+                                        "details",
+                                        "message",
+                                        "status"
+                                    ]
+                                }
+                            ]
+                        }
                     }
-                },
-                "required": [
-                    "code",
-                    "details",
-                    "message",
-                    "status"
-                ]
-            }]}}}
-        }},
+                }
+            }
+        },
         "parameters": {
             "id": {
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "module_api_name": {
                 "name": "module_api_name",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

@@ -5,106 +5,184 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/Leads/actions/mass_convert": {
-        "post": {
-            "operationId": "Mass Convert",
-            "requestBody": {"$ref": "#/components/requestBodies/body"},
-            "responses": {
-                "200": {"$ref": "#/components/responses/SuccessResponse"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
-            }
-        },
-        "get": {
-            "operationId": "Get Job Status",
-            "parameters": [{"$ref": "#/components/parameters/job_id"}],
-            "responses": {
-                "200": {"$ref": "#/components/responses/Status"},
-                "400": {"$ref": "#/components/responses/RErrorResponse"}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/Leads/actions/mass_convert": {
+            "post": {
+                "operationId": "Mass Convert",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "Get Job Status",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/job_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/Status"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
+                }
             }
         }
-    }},
-    "security": [{"iam-oauth2-schema": [""]}],
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "move_attachments_to": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "api_name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    }
                 }
             },
             "assign_to": {
                 "type": "object",
-                "properties": {"id": {"type": "string"}}
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
             },
             "related_module": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "api_name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    }
                 }
             },
             "portal_user_type": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "api_name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    }
                 }
             },
             "Body_Wrapper": {
                 "type": "object",
                 "properties": {
-                    "Deals": {"$ref": "./record.json#/components/schemas/Record"},
-                    "move_attachments_to": {"$ref": "#/components/schemas/move_attachments_to"},
-                    "assign_to": {"$ref": "#/components/schemas/assign_to"},
+                    "Deals": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/record.json#/components/schemas/Record"
+                    },
+                    "move_attachments_to": {
+                        "$ref": "#/components/schemas/move_attachments_to"
+                    },
+                    "assign_to": {
+                        "$ref": "#/components/schemas/assign_to"
+                    },
                     "carry_over_tags": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/move_attachments_to"}
+                        "items": {
+                            "$ref": "#/components/schemas/move_attachments_to"
+                        }
                     },
                     "related_modules": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/related_module"}
+                        "items": {
+                            "$ref": "#/components/schemas/related_module"
+                        }
                     },
-                    "portal_user_type": {"$ref": "#/components/schemas/portal_user_type"},
+                    "portal_user_type": {
+                        "$ref": "#/components/schemas/portal_user_type"
+                    },
                     "ids": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     },
-                    "apply_assignment_threshold": {"type": "boolean"}
+                    "apply_assignment_threshold": {
+                        "type": "boolean"
+                    }
                 }
             },
             "details": {
                 "type": "object",
-                "properties": {"job_id": {"type": "string"}}
+                "properties": {
+                    "job_id": {
+                        "type": "string"
+                    }
+                }
             },
             "success": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SCHEDULED"]
+                        "enum": [
+                            "SCHEDULED"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/details"}
+                    "details": {
+                        "$ref": "#/components/schemas/details"
+                    }
                 }
             },
             "ErrorDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "ErrorDetails1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "InvalidError": {
@@ -112,22 +190,34 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/ErrorDetails1"}
+                    "details": {
+                        "$ref": "#/components/schemas/ErrorDetails1"
+                    }
                 }
             },
             "MandatoryDetails": {
                 "type": "object",
-                "properties": {"expected_fields": {
-                    "type": "array",
-                    "items": {"$ref": "#/components/schemas/ErrorDetails"}
-                }}
+                "properties": {
+                    "expected_fields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDetails"
+                        }
+                    }
+                }
             },
             "MandatoryError": {
                 "type": "object",
@@ -139,82 +229,132 @@
                             "EXPECTED_FIELD_MISSING"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/ErrorDetails1"},
-                        {"$ref": "#/components/schemas/MandatoryDetails"}
-                    ]}
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorDetails1"
+                            },
+                            {
+                                "$ref": "#/components/schemas/MandatoryDetails"
+                            }
+                        ]
+                    }
                 }
             },
             "InvalidTypeDetails": {
                 "type": "object",
                 "properties": {
-                    "expected_data_type": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "InvalidTypeError": {
                 "type": "object",
                 "properties": {
-                    "details": {"$ref": "#/components/schemas/InvalidTypeDetails"},
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidTypeDetails"
+                    },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "InvalidParamDetails": {
                 "type": "object",
-                "properties": {"param_name": {"type": "string"}}
+                "properties": {
+                    "param_name": {
+                        "type": "string"
+                    }
+                }
             },
             "InvalidParamError": {
                 "type": "object",
                 "properties": {
-                    "details": {"$ref": "#/components/schemas/InvalidParamDetails"},
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidParamDetails"
+                    },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "MandatoryParamDetails": {
                 "type": "object",
-                "properties": {"param": {"type": "string"}}
+                "properties": {
+                    "param": {
+                        "type": "string"
+                    }
+                }
             },
             "MandatoryParamError": {
                 "type": "object",
                 "properties": {
-                    "details": {"$ref": "#/components/schemas/MandatoryParamDetails"},
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryParamDetails"
+                    },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "status": {
                 "type": "object",
                 "properties": {
-                    "Status": {"type": "string"},
+                    "Status": {
+                        "type": "string"
+                    },
                     "Failed_Count": {
                         "type": "integer",
                         "format": "int32"
@@ -235,53 +375,127 @@
             },
             "wrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"$ref": "#/components/schemas/status"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "$ref": "#/components/schemas/status"
+                        },
+                        "type": "array"
+                    }
+                }
             }
         },
         "responses": {
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/success"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/InvalidError"},
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"},
-                    {"$ref": "#/components/schemas/InvalidParamError"},
-                    {"$ref": "#/components/schemas/MandatoryParamError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/InvalidError"},
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"},
-                    {"$ref": "#/components/schemas/InvalidParamError"},
-                    {"$ref": "#/components/schemas/MandatoryParamError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryParamError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "Status": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
-        "parameters": {"job_id": {
-            "name": "job_id",
-            "in": "query",
-            "required": true,
-            "schema": {"type": "string"}
-        }},
-        "requestBodies": {"body": {
-            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
-            "required": true
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "parameters": {
+            "job_id": {
+                "name": "job_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Body_Wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

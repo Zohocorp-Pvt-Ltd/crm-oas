@@ -5,59 +5,119 @@
         "description": "__zia_org_enrichment",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/__zia_org_enrichment": {
             "get": {
                 "operationId": "Get Zia Org Enrichments",
                 "parameters": [
-                    {"$ref": "#/components/parameters/status"},
-                    {"$ref": "#/components/parameters/sort_order"},
-                    {"$ref": "#/components/parameters/sort_by"},
-                    {"$ref": "#/components/parameters/page"},
-                    {"$ref": "#/components/parameters/per_page"}
+                    {
+                        "$ref": "#/components/parameters/status"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sort_order"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sort_by"
+                    },
+                    {
+                        "$ref": "#/components/parameters/page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/per_page"
+                    }
                 ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/ZiaOrgEnrichment"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/ZiaOrgEnrichment"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             },
             "post": {
                 "operationId": "Create Zia Org Enrichment",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module"},
-                    {"$ref": "#/components/parameters/record_id"}
+                    {
+                        "$ref": "#/components/parameters/module"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/OrgEnrichmentBody"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/OrgEnrichmentBody"
+                },
                 "responses": {
-                    "202": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "403": {"$ref": "#/components/responses/NoPermissions"}
+                    "202": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/NoPermissions"
+                    }
                 }
             }
         },
-        "/crm/v8/__zia_org_enrichment/{zia_org_enrichment_id}": {"get": {
-            "operationId": "Get Zia Org Enrichment",
-            "parameters": [{"$ref": "#/components/parameters/zia_org_enrichment_id"}],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/ZiaOrgEnrichment"},
-                "400": {"$ref": "#/components/responses/RErrorResponse"}
+        "/crm/v8/__zia_org_enrichment/{zia_org_enrichment_id}": {
+            "get": {
+                "operationId": "Get Zia Org Enrichment",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/zia_org_enrichment_id"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/ZiaOrgEnrichment"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
+                }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.intelligence.All"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.intelligence.All"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "address": {
                 "type": "object",
                 "properties": {
-                    "country": {"type": "string"},
-                    "city": {"type": "string"},
-                    "pin_code": {"type": "string"},
-                    "state": {"type": "string"},
-                    "fill_address": {"type": "string"}
+                    "country": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "pin_code": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "fill_address": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "country",
@@ -73,77 +133,137 @@
                     "enriched_data": {
                         "type": "object",
                         "properties": {
-                            "org_status": {"type": "string"},
+                            "org_status": {
+                                "type": "string"
+                            },
                             "description": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "title": {"type": "string"},
-                                        "description": {"type": "string"}
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
                                     }
                                 }
                             },
-                            "ceo": {"type": "string"},
-                            "secondary_email": {"type": "string"},
-                            "revenue": {"type": "string"},
-                            "years_in_industry": {"type": "string"},
+                            "ceo": {
+                                "type": "string"
+                            },
+                            "secondary_email": {
+                                "type": "string"
+                            },
+                            "revenue": {
+                                "type": "string"
+                            },
+                            "years_in_industry": {
+                                "type": "string"
+                            },
                             "other_contacts": {
                                 "type": "array",
-                                "items": {"type": "string"}
+                                "items": {
+                                    "type": "string"
+                                }
                             },
-                            "techno_graphic_data": {"type": "string"},
-                            "logo": {"type": "string"},
-                            "secondary_contact": {"type": "string"},
-                            "id": {"type": "string"},
+                            "techno_graphic_data": {
+                                "type": "string"
+                            },
+                            "logo": {
+                                "type": "string"
+                            },
+                            "secondary_contact": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
                             "other_emails": {
                                 "type": "array",
-                                "items": {"type": "string"}
+                                "items": {
+                                    "type": "string"
+                                }
                             },
-                            "sign_in": {"type": "string"},
-                            "website": {"type": "string"},
+                            "sign_in": {
+                                "type": "string"
+                            },
+                            "website": {
+                                "type": "string"
+                            },
                             "address": {
                                 "type": "array",
-                                "items": {"$ref": "#/components/schemas/address"}
+                                "items": {
+                                    "$ref": "#/components/schemas/address"
+                                }
                             },
-                            "sign_up": {"type": "string"},
-                            "org_type": {"type": "string"},
+                            "sign_up": {
+                                "type": "string"
+                            },
+                            "org_type": {
+                                "type": "string"
+                            },
                             "head_quarters": {
                                 "type": "array",
-                                "items": {"$ref": "#/components/schemas/address"}
+                                "items": {
+                                    "$ref": "#/components/schemas/address"
+                                }
                             },
-                            "no_of_employees": {"type": "string"},
+                            "no_of_employees": {
+                                "type": "string"
+                            },
                             "territory_list": {
                                 "type": "array",
-                                "items": {"type": "string"}
+                                "items": {
+                                    "type": "string"
+                                }
                             },
-                            "founding_year": {"type": "string"},
+                            "founding_year": {
+                                "type": "string"
+                            },
                             "industries": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "name": {"type": "string"},
-                                        "description": {"type": "string"}
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
                                     }
                                 }
                             },
-                            "name": {"type": "string"},
-                            "primary_email": {"type": "string"},
+                            "name": {
+                                "type": "string"
+                            },
+                            "primary_email": {
+                                "type": "string"
+                            },
                             "business_model": {
                                 "type": "array",
-                                "items": {"type": "string"}
+                                "items": {
+                                    "type": "string"
+                                }
                             },
-                            "primary_contact": {"type": "string"},
+                            "primary_contact": {
+                                "type": "string"
+                            },
                             "social_media": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "media_type": {"type": "string"},
+                                        "media_type": {
+                                            "type": "string"
+                                        },
                                         "media_url": {
                                             "type": "array",
-                                            "items": {"type": "string"}
+                                            "items": {
+                                                "type": "string"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -154,20 +274,30 @@
                             }
                         }
                     },
-                    "created_time": {"type": "string"},
-                    "id": {"type": "string"},
+                    "created_time": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
                     "created_by": {
                         "type": "object",
                         "properties": {
-                            "name": {"type": "string"},
-                            "id": {"type": "string"}
+                            "name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "name",
                             "id"
                         ]
                     },
-                    "status": {"type": "string"},
+                    "status": {
+                        "type": "string"
+                    },
                     "enrich_based_on": {
                         "type": "object",
                         "properties": {
@@ -185,7 +315,9 @@
                                 "pattern": "www[.][a-z0-9]+[.][a-z]{3}"
                             }
                         },
-                        "required": ["name"]
+                        "required": [
+                            "name"
+                        ]
                     }
                 },
                 "required": [
@@ -211,7 +343,9 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "more_records": {"type": "boolean"}
+                    "more_records": {
+                        "type": "boolean"
+                    }
                 },
                 "required": [
                     "per_page",
@@ -224,35 +358,55 @@
                 "type": "object",
                 "properties": {
                     "__zia_org_enrichment": {
-                        "items": {"$ref": "#/components/schemas/zia_org_enrichment"},
+                        "items": {
+                            "$ref": "#/components/schemas/zia_org_enrichment"
+                        },
                         "type": "array"
                     },
-                    "info": {"$ref": "#/components/schemas/Info"}
+                    "info": {
+                        "$ref": "#/components/schemas/Info"
+                    }
                 }
             },
             "Org_Enrichment": {
                 "type": "object",
-                "properties": {"__zia_org_enrichment": {
-                    "items": {"$ref": "#/components/schemas/zia_org_enrichment"},
-                    "type": "array"
-                }},
-                "required": ["__zia_org_enrichment"]
+                "properties": {
+                    "__zia_org_enrichment": {
+                        "items": {
+                            "$ref": "#/components/schemas/zia_org_enrichment"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "__zia_org_enrichment"
+                ]
             },
             "RESOURCE_NOT_FOUND": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["RESOURCE_NOT_FOUND"]
+                        "enum": [
+                            "RESOURCE_NOT_FOUND"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"resource": {"type": "string"}}
+                        "properties": {
+                            "resource": {
+                                "type": "string"
+                            }
+                        }
                     }
                 }
             },
@@ -261,69 +415,105 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SCHEDULED"]
+                        "enum": [
+                            "SCHEDULED"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Org Enrichment scheduled successfully"]
+                        "enum": [
+                            "Org Enrichment scheduled successfully"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"id": {"type": "string"}}
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        }
                     }
                 }
             },
             "DETAIL_1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "DETAIL_2": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "expected_data_type": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "DETAIL_4": {
                 "type": "object",
                 "properties": {
-                    "resource": {"type": "string"},
-                    "permissions_needed": {"type": "string"}
+                    "resource": {
+                        "type": "string"
+                    },
+                    "permissions_needed": {
+                        "type": "string"
+                    }
                 }
             },
             "DETAIL_5": {
                 "type": "object",
                 "properties": {
-                    "param": {"type": "string"},
+                    "param": {
+                        "type": "string"
+                    },
                     "supported_values": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },
             "DETAIL_6": {
                 "type": "object",
-                "properties": {"expected_fields": {
-                    "items": {"$ref": "#/components/schemas/DETAIL_1"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "expected_fields": {
+                        "items": {
+                            "$ref": "#/components/schemas/DETAIL_1"
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "DETAIL_7": {
                 "type": "object",
                 "properties": {
                     "limit_due_to": {
-                        "items": {"$ref": "#/components/schemas/DETAIL_1"},
+                        "items": {
+                            "$ref": "#/components/schemas/DETAIL_1"
+                        },
                         "type": "array"
                     },
-                    "limit": {"type": "string"}
+                    "limit": {
+                        "type": "string"
+                    }
                 }
             },
             "DETAIL_8": {
@@ -333,8 +523,12 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "DETAIL_9": {
@@ -344,8 +538,12 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "expected_data_type": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "MANDATORY_NOT_FOUND": {
@@ -353,14 +551,22 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/DETAIL_1"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/DETAIL_1"
+                    }
                 }
             },
             "EXPECTED_FIELD_MISSING": {
@@ -368,14 +574,22 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["EXPECTED_FIELD_MISSING"]
+                        "enum": [
+                            "EXPECTED_FIELD_MISSING"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/DETAIL_6"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/DETAIL_6"
+                    }
                 }
             },
             "API_NOT_SUPPORTED": {
@@ -383,19 +597,27 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["API_NOT_SUPPORTED"]
+                        "enum": [
+                            "API_NOT_SUPPORTED"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"supported_version": {
-                            "type": "integer",
-                            "format": "int32"
-                        }}
+                        "properties": {
+                            "supported_version": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        }
                     }
                 }
             },
@@ -404,7 +626,9 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
@@ -415,10 +639,16 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"param_name": {"type": "string"}}
+                        "properties": {
+                            "param_name": {
+                                "type": "string"
+                            }
+                        }
                     }
                 }
             },
@@ -427,14 +657,22 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["LIMIT_EXCEEDED"]
+                        "enum": [
+                            "LIMIT_EXCEEDED"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/DETAIL_7"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/DETAIL_7"
+                    }
                 }
             },
             "INVALID_DATA": {
@@ -442,7 +680,9 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
@@ -451,15 +691,31 @@
                             "NOT_ALLOWED"
                         ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/DETAIL_1"},
-                        {"$ref": "#/components/schemas/DETAIL_2"},
-                        {"$ref": "#/components/schemas/DETAIL_4"},
-                        {"$ref": "#/components/schemas/DETAIL_5"},
-                        {"$ref": "#/components/schemas/DETAIL_8"},
-                        {"$ref": "#/components/schemas/DETAIL_9"}
-                    ]}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/DETAIL_1"
+                            },
+                            {
+                                "$ref": "#/components/schemas/DETAIL_2"
+                            },
+                            {
+                                "$ref": "#/components/schemas/DETAIL_4"
+                            },
+                            {
+                                "$ref": "#/components/schemas/DETAIL_5"
+                            },
+                            {
+                                "$ref": "#/components/schemas/DETAIL_8"
+                            },
+                            {
+                                "$ref": "#/components/schemas/DETAIL_9"
+                            }
+                        ]
+                    }
                 }
             },
             "NO_PERMISSION": {
@@ -467,70 +723,158 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["NO_PERMISSION"]
+                        "enum": [
+                            "NO_PERMISSION"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["permission denied"]
+                        "enum": [
+                            "permission denied"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 }
             }
         },
         "responses": {
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{
-                    "type": "object",
-                    "properties": {"__zia_org_enrichment": {
-                        "items": {"oneOf": [{"$ref": "#/components/schemas/SUCCESS"}]},
-                        "type": "array"
-                    }}
-                }]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "__zia_org_enrichment": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/SUCCESS"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {"__zia_org_enrichment": {
-                            "items": {"oneOf": [
-                                {"$ref": "#/components/schemas/MANDATORY_NOT_FOUND"},
-                                {"$ref": "#/components/schemas/INVALID_DATA"},
-                                {"$ref": "#/components/schemas/EXPECTED_FIELD_MISSING"},
-                                {"$ref": "#/components/schemas/LIMIT_EXCEEDED"}
-                            ]},
-                            "type": "array"
-                        }}
-                    },
-                    {"$ref": "#/components/schemas/MANDATORY_NOT_FOUND"},
-                    {"$ref": "#/components/schemas/INVALID_DATA"},
-                    {"$ref": "#/components/schemas/REQUIRED_PARAM_MISSING_EXCEPTION"},
-                    {"$ref": "#/components/schemas/NO_PERMISSION"},
-                    {"$ref": "#/components/schemas/API_NOT_SUPPORTED"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "__zia_org_enrichment": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/MANDATORY_NOT_FOUND"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/INVALID_DATA"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/EXPECTED_FIELD_MISSING"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/LIMIT_EXCEEDED"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MANDATORY_NOT_FOUND"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/INVALID_DATA"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/REQUIRED_PARAM_MISSING_EXCEPTION"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/NO_PERMISSION"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/API_NOT_SUPPORTED"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/MANDATORY_NOT_FOUND"},
-                    {"$ref": "#/components/schemas/INVALID_DATA"},
-                    {"$ref": "#/components/schemas/REQUIRED_PARAM_MISSING_EXCEPTION"},
-                    {"$ref": "#/components/schemas/NO_PERMISSION"},
-                    {"$ref": "#/components/schemas/API_NOT_SUPPORTED"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MANDATORY_NOT_FOUND"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/INVALID_DATA"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/REQUIRED_PARAM_MISSING_EXCEPTION"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/NO_PERMISSION"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/API_NOT_SUPPORTED"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ZiaOrgEnrichment": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/ZiaOrg_Enrichment"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/ZiaOrg_Enrichment"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "NoPermissions": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/NO_PERMISSION"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/NO_PERMISSION"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -538,19 +882,25 @@
                 "name": "zia_org_enrichment_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "module": {
                 "name": "module",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "record_id": {
                 "name": "record_id",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "page": {
                 "name": "page",
@@ -574,13 +924,17 @@
                 "name": "sort_by",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "sort_order": {
                 "name": "sort_order",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "status": {
                 "name": "status",
@@ -597,10 +951,22 @@
                 }
             }
         },
-        "requestBodies": {"OrgEnrichmentBody": {
-            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Org_Enrichment"}}},
-            "required": true
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "requestBodies": {
+            "OrgEnrichmentBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Org_Enrichment"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

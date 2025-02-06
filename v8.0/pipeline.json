@@ -5,36 +5,74 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/settings/pipeline": {
             "get": {
                 "operationId": "get pipelines",
-                "parameters": [{"$ref": "#/components/parameters/layout_id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    }
+                ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/GetPipelines"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/GetPipelines"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             },
             "post": {
                 "operationId": "create pipeline",
-                "parameters": [{"$ref": "#/components/parameters/layout_id"}],
-                "requestBody": {"$ref": "#/components/requestBodies/RequestBody"},
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/RequestBody"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "201": {
+                        "$ref": "#/components/responses/CreateSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Pipelines",
-                "parameters": [{"$ref": "#/components/parameters/layout_id"}],
-                "requestBody": {"$ref": "#/components/requestBodies/RequestBody"},
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/RequestBody"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "201": {
+                        "$ref": "#/components/responses/CreateSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             }
         },
@@ -42,61 +80,119 @@
             "get": {
                 "operationId": "get pipeline",
                 "parameters": [
-                    {"$ref": "#/components/parameters/layout_id"},
-                    {"$ref": "#/components/parameters/id"}
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
                 ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/GetPipelines"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/GetPipelines"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "update pipeline",
                 "parameters": [
-                    {"$ref": "#/components/parameters/id"},
-                    {"$ref": "#/components/parameters/layout_id"}
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/RequestBody"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/RequestBody"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             },
             "patch": {
                 "operationId": "delete pipeline",
                 "parameters": [
-                    {"$ref": "#/components/parameters/id"},
-                    {"$ref": "#/components/parameters/layout_id"}
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/DRequestBody"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/DRequestBody"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             }
         },
-        "/crm/v8/settings/pipeline/actions/transfer": {"post": {
-            "operationId": "Transfer Pipelines",
-            "parameters": [{"$ref": "#/components/parameters/layout_id"}],
-            "requestBody": {"$ref": "#/components/requestBodies/TRequestBody"},
-            "responses": {
-                "200": {"$ref": "#/components/responses/TSuccessResponse"},
-                "400": {"$ref": "#/components/responses/TErrorResponse"},
-                "500": {"$ref": "#/components/responses/TInternalErrorResponse"}
+        "/crm/v8/settings/pipeline/actions/transfer": {
+            "post": {
+                "operationId": "Transfer Pipelines",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/TRequestBody"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/TSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/TErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/TInternalErrorResponse"
+                    }
+                }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": [""]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "forecast_category": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"}
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "name",
@@ -106,19 +202,33 @@
             "maps": {
                 "type": "object",
                 "properties": {
-                    "display_value": {"type": "string"},
+                    "display_value": {
+                        "type": "string"
+                    },
                     "sequence_number": {
                         "type": "integer",
                         "format": "int32",
                         "nullable": true,
                         "maximum": 10
                     },
-                    "forecast_category": {"$ref": "#/components/schemas/forecast_category"},
-                    "_delete": {"type": "boolean"},
-                    "actual_value": {"type": "string"},
-                    "id": {"type": "string"},
-                    "colour_code": {"type": "string"},
-                    "forecast_type": {"type": "string"}
+                    "forecast_category": {
+                        "$ref": "#/components/schemas/forecast_category"
+                    },
+                    "_delete": {
+                        "type": "boolean"
+                    },
+                    "actual_value": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "colour_code": {
+                        "type": "string"
+                    },
+                    "forecast_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "display_value",
@@ -132,22 +242,32 @@
             "pipeline": {
                 "type": "object",
                 "properties": {
-                    "display_value": {"type": "string"},
+                    "display_value": {
+                        "type": "string"
+                    },
                     "default": {
                         "type": "boolean",
                         "nullable": true
                     },
                     "maps": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/maps"}
+                        "items": {
+                            "$ref": "#/components/schemas/maps"
+                        }
                     },
-                    "actual_value": {"type": "string"},
+                    "actual_value": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string",
                         "nullable": true
                     },
-                    "child_available": {"type": "boolean"},
-                    "parent": {"$ref": "#/components/schemas/pipeline"}
+                    "child_available": {
+                        "type": "boolean"
+                    },
+                    "parent": {
+                        "$ref": "#/components/schemas/pipeline"
+                    }
                 },
                 "required": [
                     "display_value",
@@ -159,38 +279,64 @@
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"pipeline": {
-                    "items": {"$ref": "#/components/schemas/pipeline"},
-                    "type": "array"
-                }},
-                "required": ["pipeline"]
+                "properties": {
+                    "pipeline": {
+                        "items": {
+                            "$ref": "#/components/schemas/pipeline"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "pipeline"
+                ]
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"pipeline": {
-                    "items": {"$ref": "#/components/schemas/pipeline"},
-                    "type": "array"
-                }},
-                "required": ["pipeline"]
+                "properties": {
+                    "pipeline": {
+                        "items": {
+                            "$ref": "#/components/schemas/pipeline"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "pipeline"
+                ]
             },
             "SuccessDetails": {
                 "type": "object",
-                "properties": {"id": {"type": "string"}},
-                "required": ["id"]
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
             },
             "success": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/SuccessDetails"}
+                    "details": {
+                        "$ref": "#/components/schemas/SuccessDetails"
+                    }
                 },
                 "required": [
                     "code",
@@ -201,35 +347,67 @@
             },
             "SuccessWrapper": {
                 "type": "object",
-                "properties": {"pipeline": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/success"}]},
-                    "type": "array"
-                }},
-                "required": ["pipeline"]
+                "properties": {
+                    "pipeline": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "pipeline"
+                ]
             },
             "_delete": {
                 "type": "object",
-                "properties": {"permanent": {"type": "boolean"}},
-                "required": ["permanent"]
+                "properties": {
+                    "permanent": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "permanent"
+                ]
             },
             "DPipeline": {
                 "type": "object",
-                "properties": {"_delete": {"$ref": "#/components/schemas/_delete"}},
-                "required": ["_delete"]
+                "properties": {
+                    "_delete": {
+                        "$ref": "#/components/schemas/_delete"
+                    }
+                },
+                "required": [
+                    "_delete"
+                ]
             },
             "DPipelineWrapper": {
                 "type": "object",
-                "properties": {"pipeline": {
-                    "items": {"$ref": "#/components/schemas/DPipeline"},
-                    "type": "array"
-                }},
-                "required": ["pipeline"]
+                "properties": {
+                    "pipeline": {
+                        "items": {
+                            "$ref": "#/components/schemas/DPipeline"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "pipeline"
+                ]
             },
             "TPipeline": {
                 "type": "object",
                 "properties": {
-                    "from": {"type": "string"},
-                    "to": {"type": "string"}
+                    "from": {
+                        "type": "string"
+                    },
+                    "to": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "from",
@@ -239,8 +417,12 @@
             "stages": {
                 "type": "object",
                 "properties": {
-                    "from": {"type": "string"},
-                    "to": {"type": "string"}
+                    "from": {
+                        "type": "string"
+                    },
+                    "to": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "from",
@@ -250,10 +432,14 @@
             "transfer_pipeline": {
                 "type": "object",
                 "properties": {
-                    "pipeline": {"$ref": "#/components/schemas/TPipeline"},
+                    "pipeline": {
+                        "$ref": "#/components/schemas/TPipeline"
+                    },
                     "stages": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/stages"}
+                        "items": {
+                            "$ref": "#/components/schemas/stages"
+                        }
                     }
                 },
                 "required": [
@@ -263,30 +449,50 @@
             },
             "TransferWrapper": {
                 "type": "object",
-                "properties": {"transfer_pipeline": {
-                    "items": {"$ref": "#/components/schemas/transfer_pipeline"},
-                    "type": "array"
-                }},
-                "required": ["transfer_pipeline"]
+                "properties": {
+                    "transfer_pipeline": {
+                        "items": {
+                            "$ref": "#/components/schemas/transfer_pipeline"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "transfer_pipeline"
+                ]
             },
             "TSuccessDetails": {
                 "type": "object",
-                "properties": {"job_id": {"type": "string"}},
-                "required": ["job_id"]
+                "properties": {
+                    "job_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "job_id"
+                ]
             },
             "TSuccess": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/TSuccessDetails"}
+                    "details": {
+                        "$ref": "#/components/schemas/TSuccessDetails"
+                    }
                 },
                 "required": [
                     "code",
@@ -297,17 +503,31 @@
             },
             "TSuccessWrapper": {
                 "type": "object",
-                "properties": {"transfer_pipeline": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/TSuccess"}]},
-                    "type": "array"
-                }},
-                "required": ["transfer_pipeline"]
+                "properties": {
+                    "transfer_pipeline": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/TSuccess"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "transfer_pipeline"
+                ]
             },
             "MandatoryDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -317,8 +537,12 @@
             "MandatoryDetails1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "MandatoryError": {
@@ -326,17 +550,25 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"]
+                        "enum": [
+                            "required field not found"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/MandatoryDetails1"}
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryDetails1"
+                    }
                 },
                 "required": [
                     "code",
@@ -347,33 +579,61 @@
             },
             "MandatoryWrapper": {
                 "type": "object",
-                "properties": {"pipeline": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/MandatoryError"}]},
-                    "type": "array"
-                }},
-                "required": ["pipeline"]
+                "properties": {
+                    "pipeline": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "pipeline"
+                ]
             },
             "TMandatoryWrapper": {
                 "type": "object",
-                "properties": {"transfer_pipeline": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/MandatoryError"}]},
-                    "type": "array"
-                }},
-                "required": ["transfer_pipeline"]
+                "properties": {
+                    "transfer_pipeline": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "transfer_pipeline"
+                ]
             },
             "Duplicate_Error": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["DUPLICATE_DATA"]
+                        "enum": [
+                            "DUPLICATE_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/MandatoryDetails"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryDetails"
+                    }
                 },
                 "required": [
                     "status",
@@ -384,33 +644,55 @@
             },
             "DuplicateWarpper": {
                 "type": "object",
-                "properties": {"pipeline": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Duplicate_Error"}]},
-                    "type": "array"
-                }},
-                "required": ["pipeline"]
+                "properties": {
+                    "pipeline": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Duplicate_Error"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "pipeline"
+                ]
             },
             "invalidDetails": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }},
-                "required": ["resource_path_index"]
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "resource_path_index"
+                ]
             },
             "URLInvalidError": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/invalidDetails"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/invalidDetails"
+                    }
                 },
                 "required": [
                     "status",
@@ -422,9 +704,15 @@
             "JsonDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -435,9 +723,15 @@
             "JsonDetails1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -450,14 +744,22 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/JsonDetails1"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/JsonDetails1"
+                    }
                 },
                 "required": [
                     "status",
@@ -468,43 +770,75 @@
             },
             "InvalidWrapper": {
                 "type": "object",
-                "properties": {"pipeline": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidError"}]},
-                    "type": "array"
-                }},
-                "required": ["pipeline"]
+                "properties": {
+                    "pipeline": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "pipeline"
+                ]
             },
             "TInvalidWrapper": {
                 "type": "object",
-                "properties": {"transfer_pipeline": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidError"}]},
-                    "type": "array"
-                }},
-                "required": ["transfer_pipeline"]
+                "properties": {
+                    "transfer_pipeline": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "transfer_pipeline"
+                ]
             },
             "MandatoryParamDetails": {
                 "type": "object",
-                "properties": {"param": {"type": "string"}},
-                "required": ["param"]
+                "properties": {
+                    "param": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "param"
+                ]
             },
             "MandatoryParamError": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["REQUIRED_PARAM_MISSING"],
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ],
                         "nullable": true
                     },
                     "message": {
                         "type": "string",
                         "nullable": true
                     },
-                    "details": {"$ref": "#/components/schemas/MandatoryParamDetails"}
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryParamDetails"
+                    }
                 },
                 "required": [
                     "status",
@@ -515,22 +849,36 @@
             },
             "InvalidParamDetails": {
                 "type": "object",
-                "properties": {"param_name": {"type": "string"}},
-                "required": ["param_name"]
+                "properties": {
+                    "param_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "param_name"
+                ]
             },
             "InvalidParamError": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/InvalidParamDetails"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidParamDetails"
+                    }
                 },
                 "required": [
                     "status",
@@ -546,8 +894,12 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -559,35 +911,59 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/MaxLengthDetails"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/MaxLengthDetails"
+                    }
                 }
             },
             "MaxLengthWrapper": {
                 "type": "object",
-                "properties": {"pipeline": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/MaxLengthError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "pipeline": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MaxLengthError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "InternalError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INTERNAL_SERVER_ERROR"]
+                        "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                        ]
                     },
-                    "details": {"type": "object"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             }
@@ -595,61 +971,177 @@
         "responses": {
             "GetPipelines": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "CreateSuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "TSuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/TSuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/TSuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidError"},
-                    {"$ref": "#/components/schemas/URLInvalidError"},
-                    {"$ref": "#/components/schemas/MandatoryParamError"},
-                    {"$ref": "#/components/schemas/InvalidParamError"},
-                    {"$ref": "#/components/schemas/MandatoryWrapper"},
-                    {"$ref": "#/components/schemas/DuplicateWarpper"},
-                    {"$ref": "#/components/schemas/MaxLengthWrapper"},
-                    {"$ref": "#/components/schemas/InvalidWrapper"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/URLInvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/DuplicateWarpper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MaxLengthWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/URLInvalidError"},
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidParamError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/URLInvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "TErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidError"},
-                    {"$ref": "#/components/schemas/URLInvalidError"},
-                    {"$ref": "#/components/schemas/MandatoryParamError"},
-                    {"$ref": "#/components/schemas/InvalidParamError"},
-                    {"$ref": "#/components/schemas/TMandatoryWrapper"},
-                    {"$ref": "#/components/schemas/TInvalidWrapper"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/URLInvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/TMandatoryWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/TInvalidWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "InternalErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InternalError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "TInternalErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InternalError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -657,29 +1149,55 @@
                 "name": "layout_id",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "id": {
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
         "requestBodies": {
             "RequestBody": {
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Body_Wrapper"
+                        }
+                    }
+                },
                 "required": true
             },
             "DRequestBody": {
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/DPipelineWrapper"}}},
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/DPipelineWrapper"
+                        }
+                    }
+                },
                 "required": true
             },
             "TRequestBody": {
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/TransferWrapper"}}},
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/TransferWrapper"
+                        }
+                    }
+                },
                 "required": true
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

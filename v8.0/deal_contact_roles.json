@@ -5,33 +5,61 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/Deals/{deal}/Contact_Roles": {
             "get": {
                 "operationId": "Get Associated Contact Roles",
                 "parameters": [
-                    {"$ref": "#/components/parameters/deal"},
-                    {"$ref": "#/components/parameters/ids"},
-                    {"$ref": "#/components/parameters/fields"}
+                    {
+                        "$ref": "#/components/parameters/deal"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ids"
+                    },
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    }
                 ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/Relation"},
-                    "400": {"$ref": "#/components/responses/GetErrorResponse"},
-                    "500": {"$ref": "#/components/responses/GetInternalErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Relation"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/GetErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/GetInternalErrorResponse"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Associated Contact Roles",
                 "parameters": [
-                    {"$ref": "#/components/parameters/deal"},
-                    {"$ref": "#/components/parameters/ids"}
+                    {
+                        "$ref": "#/components/parameters/deal"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ids"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             }
         },
@@ -39,14 +67,26 @@
             "get": {
                 "operationId": "Get Associated Contact Roles Specific To Contact",
                 "parameters": [
-                    {"$ref": "#/components/parameters/deal"},
-                    {"$ref": "#/components/parameters/contact"}
+                    {
+                        "$ref": "#/components/parameters/deal"
+                    },
+                    {
+                        "$ref": "#/components/parameters/contact"
+                    }
                 ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/Relation"},
-                    "400": {"$ref": "#/components/responses/GetErrorResponse"},
-                    "500": {"$ref": "#/components/responses/GetInternalErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Relation"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/GetErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/GetInternalErrorResponse"
+                    }
                 }
             },
             "put": {
@@ -56,65 +96,107 @@
                         "name": "deal",
                         "in": "path",
                         "required": true,
-                        "schema": {"type": "string"}
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "contact",
                         "in": "path",
                         "required": true,
-                        "schema": {"type": "string"}
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Contact Role Relation",
                 "parameters": [
-                    {"$ref": "#/components/parameters/deal"},
-                    {"$ref": "#/components/parameters/contact"}
+                    {
+                        "$ref": "#/components/parameters/deal"
+                    },
+                    {
+                        "$ref": "#/components/parameters/contact"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             }
         }
     },
-    "security": [{"iam-oauth2-schema": [""]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "data": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
+                    "id": {
+                        "type": "string"
+                    },
                     "Contact_Role": {
                         "type": "object",
                         "properties": {
-                            "name": {"type": "string"},
-                            "id": {"type": "string"}
+                            "name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
                         }
                     },
-                    "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Created_By": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
                     "Created_Time": {
                         "type": "string",
                         "format": "date-time"
                     },
-                    "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Modified_By": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
                     "Modified_Time": {
                         "type": "string",
                         "format": "date-time"
                     },
                     "Tag": {
-                        "items": {"$ref": "./tags.json#/components/schemas/Tag"},
+                        "items": {
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/tags.json#/components/schemas/Tag"
+                        },
                         "type": "array"
                     },
-                    "name": {"type": "string"}
+                    "name": {
+                        "type": "string"
+                    }
                 }
             },
             "info": {
@@ -132,7 +214,9 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "more_records": {"type": "boolean"},
+                    "more_records": {
+                        "type": "boolean"
+                    },
                     "previous_page_token": {
                         "type": "string",
                         "nullable": true
@@ -149,53 +233,83 @@
             },
             "wrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"$ref": "#/components/schemas/data"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "$ref": "#/components/schemas/data"
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Response_Wrapper": {
                 "type": "object",
                 "properties": {
                     "data": {
-                        "items": {"$ref": "#/components/schemas/data"},
+                        "items": {
+                            "$ref": "#/components/schemas/data"
+                        },
                         "type": "array"
                     },
-                    "info": {"$ref": "#/components/schemas/info"}
+                    "info": {
+                        "$ref": "#/components/schemas/info"
+                    }
                 }
             },
             "details": {
                 "type": "object",
-                "properties": {"id": {"type": "string"}}
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
             },
             "success": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/details"}
+                    "details": {
+                        "$ref": "#/components/schemas/details"
+                    }
                 }
             },
             "SuccessWrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/success"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "InvalidUrlDetails": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }}
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
             },
             "InvalidUrlError": {
                 "type": "object",
@@ -207,26 +321,40 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "details": {"$ref": "#/components/schemas/InvalidUrlDetails"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidUrlDetails"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "ErrorDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "ErrorDetails1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "InvalidError": {
@@ -234,128 +362,214 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/ErrorDetails1"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/ErrorDetails1"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "InvalidWrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "MandatoryParamDetails": {
                 "type": "object",
-                "properties": {"param_name": {"type": "string"}}
+                "properties": {
+                    "param_name": {
+                        "type": "string"
+                    }
+                }
             },
             "MandatoryParamError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["REQUIRED_PARAM_MISSING"]
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/MandatoryParamDetails"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryParamDetails"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "InvalidTypeDetails": {
                 "type": "object",
                 "properties": {
-                    "expected_data_type": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "InvalidTypeError": {
                 "type": "object",
                 "properties": {
-                    "details": {"$ref": "#/components/schemas/InvalidTypeDetails"},
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidTypeDetails"
+                    },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "InvalidTypeWrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidTypeError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "MandatoryError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/ErrorDetails1"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/ErrorDetails1"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "ExpectedFieldsDetails": {
                 "type": "object",
-                "properties": {"expected_fields": {
-                    "type": "array",
-                    "items": {"$ref": "#/components/schemas/ErrorDetails"}
-                }}
+                "properties": {
+                    "expected_fields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorDetails"
+                        }
+                    }
+                }
             },
             "ExpectedFieldError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["EXPECTED_FIELD_MISSING"]
+                        "enum": [
+                            "EXPECTED_FIELD_MISSING"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/ExpectedFieldsDetails"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/ExpectedFieldsDetails"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "ExpectedFieldWrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/ExpectedFieldError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/ExpectedFieldError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "InternalError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INTERNAL_SERVER_ERROR"]
+                        "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                        ]
                     },
-                    "details": {"type": "object"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             }
@@ -363,42 +577,120 @@
         "responses": {
             "Relation": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"},
-                    {"$ref": "#/components/schemas/MandatoryParamError"},
-                    {"$ref": "#/components/schemas/InvalidError"},
-                    {"$ref": "#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidWrapper"},
-                    {"$ref": "#/components/schemas/InvalidTypeWrapper"},
-                    {"$ref": "#/components/schemas/ExpectedFieldWrapper"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/ExpectedFieldWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "GetErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"},
-                    {"$ref": "#/components/schemas/MandatoryParamError"},
-                    {"$ref": "#/components/schemas/InvalidError"},
-                    {"$ref": "#/components/schemas/InvalidUrlError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "InternalErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InternalError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "GetInternalErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InternalError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -406,31 +698,51 @@
                 "name": "deal",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "contact": {
                 "name": "contact",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "ids": {
                 "name": "ids",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "fields": {
                 "name": "fields",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "requestBodies": {"body": {
-            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/wrapper"}}},
-            "required": true
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

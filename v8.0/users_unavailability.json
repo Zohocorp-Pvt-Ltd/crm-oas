@@ -5,73 +5,167 @@
         "description": "Users Unavailability Hours",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/settings/users_unavailability": {
             "post": {
                 "operationId": "Create Users Unavailability",
                 "requestBody": {
-                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "201": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/error"},
-                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                            {"$ref": "#/components/schemas/Expected_Data_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/error"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Expected_Data_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "put": {
                 "operationId": "Update Users Unavailability",
                 "requestBody": {
-                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/error"},
-                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                            {"$ref": "#/components/schemas/Expected_Data_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/error"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Expected_Data_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "get": {
                 "operationId": "Get Users Unavailability",
                 "parameters": [
-                    {"$ref": "#/components/parameters/include_inner_details"},
-                    {"$ref": "#/components/parameters/group_ids"},
-                    {"$ref": "#/components/parameters/role_ids"},
-                    {"$ref": "#/components/parameters/territory_ids"},
-                    {"$ref": "#/components/parameters/filters"}
+                    {
+                        "$ref": "#/components/parameters/include_inner_details"
+                    },
+                    {
+                        "$ref": "#/components/parameters/group_ids"
+                    },
+                    {
+                        "$ref": "#/components/parameters/role_ids"
+                    },
+                    {
+                        "$ref": "#/components/parameters/territory_ids"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    }
                 ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "204": {"description": ""},
+                    "204": {
+                        "description": ""
+                    },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/Invalid_ID_API_Exception"},
-                            {"$ref": "#/components/schemas/Parse_Datatype_API_Exception"},
-                            {"$ref": "#/components/schemas/Invalid_Pattern_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_ID_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Parse_Datatype_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Pattern_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -79,80 +173,192 @@
         "/crm/v8/settings/users_unavailability/{id}": {
             "put": {
                 "operationId": "Update User Unavailability",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "requestBody": {
-                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/error"},
-                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                            {"$ref": "#/components/schemas/Expected_Data_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/error"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Expected_Data_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Invalid_Url"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Url"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "get": {
                 "operationId": "Get User Unavailability",
                 "parameters": [
-                    {"$ref": "#/components/parameters/id"},
-                    {"$ref": "#/components/parameters/include_inner_details"},
-                    {"$ref": "#/components/parameters/filters"}
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/include_inner_details"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    }
                 ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "204": {"description": ""},
+                    "204": {
+                        "description": ""
+                    },
                     "404": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Invalid_Url"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Url"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "delete": {
                 "operationId": "Delete User Unavailability",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/error"},
-                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                            {"$ref": "#/components/schemas/Expected_Data_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/error"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Expected_Data_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     },
-    "security": [{"iam-oauth2-schema": [""]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Users_Unavailability": {
                 "type": "object",
                 "properties": {
-                    "service": {"type": "string"},
-                    "title": {"type": "string"},
-                    "all_day": {"type": "boolean"},
-                    "tp_calendar_id": {"type": "string"},
-                    "tp_event_id": {"type": "string"},
+                    "service": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "all_day": {
+                        "type": "boolean"
+                    },
+                    "tp_calendar_id": {
+                        "type": "string"
+                    },
+                    "tp_event_id": {
+                        "type": "string"
+                    },
                     "comments": {
                         "type": "string",
                         "nullable": true,
@@ -173,9 +379,15 @@
                     "user": {
                         "type": "object",
                         "properties": {
-                            "name": {"type": "string"},
-                            "id": {"type": "string"},
-                            "zuid": {"type": "string"}
+                            "name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "zuid": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "name",
@@ -202,20 +414,32 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Unavailability Hours saved successfully"]
+                        "enum": [
+                            "Unavailability Hours saved successfully"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"id": {"type": "string"}},
-                        "required": ["id"]
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ]
                     }
                 },
                 "required": [
@@ -227,17 +451,27 @@
             },
             "Success_Wrapper": {
                 "type": "object",
-                "properties": {"users_unavailability": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "users_unavailability": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Success_Response"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Resource_Path_API_Exception": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
@@ -246,14 +480,20 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"resource_path_index": {
-                            "type": "integer",
-                            "format": "int32"
-                        }},
-                        "required": ["resource_path_index"]
+                        "properties": {
+                            "resource_path_index": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "required": [
+                            "resource_path_index"
+                        ]
                     }
                 },
                 "required": [
@@ -268,7 +508,9 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
@@ -279,13 +521,19 @@
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"]
+                        "enum": [
+                            "required field not found"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -305,22 +553,34 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"]
+                        "enum": [
+                            "required field not found"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"},
-                            "expected_data_type": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            },
+                            "expected_data_type": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -341,17 +601,23 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"],
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
                         "nullable": true
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"],
+                        "enum": [
+                            "required field not found"
+                        ],
                         "nullable": true
                     },
                     "details": {
@@ -390,15 +656,21 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Ids should be Long value with comma separated"]
+                        "enum": [
+                            "Ids should be Long value with comma separated"
+                        ]
                     },
                     "details": {
                         "type": "object",
@@ -407,7 +679,9 @@
                                 "type": "integer",
                                 "format": "int32"
                             },
-                            "param_name": {"type": "string"}
+                            "param_name": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "index",
@@ -427,17 +701,25 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_URL_PATTERN"]
+                        "enum": [
+                            "INVALID_URL_PATTERN"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Please check if the URL trying to access is a correct one"]
+                        "enum": [
+                            "Please check if the URL trying to access is a correct one"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "code",
@@ -451,17 +733,25 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["UNABLE_TO_PARSE_DATA_TYPE"]
+                        "enum": [
+                            "UNABLE_TO_PARSE_DATA_TYPE"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["either the request body or parameters is in wrong format"]
+                        "enum": [
+                            "either the request body or parameters is in wrong format"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "code",
@@ -475,24 +765,36 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["PATTERN_NOT_MATCHED"]
+                        "enum": [
+                            "PATTERN_NOT_MATCHED"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Please check whether the input values are correct"]
+                        "enum": [
+                            "Please check whether the input values are correct"
+                        ]
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"api_name": {
-                            "type": "string",
-                            "enum": ["include_inner_details"],
-                            "nullable": true
-                        }},
-                        "required": ["api_name"]
+                        "properties": {
+                            "api_name": {
+                                "type": "string",
+                                "enum": [
+                                    "include_inner_details"
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "required": [
+                            "api_name"
+                        ]
                     }
                 },
                 "required": [
@@ -504,29 +806,49 @@
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"users_unavailability": {
-                    "items": {"$ref": "#/components/schemas/Users_Unavailability"},
-                    "type": "array"
-                }},
-                "required": ["users_unavailability"]
+                "properties": {
+                    "users_unavailability": {
+                        "items": {
+                            "$ref": "#/components/schemas/Users_Unavailability"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "users_unavailability"
+                ]
             },
             "error": {
                 "type": "object",
-                "properties": {"users_unavailability": {
-                    "items": {"oneOf": [
-                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                        {"$ref": "#/components/schemas/Expected_Data_API_Exception"},
-                        {"$ref": "#/components/schemas/Expected_Max_Data_API_Exception"}
-                    ]},
-                    "type": "array"
-                }},
-                "required": ["users_unavailability"]
+                "properties": {
+                    "users_unavailability": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Expected_Data_API_Exception"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Expected_Max_Data_API_Exception"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "users_unavailability"
+                ]
             },
             "Response_Wrapper": {
                 "type": "object",
                 "properties": {
                     "users_unavailability": {
-                        "items": {"$ref": "#/components/schemas/Users_Unavailability"},
+                        "items": {
+                            "$ref": "#/components/schemas/Users_Unavailability"
+                        },
                         "type": "array"
                     },
                     "info": {
@@ -544,11 +866,15 @@
                                 "type": "integer",
                                 "format": "int32"
                             },
-                            "more_records": {"type": "boolean"}
+                            "more_records": {
+                                "type": "boolean"
+                            }
                         }
                     }
                 },
-                "required": ["users_unavailability"]
+                "required": [
+                    "users_unavailability"
+                ]
             }
         },
         "parameters": {
@@ -556,39 +882,55 @@
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "include_inner_details": {
                 "name": "include_inner_details",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "group_ids": {
                 "name": "group_ids",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "role_ids": {
                 "name": "role_ids",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "territory_ids": {
                 "name": "territory_ids",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "filters": {
                 "name": "filters",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

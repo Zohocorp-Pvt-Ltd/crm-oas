@@ -5,147 +5,295 @@
         "description": "Territories",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/settings/territories": {
             "get": {
                 "operationId": "Get Territories",
                 "parameters": [
-                    {"$ref": "#/components/parameters/filters"},
-                    {"$ref": "#/components/parameters/include"},
-                    {"$ref": "#/components/parameters/page"},
-                    {"$ref": "#/components/parameters/per_page"},
-                    {"$ref": "#/components/parameters/ids"}
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/include"
+                    },
+                    {
+                        "$ref": "#/components/parameters/page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/per_page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ids"
+                    }
                 ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/Territories"},
-                    "500": {"$ref": "#/components/responses/RInternalErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Territories"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/RInternalErrorResponse"
+                    }
                 }
             },
             "post": {
                 "operationId": "Create Territories",
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "201": {
+                        "$ref": "#/components/responses/CreateSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Territories",
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Territories",
                 "parameters": [
-                    {"$ref": "#/components/parameters/ids"},
-                    {"$ref": "#/components/parameters/delete_previous_forecasts"}
+                    {
+                        "$ref": "#/components/parameters/ids"
+                    },
+                    {
+                        "$ref": "#/components/parameters/delete_previous_forecasts"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             }
         },
         "/crm/v8/settings/territories/{id}": {
             "get": {
                 "operationId": "Get Territory",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/Territories"},
-                    "500": {"$ref": "#/components/responses/RInternalErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Territories"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/RInternalErrorResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Territory",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Territory",
                 "parameters": [
-                    {"$ref": "#/components/parameters/id"},
-                    {"$ref": "#/components/parameters/delete_previous_forecasts"}
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/delete_previous_forecasts"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/InternalErrorResponse"
+                    }
                 }
             }
         },
-        "/crm/v8/settings/territories/{id}/__child_territories": {"get": {
-            "operationId": "Get Child Territory",
-            "parameters": [
-                {"$ref": "#/components/parameters/id"},
-                {"$ref": "#/components/parameters/filters"},
-                {"$ref": "#/components/parameters/page"},
-                {"$ref": "#/components/parameters/per_page"}
-            ],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/Territories"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"},
-                "500": {"$ref": "#/components/responses/RInternalErrorResponse"}
+        "/crm/v8/settings/territories/{id}/__child_territories": {
+            "get": {
+                "operationId": "Get Child Territory",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/per_page"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Territories"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/RInternalErrorResponse"
+                    }
+                }
             }
-        }},
-        "/crm/v8/settings/territories/actions/associated_users_count": {"get": {
-            "operationId": "Get Associated User Count",
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/Associated_Usesr_Count"},
-                "500": {"$ref": "#/components/responses/RInternalErrorResponse"}
+        },
+        "/crm/v8/settings/territories/actions/associated_users_count": {
+            "get": {
+                "operationId": "Get Associated User Count",
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Associated_Usesr_Count"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/RInternalErrorResponse"
+                    }
+                }
             }
-        }},
-        "/crm/v8/settings/territories/actions/deleted_associated_territories": {"get": {
-            "operationId": "Get Deleted Associated Territory",
-            "parameters": [{"$ref": "#/components/parameters/ids"}],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/Deleted_Associated_Territories"},
-                "500": {"$ref": "#/components/responses/RInternalErrorResponse"}
+        },
+        "/crm/v8/settings/territories/actions/deleted_associated_territories": {
+            "get": {
+                "operationId": "Get Deleted Associated Territory",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ids"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Deleted_Associated_Territories"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/RInternalErrorResponse"
+                    }
+                }
             }
-        }},
-        "/crm/v8/settings/territories/{id}/actions/transfer_and_delete": {"post": {
-            "operationId": "Transfer And Delete Territory",
-            "parameters": [{"$ref": "#/components/parameters/id"}],
-            "requestBody": {"$ref": "#/components/requestBodies/TransferBody"},
-            "responses": {
-                "200": {"$ref": "#/components/responses/SuccessResponse"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
+        },
+        "/crm/v8/settings/territories/{id}/actions/transfer_and_delete": {
+            "post": {
+                "operationId": "Transfer And Delete Territory",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/TransferBody"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
             }
-        }},
-        "/crm/v8/settings/territories/actions/transfer_and_delete": {"post": {
-            "operationId": "Transfer And Delete Territories",
-            "requestBody": {"$ref": "#/components/requestBodies/TransferBody"},
-            "responses": {
-                "200": {"$ref": "#/components/responses/SuccessResponse"},
-                "400": {"$ref": "#/components/responses/ErrorResponse"}
+        },
+        "/crm/v8/settings/territories/actions/transfer_and_delete": {
+            "post": {
+                "operationId": "Transfer And Delete Territories",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/TransferBody"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.territories.ALL"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.territories.ALL"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Minified_Territory": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"},
-                    "subordinates": {"type": "boolean"}
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "subordinates": {
+                        "type": "boolean"
+                    }
                 },
                 "required": [
                     "name",
@@ -186,7 +334,9 @@
                         "nullable": true
                     },
                     "group": {
-                        "items": {"$ref": "#/components/schemas/Criteria"},
+                        "items": {
+                            "$ref": "#/components/schemas/Criteria"
+                        },
                         "type": "array"
                     }
                 },
@@ -201,7 +351,9 @@
             "manager": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
+                    "name": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string",
                         "nullable": true
@@ -215,8 +367,12 @@
             "reporting_to": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"}
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "name",
@@ -234,8 +390,12 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "manager": {"$ref": "#/components/schemas/manager"},
-                    "reporting_to": {"$ref": "#/components/schemas/reporting_to"},
+                    "manager": {
+                        "$ref": "#/components/schemas/manager"
+                    },
+                    "reporting_to": {
+                        "$ref": "#/components/schemas/reporting_to"
+                    },
                     "permission_type": {
                         "type": "string",
                         "enum": [
@@ -243,18 +403,34 @@
                             "read_only"
                         ]
                     },
-                    "modified_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "modified_by": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
                     "description": {
                         "type": "string",
                         "nullable": true
                     },
-                    "id": {"type": "string"},
-                    "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
-                    "account_rule_criteria": {"$ref": "#/components/schemas/Criteria"},
-                    "deal_rule_criteria": {"$ref": "#/components/schemas/Criteria"},
-                    "lead_rule_criteria": {"$ref": "#/components/schemas/Criteria"},
-                    "name": {"type": "string"},
-                    "api_name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "created_by": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
+                    "account_rule_criteria": {
+                        "$ref": "#/components/schemas/Criteria"
+                    },
+                    "deal_rule_criteria": {
+                        "$ref": "#/components/schemas/Criteria"
+                    },
+                    "lead_rule_criteria": {
+                        "$ref": "#/components/schemas/Criteria"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "created_time",
@@ -304,19 +480,27 @@
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"territories": {
-                    "items": {"$ref": "#/components/schemas/territories"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "territories": {
+                        "items": {
+                            "$ref": "#/components/schemas/territories"
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Response_Wrapper": {
                 "type": "object",
                 "properties": {
                     "territories": {
-                        "items": {"$ref": "#/components/schemas/territories"},
+                        "items": {
+                            "$ref": "#/components/schemas/territories"
+                        },
                         "type": "array"
                     },
-                    "info": {"$ref": "#/components/schemas/info"}
+                    "info": {
+                        "$ref": "#/components/schemas/info"
+                    }
                 },
                 "required": [
                     "territories",
@@ -325,18 +509,24 @@
             },
             "details": {
                 "type": "object",
-                "properties": {"id": {
-                    "type": "string",
-                    "nullable": true
-                }},
-                "required": ["id"]
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "id"
+                ]
             },
             "Success_Response": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"],
+                        "enum": [
+                            "SUCCESS"
+                        ],
                         "nullable": true
                     },
                     "message": {
@@ -345,10 +535,14 @@
                     },
                     "status": {
                         "type": "string",
-                        "enum": ["success"],
+                        "enum": [
+                            "success"
+                        ],
                         "nullable": true
                     },
-                    "details": {"$ref": "#/components/schemas/details"}
+                    "details": {
+                        "$ref": "#/components/schemas/details"
+                    }
                 },
                 "required": [
                     "code",
@@ -359,20 +553,36 @@
             },
             "SuccessWrapper": {
                 "type": "object",
-                "properties": {"territories": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                    "type": "array"
-                }},
-                "required": ["territories"]
+                "properties": {
+                    "territories": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Success_Response"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "territories"
+                ]
             },
             "MandatoryDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "supported_values": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "required": [
@@ -386,13 +596,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/MandatoryDetails"},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -404,28 +622,44 @@
             },
             "MandatoryErrorWrapper": {
                 "type": "object",
-                "properties": {"territories": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/MandatoryError"}]},
-                    "type": "array"
-                }},
-                "required": ["territories"]
+                "properties": {
+                    "territories": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "territories"
+                ]
             },
             "DuplicateError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["DUPLICATE_DATA"],
+                        "enum": [
+                            "DUPLICATE_DATA"
+                        ],
                         "nullable": true
                     },
                     "message": {
                         "type": "string",
                         "nullable": true
                     },
-                    "details": {"$ref": "#/components/schemas/MandatoryDetails"},
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     }
                 },
@@ -438,18 +672,34 @@
             },
             "DuplicateErrorWrapper": {
                 "type": "object",
-                "properties": {"territories": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/DuplicateError"}]},
-                    "type": "array"
-                }},
-                "required": ["territories"]
+                "properties": {
+                    "territories": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/DuplicateError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "territories"
+                ]
             },
             "TypeDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -462,13 +712,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/TypeDetails"},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/TypeDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -480,28 +738,44 @@
             },
             "InvalidTypeErrorWrapper": {
                 "type": "object",
-                "properties": {"territories": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidTypeError"}]},
-                    "type": "array"
-                }},
-                "required": ["territories"]
+                "properties": {
+                    "territories": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "territories"
+                ]
             },
             "InvalidValueError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"],
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
                         "nullable": true
                     },
                     "message": {
                         "type": "string",
                         "nullable": true
                     },
-                    "details": {"$ref": "#/components/schemas/MandatoryDetails"},
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     }
                 },
@@ -514,19 +788,33 @@
             },
             "InvalidValueErrorWrapper": {
                 "type": "object",
-                "properties": {"territories": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidValueError"}]},
-                    "type": "array"
-                }},
-                "required": ["territories"]
+                "properties": {
+                    "territories": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "territories"
+                ]
             },
             "InvalidUrlDetails": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }},
-                "required": ["resource_path_index"]
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "resource_path_index"
+                ]
             },
             "InvalidUrlError": {
                 "type": "object",
@@ -538,11 +826,17 @@
                             "NOT_ALLOWED"
                         ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"$ref": "#/components/schemas/InvalidUrlDetails"},
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidUrlDetails"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -554,24 +848,42 @@
             },
             "InvalidUrlErrorWrapper": {
                 "type": "object",
-                "properties": {"territories": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidUrlError"}]},
-                    "type": "array"
-                }},
-                "required": ["territories"]
+                "properties": {
+                    "territories": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "territories"
+                ]
             },
             "InternalError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INTERNAL_SERVER_ERROR"]
+                        "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                        ]
                     },
-                    "details": {"type": "object"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -584,8 +896,12 @@
             "associated_users_count": {
                 "type": "object",
                 "properties": {
-                    "count": {"type": "string"},
-                    "territory": {"$ref": "#/components/schemas/Minified_Territory"}
+                    "count": {
+                        "type": "string"
+                    },
+                    "territory": {
+                        "$ref": "#/components/schemas/Minified_Territory"
+                    }
                 },
                 "required": [
                     "count",
@@ -596,10 +912,14 @@
                 "type": "object",
                 "properties": {
                     "associated_users_count": {
-                        "items": {"$ref": "#/components/schemas/associated_users_count"},
+                        "items": {
+                            "$ref": "#/components/schemas/associated_users_count"
+                        },
                         "type": "array"
                     },
-                    "info": {"$ref": "#/components/schemas/info"}
+                    "info": {
+                        "$ref": "#/components/schemas/info"
+                    }
                 },
                 "required": [
                     "associated_users_count",
@@ -609,13 +929,19 @@
             "deleted_associated_territories": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"},
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
                     "deleted_time": {
                         "type": "string",
                         "format": "date-time"
                     },
-                    "deleted_by": {"$ref": "./users.json#/components/schemas/Minified_User"}
+                    "deleted_by": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    }
                 },
                 "required": [
                     "name",
@@ -628,10 +954,14 @@
                 "type": "object",
                 "properties": {
                     "territories": {
-                        "items": {"$ref": "#/components/schemas/deleted_associated_territories"},
+                        "items": {
+                            "$ref": "#/components/schemas/deleted_associated_territories"
+                        },
                         "type": "array"
                     },
-                    "info": {"$ref": "#/components/schemas/info"}
+                    "info": {
+                        "$ref": "#/components/schemas/info"
+                    }
                 },
                 "required": [
                     "territories",
@@ -642,44 +972,136 @@
         "responses": {
             "Territories": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "CreateSuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/InvalidTypeError"},
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidUrlErrorWrapper"},
-                    {"$ref": "#/components/schemas/InvalidValueErrorWrapper"},
-                    {"$ref": "#/components/schemas/InvalidTypeErrorWrapper"},
-                    {"$ref": "#/components/schemas/MandatoryErrorWrapper"},
-                    {"$ref": "#/components/schemas/DuplicateErrorWrapper"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/DuplicateErrorWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "InternalErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InternalError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RInternalErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InternalError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "Associated_Usesr_Count": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Associated_Users_Count_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Associated_Users_Count_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "Deleted_Associated_Territories": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Deleted_Associated_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Deleted_Associated_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -687,43 +1109,57 @@
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "ids": {
                 "name": "ids",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "filters": {
                 "name": "filters",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "delete_previous_forecasts": {
                 "name": "delete_previous_forecasts",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "boolean"}
+                "schema": {
+                    "type": "boolean"
+                }
             },
             "module": {
                 "name": "module",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "record": {
                 "name": "record",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "include": {
                 "name": "include",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "page": {
                 "name": "page",
@@ -746,14 +1182,26 @@
         },
         "requestBodies": {
             "body": {
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Body_Wrapper"
+                        }
+                    }
+                },
                 "required": true
             },
             "TransferBody": {
-                "content": {"application/json": {}},
+                "content": {
+                    "application/json": {}
+                },
                 "required": true
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

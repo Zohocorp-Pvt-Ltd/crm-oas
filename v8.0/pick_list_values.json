@@ -5,21 +5,47 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/settings/fields/{field_id}/pick_list_values": {"get": {
-        "operationId": "Get Pick List Values",
-        "parameters": [
-            {"$ref": "#/components/parameters/field_id"},
-            {"$ref": "#/components/parameters/module"}
-        ],
-        "responses": {
-            "204": {"description": ""},
-            "200": {"$ref": "#/components/responses/PickListValues"},
-            "400": {"$ref": "#/components/responses/ErrorResponse"},
-            "403": {"$ref": "#/components/responses/NoPermission"}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
         }
-    }}},
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.custom_views.All"]}],
+    ],
+    "paths": {
+        "/crm/v8/settings/fields/{field_id}/pick_list_values": {
+            "get": {
+                "operationId": "Get Pick List Values",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/field_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/PickListValues"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/NoPermission"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.custom_views.All"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "pick_list_values": {
@@ -29,23 +55,39 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "display_value": {"type": "string"},
-                    "reference_value": {"type": "string"},
+                    "display_value": {
+                        "type": "string"
+                    },
+                    "reference_value": {
+                        "type": "string"
+                    },
                     "colour_code": {
                         "type": "string",
                         "nullable": true
                     },
-                    "actual_value": {"type": "string"},
-                    "id": {"type": "string"},
-                    "type": {"type": "string"},
+                    "actual_value": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
                     "layout_associations": {
                         "type": "array",
                         "items": {
                             "type": "object",
                             "properties": {
-                                "api_name": {"type": "string"},
-                                "name": {"type": "string"},
-                                "id": {"type": "string"}
+                                "api_name": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string"
+                                }
                             }
                         }
                     }
@@ -63,25 +105,39 @@
             },
             "wrapper": {
                 "type": "object",
-                "properties": {"pick_list_values": {
-                    "items": {"$ref": "#/components/schemas/pick_list_values"},
-                    "type": "array"
-                }},
-                "required": ["pick_list_values"]
+                "properties": {
+                    "pick_list_values": {
+                        "items": {
+                            "$ref": "#/components/schemas/pick_list_values"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "pick_list_values"
+                ]
             },
             "Invalid_API_Exception": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["VERSION_NOT_SUPPORTED"]
+                        "enum": [
+                            "VERSION_NOT_SUPPORTED"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"type": "object"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "status",
@@ -95,19 +151,29 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["NO_PERMISSION"]
+                        "enum": [
+                            "NO_PERMISSION"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"permissions": {
-                            "type": "array",
-                            "items": {"type": "string"}
-                        }}
+                        "properties": {
+                            "permissions": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 },
                 "required": [
@@ -121,21 +187,53 @@
         "responses": {
             "PickListValues": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/Invalid_API_Exception"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidIDError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_API_Exception"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidIDError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "NoPermission": {
                 "description": "",
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/No_Permission_Exception"}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/No_Permission_Exception"
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -143,15 +241,23 @@
                 "name": "field_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "module": {
                 "name": "module",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

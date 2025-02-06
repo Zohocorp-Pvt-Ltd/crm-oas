@@ -5,129 +5,285 @@
         "description": "Users",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/users/actions/transfer_and_delete": {
             "post": {
                 "operationId": "Users Transfer and Delete",
                 "requestBody": {
-                    "content": {"application/json": {}},
+                    "content": {
+                        "application/json": {}
+                    },
                     "required": true
                 },
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{
-                            "type": "object",
-                            "properties": {"transfer_and_delete": {
-                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                                "type": "array"
-                            }}
-                        }]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "transfer_and_delete": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {
-                                "type": "object",
-                                "properties": {"transfer_and_delete": {
-                                    "items": {"oneOf": [
-                                        {"$ref": "#/components/schemas/User_API_Exception"},
-                                        {"$ref": "#/components/schemas/Resource_Path_API_Exception"},
-                                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                                        {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
-                                        {"$ref": "#/components/schemas/Expected_Data_Type_API_Exception"},
-                                        {"$ref": "#/components/schemas/Not_an_user_API_Exception"}
-                                    ]},
-                                    "type": "array"
-                                }}
-                            },
-                            {"$ref": "#/components/schemas/User_API_Exception"},
-                            {"$ref": "#/components/schemas/Resource_Path_API_Exception"},
-                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                            {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
-                            {"$ref": "#/components/schemas/Not_an_user_API_Exception"},
-                            {"$ref": "#/components/schemas/Expected_Data_Type_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "transfer_and_delete": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/User_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Expected_Data_Type_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Not_an_user_API_Exception"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/User_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Not_an_user_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Expected_Data_Type_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
             "get": {
                 "operationId": "Get Status",
-                "parameters": [{"$ref": "#/components/parameters/job_id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/job_id"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{
-                            "type": "object",
-                            "properties": {"transfer_and_delete": {
-                                "items": {"$ref": "#/components/schemas/Status"},
-                                "type": "array"
-                            }}
-                        }]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "transfer_and_delete": {
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Status"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "204": {"description": ""},
+                    "204": {
+                        "description": ""
+                    },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/User_API_Exception"},
-                            {"$ref": "#/components/schemas/Resource_Path_API_Exception"},
-                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                            {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
-                            {"$ref": "#/components/schemas/Expected_Data_Type_API_Exception"},
-                            {"$ref": "#/components/schemas/Not_an_user_API_Exception"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/User_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Expected_Data_Type_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Not_an_user_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/crm/v8/users/{id}/actions/transfer_and_delete": {"post": {
-            "operationId": "User Transfer and Delete",
-            "parameters": [{"$ref": "#/components/parameters/id"}],
-            "requestBody": {
-                "content": {"application/json": {}},
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"transfer_and_delete": {
-                            "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                            "type": "array"
-                        }}
-                    }]}}}
+        "/crm/v8/users/{id}/actions/transfer_and_delete": {
+            "post": {
+                "operationId": "User Transfer and Delete",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {
-                            "type": "object",
-                            "properties": {"transfer_and_delete": {
-                                "items": {"oneOf": [
-                                    {"$ref": "#/components/schemas/User_API_Exception"},
-                                    {"$ref": "#/components/schemas/Resource_Path_API_Exception"},
-                                    {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                                    {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
-                                    {"$ref": "#/components/schemas/Expected_Data_Type_API_Exception"},
-                                    {"$ref": "#/components/schemas/Not_an_user_API_Exception"}
-                                ]},
-                                "type": "array"
-                            }}
-                        },
-                        {"$ref": "#/components/schemas/User_API_Exception"},
-                        {"$ref": "#/components/schemas/Resource_Path_API_Exception"},
-                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                        {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
-                        {"$ref": "#/components/schemas/Expected_Data_Type_API_Exception"},
-                        {"$ref": "#/components/schemas/Not_an_user_API_Exception"}
-                    ]}}}
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "transfer_and_delete": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "transfer_and_delete": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/User_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Expected_Data_Type_API_Exception"
+                                                            },
+                                                            {
+                                                                "$ref": "#/components/schemas/Not_an_user_API_Exception"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/User_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Expected_Data_Type_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Not_an_user_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.users.all"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.users.all"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Success_Response": {
@@ -135,11 +291,15 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "message": {
                         "type": "string",
@@ -152,8 +312,12 @@
                     "details": {
                         "type": "object",
                         "properties": {
-                            "id": {"type": "string"},
-                            "jobId": {"type": "string"}
+                            "id": {
+                                "type": "string"
+                            },
+                            "jobId": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -163,7 +327,9 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
@@ -229,10 +395,18 @@
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "id": {"type": "string"},
-                            "email": {"type": "string"},
-                            "expected_data_type": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "expected_data_type": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -242,7 +416,9 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
@@ -251,13 +427,21 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"},
-                            "owner_status": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            },
+                            "owner_status": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -267,7 +451,9 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
@@ -276,13 +462,17 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"resource_path_index": {
-                            "type": "integer",
-                            "format": "int32"
-                        }}
+                        "properties": {
+                            "resource_path_index": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        }
                     }
                 }
             },
@@ -291,21 +481,31 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"]
+                        "enum": [
+                            "required field not found"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -315,21 +515,31 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid data"]
+                        "enum": [
+                            "invalid data"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -339,22 +549,34 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["invalid data"]
+                        "enum": [
+                            "invalid data"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"},
-                            "expected_data_type": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            },
+                            "expected_data_type": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -362,34 +584,60 @@
             "transfer": {
                 "type": "object",
                 "properties": {
-                    "records": {"type": "boolean"},
-                    "assignment": {"type": "boolean"},
-                    "criteria": {"type": "boolean"},
-                    "id": {"type": "string"}
+                    "records": {
+                        "type": "boolean"
+                    },
+                    "assignment": {
+                        "type": "boolean"
+                    },
+                    "criteria": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 }
             },
             "move_subordinate": {
                 "type": "object",
-                "properties": {"id": {"type": "string"}}
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
             },
             "Transfer_and_Delete": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "transfer": {"$ref": "#/components/schemas/transfer"},
-                    "move_subordinate": {"$ref": "#/components/schemas/move_subordinate"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "transfer": {
+                        "$ref": "#/components/schemas/transfer"
+                    },
+                    "move_subordinate": {
+                        "$ref": "#/components/schemas/move_subordinate"
+                    }
                 }
             },
             "Transfer_and_Delete_By_ID": {
                 "type": "object",
                 "properties": {
-                    "transfer": {"$ref": "#/components/schemas/transfer"},
-                    "move_subordinate": {"$ref": "#/components/schemas/move_subordinate"}
+                    "transfer": {
+                        "$ref": "#/components/schemas/transfer"
+                    },
+                    "move_subordinate": {
+                        "$ref": "#/components/schemas/move_subordinate"
+                    }
                 }
             },
             "Status": {
                 "type": "object",
-                "properties": {"status": {"type": "string"}}
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    }
+                }
             }
         },
         "parameters": {
@@ -397,15 +645,23 @@
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "job_id": {
                 "name": "job_id",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

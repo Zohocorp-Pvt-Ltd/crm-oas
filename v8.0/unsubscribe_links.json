@@ -5,91 +5,177 @@
         "description": "Unsubscribe Link",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/settings/unsubscribe_links": {
             "get": {
                 "operationId": "Get Unsubscribe Links",
                 "responses": {
-                    "200": {"$ref": "#/components/responses/UnsubscribeLinks"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/UnsubscribeLinks"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             },
             "post": {
                 "operationId": "Create Unsubscribe Link",
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/SuccessResponseBody"},
-                    "400": {"$ref": "#/components/responses/ErrorResponses"}
+                    "201": {
+                        "$ref": "#/components/responses/SuccessResponseBody"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponses"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Unsubscribe Links",
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/SuccessResponseBody"},
-                    "400": {"$ref": "#/components/responses/ErrorResponses"}
+                    "201": {
+                        "$ref": "#/components/responses/SuccessResponseBody"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponses"
+                    }
                 }
             }
         },
         "/crm/v8/settings/unsubscribe_links/{id}": {
             "get": {
                 "operationId": "Get Unsubscribe Link",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/UnsubscribeLinks"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/UnsubscribeLinks"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Unsubscribe Link",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/SuccessResponseBody"},
-                    "400": {"$ref": "#/components/responses/ErrorResponses"}
+                    "201": {
+                        "$ref": "#/components/responses/SuccessResponseBody"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponses"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Unsubscribe Link",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "responses": {
-                    "201": {"$ref": "#/components/responses/SuccessResponseBody"},
-                    "400": {"$ref": "#/components/responses/ErrorResponses"}
+                    "201": {
+                        "$ref": "#/components/responses/SuccessResponseBody"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponses"
+                    }
                 }
             }
         },
-        "/crm/v8/settings/unsubscribe_link/actions/associations": {"get": {
-            "operationId": "Get Associated Unsubscribe Links",
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"associations": {
-                            "items": {"$ref": "#/components/schemas/Association_Details"},
-                            "type": "array"
-                        }},
-                        "required": ["associations"]
-                    }]}}}
-                },
-                "204": {"description": ""},
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Invalid_Module_Exception"}]}}}
+        "/crm/v8/settings/unsubscribe_link/actions/associations": {
+            "get": {
+                "operationId": "Get Associated Unsubscribe Links",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "associations": {
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Association_Details"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "associations"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Module_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.unsubscribe.ALL"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.unsubscribe.ALL"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Unsubscribe_links": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "name": {"type": "string"},
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
                     "page_type": {
                         "type": "string",
                         "enum": [
@@ -120,10 +206,18 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "location_url_type": {"type": "string"},
-                    "action_on_unsubscribe": {"type": "string"},
-                    "created_by": {"$ref": "#/components/schemas/User"},
-                    "modified_by": {"$ref": "#/components/schemas/User"},
+                    "location_url_type": {
+                        "type": "string"
+                    },
+                    "action_on_unsubscribe": {
+                        "type": "string"
+                    },
+                    "created_by": {
+                        "$ref": "#/components/schemas/User"
+                    },
+                    "modified_by": {
+                        "$ref": "#/components/schemas/User"
+                    },
                     "modified_time": {
                         "type": "string",
                         "format": "date-time"
@@ -175,13 +269,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/Id_Detail"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/Id_Detail"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     }
                 },
                 "required": [
@@ -226,24 +328,28 @@
                                 },
                                 "details": {
                                     "type": "object",
-                                    "properties": {"module": {
-                                        "type": "object",
-                                        "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "nullable": true
+                                    "properties": {
+                                        "module": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "api_name": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
                                             },
-                                            "api_name": {
-                                                "type": "string",
-                                                "nullable": true
-                                            }
-                                        },
-                                        "required": [
-                                            "id",
-                                            "api_name"
-                                        ]
-                                    }},
-                                    "required": ["module"]
+                                            "required": [
+                                                "id",
+                                                "api_name"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "module"
+                                    ]
                                 }
                             }
                         },
@@ -264,13 +370,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_MODULE"]
+                        "enum": [
+                            "INVALID_MODULE"
+                        ]
                     },
-                    "details": {"type": "object"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -285,20 +399,40 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Resource_Path_Detail"},
-                        {"$ref": "#/components/schemas/Id_Detail"},
-                        {"$ref": "#/components/schemas/Apiname_JsonPath_Detail"},
-                        {"$ref": "#/components/schemas/Expected_Type_Detail"},
-                        {"$ref": "#/components/schemas/Maximum_Length_Detail"},
-                        {"$ref": "#/components/schemas/Supported_Values_Detail"}
-                    ]},
-                    "message": {"type": "string"},
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Resource_Path_Detail"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Id_Detail"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Apiname_JsonPath_Detail"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Expected_Type_Detail"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Maximum_Length_Detail"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Supported_Values_Detail"
+                            }
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -313,16 +447,28 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Resource_Path_Detail"},
-                        {"$ref": "#/components/schemas/Apiname_JsonPath_Detail"}
-                    ]},
-                    "message": {"type": "string"},
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Resource_Path_Detail"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Apiname_JsonPath_Detail"
+                            }
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -337,13 +483,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["DUPLICATE_DATA"]
+                        "enum": [
+                            "DUPLICATE_DATA"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/Apiname_JsonPath_Detail"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/Apiname_JsonPath_Detail"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -358,13 +512,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["LIMIT_EXCEEDED"]
+                        "enum": [
+                            "LIMIT_EXCEEDED"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/Limit_Detail"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/Limit_Detail"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -379,16 +541,28 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NOT_ALLOWED"]
+                        "enum": [
+                            "NOT_ALLOWED"
+                        ]
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Resource_Path_Detail"},
-                        {"$ref": "#/components/schemas/Apiname_JsonPath_Detail"}
-                    ]},
-                    "message": {"type": "string"},
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Resource_Path_Detail"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Apiname_JsonPath_Detail"
+                            }
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -403,13 +577,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["DEPENDENT_FIELD_MISSING"]
+                        "enum": [
+                            "DEPENDENT_FIELD_MISSING"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/Dependee_Detail"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/Dependee_Detail"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -421,22 +603,36 @@
             },
             "Resource_Path_Detail": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }},
-                "required": ["resource_path_index"]
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "resource_path_index"
+                ]
             },
             "Id_Detail": {
                 "type": "object",
-                "properties": {"id": {"type": "string"}},
-                "required": ["id"]
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
             },
             "Apiname_JsonPath_Detail": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -446,9 +642,15 @@
             "Expected_Type_Detail": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -459,8 +661,12 @@
             "Maximum_Length_Detail": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "maximum_length": {
                         "type": "integer",
                         "format": "int32"
@@ -480,7 +686,9 @@
                         "format": "int32"
                     },
                     "limit_due_to": {
-                        "items": {"$ref": "#/components/schemas/Apiname_JsonPath_Detail"},
+                        "items": {
+                            "$ref": "#/components/schemas/Apiname_JsonPath_Detail"
+                        },
                         "type": "array"
                     }
                 },
@@ -492,11 +700,17 @@
             "Supported_Values_Detail": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "supported_values": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "required": [
@@ -508,9 +722,15 @@
             "Dependee_Detail": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "dependee": {"$ref": "#/components/schemas/Apiname_JsonPath_Detail"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "dependee": {
+                        "$ref": "#/components/schemas/Apiname_JsonPath_Detail"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -522,66 +742,148 @@
         "responses": {
             "UnsubscribeLinks": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{
-                    "type": "object",
-                    "properties": {"unsubscribe_links": {
-                        "items": {"$ref": "#/components/schemas/Unsubscribe_links"},
-                        "type": "array"
-                    }},
-                    "required": ["unsubscribe_links"]
-                }]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "unsubscribe_links": {
+                                            "items": {
+                                                "$ref": "#/components/schemas/Unsubscribe_links"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "unsubscribe_links"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/Invalid_Module_Exception"},
-                    {"$ref": "#/components/schemas/Invalid_Data_Exception"},
-                    {"$ref": "#/components/schemas/Not_Allowed_Exception"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Module_Exception"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Data_Exception"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Not_Allowed_Exception"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponseBody": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{
-                    "type": "object",
-                    "properties": {"unsubscribe_links": {
-                        "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                        "type": "array"
-                    }},
-                    "required": ["unsubscribe_links"]
-                }]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "unsubscribe_links": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Success_Response"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "unsubscribe_links"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponses": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {"unsubscribe_links": {
-                            "items": {"oneOf": [
-                                {"$ref": "#/components/schemas/Invalid_Data_Exception"},
-                                {"$ref": "#/components/schemas/Mandatory_Not_Found_Exception"},
-                                {"$ref": "#/components/schemas/Duplicate_Data_Exception"},
-                                {"$ref": "#/components/schemas/Limit_Exception"},
-                                {"$ref": "#/components/schemas/Not_Allowed_Exception"},
-                                {"$ref": "#/components/schemas/Dependent_Field_Exception"}
-                            ]},
-                            "type": "array"
-                        }},
-                        "required": ["unsubscribe_links"]
-                    },
-                    {"$ref": "#/components/schemas/Invalid_Module_Exception"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "unsubscribe_links": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Invalid_Data_Exception"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Mandatory_Not_Found_Exception"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Duplicate_Data_Exception"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Limit_Exception"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Not_Allowed_Exception"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Dependent_Field_Exception"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "unsubscribe_links"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Module_Exception"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
-        "parameters": {"id": {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {"type": "string"}
-        }},
-        "requestBodies": {"body": {
-            "content": {"application/json": {}},
-            "required": true
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "parameters": {
+            "id": {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {}
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

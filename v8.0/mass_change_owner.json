@@ -5,52 +5,112 @@
         "description": "Mass Change Owner",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/{module}/actions/mass_change_owner": {
-        "post": {
-            "operationId": "Change Owner",
-            "parameters": [{"$ref": "#/components/parameters/module"}],
-            "requestBody": {
-                "content": {"application/json": {}},
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"data": {
-                            "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                            "type": "array"
-                        }},
-                        "required": ["data"]
-                    }]}}}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/{module}/actions/mass_change_owner": {
+            "post": {
+                "operationId": "Change Owner",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                        {"$ref": "#/components/schemas/Invalid_Cvid_API_Exception"},
-                        {"$ref": "#/components/schemas/Improper_Cvid_API_Exception"},
-                        {"$ref": "#/components/schemas/Improper_Cvid_API_Exception1"}
-                    ]}}}
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "$ref": "#/components/schemas/Success_Response"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "data"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Cvid_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Improper_Cvid_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Improper_Cvid_API_Exception1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "operationId": "Check Status",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    },
+                    {
+                        "$ref": "#/components/parameters/job_id"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/JobStatus"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             }
-        },
-        "get": {
-            "operationId": "Check Status",
-            "parameters": [
-                {"$ref": "#/components/parameters/module"},
-                {"$ref": "#/components/parameters/job_id"}
-            ],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/JobStatus"},
-                "400": {"$ref": "#/components/responses/RErrorResponse"}
-            }
         }
-    }},
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.modules.ALL"]}],
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.modules.ALL"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Success_Response": {
@@ -58,21 +118,31 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["owner is successfully updated"]
+                        "enum": [
+                            "owner is successfully updated"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "id": {"type": "string"},
-                            "job_id": {"type": "string"}
+                            "id": {
+                                "type": "string"
+                            },
+                            "job_id": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "id",
@@ -92,23 +162,35 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["the cvid given seems to be invalid"]
+                        "enum": [
+                            "the cvid given seems to be invalid"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"api_name": {
-                            "type": "string",
-                            "enum": ["cvid"]
-                        }},
-                        "required": ["api_name"]
+                        "properties": {
+                            "api_name": {
+                                "type": "string",
+                                "enum": [
+                                    "cvid"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "api_name"
+                        ]
                     }
                 },
                 "required": [
@@ -123,24 +205,34 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["the cvid given seems to be invalid"]
+                        "enum": [
+                            "the cvid given seems to be invalid"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
                             "api_name": {
                                 "type": "string",
-                                "enum": ["cvid"]
+                                "enum": [
+                                    "cvid"
+                                ]
                             },
-                            "expected_data_type": {"type": "string"}
+                            "expected_data_type": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -160,24 +252,34 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["the cvid given seems to be invalid"]
+                        "enum": [
+                            "the cvid given seems to be invalid"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
                             "api_name": {
                                 "type": "string",
-                                "enum": ["cvid"]
+                                "enum": [
+                                    "cvid"
+                                ]
                             },
-                            "json_path": {"type": "string"}
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -197,15 +299,21 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"]
+                        "enum": [
+                            "required field not found"
+                        ]
                     },
                     "details": {
                         "type": "object",
@@ -218,7 +326,9 @@
                                     "id"
                                 ]
                             },
-                            "expected_data_type": {"type": "string"}
+                            "expected_data_type": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -265,10 +375,14 @@
             },
             "wrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"$ref": "#/components/schemas/status"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "$ref": "#/components/schemas/status"
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Criteria": {
                 "type": "object",
@@ -303,7 +417,9 @@
                         "nullable": true
                     },
                     "group": {
-                        "items": {"$ref": "#/components/schemas/Criteria"},
+                        "items": {
+                            "$ref": "#/components/schemas/Criteria"
+                        },
                         "type": "array"
                     }
                 },
@@ -319,16 +435,40 @@
         "responses": {
             "JobStatus": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                    {"$ref": "#/components/schemas/Invalid_Cvid_API_Exception"},
-                    {"$ref": "#/components/schemas/Improper_Cvid_API_Exception"},
-                    {"$ref": "#/components/schemas/Improper_Cvid_API_Exception1"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Cvid_API_Exception"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Improper_Cvid_API_Exception"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Improper_Cvid_API_Exception1"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -336,15 +476,23 @@
                 "name": "module",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "job_id": {
                 "name": "job_id",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

@@ -5,42 +5,74 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/settings/global_picklists": {
             "get": {
                 "operationId": "Get Global Picklists",
                 "parameters": [
-                    {"$ref": "#/components/parameters/include"},
-                    {"$ref": "#/components/parameters/include_inner_details"}
+                    {
+                        "$ref": "#/components/parameters/include"
+                    },
+                    {
+                        "$ref": "#/components/parameters/include_inner_details"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/GlobalPicklists"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/GlobalPicklists"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             },
             "post": {
                 "operationId": "Create Global Picklist",
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "201": {
+                        "$ref": "#/components/responses/CreateSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             },
             "patch": {
                 "operationId": "Update Global Picklists",
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "201": {
+                        "$ref": "#/components/responses/CreateSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Global Picklists",
-                "parameters": [{"$ref": "#/components/parameters/ids"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ids"
+                    }
+                ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             }
         },
@@ -48,86 +80,176 @@
             "get": {
                 "operationId": "Get Global Picklist",
                 "parameters": [
-                    {"$ref": "#/components/parameters/include"},
-                    {"$ref": "#/components/parameters/include_inner_details"},
-                    {"$ref": "#/components/parameters/id"}
+                    {
+                        "$ref": "#/components/parameters/include"
+                    },
+                    {
+                        "$ref": "#/components/parameters/include_inner_details"
+                    },
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
                 ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/GlobalPicklists"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/GlobalPicklists"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             },
             "patch": {
                 "operationId": "Update Global Picklist",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Global Picklist",
-                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             }
         },
-        "/crm/v8/settings/global_picklists/{id}/actions/replace_picklist_values": {"post": {
-            "operationId": "replace picklist values",
-            "parameters": [{"$ref": "#/components/parameters/id"}],
-            "requestBody": {"$ref": "#/components/requestBodies/ReplaceBody"},
-            "responses": {
-                "200": {"$ref": "#/components/responses/ReplaceSuccessResponse"},
-                "400": {"$ref": "#/components/responses/ReplaceErrorResponse"}
+        "/crm/v8/settings/global_picklists/{id}/actions/replace_picklist_values": {
+            "post": {
+                "operationId": "replace picklist values",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/ReplaceBody"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/ReplaceSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ReplaceErrorResponse"
+                    }
+                }
             }
-        }},
-        "/crm/v8/settings/global_picklists/{id}/actions/replaced_values": {"get": {
-            "operationId": "Get Replace Values",
-            "parameters": [{"$ref": "#/components/parameters/id"}],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/ReplacedValues"},
-                "400": {"$ref": "#/components/responses/ReplacedValuesError"}
+        },
+        "/crm/v8/settings/global_picklists/{id}/actions/replaced_values": {
+            "get": {
+                "operationId": "Get Replace Values",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/ReplacedValues"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ReplacedValuesError"
+                    }
+                }
             }
-        }},
-        "/crm/v8/settings/global_picklists/{id}/actions/associations": {"get": {
-            "operationId": "Get Associations",
-            "parameters": [
-                {"$ref": "#/components/parameters/id"},
-                {"$ref": "#/components/parameters/include_inner_details"},
-                {"$ref": "#/components/parameters/page"},
-                {"$ref": "#/components/parameters/per_page"}
-            ],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/Associations"},
-                "400": {"$ref": "#/components/responses/AssociationsError"}
+        },
+        "/crm/v8/settings/global_picklists/{id}/actions/associations": {
+            "get": {
+                "operationId": "Get Associations",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/include_inner_details"
+                    },
+                    {
+                        "$ref": "#/components/parameters/page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/per_page"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Associations"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/AssociationsError"
+                    }
+                }
             }
-        }},
-        "/crm/v8/settings/global_picklists/{id}/actions/pick_list_values_associations": {"get": {
-            "operationId": "Get Pick list value Associations",
-            "parameters": [
-                {"$ref": "#/components/parameters/id"},
-                {"$ref": "#/components/parameters/picklist_value_id"}
-            ],
-            "responses": {
-                "204": {"description": ""},
-                "200": {"$ref": "#/components/responses/PVAssociations"},
-                "400": {"$ref": "#/components/responses/PVAssociationsError"}
+        },
+        "/crm/v8/settings/global_picklists/{id}/actions/pick_list_values_associations": {
+            "get": {
+                "operationId": "Get Pick list value Associations",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/picklist_value_id"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/PVAssociations"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/PVAssociationsError"
+                    }
+                }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": [""]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "pick_list_values": {
                 "type": "object",
                 "properties": {
-                    "actual_value": {"type": "string"},
+                    "actual_value": {
+                        "type": "string"
+                    },
                     "type": {
                         "type": "string",
                         "enum": [
@@ -143,7 +265,9 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "display_value": {"type": "string"}
+                    "display_value": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "actual_value",
@@ -156,7 +280,9 @@
             "picklist": {
                 "type": "object",
                 "properties": {
-                    "display_label": {"type": "string"},
+                    "display_label": {
+                        "type": "string"
+                    },
                     "created_time": {
                         "type": "string",
                         "format": "date-time",
@@ -166,23 +292,37 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "id": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "actual_label": {"type": "string"},
+                    "id": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "actual_label": {
+                        "type": "string"
+                    },
                     "description": {
                         "type": "string",
                         "nullable": true
                     },
-                    "modified_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
-                    "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
-                    "presence": {"type": "boolean"},
+                    "modified_by": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
+                    "created_by": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
+                    "presence": {
+                        "type": "boolean"
+                    },
                     "pick_list_values_sorted_lexically": {
                         "type": "boolean",
                         "nullable": true
                     },
                     "pick_list_values": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/pick_list_values"}
+                        "items": {
+                            "$ref": "#/components/schemas/pick_list_values"
+                        }
                     }
                 },
                 "required": [
@@ -202,44 +342,78 @@
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"global_picklists": {
-                    "items": {"$ref": "#/components/schemas/picklist"},
-                    "type": "array"
-                }},
-                "required": ["global_picklists"]
+                "properties": {
+                    "global_picklists": {
+                        "items": {
+                            "$ref": "#/components/schemas/picklist"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "global_picklists"
+                ]
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"global_picklists": {
-                    "items": {"$ref": "#/components/schemas/picklist"},
-                    "type": "array"
-                }},
-                "required": ["global_picklists"]
+                "properties": {
+                    "global_picklists": {
+                        "items": {
+                            "$ref": "#/components/schemas/picklist"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "global_picklists"
+                ]
             },
             "Action_Wrapper": {
                 "type": "object",
-                "properties": {"global_picklists": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                    "type": "array"
-                }},
-                "required": ["global_picklists"]
+                "properties": {
+                    "global_picklists": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Success_Response"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "global_picklists"
+                ]
             },
             "Success_Response": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"id": {"type": "string"}},
-                        "required": ["id"]
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     }
                 },
                 "required": [
@@ -251,321 +425,585 @@
             },
             "MandatoryWrapper": {
                 "type": "object",
-                "properties": {"global_picklists": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"}]},
-                    "type": "array"
-                }},
-                "required": ["global_picklists"]
+                "properties": {
+                    "global_picklists": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "global_picklists"
+                ]
             },
             "InvalidValueWrapper": {
                 "type": "object",
-                "properties": {"global_picklists": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"}]},
-                    "type": "array"
-                }},
-                "required": ["global_picklists"]
+                "properties": {
+                    "global_picklists": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "global_picklists"
+                ]
             },
             "InvalidTypeWrapper": {
                 "type": "object",
-                "properties": {"global_picklists": {
-                    "items": {"oneOf": [
-                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
-                        {"$ref": "#/components/schemas/InternalError"}
-                    ]},
-                    "type": "array"
-                }},
-                "required": ["global_picklists"]
+                "properties": {
+                    "global_picklists": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "global_picklists"
+                ]
             },
             "InternalError": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INTERNAL_SERVER_ERROR"]
+                        "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                        ]
                     },
-                    "details": {"type": "object"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "replace_picklist_value": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "display_value": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "display_value": {
+                        "type": "string"
+                    }
                 },
-                "required": ["display_value"]
+                "required": [
+                    "display_value"
+                ]
             }
         },
         "responses": {
             "GlobalPicklists": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "CreateSuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Action_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Action_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Action_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Action_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"},
-                    {"$ref": "#/components/schemas/MandatoryWrapper"},
-                    {"$ref": "#/components/schemas/InvalidValueWrapper"},
-                    {"$ref": "#/components/schemas/InvalidTypeWrapper"},
-                    {"$ref": "#/components/schemas/InternalError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"},
-                    {"$ref": "#/components/schemas/InternalError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ReplaceSuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{
-                    "type": "object",
-                    "properties": {"replace_picklist_values": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "code": {
-                                    "type": "string",
-                                    "enum": ["SCHEDULED"]
-                                },
-                                "details": {
-                                    "type": "object",
-                                    "properties": {"job_id": {"type": "string"}},
-                                    "required": ["job_id"]
-                                },
-                                "message": {"type": "string"},
-                                "status": {
-                                    "type": "string",
-                                    "enum": ["success"]
-                                }
-                            },
-                            "required": [
-                                "code",
-                                "details",
-                                "message",
-                                "status"
-                            ]
-                        }
-                    }},
-                    "required": ["replace_picklist_values"]
-                }]}}}
-            },
-            "ReplaceErrorResponse": {
-                "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {"replace_picklist_values": {
-                            "items": {"oneOf": [
-                                {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                                {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
-                                {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}
-                            ]},
-                            "type": "array"
-                        }},
-                        "required": ["replace_picklist_values"]
-                    },
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
-                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InternalError"}
-                ]}}}
-            },
-            "ReplacedValues": {
-                "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {"replaced_values": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "display_value": {"type": "string"},
-                                    "actual_value": {"type": "string"}
-                                },
-                                "required": [
-                                    "display_value",
-                                    "actual_value"
-                                ]
-                            }
-                        }},
-                        "required": ["replaced_values"]
-                    },
-                    {"$ref": "#/components/schemas/InternalError"}
-                ]}}}
-            },
-            "ReplacedValuesError": {
-                "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]}}}
-            },
-            "Associations": {
-                "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {
-                            "associations": {
-                                "type": "array",
-                                "items": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
                                     "type": "object",
                                     "properties": {
-                                        "field": {
-                                            "type": "object",
-                                            "properties": {
-                                                "api_name": {"type": "string"},
-                                                "id": {"type": "string"}
-                                            },
-                                            "required": [
-                                                "api_name",
-                                                "id"
-                                            ]
-                                        },
-                                        "module": {
-                                            "type": "object",
-                                            "properties": {
-                                                "plural_label": {"type": "string"},
-                                                "api_name": {"type": "string"},
-                                                "id": {"type": "string"}
-                                            },
-                                            "required": [
-                                                "plural_label",
-                                                "api_name",
-                                                "id"
-                                            ]
-                                        },
-                                        "layouts": {
+                                        "replace_picklist_values": {
                                             "type": "array",
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "name": {"type": "string"},
-                                                    "id": {"type": "string"},
-                                                    "status": {"type": "string"}
+                                                    "code": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "SCHEDULED"
+                                                        ]
+                                                    },
+                                                    "details": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "job_id": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "job_id"
+                                                        ]
+                                                    },
+                                                    "message": {
+                                                        "type": "string"
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "success"
+                                                        ]
+                                                    }
+                                                },
+                                                "required": [
+                                                    "code",
+                                                    "details",
+                                                    "message",
+                                                    "status"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "replace_picklist_values"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "ReplaceErrorResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "replace_picklist_values": {
+                                            "items": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                                    },
+                                                    {
+                                                        "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                                    },
+                                                    {
+                                                        "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "replace_picklist_values"
+                                    ]
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "ReplacedValues": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "replaced_values": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "display_value": {
+                                                        "type": "string"
+                                                    },
+                                                    "actual_value": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "display_value",
+                                                    "actual_value"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "replaced_values"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "ReplacedValuesError": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "Associations": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "associations": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "field": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "api_name": {
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "api_name",
+                                                            "id"
+                                                        ]
+                                                    },
+                                                    "module": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "plural_label": {
+                                                                "type": "string"
+                                                            },
+                                                            "api_name": {
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "plural_label",
+                                                            "api_name",
+                                                            "id"
+                                                        ]
+                                                    },
+                                                    "layouts": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "status": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "name",
+                                                            "id",
+                                                            "status"
+                                                        ]
+                                                    }
                                                 }
                                             },
                                             "required": [
-                                                "name",
-                                                "id",
-                                                "status"
+                                                "field",
+                                                "module",
+                                                "layouts"
+                                            ]
+                                        },
+                                        "info": {
+                                            "type": "object",
+                                            "properties": {
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                },
+                                                "count": {
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                },
+                                                "page": {
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                },
+                                                "more_records": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "required": [
+                                                "per_page",
+                                                "count",
+                                                "page",
+                                                "more_records"
                                             ]
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "associations",
+                                        "info"
+                                    ]
                                 },
-                                "required": [
-                                    "field",
-                                    "module",
-                                    "layouts"
-                                ]
-                            },
-                            "info": {
-                                "type": "object",
-                                "properties": {
-                                    "per_page": {
-                                        "type": "integer",
-                                        "format": "int32"
-                                    },
-                                    "count": {
-                                        "type": "integer",
-                                        "format": "int32"
-                                    },
-                                    "page": {
-                                        "type": "integer",
-                                        "format": "int32"
-                                    },
-                                    "more_records": {"type": "boolean"}
-                                },
-                                "required": [
-                                    "per_page",
-                                    "count",
-                                    "page",
-                                    "more_records"
-                                ]
-                            }
-                        },
-                        "required": [
-                            "associations",
-                            "info"
-                        ]
-                    },
-                    {"$ref": "#/components/schemas/InternalError"}
-                ]}}}
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "AssociationsError": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "PVAssociations": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {"pick_list_values_associations": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "type": {"type": "string"},
-                                    "resources": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {
-                                                "id": {"type": "string"},
-                                                "name": {"type": "string"},
-                                                "details": {
-                                                    "items": {"$ref": "./record.json#/components/schemas/Record"},
-                                                    "type": "array"
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "pick_list_values_associations": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "resources": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "details": {
+                                                                    "items": {
+                                                                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/record.json#/components/schemas/Record"
+                                                                    },
+                                                                    "type": "array"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id",
+                                                            "name",
+                                                            "details"
+                                                        ]
+                                                    }
                                                 }
-                                            }
-                                        },
-                                        "required": [
-                                            "id",
-                                            "name",
-                                            "details"
-                                        ]
-                                    }
+                                            },
+                                            "required": [
+                                                "type",
+                                                "resources"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "pick_list_values_associations"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InternalError"
                                 }
-                            },
-                            "required": [
-                                "type",
-                                "resources"
                             ]
-                        }},
-                        "required": ["pick_list_values_associations"]
-                    },
-                    {"$ref": "#/components/schemas/InternalError"}
-                ]}}}
+                        }
+                    }
+                }
             },
             "PVAssociationsError": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -573,31 +1011,41 @@
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "ids": {
                 "name": "ids",
                 "in": "query",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "picklist_value_id": {
                 "name": "picklist_value_id",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "include": {
                 "name": "include",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "include_inner_details": {
                 "name": "include_inner_details",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "page": {
                 "name": "page",
@@ -620,14 +1068,26 @@
         },
         "requestBodies": {
             "body": {
-                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Body_Wrapper"
+                        }
+                    }
+                },
                 "required": true
             },
             "ReplaceBody": {
-                "content": {"application/json": {}},
+                "content": {
+                    "application/json": {}
+                },
                 "required": true
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

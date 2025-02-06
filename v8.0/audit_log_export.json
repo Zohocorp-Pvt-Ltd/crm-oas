@@ -5,36 +5,86 @@
         "description": "Bulk Read",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/settings/audit_log_export": {
             "post": {
                 "operationId": "Create AuditLog Export",
                 "requestBody": {
-                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/BodyWrapper"}}},
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BodyWrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/ScheduledResponse"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/ScheduledResponse"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [
-                            {"$ref": "#/components/schemas/DependentMismatchError"},
-                            {"$ref": "#/components/schemas/ExpectedFieldMissingError"},
-                            {"$ref": "#/components/schemas/MandatoryError"},
-                            {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
-                            {"$ref": "#/components/schemas/NotSupportedError"},
-                            {"$ref": "#/components/schemas/DependentFieldError"},
-                            {"$ref": "#/components/schemas/InvalidValueError"},
-                            {"$ref": "#/components/schemas/InvalidTypeError"},
-                            {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
-                            {"$ref": "#/components/schemas/AmbiguityError"},
-                            {"$ref": "#/components/schemas/LimitExccededResponse"},
-                            {"$ref": "#/components/schemas/DependentFieldException"}
-                        ]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/DependentMismatchError"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/ExpectedFieldMissingError"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/MandatoryError"
+                                        },
+                                        {
+                                            "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/NotSupportedError"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/DependentFieldError"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/InvalidValueError"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/InvalidTypeError"
+                                        },
+                                        {
+                                            "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/AmbiguityError"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/LimitExccededResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/DependentFieldException"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -43,70 +93,168 @@
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/ResponseWrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/ResponseWrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InvalidUrlPattern"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/InvalidUrlPattern"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/crm/v8/settings/audit_log_export/{id}": {"get": {
-            "operationId": "Get Exported AuditLog",
-            "parameters": [{"$ref": "#/components/parameters/id"}],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/ResponseWrapper"}]}}}
-                },
-                "204": {"description": ""},
-                "404": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InvalidUrlPattern"}]}}}
+        "/crm/v8/settings/audit_log_export/{id}": {
+            "get": {
+                "operationId": "Get Exported AuditLog",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/ResponseWrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/InvalidUrlPattern"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }},
-        "/{download_url}": {"get": {
-            "operationId": "Download Export Audit Log Result",
-            "parameters": [{"$ref": "#/components/parameters/download_url"}],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/octet-stream": {"schema": {"oneOf": [{"$ref": "#/components/schemas/File_Body_Wrapper"}]}}}
-                },
-                "403": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Forbidden"}]}}}
+        },
+        "/{download_url}": {
+            "get": {
+                "operationId": "Download Export Audit Log Result",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/download_url"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/File_Body_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Forbidden"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }}
+        }
     },
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.audit_logs.CREATE"]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.audit_logs.CREATE"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "BodyWrapper": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"$ref": "#/components/schemas/AuditLogExport"},
-                    "type": "array"
-                }},
-                "required": ["audit_log_export"]
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "$ref": "#/components/schemas/AuditLogExport"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "audit_log_export"
+                ]
             },
             "ResponseWrapper": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"$ref": "#/components/schemas/AuditLogExport"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "$ref": "#/components/schemas/AuditLogExport"
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "AuditLogExport": {
                 "type": "object",
                 "properties": {
-                    "criteria": {"$ref": "#/components/schemas/Criteria"},
-                    "id": {"type": "string"},
-                    "status": {"type": "string"},
-                    "created_by": {"$ref": "#/components/schemas/User"},
+                    "criteria": {
+                        "$ref": "#/components/schemas/Criteria"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "created_by": {
+                        "$ref": "#/components/schemas/User"
+                    },
                     "download_links": {
                         "type": "array",
                         "items": {
@@ -129,17 +277,29 @@
                         "nullable": true
                     }
                 },
-                "required": ["criteria"]
+                "required": [
+                    "criteria"
+                ]
             },
             "Criteria": {
                 "type": "object",
                 "properties": {
-                    "field": {"$ref": "#/components/schemas/Field"},
-                    "comparator": {"type": "string"},
-                    "value": {"type": "object"},
-                    "group_operator": {"type": "string"},
+                    "field": {
+                        "$ref": "#/components/schemas/Field"
+                    },
+                    "comparator": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "object"
+                    },
+                    "group_operator": {
+                        "type": "string"
+                    },
                     "group": {
-                        "items": {"$ref": "#/components/schemas/Criteria"},
+                        "items": {
+                            "$ref": "#/components/schemas/Criteria"
+                        },
                         "type": "array"
                     }
                 },
@@ -154,60 +314,110 @@
             "Module": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "api_name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    }
                 },
-                "required": ["id"]
+                "required": [
+                    "id"
+                ]
             },
             "User": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"}
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 },
-                "required": ["id"]
+                "required": [
+                    "id"
+                ]
             },
             "Field": {
                 "type": "object",
-                "properties": {"api_name": {"type": "string"}},
-                "required": ["api_name"]
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_name"
+                ]
             },
             "ScheduledResponse": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Scheduled"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Scheduled"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "DependentFieldException": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/DependetMismatch"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/DependetMismatch"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "DependetMismatch": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["DEPENDENT_MISMATCH"]
+                        "enum": [
+                            "DEPENDENT_MISMATCH"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/DependetDetails"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/DependetDetails"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "DependetDetails": {
                 "type": "object",
                 "properties": {
-                    "expected_data_type": {"type": "string"},
-                    "dependee": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/BodyErrorDetails"},
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "dependee": {
+                        "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/BodyErrorDetails"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "dependee",
@@ -220,38 +430,60 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SCHEDULED"]
+                        "enum": [
+                            "SCHEDULED"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/Id"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/Id"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     }
                 }
             },
             "Id": {
                 "type": "object",
-                "properties": {"id": {"type": "string"}}
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
             },
             "NotSupported": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NOT_SUPPORTED"]
+                        "enum": [
+                            "NOT_SUPPORTED"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         }
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
@@ -260,117 +492,223 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["LIMIT_EXCEEDED"]
+                        "enum": [
+                            "LIMIT_EXCEEDED"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/LimitDetails"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/LimitDetails"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "LimitDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "limit": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "limit": {
+                        "type": "string"
+                    }
                 }
             },
             "LimitExccededResponse": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/LimitExcceded"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/LimitExcceded"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "InvalidValueError": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "NotSupportedError": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/NotSupported"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/NotSupported"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "ExpectedFieldMissingError": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/ExpectedFieldMissingError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/ExpectedFieldMissingError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "DependentFieldError": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/DependentFieldError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/DependentFieldError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "MandatoryError": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "InvalidTypeError": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "DependentMismatchError": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/DependentMismatchError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/DependentMismatchError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "InvalidUrlPattern": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_URL_PATTERN"]
+                        "enum": [
+                            "INVALID_URL_PATTERN"
+                        ]
                     },
-                    "details": {"type": "object"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "Forbidden": {
                 "type": "object",
                 "properties": {
-                    "x-error": {"type": "string"},
-                    "info": {"type": "string"},
+                    "x-error": {
+                        "type": "string"
+                    },
+                    "info": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             },
             "AmbiguityError": {
                 "type": "object",
-                "properties": {"audit_log_export": {
-                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/AmbiguityError"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "audit_log_export": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/AmbiguityError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "File_Body_Wrapper": {
                 "type": "object",
-                "properties": {"file": {"type": "object"}},
-                "required": ["file"]
+                "properties": {
+                    "file": {
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "file"
+                ]
             }
         },
         "parameters": {
@@ -378,15 +716,23 @@
                 "name": "id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "download_url": {
                 "name": "download_url",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

@@ -5,92 +5,220 @@
         "description": "Business Hours",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/settings/business_hours": {
-        "post": {
-            "operationId": "Create Business Hours",
-            "parameters": [{"$ref": "#/components/parameters/X-CRM-ORG"}],
-            "requestBody": {
-                "content": {"application/json": {}},
-                "required": true
-            },
-            "responses": {
-                "201": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"business_hours": {"oneOf": [{"$ref": "#/components/schemas/Business_Hours_Created"}]}}
-                    }]}}}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/settings/business_hours": {
+            "post": {
+                "operationId": "Create Business Hours",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/X-CRM-ORG"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {
-                            "type": "object",
-                            "properties": {"business_hours": {"oneOf": [
-                                {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                                {"$ref": "#/components/schemas/Expected_Data_API_Exception"},
-                                {"$ref": "#/components/schemas/Resource_Path_API_Exception"},
-                                {"$ref": "#/components/schemas/Expected_Max_Data_API_Exception"}
-                            ]}}
-                        },
-                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                        {"$ref": "#/components/schemas/Expected_Data_API_Exception"}
-                    ]}}}
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "business_hours": {
+                                                    "oneOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/Business_Hours_Created"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "business_hours": {
+                                                    "oneOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                                        },
+                                                        {
+                                                            "$ref": "#/components/schemas/Expected_Data_API_Exception"
+                                                        },
+                                                        {
+                                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                                        },
+                                                        {
+                                                            "$ref": "#/components/schemas/Expected_Max_Data_API_Exception"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Expected_Data_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
-            }
-        },
-        "put": {
-            "operationId": "Update Business Hours",
-            "parameters": [{"$ref": "#/components/parameters/X-CRM-ORG"}],
-            "requestBody": {
-                "content": {"application/json": {}},
-                "required": true
             },
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"business_hours": {"oneOf": [{"$ref": "#/components/schemas/Business_Hours_Created"}]}}
-                    }]}}}
+            "put": {
+                "operationId": "Update Business Hours",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/X-CRM-ORG"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {
-                            "type": "object",
-                            "properties": {"business_hours": {"oneOf": [
-                                {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                                {"$ref": "#/components/schemas/Expected_Data_API_Exception"},
-                                {"$ref": "#/components/schemas/Resource_Path_API_Exception"},
-                                {"$ref": "#/components/schemas/Expected_Max_Data_API_Exception"}
-                            ]}},
-                            "required": ["business_hours"]
-                        },
-                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                        {"$ref": "#/components/schemas/Expected_Data_API_Exception"}
-                    ]}}}
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "business_hours": {
+                                                    "oneOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/Business_Hours_Created"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "business_hours": {
+                                                    "oneOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                                        },
+                                                        {
+                                                            "$ref": "#/components/schemas/Expected_Data_API_Exception"
+                                                        },
+                                                        {
+                                                            "$ref": "#/components/schemas/Resource_Path_API_Exception"
+                                                        },
+                                                        {
+                                                            "$ref": "#/components/schemas/Expected_Max_Data_API_Exception"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "business_hours"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Expected_Data_API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
-            }
-        },
-        "get": {
-            "operationId": "Get Business Hours",
-            "parameters": [{"$ref": "#/components/parameters/X-CRM-ORG"}],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
-                },
-                "204": {"description": ""},
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/API_Exception"}]}}}
+            },
+            "get": {
+                "operationId": "Get Business Hours",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/X-CRM-ORG"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/API_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-    }},
-    "security": [{"iam-oauth2-schema": ["ZohoCRM.files.CREATE"]}],
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.files.CREATE"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Business_Hours": {
@@ -141,11 +269,15 @@
                     },
                     "daily_timing": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "custom_timing": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/Break_hours_Custom_Timing"}
+                        "items": {
+                            "$ref": "#/components/schemas/Break_hours_Custom_Timing"
+                        }
                     }
                 },
                 "required": [
@@ -175,7 +307,9 @@
                     },
                     "business_timing": {
                         "type": "array",
-                        "items": {"type": "string"}
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },
@@ -184,20 +318,32 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Business Hours saved successfully"]
+                        "enum": [
+                            "Business Hours saved successfully"
+                        ]
                     },
                     "details": {
                         "type": "object",
-                        "properties": {"id": {"type": "string"}},
-                        "required": ["id"]
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ]
                     }
                 },
                 "required": [
@@ -212,7 +358,9 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
@@ -221,7 +369,9 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
                         "properties": {
@@ -234,14 +384,20 @@
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "name": {"type": "string"},
+                                        "name": {
+                                            "type": "string"
+                                        },
                                         "resources": {
                                             "type": "array",
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "name": {"type": "string"},
-                                                    "id": {"type": "string"}
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "string"
+                                                    }
                                                 }
                                             },
                                             "required": [
@@ -275,21 +431,31 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"]
+                        "enum": [
+                            "required field not found"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -309,23 +475,37 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"]
+                        "enum": [
+                            "required field not found"
+                        ]
                     },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"},
-                            "expected_data_type": {"type": "string"},
-                            "regex": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            },
+                            "expected_data_type": {
+                                "type": "string"
+                            },
+                            "regex": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -347,17 +527,23 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"],
+                        "enum": [
+                            "error"
+                        ],
                         "nullable": true
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"],
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
                         "nullable": true
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"],
+                        "enum": [
+                            "required field not found"
+                        ],
                         "nullable": true
                     },
                     "details": {
@@ -398,16 +584,30 @@
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"business_hours": {"$ref": "#/components/schemas/Business_Hours"}},
-                "required": ["business_hours"]
+                "properties": {
+                    "business_hours": {
+                        "$ref": "#/components/schemas/Business_Hours"
+                    }
+                },
+                "required": [
+                    "business_hours"
+                ]
             },
             "API_Exception": {
                 "type": "object",
                 "properties": {
-                    "status": {"type": "string"},
-                    "code": {"type": "string"},
-                    "message": {"type": "string"},
-                    "details": {"type": "object"}
+                    "status": {
+                        "type": "string"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "status",
@@ -417,13 +617,21 @@
                 ]
             }
         },
-        "parameters": {"X-CRM-ORG": {
-            "name": "X-CRM-ORG",
-            "in": "header",
-            "required": false,
-            "schema": {"type": "string"}
-        }},
+        "parameters": {
+            "X-CRM-ORG": {
+                "name": "X-CRM-ORG",
+                "in": "header",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
         "headers": {},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

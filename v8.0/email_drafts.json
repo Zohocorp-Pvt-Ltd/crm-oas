@@ -5,7 +5,11 @@
         "description": "",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/{module}/{record}/__email_drafts": {
             "get": {
@@ -15,19 +19,29 @@
                         "name": "module",
                         "in": "path",
                         "required": true,
-                        "schema": {"type": "string"}
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "record",
                         "in": "path",
                         "required": true,
-                        "schema": {"type": "string"}
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/EmailDrafts"},
-                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/EmailDrafts"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
                 }
             },
             "post": {
@@ -37,32 +51,54 @@
                         "name": "module",
                         "in": "path",
                         "required": true,
-                        "schema": {"type": "string"}
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "record",
                         "in": "path",
                         "required": true,
-                        "schema": {"type": "string"}
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"},
-                    "403": {"$ref": "#/components/responses/PermissionResponse"}
+                    "201": {
+                        "$ref": "#/components/responses/CreateSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/PermissionResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Email Drafts",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module"},
-                    {"$ref": "#/components/parameters/record"}
+                    {
+                        "$ref": "#/components/parameters/module"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             }
         },
@@ -70,50 +106,92 @@
             "get": {
                 "operationId": "Get Email Draft",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module"},
-                    {"$ref": "#/components/parameters/record"},
-                    {"$ref": "#/components/parameters/draft"}
+                    {
+                        "$ref": "#/components/parameters/module"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record"
+                    },
+                    {
+                        "$ref": "#/components/parameters/draft"
+                    }
                 ],
                 "responses": {
-                    "204": {"description": ""},
-                    "200": {"$ref": "#/components/responses/EmailDrafts"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/EmailDrafts"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Email Draft",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module"},
-                    {"$ref": "#/components/parameters/record"},
-                    {"$ref": "#/components/parameters/draft"}
+                    {
+                        "$ref": "#/components/parameters/module"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record"
+                    },
+                    {
+                        "$ref": "#/components/parameters/draft"
+                    }
                 ],
-                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Delete Email Draft",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module"},
-                    {"$ref": "#/components/parameters/record"},
-                    {"$ref": "#/components/parameters/draft"}
+                    {
+                        "$ref": "#/components/parameters/module"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record"
+                    },
+                    {
+                        "$ref": "#/components/parameters/draft"
+                    }
                 ],
                 "responses": {
-                    "200": {"$ref": "#/components/responses/SuccessResponse"},
-                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
                 }
             }
         }
     },
-    "security": [{"iam-oauth2-schema": [""]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                ""
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "to": {
                 "type": "object",
                 "properties": {
-                    "user_name": {"type": "string"},
+                    "user_name": {
+                        "type": "string"
+                    },
                     "email": {
                         "type": "string",
                         "pattern": "[a-z]{7}[@]zoho[.]com",
@@ -128,8 +206,12 @@
             "template": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "id",
@@ -139,13 +221,19 @@
             "attachments": {
                 "type": "object",
                 "properties": {
-                    "service_name": {"type": "string"},
+                    "service_name": {
+                        "type": "string"
+                    },
                     "file_size": {
                         "type": "string",
                         "pattern": "[0-9]"
                     },
-                    "id": {"type": "string"},
-                    "file_name": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "file_name": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "service_name",
@@ -183,17 +271,27 @@
                     "inventory_template": {
                         "type": "object",
                         "properties": {
-                            "name": {"type": "string"},
-                            "id": {"type": "string"}
+                            "name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "name",
                             "id"
                         ]
                     },
-                    "record": {"$ref": "./record.json#/components/schemas/Record"},
-                    "paper_type": {"type": "string"},
-                    "view_type": {"type": "string"}
+                    "record": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/record.json#/components/schemas/Record"
+                    },
+                    "paper_type": {
+                        "type": "string"
+                    },
+                    "view_type": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "inventory_template",
@@ -205,7 +303,9 @@
             "email_drafts": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
+                    "id": {
+                        "type": "string"
+                    },
                     "modified_time": {
                         "type": "string",
                         "format": "date-time"
@@ -214,10 +314,14 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "from": {"type": "string"},
+                    "from": {
+                        "type": "string"
+                    },
                     "to": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/to"}
+                        "items": {
+                            "$ref": "#/components/schemas/to"
+                        }
                     },
                     "reply_to": {
                         "type": "string",
@@ -226,21 +330,37 @@
                     },
                     "cc": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/to"}
+                        "items": {
+                            "$ref": "#/components/schemas/to"
+                        }
                     },
                     "bcc": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/to"}
+                        "items": {
+                            "$ref": "#/components/schemas/to"
+                        }
                     },
-                    "template": {"$ref": "#/components/schemas/template"},
-                    "inventory_details": {"$ref": "#/components/schemas/inventory_details"},
+                    "template": {
+                        "$ref": "#/components/schemas/template"
+                    },
+                    "inventory_details": {
+                        "$ref": "#/components/schemas/inventory_details"
+                    },
                     "attachments": {
                         "type": "array",
-                        "items": {"$ref": "#/components/schemas/attachments"}
+                        "items": {
+                            "$ref": "#/components/schemas/attachments"
+                        }
                     },
-                    "schedule_details": {"$ref": "#/components/schemas/schedule_details"},
-                    "rich_text": {"type": "boolean"},
-                    "email_opt_out": {"type": "boolean"},
+                    "schedule_details": {
+                        "$ref": "#/components/schemas/schedule_details"
+                    },
+                    "rich_text": {
+                        "type": "boolean"
+                    },
+                    "email_opt_out": {
+                        "type": "boolean"
+                    },
                     "subject": {
                         "type": "string",
                         "nullable": true
@@ -276,38 +396,64 @@
             },
             "wrapper": {
                 "type": "object",
-                "properties": {"__email_drafts": {
-                    "items": {"$ref": "#/components/schemas/email_drafts"},
-                    "type": "array"
-                }},
-                "required": ["__email_drafts"]
+                "properties": {
+                    "__email_drafts": {
+                        "items": {
+                            "$ref": "#/components/schemas/email_drafts"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "__email_drafts"
+                ]
             },
             "Response_Wrapper": {
                 "type": "object",
-                "properties": {"__email_drafts": {
-                    "items": {"$ref": "#/components/schemas/email_drafts"},
-                    "type": "array"
-                }},
-                "required": ["__email_drafts"]
+                "properties": {
+                    "__email_drafts": {
+                        "items": {
+                            "$ref": "#/components/schemas/email_drafts"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "__email_drafts"
+                ]
             },
             "details": {
                 "type": "object",
-                "properties": {"id": {"type": "string"}},
-                "required": ["id"]
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
             },
             "Success_Response": {
                 "type": "object",
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/details"}
+                    "details": {
+                        "$ref": "#/components/schemas/details"
+                    }
                 },
                 "required": [
                     "code",
@@ -318,17 +464,31 @@
             },
             "SuccessWrapper": {
                 "type": "object",
-                "properties": {"__email_drafts": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                    "type": "array"
-                }},
-                "required": ["__email_drafts"]
+                "properties": {
+                    "__email_drafts": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Success_Response"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "__email_drafts"
+                ]
             },
             "ErrorDetails": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -340,14 +500,22 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/ErrorDetails"}
+                    "details": {
+                        "$ref": "#/components/schemas/ErrorDetails"
+                    }
                 },
                 "required": [
                     "code",
@@ -361,14 +529,22 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/ErrorDetails"}
+                    "details": {
+                        "$ref": "#/components/schemas/ErrorDetails"
+                    }
                 },
                 "required": [
                     "code",
@@ -379,18 +555,34 @@
             },
             "MandatoryWrapper": {
                 "type": "object",
-                "properties": {"__email_drafts": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/MandatoryError"}]},
-                    "type": "array"
-                }},
-                "required": ["__email_drafts"]
+                "properties": {
+                    "__email_drafts": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "__email_drafts"
+                ]
             },
             "InvalidTypeDetails": {
                 "type": "object",
                 "properties": {
-                    "expected_data_type": {"type": "string"},
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "expected_data_type",
@@ -403,13 +595,21 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/InvalidTypeDetails"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidTypeDetails"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -421,19 +621,33 @@
             },
             "InvalidTypeWrapper": {
                 "type": "object",
-                "properties": {"__email_drafts": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidTypeError"}]},
-                    "type": "array"
-                }},
-                "required": ["__email_drafts"]
+                "properties": {
+                    "__email_drafts": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "__email_drafts"
+                ]
             },
             "InvalidUrlDetails": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }},
-                "required": ["resource_path_index"]
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "resource_path_index"
+                ]
             },
             "InvalidUrlError": {
                 "type": "object",
@@ -445,11 +659,17 @@
                             "INVALID_MODULE"
                         ]
                     },
-                    "details": {"$ref": "#/components/schemas/InvalidUrlDetails"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidUrlDetails"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 },
                 "required": [
@@ -464,14 +684,22 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["NO_PERMISSION"]
+                        "enum": [
+                            "NO_PERMISSION"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "code",
@@ -484,39 +712,111 @@
         "responses": {
             "EmailDrafts": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "CreateSuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "SuccessResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "ErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"},
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidError"},
-                    {"$ref": "#/components/schemas/MandatoryWrapper"},
-                    {"$ref": "#/components/schemas/InvalidTypeWrapper"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RErrorResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/InvalidUrlError"},
-                    {"$ref": "#/components/schemas/InvalidTypeError"},
-                    {"$ref": "#/components/schemas/MandatoryError"},
-                    {"$ref": "#/components/schemas/InvalidError"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidUrlError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidError"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "PermissionResponse": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/PermissionError"}]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/PermissionError"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -524,25 +824,43 @@
                 "name": "module",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "record": {
                 "name": "record",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "draft": {
                 "name": "draft",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             }
         },
-        "requestBodies": {"body": {
-            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/wrapper"}}},
-            "required": true
-        }},
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

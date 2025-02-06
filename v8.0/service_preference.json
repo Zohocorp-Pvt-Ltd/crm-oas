@@ -5,63 +5,143 @@
         "description": "Service Preference",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
-    "paths": {"/crm/v8/settings/service_preferences": {
-        "get": {
-            "operationId": "Get Service Preference",
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"service_preferences": {
-                            "type": "object",
-                            "properties": {"job_sheet_enabled": {"type": "boolean"}},
-                            "required": ["job_sheet_enabled"]
-                        }},
-                        "required": ["service_preferences"]
-                    }]}}}
-                },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InternalError"}]}}}
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/settings/service_preferences": {
+            "get": {
+                "operationId": "Get Service Preference",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "service_preferences": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "job_sheet_enabled": {
+                                                            "type": "boolean"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "job_sheet_enabled"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "service_preferences"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/InternalError"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
-            }
-        },
-        "put": {
-            "operationId": "Update Service Preference",
-            "requestBody": {
-                "content": {"application/json": {}},
-                "required": true
             },
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [{
-                        "type": "object",
-                        "properties": {"service_preferences": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]}},
-                        "required": ["service_preferences"]
-                    }]}}}
+            "put": {
+                "operationId": "Update Service Preference",
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "",
-                    "content": {"application/json": {"schema": {"oneOf": [
-                        {
-                            "type": "object",
-                            "properties": {"service_preferences": {"oneOf": [
-                                {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                                {"$ref": "#/components/schemas/Invalid_Data_API_Exception"}
-                            ]}},
-                            "required": ["service_preferences"]
-                        },
-                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
-                        {"$ref": "#/components/schemas/InternalError"}
-                    ]}}}
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "service_preferences": {
+                                                    "oneOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/Success_Response"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "service_preferences"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "service_preferences": {
+                                                    "oneOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                                        },
+                                                        {
+                                                            "$ref": "#/components/schemas/Invalid_Data_API_Exception"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "service_preferences"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Mandatory_API_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/InternalError"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-    }},
-    "security": [{"iam-oauth2-schema": ["ZohoCRM"]}],
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Success_Response": {
@@ -69,17 +149,25 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Appointments preferences updated successfully"]
+                        "enum": [
+                            "Appointments preferences updated successfully"
+                        ]
                     },
-                    "details": {"type": "object"}
+                    "details": {
+                        "type": "object"
+                    }
                 },
                 "required": [
                     "status",
@@ -93,18 +181,28 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "json_path": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
                         },
                         "required": [
                             "api_name",
@@ -122,8 +220,12 @@
             "Primary_Details": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -133,8 +235,12 @@
             "Expected_Data_Type": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 },
                 "required": [
                     "api_name",
@@ -144,8 +250,12 @@
             "Supported_Values": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "supported_values": {
                         "type": "array",
                         "items": {
@@ -168,18 +278,32 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Primary_Details"},
-                        {"$ref": "#/components/schemas/Expected_Data_Type"},
-                        {"$ref": "#/components/schemas/Supported_Values"}
-                    ]}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Primary_Details"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Expected_Data_Type"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Supported_Values"
+                            }
+                        ]
+                    }
                 },
                 "required": [
                     "status",
@@ -193,17 +317,29 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "enum": ["INTERNAL_SERVER_ERROR"]
+                        "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                        ]
                     },
-                    "details": {"type": "object"},
-                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     }
                 }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }
