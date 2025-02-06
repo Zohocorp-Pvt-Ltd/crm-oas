@@ -1,0 +1,1157 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "common",
+        "description": "This is not an API. This file has some common components, which will be referenced by actual api specifications.",
+        "version": "v8.0"
+    },
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "dummy",
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "info": {
+                "type": "object",
+                "properties": {
+                    "per_page": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "page": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "count": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "more_records": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "per_page",
+                    "page",
+                    "count",
+                    "more_records"
+                ]
+            },
+            "UnsupportedVersionDetails": {
+                "type": "object",
+                "properties": {
+                    "supported_version": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "supported_version"
+                ]
+            },
+            "UnsupportedVersionError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "API_NOT_SUPPORTED"
+                        ],
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/UnsupportedVersionDetails"
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "details",
+                    "message",
+                    "status"
+                ]
+            },
+            "SuccessDetails": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "SUCCESS"
+                        ],
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/SuccessDetails"
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "success"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "details",
+                    "message",
+                    "status"
+                ]
+            },
+            "BodyErrorDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "NotAllowedError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "NOT_ALLOWED"
+                        ],
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/BodyErrorDetails"
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "details",
+                    "message",
+                    "status"
+                ]
+            },
+            "MandatoryError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/BodyErrorDetails"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "RequiredDataMissingDetails": {
+                "type": "object",
+                "properties": {
+                    "sub_json_path": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "value": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sub_json_path",
+                    "value",
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "RequiredDataMissingError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "REQUIRED_DATA_NOT_FOUND"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/RequiredDataMissingDetails"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "InvalidTypeDetails": {
+                "type": "object",
+                "properties": {
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "regex": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "expected_data_type",
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "InvalidType": {
+                "type": "object",
+                "properties": {
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "expected_data_type",
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "InvalidTypeError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/InvalidTypeDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/InvalidType"
+                            }
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "SupportedValueDetails": {
+                "type": "object",
+                "properties": {
+                    "supported_values": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "supported_values",
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "InvalidParamDetails": {
+                "type": "object",
+                "properties": {
+                    "supported_values": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "param_name": {
+                        "type": "string"
+                    },
+                    "param": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "supported_values",
+                    "param_name",
+                    "param"
+                ]
+            },
+            "InvalidValueDetails": {
+                "type": "object",
+                "properties": {
+                    "regex": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "InvalidValueError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/BodyErrorDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/InvalidValueDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/SupportedValueDetails"
+                            }
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "InvalidIDError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "InvalidRegexError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidValueDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "InvalidUrlDetails": {
+                "type": "object",
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "resource_path_index"
+                ]
+            },
+            "InvalidUrlError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA",
+                            "INVALID_MODULE"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidUrlDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "ExpectedFieldMissingDetails": {
+                "type": "object",
+                "properties": {
+                    "expected_fields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BodyErrorDetails"
+                        }
+                    }
+                },
+                "required": [
+                    "expected_fields"
+                ]
+            },
+            "ExpectedFieldMissingError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "EXPECTED_FIELD_MISSING"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/ExpectedFieldMissingDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "AmbiguityDetails": {
+                "type": "object",
+                "properties": {
+                    "ambiguity_due_to": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BodyErrorDetails"
+                        }
+                    }
+                },
+                "required": [
+                    "ambiguity_due_to"
+                ]
+            },
+            "AmbiguityError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "AMBIGUITY_DURING_PROCESSING"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/AmbiguityDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "DependentFieldDetails": {
+                "type": "object",
+                "properties": {
+                    "dependee": {
+                        "$ref": "#/components/schemas/BodyErrorDetails"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dependee",
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "DependentFieldError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "DEPENDENT_FIELD_MISSING"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/DependentFieldDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "DependentMismatchError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "DEPENDENT_MISMATCH"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/DependentFieldDetails"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "DuplicateError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "DUPLICATE_DATA"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/BodyErrorDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "ReservedKeywordError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "RESERVED_KEYWORD_NOT_ALLOWED"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/BodyErrorDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "MaxLengthDetails": {
+                "type": "object",
+                "properties": {
+                    "maximum_length": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "maximum_length",
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "MaxLengthError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/MaxLengthDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "MinLengthDetails": {
+                "type": "object",
+                "properties": {
+                    "minimum_length": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "minimum_length",
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "MinLengthError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/MinLengthDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "ParamDetails": {
+                "type": "object",
+                "properties": {
+                    "param_name": {
+                        "type": "string"
+                    },
+                    "param": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "param_name",
+                    "param"
+                ]
+            },
+            "MandatoryParamError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/ParamDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "InvalidParamError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA",
+                            "INVALID_MODULE"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "$ref": "#/components/schemas/ParamDetails"
+                            }
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "PermissionError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "NO_PERMISSION"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "permissions": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "permissions"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "type": "oauth2",
+                "flows": {
+                    "authorizationCode": {
+                        "authorizationUrl": "https://accounts.zoho.com/oauth/v2.0/auth",
+                        "tokenUrl": "https://accounts.zoho.com/oauth/v2.0/token",
+                        "refreshUrl": "https://accounts.zoho.com/oauth/v2.0/token",
+                        "scopes": {
+                            "ZohoCRM.settings.map_dependency.ALL": "description",
+                            "ZohoCRM.settings.ZohoCRM.settings.currencies.all": "description",
+                            "ZohoCRM.settings.modules.read": "description",
+                            "ZohoCRM.settings.modules.all": "description",
+                            "ZohoCRM.settings.custom_views.All": "description",
+                            "ZohoCRM.settings.currencies.create": "description",
+                            "ZohoCRM.settings.fields.read": "description",
+                            "settings.fiscal_year.READ": "description",
+                            "ZohoCRM.settings.all": "description",
+                            "ZohoCRM.settings.intelligence.All": "description",
+                            "ZohoCRM.settings.storage_analytics.READ": "description",
+                            "ZohoCRM.settings.fields.all": "description",
+                            "ZohoCRM.modules.ALL.READ": "description",
+                            "ZohoCRM.functions.execute.READ": "description",
+                            "ZohoCRM.settings.roles.ALL": "description",
+                            "ZohoCRM.settings.variables.read": "description",
+                            "ZohoCRM.settings.profiles.read": "description",
+                            "ZohoCRM.modules.all": "description",
+                            "ZohoCRM.modules.attachments.all": "description",
+                            "ZohoCRM.settings.related_lists.read": "description",
+                            "ZohoCRM.settings.layouts.read": "description",
+                            "ZohoCRM.settings.modules.ALL": "description",
+                            "ZohoCRM.settings.roles.read": "description",
+                            "ZohoCRM.settings.ALL": "description",
+                            "ZohoCRM.settings.profiles.all": "description",
+                            "ZohoCRM.modules.notes.all": "description",
+                            "ZohoCRM.emails.compose.ALL": "description",
+                            "ZohoCRM.settings.roles.all": "description",
+                            "ZohoCRM.share.{module_api_name}.DELETE": "description",
+                            "ZohoCRM.settings.territories.ALL": "description",
+                            "ZohoCRM.modules.ALL": "description",
+                            "ZohoCRM.bulk.all": "description",
+                            "ZohoCRM.settings.currencies.all": "description",
+                            "ZohoCRM.mass_convert.SalesOrders.CREATE": "description",
+                            "ZohoCRM.share.{module_api_name}.ALL": "description",
+                            "ZohoCRM.settings.storage_analytics.CREATE": "description",
+                            "ZohoCRM.share.{module_api_name}.READ": "description",
+                            "ZohoCRM.users.all": "description",
+                            "ZohoCRM.modules.leads.all": "description",
+                            "ZohoCRM.mass_convert.Quotes.READ": "description",
+                            "ZohoCRM.settings.variable_groups.all": "description",
+                            "ZohoCRM.settings.currencies.read": "description",
+                            "ZohoCRM.settings.variable_groups.read": "description",
+                            "settings.fiscal_year.UPDATE": "description",
+                            "ZohoCRM.settings.variables.all": "description",
+                            "ZohoCRM.org.all": "description",
+                            "ZohoCRM.settings.tags.all": "description",
+                            "ZohoCRM.modules.deals.all": "description",
+                            "ZohoCRM.bulk.ALL": "description",
+                            "ZohoCRM.settings.recycle_bin.UPDATE": "description",
+                            "ZohoCRM.settings.recycle_bin.DELETE": "description",
+                            "ZohoCRM.share.{module_api_name}.CREATE": "description",
+                            "ZohoCRM.settings.emails.ALL": "description",
+                            "ZohoCRM.settings.currencies.update": "description",
+                            "ZohoCRM.settings.layouts.all": "description",
+                            "ZohoCRM": "description",
+                            "ZohoCRM.settings.audit_logs.CREATE": "description",
+                            "ZohoCRM.settings.recycle_bin.READ": "description",
+                            "ZohoCRM.zia.enrichment.ALL": "description",
+                            "ZohoCRM.files.CREATE": "description",
+                            "ZohoCRM.settings.related_lists.all": "description",
+                            "ZohoCRM.modules.contacts.all": "description",
+                            "ZohoCRM.settings.wizards.all": "description",
+                            "ZohoCRM.modules.attachments.read": "description",
+                            "ZohoCRM.settings.unsubscribe.ALL": "description",
+                            "settings.webforms": "description",
+                            "ZohoCRM.mass_convert.SalesOrders.READ": "description",
+                            "ZohoCRM.modules.emails.READ": "description",
+                            "ZohoCRM.share.{module_api_name}.UPDATE": "description",
+                            "ZohoCRM.mass_convert.Quotes.CREATE": "description",
+                            "ZohoFiles.files.CREATE": "description",
+                            "ZohoCRM.functions.execute.CREATE": "description"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
