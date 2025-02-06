@@ -1,0 +1,514 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "bulk_write",
+        "description": "Bulk Write",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/upload": {
+            "post": {
+                "operationId": "Upload File",
+                "parameters": [
+                    {"$ref": "#/components/parameters/feature"},
+                    {"$ref": "#/components/parameters/X-CRM-ORG"}
+                ],
+                "requestBody": {
+                    "content": {"multipart/form-data": {"schema": {"$ref": "#/components/schemas/File_Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Success_Response"},
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "servers": [{"url": "https://content.zohoapis.com"}]
+        },
+        "/crm/bulk/v8/write": {"post": {
+            "operationId": "Create Bulk Write Job",
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Request_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "201": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/CoExistence_Not_Allowed"},
+                        {"$ref": "#/components/schemas/Invalid_Callback_Method"},
+                        {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }
+            }
+        }},
+        "/crm/bulk/v8/write/{job_id}": {"get": {
+            "operationId": "Get Bulk Write Job Details",
+            "parameters": [{"$ref": "#/components/parameters/job_id"}],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Bulk_Write_Response"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Resource_Not_Found"},
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }
+            }
+        }},
+        "/{download_url}": {"get": {
+            "operationId": "Download Bulk Write Result",
+            "parameters": [{"$ref": "#/components/parameters/download_url"}],
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/octet-stream": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/File_Body_Wrapper"},
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }}
+    },
+    "security": [{"iam-oauth2-schema": [
+        "ZohoCRM.bulk.ALL",
+        "ZohoCRM.bulk.ALL"
+    ]}],
+    "components": {
+        "schemas": {
+            "CallBack": {
+                "type": "object",
+                "properties": {
+                    "url": {"type": "string"},
+                    "method": {
+                        "type": "string",
+                        "enum": ["post"]
+                    }
+                },
+                "required": [
+                    "url",
+                    "method"
+                ]
+            },
+            "default_value": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "module": {"type": "string"},
+                    "value": {"type": "object"}
+                }
+            },
+            "Resource": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "COMPLETED",
+                            "ADDED",
+                            "FAILED",
+                            "IN PROGRESS",
+                            "SKIPPED"
+                        ]
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": ["data"],
+                        "nullable": true
+                    },
+                    "module": {"$ref": "./modules.json#/components/schemas/Minified_Module"},
+                    "code": {"type": "string"},
+                    "file_id": {"type": "string"},
+                    "file_names": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "ignore_empty": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "find_by": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "field_mappings": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "api_name": {"type": "string"},
+                                "index": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                },
+                                "format": {"type": "string"},
+                                "find_by": {"type": "string"},
+                                "default_value": {"$ref": "#/components/schemas/default_value"},
+                                "module": {"type": "string"},
+                                "parent_column_index": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            },
+                            "required": ["api_name"]
+                        }
+                    },
+                    "file": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "enum": [
+                                    "COMPLETED",
+                                    "ADDED",
+                                    "FAILED",
+                                    "IN PROGRESS",
+                                    "SKIPPED"
+                                ]
+                            },
+                            "name": {"type": "string"},
+                            "added_count": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "skipped_count": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "updated_count": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "total_count": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "required": [
+                            "status",
+                            "name",
+                            "added_count",
+                            "skipped_count",
+                            "updated_count",
+                            "total_count"
+                        ]
+                    }
+                },
+                "required": [
+                    "status",
+                    "type",
+                    "module",
+                    "code",
+                    "file_id",
+                    "file_names",
+                    "ignore_empty",
+                    "find_by",
+                    "field_mappings",
+                    "file"
+                ]
+            },
+            "Request_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "character_encoding": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "operation": {
+                        "type": "string",
+                        "enum": [
+                            "upsert",
+                            "insert",
+                            "update"
+                        ]
+                    },
+                    "callback": {"$ref": "#/components/schemas/CallBack"},
+                    "resource": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/Resource"}
+                    },
+                    "ignore_empty": {"type": "boolean"}
+                },
+                "required": [
+                    "character_encoding",
+                    "operation",
+                    "callback",
+                    "resource"
+                ]
+            },
+            "Result": {
+                "type": "object",
+                "properties": {"download_url": {"type": "string"}},
+                "required": ["download_url"]
+            },
+            "Bulk_Write_Response": {
+                "type": "object",
+                "properties": {
+                    "status": {"type": "string"},
+                    "character_encoding": {"type": "string"},
+                    "resource": {
+                        "items": {"$ref": "#/components/schemas/Resource"},
+                        "type": "array"
+                    },
+                    "id": {"type": "string"},
+                    "result": {"$ref": "#/components/schemas/Result"},
+                    "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "operation": {"type": "string"},
+                    "created_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "callback": {"$ref": "#/components/schemas/CallBack"}
+                },
+                "required": [
+                    "status",
+                    "resource",
+                    "id",
+                    "result",
+                    "created_by",
+                    "operation",
+                    "created_time",
+                    "callback"
+                ]
+            },
+            "File_Body_Wrapper": {
+                "type": "object",
+                "properties": {"file": {"type": "object"}},
+                "required": ["file"]
+            },
+            "Success_Response": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "SUCCESS",
+                            "FILE_UPLOAD_SUCCESS"
+                        ]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "success",
+                            "file uploaded."
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "file_id": {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            "created_time": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "id": {"type": "string"},
+                            "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"}
+                        },
+                        "required": [
+                            "id",
+                            "created_by"
+                        ]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Invalid_Callback_Method": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_CALLBACK_METHOD"]
+                    },
+                    "details": {"$ref": "#/components/schemas/Supported_Details"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "details",
+                    "message",
+                    "status"
+                ]
+            },
+            "Supported_Details": {
+                "type": "object",
+                "properties": {"supported_callback_methods": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                }},
+                "required": ["supported_callback_methods"]
+            },
+            "Resource_Not_Found": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["RESOURCE_NOT_FOUND"]
+                    },
+                    "details": {"type": "object"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "details",
+                    "message",
+                    "status"
+                ]
+            },
+            "CoExistence_Not_Allowed": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["COEXISTENCE_NOT_ALLOWED"]
+                    },
+                    "details": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/BodyErrorDetails"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "details",
+                    "message",
+                    "status"
+                ]
+            },
+            "API_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "MODULE_NOT_AVAILABLE",
+                            "DUPLICATE_DATA",
+                            "INVALID_URL_PATTERN",
+                            "RESOURCE_NOT_FOUND",
+                            "FILE_TOO_LARGE",
+                            "COLUMN_INDEX_NOT_FOUND",
+                            "INVALID_FIELD",
+                            "MANDATORY_NOT_FOUND",
+                            "HEADER_LIMIT_EXCEEDED",
+                            "MISSING_REQUIRED_KEY",
+                            "INVALID_FILE_FORMAT",
+                            "MANDATORY_FIELDS_NOT_MAPPED",
+                            "INVALID_FORMAT",
+                            "BLOCKED_RECORD",
+                            "INVALID_DATA",
+                            "INVALID_REQUEST_METHOD",
+                            "CANNOT_PROCESS",
+                            "INVALID_TOKEN",
+                            "LIMIT_EXCEEDED",
+                            "INVALID_FIELD_NAME",
+                            "FILE_NOT_SUPPORTED",
+                            "INVALID_FILE_ID",
+                            "NOT_APPROVED"
+                        ]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "invalid file format. only zip format is supported",
+                            "All mandatory fields are not mapped for the layout",
+                            "improper file id",
+                            "Requested module 'asdf' is not available.",
+                            "Please check if the URL trying to access is a correct one",
+                            "required key index for field Company is not found in request body.",
+                            "File not supported for bulk write",
+                            "required key operation is not found in request body.",
+                            "The http request method type is not a valid one",
+                            "File size too large to process",
+                            "The requested resource doesn't exist.",
+                            "invalid mapping. invalid api_name ast_Name.",
+                            "invalid oauth token"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {"type": "object"},
+                    "ERROR_MESSAGE": {
+                        "type": "string",
+                        "enum": ["Bad Request"]
+                    },
+                    "ERROR_CODE": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "x-error": {
+                        "type": "string",
+                        "enum": ["check if headers [feature, X-CRM-ORG] are present and valid"]
+                    },
+                    "info": {
+                        "type": "string",
+                        "enum": ["Forbidden"]
+                    },
+                    "x-info": {
+                        "type": "string",
+                        "enum": ["Link not valid"]
+                    },
+                    "http_status": {"type": "string"}
+                }
+            }
+        },
+        "parameters": {
+            "job_id": {
+                "name": "job_id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "download_url": {
+                "name": "download_url",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "feature": {
+                "name": "feature",
+                "in": "header",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "X-CRM-ORG": {
+                "name": "X-CRM-ORG",
+                "in": "header",
+                "required": false,
+                "schema": {"type": "string"}
+            }
+        },
+        "headers": {},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

@@ -1,0 +1,203 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "cadences",
+        "description": "",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {"/crm/v8/settings/automation/cadences": {"get": {
+        "operationId": "Get Cadences",
+        "responses": {
+            "204": {"description": ""},
+            "200": {"$ref": "#/components/responses/Cadences"},
+            "400": {"$ref": "#/components/responses/ErrorResponse"}
+        }
+    }}},
+    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.roles.ALL"]}],
+    "components": {
+        "schemas": {
+            "cadences": {
+                "type": "object",
+                "properties": {
+                    "summary": {
+                        "type": "object",
+                        "properties": {
+                            "task_follow_up_count": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "call_follow_up_count": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "email_follow_up_count": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        }
+                    },
+                    "created_time": {"type": "string"},
+                    "module": {
+                        "type": "object",
+                        "properties": {
+                            "api_name": {"type": "string"},
+                            "id": {"type": "string"}
+                        }
+                    },
+                    "active": {"type": "boolean"},
+                    "execution_details": {
+                        "type": "object",
+                        "properties": {
+                            "unenroll_properties": {
+                                "type": "object",
+                                "properties": {
+                                    "end_date": {"type": "string"},
+                                    "type": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                }
+                            },
+                            "end_date": {"type": "string"},
+                            "automatic_unenroll": {"type": "boolean"},
+                            "type": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "execute_every": {
+                                "type": "object",
+                                "properties": {
+                                    "unit": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    },
+                                    "period": {"type": "string"}
+                                }
+                            }
+                        }
+                    },
+                    "published": {"type": "boolean"},
+                    "type": {"type": "string"},
+                    "created_by": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "id": {"type": "string"}
+                        }
+                    },
+                    "modified_time": {"type": "string"},
+                    "name": {"type": "string"},
+                    "modified_by": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "id": {"type": "string"}
+                        }
+                    },
+                    "id": {"type": "string"},
+                    "custom_view": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "id": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    },
+                    "status": {"type": "string"}
+                },
+                "required": [
+                    "published",
+                    "type"
+                ]
+            },
+            "info": {
+                "type": "object",
+                "properties": {
+                    "per_page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "count": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "more_records": {"type": "boolean"}
+                }
+            },
+            "InvalidParamError": {
+                "type": "object",
+                "properties": {
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "role_status": {"type": "string"},
+                            "param_name": {"type": "string"},
+                            "param": {"type": "string"}
+                        },
+                        "required": [
+                            "role_status",
+                            "param_name",
+                            "param"
+                        ]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA",
+                            "INVALID_MODULE"
+                        ]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "details",
+                    "code",
+                    "message",
+                    "status"
+                ]
+            }
+        },
+        "responses": {
+            "Cadences": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{
+                    "type": "object",
+                    "properties": {
+                        "cadences": {
+                            "items": {"$ref": "#/components/schemas/cadences"},
+                            "type": "array"
+                        },
+                        "info": {"$ref": "#/components/schemas/info"}
+                    },
+                    "required": [
+                        "cadences",
+                        "info"
+                    ]
+                }]}}}
+            },
+            "ErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
+                    {"$ref": "#/components/schemas/InvalidParamError"}
+                ]}}}
+            }
+        },
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

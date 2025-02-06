@@ -1,0 +1,456 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "change_owner",
+        "description": "Change Owner",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/{module}/{id}/actions/change_owner": {"post": {
+            "operationId": "Single Update",
+            "parameters": [
+                {"$ref": "#/components/parameters/module"},
+                {"$ref": "#/components/parameters/id"}
+            ],
+            "requestBody": {"$ref": "#/components/requestBodies/body"},
+            "responses": {
+                "200": {"$ref": "#/components/responses/InvalidStatusCodeResponse"},
+                "400": {"$ref": "#/components/responses/ErrorResponse"},
+                "202": {"$ref": "#/components/responses/MixedResponse"},
+                "403": {"$ref": "#/components/responses/PermissionResponse"},
+                "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+            }
+        }},
+        "/crm/v8/{module}/actions/change_owner": {"post": {
+            "operationId": "Mass Update",
+            "parameters": [{"$ref": "#/components/parameters/module"}],
+            "requestBody": {"$ref": "#/components/requestBodies/MassBody"},
+            "responses": {
+                "200": {"$ref": "#/components/responses/InvalidStatusCodeResponse"},
+                "400": {"$ref": "#/components/responses/ErrorResponse"},
+                "202": {"$ref": "#/components/responses/MixedResponse"},
+                "403": {"$ref": "#/components/responses/PermissionResponse"},
+                "500": {"$ref": "#/components/responses/InternalErrorResponse"}
+            }
+        }}
+    },
+    "security": [{"iam-oauth2-schema": ["ZohoCRM.modules.ALL"]}],
+    "components": {
+        "schemas": {
+            "owner": {
+                "type": "object",
+                "properties": {"id": {"type": "string"}}
+            },
+            "related_modules": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "api_name": {"type": "string"}
+                }
+            },
+            "wrapper": {
+                "type": "object",
+                "properties": {
+                    "owner": {"$ref": "#/components/schemas/owner"},
+                    "notify": {"type": "boolean"},
+                    "related_modules": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/related_modules"}
+                    }
+                }
+            },
+            "MassWrapper": {
+                "type": "object",
+                "properties": {
+                    "ids": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "owner": {"$ref": "#/components/schemas/owner"},
+                    "notify": {"type": "boolean"},
+                    "related_modules": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/related_modules"}
+                    }
+                }
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["owner is successfully updated"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"id": {"type": "string"}},
+                        "required": ["id"]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "SuccessWrapper": {
+                "type": "object",
+                "properties": {"data": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/success"}]},
+                    "type": "array"
+                }}
+            },
+            "Invalid_Data_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["the id given seems to be invalid"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"id": {"type": "string"}},
+                        "required": ["id"]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Invalid_Param_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["the owner id given is invalid"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"param_name": {"type": "string"}},
+                        "required": ["param_name"]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Parse_DataType_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["UNABLE_TO_PARSE_DATA_TYPE"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["either the request body or parameters is in wrong format"]
+                    },
+                    "details": {"type": "object"}
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "UrlWrapper": {
+                "type": "object",
+                "properties": {"data": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/InvalidUrlError"}]},
+                    "type": "array"
+                }}
+            },
+            "RegexDetails": {
+                "type": "object",
+                "properties": {
+                    "regex": {"type": "string"},
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "ErrorDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "ErrorDetails1": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "InvalidTypeError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "details": {"$ref": "#/components/schemas/InvalidTypeDetais"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "UnsupportedError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["NOT_SUPPORTED"]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {"$ref": "#/components/schemas/ErrorDetails1"}
+                }
+            },
+            "InvalidUrlDetails": {
+                "type": "object",
+                "properties": {"resource_path_index": {
+                    "type": "integer",
+                    "format": "int32"
+                }}
+            },
+            "AmbiguityError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["AMBIGUITY_DURING_PROCESSING"]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"ambiguity_due_to": {
+                            "type": "array",
+                            "items": {"$ref": "#/components/schemas/ErrorDetails"}
+                        }}
+                    }
+                }
+            },
+            "PermissionError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["NO_PERMISSION"]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"permissions": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        }}
+                    }
+                }
+            },
+            "InvalidTypeDetais": {
+                "type": "object",
+                "properties": {
+                    "expected_data_type": {"type": "string"},
+                    "regex": {"type": "string"},
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "InvalidUrlError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "details": {"$ref": "#/components/schemas/InvalidUrlDetails"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "InvalidError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "details": {"$ref": "#/components/schemas/RegexDetails"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "ExpectedFieldDetails": {
+                "type": "object",
+                "properties": {"expected_fields": {
+                    "items": {"$ref": "#/components/schemas/ErrorDetails"},
+                    "type": "array"
+                }}
+            },
+            "MandatoryError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "MANDATORY_NOT_FOUND",
+                            "EXPECTED_FIELD_MISSING"
+                        ]
+                    },
+                    "details": {"oneOf": [
+                        {"$ref": "#/components/schemas/ErrorDetails1"},
+                        {"$ref": "#/components/schemas/ExpectedFieldDetails"}
+                    ]},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "InternalError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INTERNAL_SERVER_ERROR"]
+                    },
+                    "details": {"type": "object"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            }
+        },
+        "responses": {
+            "SuccessResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+            },
+            "ErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/InvalidUrlError"},
+                    {"$ref": "#/components/schemas/InvalidTypeError"},
+                    {"$ref": "#/components/schemas/MandatoryError"},
+                    {"$ref": "#/components/schemas/InvalidError"},
+                    {"$ref": "#/components/schemas/AmbiguityError"},
+                    {"$ref": "#/components/schemas/UnsupportedError"},
+                    {"$ref": "#/components/schemas/UrlWrapper"}
+                ]}}}
+            },
+            "InvalidStatusCodeResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/InvalidTypeError"},
+                    {"$ref": "#/components/schemas/MandatoryError"}
+                ]}}}
+            },
+            "PermissionResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/PermissionError"}]}}}
+            },
+            "MixedResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{
+                    "type": "object",
+                    "properties": {"data": {
+                        "items": {"oneOf": [
+                            {"$ref": "#/components/schemas/InvalidError"},
+                            {"$ref": "#/components/schemas/success"}
+                        ]},
+                        "type": "array"
+                    }}
+                }]}}}
+            },
+            "InternalErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InternalError"}]}}}
+            }
+        },
+        "parameters": {
+            "module": {
+                "name": "module",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "id": {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            }
+        },
+        "requestBodies": {
+            "body": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/wrapper"}}},
+                "required": true
+            },
+            "MassBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/MassWrapper"}}},
+                "required": true
+            }
+        },
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}
