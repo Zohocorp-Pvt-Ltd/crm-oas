@@ -1,0 +1,270 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "apis",
+        "description": "__apis",
+        "version": "v8.0"
+    },
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/__apis": {
+            "get": {
+                "operationId": "Get Supported API",
+                "parameters": [
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "__apis": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "path": {
+                                                                "type": "string"
+                                                            },
+                                                            "operation_types": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "method": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "oauth_scope": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "max_credits": {
+                                                                            "type": "integer",
+                                                                            "format": "int32"
+                                                                        },
+                                                                        "min_credits": {
+                                                                            "type": "integer",
+                                                                            "format": "int32"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "method",
+                                                                        "oauth_scope",
+                                                                        "max_credits",
+                                                                        "min_credits"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "path",
+                                                            "operation_types"
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "__apis"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Invalid_Data_Exception"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/DependendField_Missing_Exception"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.modules.read",
+                "ZohoCRM.settings.modules.all",
+                "ZohoCRM.settings.all"
+            ]
+        }
+    ],
+    "components": {
+        "schemas": {
+            "Invalid_Data_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA",
+                            "MANDATORY_NOT_FOUND"
+                        ]
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/DETAIL_1"
+                            },
+                            {
+                                "$ref": "#/components/schemas/DETAIL_2"
+                            },
+                            {
+                                "$ref": "#/components/schemas/DETAIL_3"
+                            },
+                            {
+                                "$ref": "#/components/schemas/DETAIL_4"
+                            }
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                }
+            },
+            "DependendField_Missing_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "DEPENDENT_FIELD_MISSING"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "dependee": {
+                                "type": "object",
+                                "properties": {
+                                    "api_name": {
+                                        "type": "string"
+                                    },
+                                    "json_path": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "json_path": {
+                                "type": "string"
+                            },
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "param_name": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                }
+            },
+            "DETAIL_1": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "param_name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "DETAIL_2": {
+                "type": "object",
+                "properties": {
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "param_name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "DETAIL_3": {
+                "type": "object",
+                "properties": {
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "param_name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "DETAIL_4": {
+                "type": "object",
+                "properties": {
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "param_name": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
+    }
+}
