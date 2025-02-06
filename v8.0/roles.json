@@ -1,0 +1,327 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "roles",
+        "description": "",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/settings/roles": {
+            "get": {
+                "operationId": "Get Roles",
+                "responses": {
+                    "200": {"$ref": "#/components/responses/Roles"},
+                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                }
+            },
+            "post": {
+                "operationId": "Create Roles",
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            },
+            "put": {
+                "operationId": "Update Roles",
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            }
+        },
+        "/crm/v8/settings/roles/{role_id}": {
+            "get": {
+                "operationId": "Get Role",
+                "parameters": [{
+                    "name": "role_id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {"type": "string"}
+                }],
+                "responses": {
+                    "204": {"description": ""},
+                    "200": {"$ref": "#/components/responses/Roles"},
+                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                }
+            },
+            "put": {
+                "operationId": "Update Role",
+                "parameters": [{"$ref": "#/components/parameters/role_id"}],
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            },
+            "delete": {
+                "operationId": "Delete Role",
+                "parameters": [
+                    {"$ref": "#/components/parameters/role_id"},
+                    {"$ref": "#/components/parameters/transfer_to_id"}
+                ],
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            }
+        }
+    },
+    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.roles.ALL"]}],
+    "components": {
+        "schemas": {
+            "reporting_to": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {"type": "string"}
+                },
+                "required": [
+                    "id",
+                    "name"
+                ]
+            },
+            "Role": {
+                "type": "object",
+                "properties": {
+                    "display_label": {"type": "string"},
+                    "forecast_manager": {"$ref": "#/components/schemas/reporting_to"},
+                    "reporting_to": {"$ref": "#/components/schemas/reporting_to"},
+                    "share_with_peers": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {"type": "string"},
+                    "name": {"type": "string"},
+                    "created_by__s": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "modified_by__s": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "modified_time__s": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "created_time__s": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "admin_user": {"type": "boolean"}
+                },
+                "required": [
+                    "display_label",
+                    "forecast_manager",
+                    "reporting_to",
+                    "share_with_peers",
+                    "description",
+                    "id",
+                    "name",
+                    "created_by__s",
+                    "modified_by__s",
+                    "modified_time__s",
+                    "created_time__s"
+                ]
+            },
+            "Body_Wrapper": {
+                "type": "object",
+                "properties": {"roles": {
+                    "items": {"$ref": "#/components/schemas/Role"},
+                    "type": "array"
+                }},
+                "required": ["roles"]
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {"roles": {
+                    "items": {"$ref": "#/components/schemas/Role"},
+                    "type": "array"
+                }},
+                "required": ["roles"]
+            },
+            "details": {
+                "type": "object",
+                "properties": {"id": {
+                    "type": "string",
+                    "nullable": true
+                }},
+                "required": ["id"]
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"],
+                        "nullable": true
+                    },
+                    "details": {"$ref": "#/components/schemas/details"}
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "SuccessWrapper": {
+                "type": "object",
+                "properties": {"roles": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/success"}]},
+                    "type": "array"
+                }},
+                "required": ["roles"]
+            },
+            "MandatoryParamDetails": {
+                "type": "object",
+                "properties": {"param_name": {"type": "string"}},
+                "required": ["param_name"]
+            },
+            "MandatoryDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                },
+                "required": [
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "InvalidParamDetails": {
+                "type": "object",
+                "properties": {
+                    "role_status": {"type": "string"},
+                    "param_name": {"type": "string"}
+                },
+                "required": [
+                    "role_status",
+                    "param_name"
+                ]
+            },
+            "DataTypeDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "expected_data_type": {"type": "string"}
+                },
+                "required": [
+                    "api_name",
+                    "json_path",
+                    "expected_data_type"
+                ]
+            },
+            "InvalidUrlDetails": {
+                "type": "object",
+                "properties": {"resource_path_index": {
+                    "type": "integer",
+                    "format": "int32"
+                }},
+                "required": ["resource_path_index"]
+            },
+            "error": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "DUPLICATE_DATA",
+                            "INVALID_DATA",
+                            "PATTERN_NOT_MATCHED",
+                            "REQUIRED_PARAM_MISSING",
+                            "INVALID_MODULE",
+                            "MANDATORY_NOT_FOUND"
+                        ]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {"oneOf": [
+                        {"$ref": "#/components/schemas/MandatoryParamDetails"},
+                        {"$ref": "#/components/schemas/DataTypeDetails"},
+                        {"$ref": "#/components/schemas/MandatoryDetails"},
+                        {"$ref": "#/components/schemas/InvalidUrlDetails"},
+                        {"$ref": "#/components/schemas/InvalidParamDetails"}
+                    ]}
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "ErrorWrapper": {
+                "type": "object",
+                "properties": {"roles": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/error"}]},
+                    "type": "array"
+                }},
+                "required": ["roles"]
+            }
+        },
+        "responses": {
+            "Roles": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+            },
+            "CreateSuccessResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+            },
+            "SuccessResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+            },
+            "ErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/ErrorWrapper"},
+                    {"$ref": "#/components/schemas/error"}
+                ]}}}
+            },
+            "RErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/error"}]}}}
+            }
+        },
+        "parameters": {
+            "role_id": {
+                "name": "role_id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "transfer_to_id": {
+                "name": "transfer_to_id",
+                "in": "query",
+                "required": true,
+                "schema": {"type": "string"}
+            }
+        },
+        "requestBodies": {"body": {
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+            "required": true
+        }},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

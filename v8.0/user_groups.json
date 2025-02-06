@@ -1,0 +1,866 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "user_groups",
+        "description": "",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/settings/user_groups": {
+            "get": {
+                "operationId": "Get Groups",
+                "parameters": [
+                    {"$ref": "#/components/parameters/include"},
+                    {"$ref": "#/components/parameters/name"},
+                    {"$ref": "#/components/parameters/page"},
+                    {"$ref": "#/components/parameters/per_page"},
+                    {"$ref": "#/components/parameters/filters"}
+                ],
+                "responses": {"200": {"$ref": "#/components/responses/UnsupportedVersionResponse"}}
+            },
+            "post": {
+                "operationId": "Create Groups",
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "201": {"$ref": "#/components/responses/CreateSuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            },
+            "put": {
+                "operationId": "Update Groups",
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            }
+        },
+        "/crm/v8/settings/user_groups/{group}": {
+            "get": {
+                "operationId": "Get Group",
+                "parameters": [{"$ref": "#/components/parameters/group"}],
+                "responses": {
+                    "204": {"description": ""},
+                    "200": {"$ref": "#/components/responses/UnsupportedVersionResponse"},
+                    "400": {"$ref": "#/components/responses/InvalidUrlResponse"}
+                }
+            },
+            "put": {
+                "operationId": "Update Group",
+                "parameters": [{"$ref": "#/components/parameters/group"}],
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            },
+            "delete": {
+                "operationId": "Delete Group",
+                "parameters": [{"$ref": "#/components/parameters/group"}],
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            }
+        },
+        "/crm/v8/settings/user_groups/{group}/sources": {"get": {
+            "operationId": "Get Sources",
+            "parameters": [
+                {"$ref": "#/components/parameters/type"},
+                {"$ref": "#/components/parameters/user_type"},
+                {"$ref": "#/components/parameters/page"},
+                {"$ref": "#/components/parameters/per_page"},
+                {"$ref": "#/components/parameters/group"}
+            ],
+            "responses": {
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/UnsupportedVersionResponse"},
+                "400": {"$ref": "#/components/responses/InvalidUrlResponse"}
+            }
+        }},
+        "/crm/v8/settings/user_groups/{group}/actions/sources_count": {"get": {
+            "operationId": "Get Sources count",
+            "parameters": [{"$ref": "#/components/parameters/group"}],
+            "responses": {
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/UnsupportedVersionResponse"},
+                "400": {"$ref": "#/components/responses/InvalidUrlResponse"}
+            }
+        }},
+        "/crm/v8/settings/user_groups/actions/deletion_jobs": {"get": {
+            "operationId": "Get Status",
+            "parameters": [{"$ref": "#/components/parameters/job_id"}],
+            "responses": {
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/UnsupportedVersionResponse"},
+                "400": {"$ref": "#/components/responses/MandatoryParamResponse"}
+            }
+        }},
+        "/crm/v8/settings/user_groups/{group}/actions/associations": {"get": {
+            "operationId": "Get Associations",
+            "parameters": [{"$ref": "#/components/parameters/group"}],
+            "responses": {
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/Association_Status"},
+                "400": {"$ref": "#/components/responses/InvalidUrlResponse"}
+            }
+        }},
+        "/crm/v8/settings/user_groups/actions/associated_users_count": {"get": {
+            "operationId": "Get Associated Users Count",
+            "parameters": [
+                {"$ref": "#/components/parameters/page"},
+                {"$ref": "#/components/parameters/per_page"},
+                {"$ref": "#/components/parameters/filters"}
+            ],
+            "responses": {
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/Associated_UserCount_Response"},
+                "400": {"$ref": "#/components/responses/InvalidUrlResponse"}
+            }
+        }},
+        "/crm/v8/settings/user_groups/actions/get_assigned": {"post": {
+            "operationId": "GetAssignedGroups",
+            "requestBody": {"$ref": "#/components/requestBodies/GetAssignBody"},
+            "responses": {
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/UnsupportedVersionResponse"}
+            }
+        }},
+        "/crm/v8/settings/user_groups/actions/get_unassigned": {"post": {
+            "operationId": "GetUnassignedGroups",
+            "requestBody": {"$ref": "#/components/requestBodies/GetUnassignBody"},
+            "responses": {
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/UnsupportedVersionResponse"}
+            }
+        }},
+        "/crm/v8/users/{user}/actions/associated_groups": {"get": {
+            "operationId": "Get Associate Groups of User",
+            "parameters": [
+                {
+                    "name": "user",
+                    "in": "path",
+                    "required": true,
+                    "schema": {"type": "string"}
+                },
+                {
+                    "name": "include",
+                    "in": "query",
+                    "required": false,
+                    "schema": {"type": "string"}
+                },
+                {"$ref": "#/components/parameters/page"},
+                {"$ref": "#/components/parameters/per_page"}
+            ],
+            "responses": {
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/UnsupportedVersionResponse"}
+            }
+        }},
+        "/crm/v8/settings/user_groups/{group}/associated_users/actions/grouped_counts": {"get": {
+            "operationId": "Get Grouped Counts",
+            "parameters": [
+                {"$ref": "#/components/parameters/group"},
+                {
+                    "name": "group_by",
+                    "in": "query",
+                    "required": true,
+                    "schema": {"type": "string"}
+                }
+            ],
+            "responses": {
+                "200": {"$ref": "#/components/responses/UnsupportedVersionResponse"},
+                "204": {"description": ""}
+            }
+        }}
+    },
+    "security": [{"iam-oauth2-schema": [""]}],
+    "components": {
+        "schemas": {
+            "owner": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name",
+                    "id"
+                ]
+            },
+            "sources": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "territories",
+                            "roles",
+                            "users"
+                        ]
+                    },
+                    "source": {
+                        "type": "object",
+                        "properties": {
+                            "id": {"type": "string"},
+                            "name": {
+                                "type": "string",
+                                "readOnly": true
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name"
+                        ]
+                    },
+                    "subordinates": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "sub_territories": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "type",
+                    "source",
+                    "subordinates",
+                    "sub_territories"
+                ]
+            },
+            "groups": {
+                "type": "object",
+                "properties": {
+                    "created_by": {"$ref": "#/components/schemas/owner"},
+                    "modified_by": {"$ref": "#/components/schemas/owner"},
+                    "modified_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "created_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {"type": "string"},
+                    "name": {"type": "string"},
+                    "sources_count": {"$ref": "#/components/schemas/sources_count"},
+                    "sources": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/sources"}
+                    }
+                },
+                "required": [
+                    "created_by",
+                    "modified_by",
+                    "modified_time",
+                    "created_time",
+                    "description",
+                    "id",
+                    "name",
+                    "sources_count",
+                    "sources"
+                ]
+            },
+            "info": {
+                "type": "object",
+                "properties": {
+                    "per_page": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "count": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "page": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "more_records": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "per_page",
+                    "count",
+                    "page",
+                    "more_records"
+                ]
+            },
+            "wrapper": {
+                "type": "object",
+                "properties": {"user_groups": {
+                    "items": {"$ref": "#/components/schemas/groups"},
+                    "type": "array"
+                }}
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "user_groups": {
+                        "items": {"$ref": "#/components/schemas/groups"},
+                        "type": "array"
+                    },
+                    "info": {"$ref": "#/components/schemas/info"}
+                },
+                "required": [
+                    "user_groups",
+                    "info"
+                ]
+            },
+            "details": {
+                "type": "object",
+                "properties": {"id": {
+                    "type": "string",
+                    "nullable": true
+                }},
+                "required": ["id"]
+            },
+            "ScheduleDetails": {
+                "type": "object",
+                "properties": {"job_id": {
+                    "type": "string",
+                    "nullable": true
+                }},
+                "required": ["job_id"]
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "SUCCESS",
+                            "SCHEDULED"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"],
+                        "nullable": true
+                    },
+                    "details": {"oneOf": [
+                        {"$ref": "#/components/schemas/details"},
+                        {"$ref": "#/components/schemas/ScheduleDetails"}
+                    ]}
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "SuccessWrapper": {
+                "type": "object",
+                "properties": {"user_groups": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/success"}]},
+                    "type": "array"
+                }},
+                "required": ["user_groups"]
+            },
+            "MandatoryWrapper": {
+                "type": "object",
+                "properties": {"user_groups": {
+                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"}]},
+                    "type": "array"
+                }},
+                "required": ["user_groups"]
+            },
+            "InvalidValueWrapper": {
+                "type": "object",
+                "properties": {"user_groups": {
+                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"}]},
+                    "type": "array"
+                }},
+                "required": ["user_groups"]
+            },
+            "InvalidTypeWrapper": {
+                "type": "object",
+                "properties": {"user_groups": {
+                    "items": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]},
+                    "type": "array"
+                }},
+                "required": ["user_groups"]
+            },
+            "AssignMandatoryWrapper": {
+                "type": "object",
+                "properties": {"get_assigned": {"oneOf": [
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/ExpectedFieldMissingError"}
+                ]}},
+                "required": ["get_assigned"]
+            },
+            "AssignInvalidValueWrapper": {
+                "type": "object",
+                "properties": {"get_assigned": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"}]}},
+                "required": ["get_assigned"]
+            },
+            "AssignInvalidTypeWrapper": {
+                "type": "object",
+                "properties": {"get_assigned": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]}},
+                "required": ["get_assigned"]
+            },
+            "UnAssignMandatoryWrapper": {
+                "type": "object",
+                "properties": {"get_unassigned": {"oneOf": [
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/ExpectedFieldMissingError"}
+                ]}},
+                "required": ["get_unassigned"]
+            },
+            "UnAssignInvalidValueWrapper": {
+                "type": "object",
+                "properties": {"get_unassigned": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"}]}},
+                "required": ["get_unassigned"]
+            },
+            "UnAssignInvalidTypeWrapper": {
+                "type": "object",
+                "properties": {"get_unassigned": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}]}},
+                "required": ["get_unassigned"]
+            },
+            "InvalidUrlDetails": {
+                "type": "object",
+                "properties": {"resource_path_index": {
+                    "type": "integer",
+                    "format": "int32"
+                }},
+                "required": ["resource_path_index"]
+            },
+            "InvalidUrlError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {"$ref": "#/components/schemas/InvalidUrlDetails"}
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "jobs": {
+                "type": "object",
+                "properties": {"Status": {"type": "string"}},
+                "required": ["Status"]
+            },
+            "JobsWrapper": {
+                "type": "object",
+                "properties": {"deletion_jobs": {
+                    "items": {"$ref": "#/components/schemas/jobs"},
+                    "type": "array"
+                }},
+                "required": ["deletion_jobs"]
+            },
+            "MandatoryParamDetails": {
+                "type": "object",
+                "properties": {"param_name": {"type": "string"}},
+                "required": ["param_name"]
+            },
+            "MandatoryParamError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["REQUIRED_PARAM_MISSING"],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"],
+                        "nullable": true
+                    },
+                    "details": {"$ref": "#/components/schemas/MandatoryParamDetails"}
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "Association": {
+                "type": "object",
+                "properties": {
+                    "type": {"type": "string"},
+                    "resource": {
+                        "type": "object",
+                        "properties": {
+                            "id": {"type": "string"},
+                            "name": {"type": "string"}
+                        }
+                    },
+                    "detail": {
+                        "type": "object",
+                        "properties": {"module": {"$ref": "./modules.json#/components/schemas/Minified_Module"}}
+                    }
+                }
+            },
+            "Association_Wrapper": {
+                "type": "object",
+                "properties": {"associations": {
+                    "items": {"$ref": "#/components/schemas/Association"},
+                    "type": "array"
+                }}
+            },
+            "users": {
+                "type": "object",
+                "properties": {
+                    "inactive": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "deleted": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "active": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "inactive",
+                    "deleted",
+                    "active"
+                ]
+            },
+            "sources_count": {
+                "type": "object",
+                "properties": {
+                    "territories": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "roles": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "groups": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "users": {"$ref": "#/components/schemas/users"}
+                },
+                "required": [
+                    "territories",
+                    "roles",
+                    "groups",
+                    "users"
+                ]
+            },
+            "associated_users_count": {
+                "type": "object",
+                "properties": {
+                    "user_group": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "id": {"type": "string"}
+                        }
+                    },
+                    "count": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "user_group",
+                    "count"
+                ]
+            },
+            "Criteria": {
+                "type": "object",
+                "properties": {
+                    "comparator": {"type": "string"},
+                    "field": {
+                        "type": "object",
+                        "properties": {
+                            "api_name": {"type": "string"},
+                            "id": {"type": "string"}
+                        },
+                        "required": [
+                            "api_name",
+                            "id"
+                        ]
+                    },
+                    "group_operator": {
+                        "type": "string",
+                        "enum": [
+                            "OR",
+                            "AND"
+                        ]
+                    },
+                    "group": {
+                        "items": {"$ref": "#/components/schemas/Criteria"},
+                        "type": "array"
+                    },
+                    "value": {"type": "object"}
+                },
+                "required": [
+                    "comparator",
+                    "field",
+                    "group_operator",
+                    "group",
+                    "value"
+                ]
+            },
+            "assign": {
+                "type": "object",
+                "properties": {
+                    "feature": {
+                        "type": "string",
+                        "enum": ["user_groups"]
+                    },
+                    "related_entity_id": {"type": "string"},
+                    "page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "per_page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "id": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "filters": {"$ref": "#/components/schemas/Criteria"}
+                },
+                "required": [
+                    "feature",
+                    "related_entity_id"
+                ]
+            },
+            "GetAssignWrapper": {
+                "type": "object",
+                "properties": {"get_assigned": {"$ref": "#/components/schemas/assign"}},
+                "required": ["get_assigned"]
+            },
+            "GetUnassignWrapper": {
+                "type": "object",
+                "properties": {"get_unassigned": {"$ref": "#/components/schemas/assign"}},
+                "required": ["get_unassigned"]
+            }
+        },
+        "responses": {
+            "UserGroups": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+            },
+            "SuccessResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+            },
+            "CreateSuccessResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+            },
+            "MandatoryResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
+                    {"$ref": "#/components/schemas/MandatoryWrapper"}
+                ]}}}
+            },
+            "InvalidErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InvalidValueWrapper"}]}}}
+            },
+            "InvalidTypeResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/InvalidTypeWrapper"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}
+                ]}}}
+            },
+            "InvalidUrlResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/InvalidUrlError"}]}}}
+            },
+            "JobStatus": {
+                "description": "",
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/JobsWrapper"}}}
+            },
+            "MandatoryParamResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/MandatoryParamError"}]}}}
+            },
+            "UnsupportedVersionResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}]}}}
+            },
+            "SourcesCount": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{
+                    "type": "object",
+                    "properties": {"sources_count": {
+                        "items": {"$ref": "#/components/schemas/sources_count"},
+                        "type": "array"
+                    }},
+                    "required": ["sources_count"]
+                }]}}}
+            },
+            "Sources": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{
+                    "type": "object",
+                    "properties": {
+                        "sources": {
+                            "items": {"$ref": "#/components/schemas/sources"},
+                            "type": "array"
+                        },
+                        "info": {"$ref": "#/components/schemas/info"}
+                    },
+                    "required": [
+                        "sources",
+                        "info"
+                    ]
+                }]}}}
+            },
+            "Association_Status": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Association_Wrapper"}]}}}
+            },
+            "Associated_UserCount_Response": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{
+                    "type": "object",
+                    "properties": {
+                        "associated_users_count": {
+                            "items": {"$ref": "#/components/schemas/associated_users_count"},
+                            "type": "array"
+                        },
+                        "info": {"$ref": "#/components/schemas/info"}
+                    }
+                }]}}}
+            },
+            "ErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidParamError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryParamError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlError"},
+                    {"$ref": "#/components/schemas/MandatoryWrapper"},
+                    {"$ref": "#/components/schemas/InvalidValueWrapper"},
+                    {"$ref": "#/components/schemas/InvalidTypeWrapper"}
+                ]}}}
+            }
+        },
+        "parameters": {
+            "include": {
+                "name": "include",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "name": {
+                "name": "name",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "page": {
+                "name": "page",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "per_page": {
+                "name": "per_page",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "user_type": {
+                "name": "user_type",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "type": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "group": {
+                "name": "group",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "job_id": {
+                "name": "job_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "enum": ["1234567890"]
+                }
+            },
+            "filters": {
+                "name": "filters",
+                "in": "query",
+                "required": false,
+                "schema": {"oneOf": [{"$ref": "#/components/schemas/Criteria"}]}
+            }
+        },
+        "requestBodies": {
+            "body": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/wrapper"}}},
+                "required": true
+            },
+            "GetAssignBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/GetAssignWrapper"}}},
+                "required": true
+            },
+            "GetUnassignBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/GetUnassignWrapper"}}},
+                "required": true
+            }
+        },
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

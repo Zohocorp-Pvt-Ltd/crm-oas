@@ -1,0 +1,1443 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "modules",
+        "description": "Modules",
+        "version": "v8.0"
+    },
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/settings/modules": {
+            "get": {
+                "operationId": "Get Modules",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    },
+                    {
+                        "$ref": "#/components/parameters/status"
+                    },
+                    {
+                        "$ref": "#/components/parameters/If-Modified-Since"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/Modules"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "Create Custom Modules",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Update Custom Modules",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            }
+        },
+        "/crm/v8/settings/modules/{api_name}": {
+            "get": {
+                "operationId": "Get Module By API Name",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/api_name"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Modules"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Update Module By API Name",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/api_name"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            }
+        },
+        "/crm/v8/settings/modules/{id}": {
+            "get": {
+                "operationId": "Get Module",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Modules"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RErrorResponse"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Update Module",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.modules.all",
+                "ZohoCRM.settings.all"
+            ]
+        }
+    ],
+    "components": {
+        "schemas": {
+            "Minified_Module": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "module_name": {
+                        "type": "string"
+                    },
+                    "module": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "id"
+                ]
+            },
+            "sharing_properties": {
+                "type": "object",
+                "properties": {
+                    "scheduler_status": {
+                        "type": "string"
+                    },
+                    "share_preference_enabled": {
+                        "type": "boolean"
+                    },
+                    "share_permission": {
+                        "type": "string",
+                        "enum": [
+                            "read-write",
+                            "read-only",
+                            "full-access"
+                        ]
+                    }
+                }
+            },
+            "Territory": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "subordinates": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "fields": {
+                "type": "object",
+                "properties": {
+                    "blueprint_supported": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "json_type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "length": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "decimal_place": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "multi_module_lookup": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "sharing_properties": {
+                        "$ref": "#/components/schemas/sharing_properties"
+                    },
+                    "currency": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "file_upolad_optionlist": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./fields.json#/components/schemas/file_upolad_option"
+                        }
+                    },
+                    "lookup": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "subform": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "formula": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "multiselectlookup": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "multiuserlookup": {
+                        "$ref": "./fields.json#/components/schemas/multiselectlookup"
+                    },
+                    "pick_list_values": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./fields.json#/components/schemas/pick_list_values"
+                        }
+                    },
+                    "allowed_modules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Minified_Module"
+                        }
+                    },
+                    "hipaa_compliance_enabled": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "hipaa_compliance": {
+                        "$ref": "./fields.json#/components/schemas/hipaa_compliance"
+                    },
+                    "associated_module": {
+                        "$ref": "#/components/schemas/Minified_Module"
+                    },
+                    "data_type": {
+                        "type": "string"
+                    },
+                    "operation_type": {
+                        "$ref": "./fields.json#/components/schemas/operation_type"
+                    },
+                    "system_mandatory": {
+                        "type": "boolean"
+                    },
+                    "webhook": {
+                        "type": "boolean"
+                    },
+                    "sequence_number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "default_value": {
+                        "type": "string"
+                    },
+                    "virtual_field": {
+                        "type": "boolean"
+                    },
+                    "field_read_only": {
+                        "type": "boolean"
+                    },
+                    "customizable_properties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "read_only": {
+                        "type": "boolean"
+                    },
+                    "custom_field": {
+                        "type": "boolean"
+                    },
+                    "businesscard_supported": {
+                        "type": "boolean"
+                    },
+                    "filterable": {
+                        "type": "boolean"
+                    },
+                    "visible": {
+                        "type": "boolean"
+                    },
+                    "available_in_user_layout": {
+                        "type": "boolean"
+                    },
+                    "display_field": {
+                        "type": "boolean"
+                    },
+                    "pick_list_values_sorted_lexically": {
+                        "type": "boolean"
+                    },
+                    "sortable": {
+                        "type": "boolean"
+                    },
+                    "layout_associations": {
+                        "items": {
+                            "$ref": "./fields.json#/components/schemas/layout_association"
+                        },
+                        "type": "array"
+                    },
+                    "separator": {
+                        "type": "boolean"
+                    },
+                    "searchable": {
+                        "type": "boolean"
+                    },
+                    "enable_colour_code": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "mass_update": {
+                        "type": "boolean"
+                    },
+                    "created_source": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "display_label": {
+                        "type": "string"
+                    },
+                    "column_name": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "display_type": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "ui_type": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "colour_code_enabled_by_system": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "quick_sequence_number": {
+                        "type": "string"
+                    },
+                    "email_parser": {
+                        "$ref": "./fields.json#/components/schemas/email_parser"
+                    },
+                    "rollup_summary": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "refer_from_field": {
+                        "$ref": "./fields.json#/components/schemas/refer_from_field"
+                    },
+                    "created_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "modified_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "show_type": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "category": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "profiles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./fields.json#/components/schemas/profile"
+                        }
+                    },
+                    "view_type": {
+                        "$ref": "./fields.json#/components/schemas/view_type"
+                    },
+                    "unique": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "sub_module": {
+                        "$ref": "#/components/schemas/Minified_Module"
+                    },
+                    "external": {
+                        "$ref": "./fields.json#/components/schemas/external"
+                    },
+                    "private": {
+                        "$ref": "./fields.json#/components/schemas/private"
+                    },
+                    "convert_mapping": {
+                        "$ref": "./fields.json#/components/schemas/Convert_Mapping"
+                    },
+                    "autonumber": {
+                        "$ref": "./fields.json#/components/schemas/auto_number"
+                    },
+                    "auto_number": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "crypt": {
+                        "$ref": "./fields.json#/components/schemas/crypt"
+                    },
+                    "tooltip": {
+                        "$ref": "./fields.json#/components/schemas/tooltip"
+                    },
+                    "history_tracking": {
+                        "$ref": "./fields.json#/components/schemas/history_tracking"
+                    },
+                    "association_details": {
+                        "$ref": "./fields.json#/components/schemas/association_details"
+                    },
+                    "additional_column": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "field_label": {
+                        "type": "string"
+                    },
+                    "common.picklist": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "_update_existing_records": {
+                        "type": "boolean"
+                    },
+                    "number_separator": {
+                        "type": "boolean"
+                    },
+                    "textarea": {
+                        "$ref": "./fields.json#/components/schemas/textarea"
+                    },
+                    "static_field": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "blueprint_supported",
+                    "json_type",
+                    "length",
+                    "decimal_place",
+                    "multi_module_lookup",
+                    "sharing_properties",
+                    "currency",
+                    "file_upolad_optionlist",
+                    "lookup",
+                    "subform",
+                    "formula",
+                    "multiselectlookup",
+                    "multiuserlookup",
+                    "pick_list_values",
+                    "allowed_modules",
+                    "hipaa_compliance_enabled",
+                    "hipaa_compliance",
+                    "associated_module",
+                    "data_type",
+                    "operation_type",
+                    "system_mandatory",
+                    "webhook",
+                    "virtual_field",
+                    "field_read_only",
+                    "customizable_properties",
+                    "read_only",
+                    "custom_field",
+                    "businesscard_supported",
+                    "filterable",
+                    "visible",
+                    "available_in_user_layout",
+                    "display_field",
+                    "pick_list_values_sorted_lexically",
+                    "sortable",
+                    "layout_associations",
+                    "separator",
+                    "searchable",
+                    "enable_colour_code",
+                    "mass_update",
+                    "created_source",
+                    "type",
+                    "display_label",
+                    "column_name",
+                    "api_name",
+                    "display_type",
+                    "ui_type",
+                    "colour_code_enabled_by_system",
+                    "quick_sequence_number",
+                    "email_parser",
+                    "rollup_summary",
+                    "refer_from_field",
+                    "created_time",
+                    "modified_time",
+                    "show_type",
+                    "category",
+                    "id",
+                    "profiles",
+                    "view_type",
+                    "unique",
+                    "sub_module",
+                    "external",
+                    "convert_mapping",
+                    "autonumber",
+                    "auto_number",
+                    "crypt",
+                    "tooltip",
+                    "history_tracking",
+                    "association_details",
+                    "additional_column",
+                    "field_label",
+                    "common.picklist",
+                    "_update_existing_records",
+                    "number_separator",
+                    "textarea",
+                    "static_field"
+                ]
+            },
+            "lookup": {
+                "type": "object",
+                "properties": {
+                    "query_details": {
+                        "$ref": "./fields.json#/components/schemas/query_details"
+                    },
+                    "module": {
+                        "type": "object",
+                        "properties": {
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "api_name",
+                            "id"
+                        ]
+                    },
+                    "display_label": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "revalidate_filter_during_edit": {
+                        "type": "boolean"
+                    },
+                    "show_fields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./fields.json#/components/schemas/show_fields"
+                        }
+                    }
+                },
+                "required": [
+                    "query_details",
+                    "module",
+                    "revalidate_filter_during_edit",
+                    "show_fields"
+                ]
+            },
+            "modules": {
+                "type": "object",
+                "properties": {
+                    "has_more_profiles": {
+                        "type": "boolean"
+                    },
+                    "sub_menu_available": {
+                        "type": "boolean"
+                    },
+                    "common.search_supported": {
+                        "type": "boolean"
+                    },
+                    "deletable": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 255
+                    },
+                    "creatable": {
+                        "type": "boolean"
+                    },
+                    "recycle_bin_on_delete": {
+                        "type": "boolean"
+                    },
+                    "inventory_template_supported": {
+                        "type": "boolean"
+                    },
+                    "modified_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "plural_label": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "presence_sub_menu": {
+                        "type": "boolean"
+                    },
+                    "triggers_supported": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "chart_view": {
+                        "type": "boolean"
+                    },
+                    "isBlueprintSupported": {
+                        "type": "boolean"
+                    },
+                    "visibility": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "visible": {
+                        "type": "boolean"
+                    },
+                    "convertable": {
+                        "type": "boolean"
+                    },
+                    "editable": {
+                        "type": "boolean"
+                    },
+                    "emailTemplate_support": {
+                        "type": "boolean"
+                    },
+                    "email_parser_supported": {
+                        "type": "boolean"
+                    },
+                    "filter_supported": {
+                        "type": "boolean"
+                    },
+                    "show_as_tab": {
+                        "type": "boolean"
+                    },
+                    "web_link": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sequence_number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "singular_label": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "viewable": {
+                        "type": "boolean"
+                    },
+                    "api_supported": {
+                        "type": "boolean"
+                    },
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "quick_create": {
+                        "type": "boolean"
+                    },
+                    "generated_type": {
+                        "type": "string",
+                        "enum": [
+                            "default",
+                            "web",
+                            "linking",
+                            "custom"
+                        ]
+                    },
+                    "feeds_required": {
+                        "type": "boolean"
+                    },
+                    "scoring_supported": {
+                        "type": "boolean"
+                    },
+                    "webform_supported": {
+                        "type": "boolean"
+                    },
+                    "territory": {
+                        "$ref": "#/components/schemas/Territory"
+                    },
+                    "arguments": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "module_name": {
+                        "type": "string"
+                    },
+                    "chart_view_supported": {
+                        "type": "boolean"
+                    },
+                    "profile_count": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "business_card_field_limit": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "track_current_data": {
+                        "type": "boolean"
+                    },
+                    "modified_by": {
+                        "$ref": "./users.json#/components/schemas/Minified_User"
+                    },
+                    "profiles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./profiles.json#/components/schemas/Minified_Profile"
+                        }
+                    },
+                    "parent_module": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "activity_badge": {
+                        "type": "string",
+                        "enum": [
+                            "Enabled",
+                            "Disabled"
+                        ],
+                        "nullable": true
+                    },
+                    "$field_states": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "business_card_fields": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "per_page": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "$properties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "$on_demand_properties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "search_layout_fields": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "kanban_view_supported": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "lookup_field_properties": {
+                        "type": "object",
+                        "properties": {
+                            "fields": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "sequence_number": {
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        },
+                                        "api_name": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "required": [
+                                        "sequence_number",
+                                        "api_name",
+                                        "id"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "fields"
+                        ]
+                    },
+                    "kanban_view": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "related_lists": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./related_lists.json#/components/schemas/related_list"
+                        }
+                    },
+                    "filter_status": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "related_list_properties": {
+                        "type": "object",
+                        "properties": {
+                            "sort_by": {
+                                "$ref": "./fields.json#/components/schemas/Minified_Field"
+                            },
+                            "fields": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sort_order": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "required": [
+                            "sort_by",
+                            "fields",
+                            "sort_order"
+                        ]
+                    },
+                    "display_field": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "layouts": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    },
+                    "fields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/fields"
+                        }
+                    },
+                    "custom_view": {
+                        "$ref": "./custom_views.json#/components/schemas/custom_views"
+                    },
+                    "zia_view": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "default_mapping_fields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./fields.json#/components/schemas/Minified_Field"
+                        }
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "static_subform_properties": {
+                        "type": "object",
+                        "properties": {
+                            "fields": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "api_name": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "required": [
+                                        "api_name",
+                                        "id"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "fields"
+                        ]
+                    },
+                    "layout_associations": {
+                        "items": {
+                            "$ref": "./fields.json#/components/schemas/layout_association"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "common.search_supported",
+                    "deletable",
+                    "description",
+                    "creatable",
+                    "recycle_bin_on_delete",
+                    "inventory_template_supported",
+                    "modified_time",
+                    "plural_label",
+                    "presence_sub_menu",
+                    "triggers_supported",
+                    "id",
+                    "chart_view",
+                    "isBlueprintSupported",
+                    "visibility",
+                    "visible",
+                    "convertable",
+                    "editable",
+                    "emailTemplate_support",
+                    "email_parser_supported",
+                    "filter_supported",
+                    "show_as_tab",
+                    "web_link",
+                    "sequence_number",
+                    "singular_label",
+                    "viewable",
+                    "api_supported",
+                    "api_name",
+                    "quick_create",
+                    "generated_type",
+                    "feeds_required",
+                    "scoring_supported",
+                    "webform_supported",
+                    "arguments",
+                    "module_name",
+                    "chart_view_supported",
+                    "profile_count",
+                    "business_card_field_limit",
+                    "track_current_data",
+                    "modified_by",
+                    "profiles",
+                    "parent_module",
+                    "activity_badge",
+                    "$field_states",
+                    "business_card_fields",
+                    "per_page",
+                    "$properties",
+                    "$on_demand_properties",
+                    "search_layout_fields",
+                    "kanban_view_supported",
+                    "lookup_field_properties",
+                    "kanban_view",
+                    "related_lists",
+                    "filter_status",
+                    "related_list_properties",
+                    "display_field",
+                    "layouts",
+                    "fields",
+                    "custom_view",
+                    "zia_view",
+                    "default_mapping_fields",
+                    "layout_associations"
+                ]
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "modules": {
+                        "items": {
+                            "$ref": "#/components/schemas/modules"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "modules"
+                ]
+            },
+            "Body_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "modules": {
+                        "items": {
+                            "$ref": "#/components/schemas/modules"
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "Action_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "modules": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "SUCCESS"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "module created"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "success"
+                        ]
+                    }
+                }
+            },
+            "NotSupported": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "NOT_SUPPORTED"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidUrlDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "Error_Detail": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Expected_Data_Type": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Maximum_Length": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "maximum_length": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "Mandatory_Not_Found": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/Error_Detail"
+                    }
+                }
+            },
+            "Invalid_Data": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Expected_Data_Type"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Maximum_Length"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Error_Detail"
+                            }
+                        ]
+                    }
+                }
+            },
+            "Invalid_Module": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_MODULE"
+                        ]
+                    },
+                    "details": {
+                        "type": "object"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                }
+            },
+            "Not_Supported": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "NOT_SUPPORTED"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "resource_path_index": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        }
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                }
+            },
+            "Error_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "modules": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Mandatory_Not_Found"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Data"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "Modules": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "SuccessResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Action_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "ErrorResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/NotSupported"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Error_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "RErrorResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Data"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Not_Supported"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Module"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "parameters": {
+            "api_name": {
+                "name": "api_name",
+                "in": "path",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-ZCSRF-TOKEN": {
+                "name": "X-ZCSRF-TOKEN",
+                "in": "header",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "status": {
+                "name": "status",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "visible",
+                        "scheduled_for_deletion",
+                        "user_hidden",
+                        "system_hidden"
+                    ]
+                }
+            },
+            "id": {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "If-Modified-Since": {
+                "name": "If-Modified-Since",
+                "in": "header",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Body_Wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "headers": {},
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
+    }
+}

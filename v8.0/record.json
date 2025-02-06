@@ -1,0 +1,1599 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "record",
+        "description": "Record",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/{module_api_name}/{id}": {
+            "get": {
+                "operationId": "Get Record",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/id"},
+                    {"$ref": "#/components/parameters/approved"},
+                    {"$ref": "#/components/parameters/converted"},
+                    {"$ref": "#/components/parameters/cvid"},
+                    {"$ref": "#/components/parameters/uid"},
+                    {"$ref": "#/components/parameters/fields"},
+                    {"$ref": "#/components/parameters/startDateTime"},
+                    {"$ref": "#/components/parameters/endDateTime"},
+                    {"$ref": "#/components/parameters/territory_id"},
+                    {"$ref": "#/components/parameters/include_child"},
+                    {"$ref": "#/components/parameters/If-Modified-Since"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"},
+                    {"$ref": "#/components/parameters/on_demand_properties"}
+                ],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Response_Wrapper"},
+                        {"$ref": "#/components/schemas/File_Body_Wrapper"},
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "put": {
+                "operationId": "Update Record",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/id"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"}
+                ],
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "delete": {
+                "operationId": "Delete Record",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/id"},
+                    {"$ref": "#/components/parameters/wf_trigger"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"}
+                ],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            }
+        },
+        "/crm/v8/{module_api_name}": {
+            "get": {
+                "operationId": "Get Records",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/approved"},
+                    {"$ref": "#/components/parameters/converted"},
+                    {"$ref": "#/components/parameters/cvid"},
+                    {"$ref": "#/components/parameters/ids"},
+                    {"$ref": "#/components/parameters/uid"},
+                    {"$ref": "#/components/parameters/fields"},
+                    {"$ref": "#/components/parameters/sort_by"},
+                    {"$ref": "#/components/parameters/sort_order"},
+                    {"$ref": "#/components/parameters/page"},
+                    {"$ref": "#/components/parameters/per_page"},
+                    {"$ref": "#/components/parameters/startDateTime"},
+                    {"$ref": "#/components/parameters/endDateTime"},
+                    {"$ref": "#/components/parameters/territory_id"},
+                    {"$ref": "#/components/parameters/include_child"},
+                    {"$ref": "#/components/parameters/If-Modified-Since"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"},
+                    {"$ref": "#/components/parameters/page_token"}
+                ],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Response_Wrapper"},
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "post": {
+                "operationId": "Create Records",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"}
+                ],
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "put": {
+                "operationId": "Update Records",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"}
+                ],
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "delete": {
+                "operationId": "Delete Records",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/ids"},
+                    {"$ref": "#/components/parameters/wf_trigger"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"}
+                ],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            }
+        },
+        "/crm/v8/{module_api_name}/upsert": {"post": {
+            "operationId": "Upsert Records",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/X-EXTERNAL"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "required": true
+            },
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"data": {
+                            "items": {"oneOf": [
+                                {"$ref": "#/components/schemas/Success_Response"},
+                                {"$ref": "#/components/schemas/API_Exception"}
+                            ]},
+                            "type": "array"
+                        }}
+                    },
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/deleted": {"get": {
+            "operationId": "Get Deleted Records",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/type"},
+                {"$ref": "#/components/parameters/page"},
+                {"$ref": "#/components/parameters/per_page"},
+                {"$ref": "#/components/parameters/If-Modified-Since"}
+            ],
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/Deleted_Records_Wrapper"},
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/search": {"get": {
+            "operationId": "Search Records",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/criteria"},
+                {"$ref": "#/components/parameters/email"},
+                {"$ref": "#/components/parameters/phone"},
+                {"$ref": "#/components/parameters/word"},
+                {"$ref": "#/components/parameters/converted"},
+                {"$ref": "#/components/parameters/approved"},
+                {"$ref": "#/components/parameters/page"},
+                {"$ref": "#/components/parameters/per_page"},
+                {"$ref": "#/components/parameters/fields"},
+                {"$ref": "#/components/parameters/cvid"},
+                {"$ref": "#/components/parameters/type"},
+                {"$ref": "#/components/parameters/X-EXTERNAL"}
+            ],
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/Response_Wrapper"},
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/{id}/photo": {
+            "get": {
+                "operationId": "Get Photo",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/id"}
+                ],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/x-download": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/File_Body_Wrapper"},
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "post": {
+                "operationId": "Upload Photo",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/id"},
+                    {"$ref": "#/components/parameters/restrict_triggers"}
+                ],
+                "requestBody": {
+                    "content": {"multipart/form-data": {"schema": {"$ref": "#/components/schemas/File_Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Success_Response"},
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "delete": {
+                "operationId": "Delete Photo",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/id"}
+                ],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Success_Response"},
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            }
+        },
+        "/crm/v8/{module_api_name}/actions/mass_update": {
+            "post": {
+                "operationId": "Mass Update Records",
+                "parameters": [{"$ref": "#/components/parameters/module_api_name"}],
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Mass_Update_Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Mass_Update_Success_Response"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "get": {
+                "operationId": "Get Mass Update Status",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/job_id"}
+                ],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Mass_Update"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            }
+        },
+        "/crm/v8/{module_api_name}/actions/assign_territories": {"post": {
+            "operationId": "Assign Territories To Multiple Records",
+            "parameters": [{"$ref": "#/components/parameters/module_api_name"}],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "required": true
+            },
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"data": {
+                            "items": {"oneOf": [
+                                {"$ref": "#/components/schemas/Success_Response"},
+                                {"$ref": "#/components/schemas/API_Exception"}
+                            ]},
+                            "type": "array"
+                        }}
+                    },
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/{id}/actions/assign_territories": {"post": {
+            "operationId": "Assign Territory to Record",
+            "parameters": [
+                {"$ref": "#/components/parameters/id"},
+                {"$ref": "#/components/parameters/module_api_name"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "required": true
+            },
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"data": {
+                            "items": {"oneOf": [
+                                {"$ref": "#/components/schemas/Success_Response"},
+                                {"$ref": "#/components/schemas/API_Exception"}
+                            ]},
+                            "type": "array"
+                        }}
+                    },
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/actions/remove_territories": {"post": {
+            "operationId": "Remove Territories From Multiple Records",
+            "parameters": [{"$ref": "#/components/parameters/module_api_name"}],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "required": true
+            },
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"data": {
+                            "items": {"oneOf": [
+                                {"$ref": "#/components/schemas/Success_Response"},
+                                {"$ref": "#/components/schemas/API_Exception"}
+                            ]},
+                            "type": "array"
+                        }}
+                    },
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/{id}/actions/remove_territories": {"post": {
+            "operationId": "Remove Territories From Record",
+            "parameters": [
+                {"$ref": "#/components/parameters/id"},
+                {"$ref": "#/components/parameters/module_api_name"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "required": true
+            },
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"data": {
+                            "items": {"oneOf": [
+                                {"$ref": "#/components/schemas/Success_Response"},
+                                {"$ref": "#/components/schemas/API_Exception"}
+                            ]},
+                            "type": "array"
+                        }}
+                    },
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/actions/count": {"get": {
+            "operationId": "Record Count",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/cvid"},
+                {"$ref": "#/components/parameters/criteria"},
+                {"$ref": "#/components/parameters/email"},
+                {"$ref": "#/components/parameters/phone"},
+                {"$ref": "#/components/parameters/word"}
+            ],
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"count": {"type": "string"}}
+                    },
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/{external_field_value}": {
+            "get": {
+                "operationId": "Get Record Using External ID",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/external_field_value"},
+                    {"$ref": "#/components/parameters/approved"},
+                    {"$ref": "#/components/parameters/converted"},
+                    {"$ref": "#/components/parameters/cvid"},
+                    {"$ref": "#/components/parameters/uid"},
+                    {"$ref": "#/components/parameters/fields"},
+                    {"$ref": "#/components/parameters/startDateTime"},
+                    {"$ref": "#/components/parameters/endDateTime"},
+                    {"$ref": "#/components/parameters/territory_id"},
+                    {"$ref": "#/components/parameters/include_child"},
+                    {"$ref": "#/components/parameters/If-Modified-Since"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"}
+                ],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Response_Wrapper"},
+                        {"$ref": "#/components/schemas/File_Body_Wrapper"},
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "put": {
+                "operationId": "Update Record Using External ID",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/external_field_value"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"}
+                ],
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            },
+            "delete": {
+                "operationId": "Delete Record Using External ID",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module_api_name"},
+                    {"$ref": "#/components/parameters/external_field_value"},
+                    {"$ref": "#/components/parameters/wf_trigger"},
+                    {"$ref": "#/components/parameters/X-EXTERNAL"}
+                ],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                }}
+            }
+        },
+        "/crm/v8/{module_api_name}/{id}/actions/fetch_full_data": {"get": {
+            "operationId": "Get Full Data For Rich Text",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/id"},
+                {"$ref": "#/components/parameters/fields"}
+            ],
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/Response_Wrapper"},
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/actions/fetch_full_data": {"get": {
+            "operationId": "Get Rich Text Records",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/ids"},
+                {"$ref": "#/components/parameters/fields"}
+            ],
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/Response_Wrapper"},
+                    {"$ref": "#/components/schemas/API_Exception"}
+                ]}}}
+            }}
+        }},
+        "/crm/v8/{module_api_name}/{id}/actions/clone": {"post": {
+            "operationId": "Clone Record",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/id"}
+            ],
+            "responses": {
+                "201": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/API_Exception"}
+                    ]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/API_Exception"}]}}}
+                }
+            }
+        }}
+    },
+    "security": [{"iam-oauth2-schema": [""]}],
+    "components": {
+        "schemas": {
+            "MultiSelectLookup": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "fieldName": {"type": "object"},
+                    "$has_more": {"type": "object"}
+                }
+            },
+            "MultiSelectPicklist": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "fieldName": {"type": "object"}
+                }
+            },
+            "Territory": {
+                "type": "object",
+                "properties": {
+                    "$assigned": {"type": "string"},
+                    "Name": {"type": "string"},
+                    "id": {"type": "string"},
+                    "$assigned_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "$assigned_by": {"$ref": "./users.json#/components/schemas/Minified_User"}
+                }
+            },
+            "Image_Upload": {
+                "type": "object",
+                "properties": {
+                    "Preview_Id__s": {"type": "string"},
+                    "File_Name__s": {"type": "string"},
+                    "Description__s": {"type": "string"},
+                    "Size__s": {"type": "string"},
+                    "id": {"type": "string"},
+                    "Sequence_Number__s": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "State__s": {"type": "string"},
+                    "File_Id__s": {"type": "string"},
+                    "_delete": {"type": "string"},
+                    "Created_Time__s": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Modified_Time__s": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Created_By__s": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Owner__s": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Modified_By__s": {"$ref": "./users.json#/components/schemas/Minified_User"}
+                }
+            },
+            "Time_Range": {
+                "type": "object",
+                "properties": {
+                    "From": {"type": "string"},
+                    "To": {"type": "string"}
+                }
+            },
+            "Widget": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "name": {"type": "string"}
+                }
+            },
+            "Wizard": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "name": {"type": "string"}
+                }
+            },
+            "Record": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Created_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Modified_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Tag": {
+                        "items": {"$ref": "./tags.json#/components/schemas/Tag"},
+                        "type": "array"
+                    },
+                    "name": {"type": "string"}
+                }
+            },
+            "Consent": {
+                "type": "object",
+                "properties": {
+                    "Owner": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Contact_Through_Email": {"type": "boolean"},
+                    "Contact_Through_Social": {"type": "boolean"},
+                    "Contact_Through_Survey": {"type": "boolean"},
+                    "Contact_Through_Phone": {"type": "boolean"},
+                    "Mail_Sent_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Consent_Date": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "Consent_Remarks": {"type": "string"},
+                    "Consent_Through": {"type": "string"},
+                    "Data_Processing_Basis": {"type": "string"},
+                    "id": {"type": "string"},
+                    "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Created_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Modified_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Tag": {
+                        "items": {"$ref": "./tags.json#/components/schemas/Tag"},
+                        "type": "array"
+                    },
+                    "name": {"type": "string"}
+                }
+            },
+            "Reminder": {
+                "type": "object",
+                "properties": {
+                    "period": {"type": "string"},
+                    "unit": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "time": {"type": "string"}
+                }
+            },
+            "Info": {
+                "type": "object",
+                "properties": {
+                    "call": {"type": "boolean"},
+                    "per_page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "next_page_token": {"type": "string"},
+                    "count": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "previous_page_token": {"type": "string"},
+                    "page_token_expiry": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "email": {"type": "boolean"},
+                    "more_records": {"type": "boolean"},
+                    "sort_by": {"type": "string"},
+                    "sort_order": {"type": "string"}
+                }
+            },
+            "Comment": {
+                "type": "object",
+                "properties": {
+                    "commented_by": {"type": "string"},
+                    "commented_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "comment_content": {"type": "string"},
+                    "id": {"type": "string"}
+                }
+            },
+            "Recurring_Activity": {
+                "type": "object",
+                "properties": {
+                    "RRULE": {"type": "string"},
+                    "EXDATE": {"type": "string"}
+                }
+            },
+            "FileDetails": {
+                "type": "object",
+                "properties": {
+                    "Created_Time__s": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "File_Name__s": {"type": "string"},
+                    "Modified_Time__s": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Created_By__s": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Size__s": {"type": "string"},
+                    "id": {"type": "string"},
+                    "Owner__s": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Modified_By__s": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "File_Id__s": {"type": "string"},
+                    "_delete": {"type": "string"}
+                }
+            },
+            "Remind_At": {
+                "type": "object",
+                "properties": {"ALARM": {"type": "string"}}
+            },
+            "Success_Response": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"]
+                    },
+                    "duplicate_field": {"type": "string"},
+                    "action": {
+                        "type": "string",
+                        "enum": [
+                            "insert",
+                            "update"
+                        ]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "record updated",
+                            "Photo deleted",
+                            "photo uploaded successfully",
+                            "the territories data updated successfully",
+                            "record deleted",
+                            "The record has been converted successfully",
+                            "record added",
+                            "the territories are removed successfully"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "Modified_Time": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                            "Created_Time": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "id": {"type": "string"},
+                            "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                            "External_Contact_ID": {"type": "string"},
+                            "$approval_state": {"type": "string"},
+                            "Contacts": {"$ref": "#/components/schemas/Record"},
+                            "Deals": {"$ref": "#/components/schemas/Record"},
+                            "Accounts": {"$ref": "#/components/schemas/Record"}
+                        }
+                    }
+                }
+            },
+            "Mass_Update_Success_Response": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "record updated",
+                            "mass update scheduled successfully"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "job_id": {"type": "string"},
+                            "id": {"type": "string"},
+                            "Modified_Time": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "Created_Time": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                            "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"}
+                        }
+                    }
+                }
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "items": {"$ref": "#/components/schemas/Record"},
+                        "type": "array"
+                    },
+                    "info": {"$ref": "#/components/schemas/Info"}
+                }
+            },
+            "Body_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "items": {"$ref": "#/components/schemas/Record"},
+                        "type": "array"
+                    },
+                    "trigger": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "process": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "duplicate_check_fields": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "wf_trigger": {"type": "string"},
+                    "lar_id": {"type": "string"}
+                }
+            },
+            "File_Body_Wrapper": {
+                "type": "object",
+                "properties": {"file": {"type": "object"}}
+            },
+            "Deleted_Record": {
+                "type": "object",
+                "properties": {
+                    "deleted_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "id": {"type": "string"},
+                    "display_name": {"type": "string"},
+                    "type": {"type": "string"},
+                    "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "deleted_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Deleted_Records_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "items": {"$ref": "#/components/schemas/Deleted_Record"},
+                        "type": "array"
+                    },
+                    "info": {"$ref": "#/components/schemas/Info"}
+                }
+            },
+            "Criteria": {
+                "type": "object",
+                "properties": {
+                    "comparator": {
+                        "type": "string",
+                        "enum": [
+                            "in",
+                            "greater_equal",
+                            "starts_with",
+                            "equal",
+                            "contains",
+                            "ends_with",
+                            "not_contains",
+                            "not_equal",
+                            "not_in",
+                            "greater_than",
+                            "less_than",
+                            "not_between",
+                            "less_equal",
+                            "between"
+                        ]
+                    },
+                    "field": {"type": "string"},
+                    "value": {"type": "object"},
+                    "group_operator": {
+                        "type": "string",
+                        "enum": [
+                            "or",
+                            "and"
+                        ]
+                    },
+                    "group": {
+                        "items": {"$ref": "#/components/schemas/Criteria"},
+                        "type": "array"
+                    }
+                }
+            },
+            "Mass_Update_Body_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "items": {"$ref": "#/components/schemas/Record"},
+                        "type": "array"
+                    },
+                    "cvid": {"type": "string"},
+                    "ids": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "territory": {
+                        "type": "object",
+                        "properties": {
+                            "id": {"type": "string"},
+                            "include_child": {"type": "boolean"}
+                        }
+                    },
+                    "over_write": {"type": "boolean"},
+                    "criteria": {
+                        "items": {"$ref": "#/components/schemas/Criteria"},
+                        "type": "array"
+                    }
+                }
+            },
+            "Mass_Update": {
+                "type": "object",
+                "properties": {
+                    "Status": {
+                        "type": "string",
+                        "enum": [
+                            "COMPLETED",
+                            "FAILED",
+                            "RUNNING",
+                            "SCHEDULED"
+                        ]
+                    },
+                    "Failed_Count": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Updated_Count": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Not_Updated_Count": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Total_Count": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "PriceBook": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "id": {"type": "string"},
+                    "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Created_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Modified_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Tag": {
+                        "items": {"$ref": "./tags.json#/components/schemas/Tag"},
+                        "type": "array"
+                    }
+                }
+            },
+            "LineItemProduct": {
+                "type": "object",
+                "properties": {
+                    "Product_Code": {"type": "string"},
+                    "Currency": {"type": "string"},
+                    "name": {"type": "string"},
+                    "id": {"type": "string"},
+                    "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Created_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Modified_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Tag": {
+                        "items": {"$ref": "./tags.json#/components/schemas/Tag"},
+                        "type": "array"
+                    }
+                }
+            },
+            "Line_Tax": {
+                "type": "object",
+                "properties": {
+                    "percentage": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "name": {"type": "string"},
+                    "id": {"type": "string"},
+                    "value": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "display_name": {"type": "string"}
+                }
+            },
+            "PricingDetails": {
+                "type": "object",
+                "properties": {
+                    "to_range": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "discount": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "from_range": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "id": {"type": "string"},
+                    "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Created_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Modified_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Tag": {
+                        "items": {"$ref": "./tags.json#/components/schemas/Tag"},
+                        "type": "array"
+                    },
+                    "name": {"type": "string"}
+                }
+            },
+            "Participants": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "Email": {"type": "string"},
+                    "invited": {"type": "boolean"},
+                    "type": {"type": "string"},
+                    "participant": {"type": "string"},
+                    "status": {"type": "string"},
+                    "id": {"type": "string"},
+                    "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Created_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Modified_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Tag": {
+                        "items": {"$ref": "./tags.json#/components/schemas/Tag"},
+                        "type": "array"
+                    }
+                }
+            },
+            "Tax": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "value": {"type": "string"}
+                }
+            },
+            "API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "DUPLICATE_DATA",
+                            "RECORD_IN_BLUEPRINT",
+                            "PATTERN_NOT_MATCHED",
+                            "ID_ALREADY_CONVERTED",
+                            "DEPENDENT_FIELD_MISSING",
+                            "NO_CONTENT",
+                            "RECORD_LOCKED",
+                            "TERRITORY_NOT_ENABLED",
+                            "MANDATORY_NOT_FOUND",
+                            "INVALID_MODULE",
+                            "FEATURE_NOT_SUPPORTED",
+                            "AUTHENTICATION_FAILURE",
+                            "INVALID_DATA",
+                            "NO_RECORDS_FOUND",
+                            "LIMIT_EXCEEDED",
+                            "DATA_MISMATCH",
+                            "INVALID_QUERY",
+                            "NO_PERMISSION",
+                            "OAUTH_SCOPE_MISMATCH",
+                            "INVALID_URL_PATTERN",
+                            "NOT_FOUND",
+                            "INTERNAL_ERROR",
+                            "NOT_ALLOWED",
+                            "ALREADY_USED",
+                            "FILE_SIZE_MORE_THAN_ALLOWED_SIZE",
+                            "MAPPING_MISMATCH",
+                            "LIMIT_REACHED",
+                            "NOT_SUPPORTED",
+                            "CANNOT_PERFORM_ACTION",
+                            "CANNOT_PROCESS",
+                            "INVALID_REQUEST_METHOD",
+                            "INVALID_TOKEN",
+                            "REQUIRED_PARAM_MISSING",
+                            "CANNOT_DELETE",
+                            "ALREADY_SCHEDULED",
+                            "STORAGE_SPACE_EXCEEDED",
+                            "NOT_APPROVED",
+                            "EXPECTED_FIELD_MISSING",
+                            "CONVERTED_RECORD",
+                            "Not Modified"
+                        ]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "Maximum lookup field limit in criteria exceeded",
+                            "Scheduled Mass Operation feature is not available in your edition",
+                            "permission denied",
+                            "mandatory param missing",
+                            "Record count exceeded",
+                            "given id is invalid",
+                            "no permission to perform an action on this record",
+                            "body",
+                            "The http request method type is not a valid one",
+                            "The record is in blue print",
+                            "The module name given seems to be invalid",
+                            "invalid oauth token",
+                            "the id given seems to be invalid.",
+                            "One of the expected parameter is missing",
+                            "Already a Mass Action scheduler is running for the given cvid",
+                            "duplicate data",
+                            "record not deleted",
+                            "Specify Atleast one field",
+                            "required field not found",
+                            "Field cannot be updated as it is associated with a layout rule.This field cannot be updated in the Mass Update",
+                            "Record insertion limit for Image upload field has been exceeded.",
+                            "Please check if the URL trying to access is a correct one",
+                            "Authentication failed",
+                            "no record found to update",
+                            "Internal server error occurred.",
+                            "duplicate territory id found",
+                            "No field found",
+                            "Please check whether the input values are correct",
+                            "the territory feature is not enabled",
+                            "Empty response",
+                            "Field Edit Permission not given",
+                            "give contact id is mismatched with the data",
+                            "There is no data for the ID specified or there is no matching record in the given module.",
+                            "The external ID of the lookup field or the Price Book is incorrect",
+                            "Invalid Sequence Number",
+                            "Territory is not supported for the given module",
+                            "User has no permission to assign this territory",
+                            "The value of the external field is invalid.",
+                            "id already converted",
+                            "Dependent Fields missing",
+                            "record not deletable",
+                            "the id given seems to be invalid",
+                            "Max field limit exceeded",
+                            "The image format is invalid.",
+                            "give account id is mismatched with the data",
+                            "Field is not visible",
+                            "Given Territory id already exists for that record",
+                            "The record is not approved",
+                            "record not approved",
+                            "Record insertion limit has been exceeded.",
+                            "can't update the converted record",
+                            "invalid data",
+                            "Territory id which you are trying to remove was system assigned",
+                            "Maximum limit of territories for that record exceeds",
+                            "the given id seems to be invalid",
+                            "Already an Mass Action scheduler is runing for the given cvid",
+                            "Layout doesn't contain the Pipeline",
+                            "The external field contains duplicate data.",
+                            "The record is in stop processing",
+                            "Customview not accessible",
+                            "invalid query formed",
+                            "Pipeline doesn't contain the Stage",
+                            "The record under merge is locked",
+                            "Given Probability is not valid",
+                            "Field cannot be updated in Scheduled Mass Update",
+                            "Field cannot be updated as it is associated with a validation rule."
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "permissions": {
+                                "type": "array",
+                                "items": {"type": "string"}
+                            },
+                            "duplicate_record": {
+                                "type": "object",
+                                "properties": {
+                                    "Owner": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                                    "module": {"$ref": "./modules.json#/components/schemas/Minified_Module"},
+                                    "id": {"type": "string"}
+                                }
+                            },
+                            "param_name": {"type": "string"},
+                            "api_name": {"type": "string"},
+                            "id": {"type": "string"},
+                            "module": {"type": "string"},
+                            "expected_data_type": {"type": "string"},
+                            "index": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "maximum_length": {"type": "string"},
+                            "mapped_field": {"type": "string"},
+                            "reason": {"type": "string"},
+                            "operator": {"type": "string"},
+                            "allowed_count": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "limit": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "json_path": {"type": "string"},
+                            "parent_api_name": {"type": "string"},
+                            "param": {"type": "string"},
+                            "resource_path_index": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "External": {"type": "string"}
+                        }
+                    }
+                }
+            }
+        },
+        "parameters": {
+            "module_api_name": {
+                "name": "module_api_name",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "id": {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "ids": {
+                "name": "ids",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "wf_trigger": {
+                "name": "wf_trigger",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "boolean"}
+            },
+            "attachment_id": {
+                "name": "attachment_id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "criteria": {
+                "name": "criteria",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "fields": {
+                "name": "fields",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "email": {
+                "name": "email",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "phone": {
+                "name": "phone",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "word": {
+                "name": "word",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "converted": {
+                "name": "converted",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "approved": {
+                "name": "approved",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "page": {
+                "name": "page",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "per_page": {
+                "name": "per_page",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "sort_by": {
+                "name": "sort_by",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "sort_order": {
+                "name": "sort_order",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "cvid": {
+                "name": "cvid",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "territory_id": {
+                "name": "territory_id",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "include_child": {
+                "name": "include_child",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "type": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "job_id": {
+                "name": "job_id",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "startDateTime": {
+                "name": "startDateTime",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "endDateTime": {
+                "name": "endDateTime",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "uid": {
+                "name": "uid",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "If-Modified-Since": {
+                "name": "If-Modified-Since",
+                "in": "header",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "X-EXTERNAL": {
+                "name": "X-EXTERNAL",
+                "in": "header",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "external_field_value": {
+                "name": "external_field_value",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "on_demand_properties": {
+                "name": "on_demand_properties",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "page_token": {
+                "name": "page_token",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "restrict_triggers": {
+                "name": "restrict_triggers",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            }
+        },
+        "headers": {},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

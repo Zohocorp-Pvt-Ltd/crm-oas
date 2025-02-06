@@ -1,0 +1,653 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "notes",
+        "description": "Notes",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/Notes": {
+            "get": {
+                "operationId": "Get Notes",
+                "parameters": [
+                    {"$ref": "#/components/parameters/page"},
+                    {"$ref": "#/components/parameters/per_page"},
+                    {"$ref": "#/components/parameters/fields"},
+                    {"$ref": "#/components/parameters/sort_order"},
+                    {"$ref": "#/components/parameters/sort_by"},
+                    {"$ref": "#/components/parameters/ids"},
+                    {"$ref": "#/components/parameters/If-Modified-Since"}
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/error"}]}}}
+                    }
+                }
+            },
+            "post": {
+                "operationId": "Create Notes",
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
+                                "type": "array"
+                            }},
+                            "required": ["data"]
+                        }]}}}
+                    },
+                    "202": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [
+                            {
+                                "type": "object",
+                                "properties": {"data": {
+                                    "items": {"oneOf": [
+                                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
+                                        {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
+                                        {"$ref": "#/components/schemas/Expected_Data_API_Exception"},
+                                        {"$ref": "#/components/schemas/Max_Length_API_Exception"}
+                                    ]},
+                                    "type": "array"
+                                }},
+                                "required": ["data"]
+                            },
+                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
+                            {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
+                            {"$ref": "#/components/schemas/Expected_Data_API_Exception"},
+                            {"$ref": "#/components/schemas/Max_Length_API_Exception"}
+                        ]}}}
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Update Notes",
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/Note_API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/Note_API_Exception"}
+                    ]}}}
+                }}
+            },
+            "delete": {
+                "operationId": "Delete Notes",
+                "parameters": [{"$ref": "#/components/parameters/ids"}],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
+                                "type": "array"
+                            }}
+                        }]}}}
+                    },
+                    "202": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [
+                            {
+                                "type": "object",
+                                "properties": {"data": {
+                                    "items": {"oneOf": [
+                                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
+                                        {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
+                                        {"$ref": "#/components/schemas/Expected_Data_API_Exception"},
+                                        {"$ref": "#/components/schemas/Max_Length_API_Exception"}
+                                    ]},
+                                    "type": "array"
+                                }}
+                            },
+                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
+                            {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
+                            {"$ref": "#/components/schemas/Expected_Data_API_Exception"},
+                            {"$ref": "#/components/schemas/Max_Length_API_Exception"}
+                        ]}}}
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [
+                            {
+                                "type": "object",
+                                "properties": {"data": {
+                                    "items": {"oneOf": [
+                                        {"$ref": "#/components/schemas/Mandatory_API_Exception"},
+                                        {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
+                                        {"$ref": "#/components/schemas/Expected_Data_API_Exception"},
+                                        {"$ref": "#/components/schemas/Max_Length_API_Exception"}
+                                    ]},
+                                    "type": "array"
+                                }}
+                            },
+                            {"$ref": "#/components/schemas/Mandatory_API_Exception"},
+                            {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
+                            {"$ref": "#/components/schemas/Expected_Data_API_Exception"},
+                            {"$ref": "#/components/schemas/Max_Length_API_Exception"}
+                        ]}}}
+                    }
+                }
+            }
+        },
+        "/crm/v8/Notes/{id}": {
+            "get": {
+                "operationId": "Get Note",
+                "parameters": [
+                    {"$ref": "#/components/parameters/id"},
+                    {"$ref": "#/components/parameters/fields"},
+                    {"$ref": "#/components/parameters/If-Modified-Since"}
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                    },
+                    "204": {"description": ""},
+                    "400": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/error"}]}}}
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Update Note",
+                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"data": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/Note_API_Exception"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/Note_API_Exception"}
+                    ]}}}
+                }}
+            },
+            "delete": {
+                "operationId": "Delete Note",
+                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "responses": {"200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{
+                        "type": "object",
+                        "properties": {"data": {
+                            "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
+                            "type": "array"
+                        }}
+                    }]}}}
+                }}
+            }
+        }
+    },
+    "security": [{"iam-oauth2-schema": [
+        "ZohoCRM.modules.all",
+        "ZohoCRM.modules.notes.all"
+    ]}],
+    "components": {
+        "schemas": {
+            "Success_Response": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "record updated",
+                            "record deleted",
+                            "record added"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "Modified_Time": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                            "Created_Time": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "id": {"type": "string"},
+                            "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"}
+                        },
+                        "required": [
+                            "Modified_Time",
+                            "Modified_By",
+                            "Created_Time",
+                            "id",
+                            "Created_By"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "status",
+                    "message",
+                    "details"
+                ]
+            },
+            "Parent_Id": {
+                "type": "object",
+                "properties": {
+                    "module": {"$ref": "./modules.json#/components/schemas/Minified_Module"},
+                    "id": {"type": "string"},
+                    "name": {"type": "string"}
+                }
+            },
+            "Note": {
+                "type": "object",
+                "properties": {
+                    "Modified_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "$attachments": {
+                        "type": "array",
+                        "items": {"$ref": "./attachments.json#/components/schemas/Attachment"}
+                    },
+                    "Owner": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Created_Time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Parent_Id": {"$ref": "#/components/schemas/Parent_Id"},
+                    "$editable": {"type": "boolean"},
+                    "$is_shared_to_client": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "$sharing_permission": {"type": "string"},
+                    "Modified_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "$size": {"type": "string"},
+                    "$state": {"type": "string"},
+                    "$voice_note": {"type": "boolean"},
+                    "id": {"type": "string"},
+                    "Created_By": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "Note_Title": {"type": "string"},
+                    "Note_Content": {"type": "string"}
+                },
+                "required": [
+                    "Modified_Time",
+                    "$attachments",
+                    "Owner",
+                    "Created_Time",
+                    "Parent_Id",
+                    "$editable",
+                    "$is_shared_to_client",
+                    "Modified_By",
+                    "$size",
+                    "$state",
+                    "$voice_note",
+                    "id",
+                    "Created_By",
+                    "Note_Title",
+                    "Note_Content"
+                ]
+            },
+            "Info": {
+                "type": "object",
+                "properties": {
+                    "per_page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "next_page_token": {"type": "string"},
+                    "count": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sort_by": {"type": "string"},
+                    "page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "previous_page_token": {"type": "string"},
+                    "page_token_expiry": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "sort_order": {"type": "string"},
+                    "more_records": {"type": "boolean"}
+                }
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "items": {"$ref": "#/components/schemas/Note"},
+                        "type": "array"
+                    },
+                    "info": {"$ref": "#/components/schemas/Info"}
+                },
+                "required": ["data"]
+            },
+            "Body_Wrapper": {
+                "type": "object",
+                "properties": {"data": {
+                    "items": {"$ref": "#/components/schemas/Note"},
+                    "type": "array"
+                }},
+                "required": ["data"]
+            },
+            "Mandatory_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["MANDATORY_NOT_FOUND"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["required field not found"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"api_name": {"type": "string"}},
+                        "required": ["api_name"]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Invalid_Data_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["record not deleted"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"id": {"type": "string"}},
+                        "required": ["id"]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Invalid_Module_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_MODULE"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["the module name given seems to be invalid"]
+                    },
+                    "details": {"type": "object"}
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Expected_Data_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["invalid data"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "api_name": {"type": "string"},
+                            "expected_data_type": {"type": "string"}
+                        },
+                        "required": [
+                            "api_name",
+                            "expected_data_type"
+                        ]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Max_Length_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["invalid data"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "api_name": {"type": "string"},
+                            "maximum_length": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "required": [
+                            "api_name",
+                            "maximum_length"
+                        ]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "error": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INTERNAL_SERVER_ERROR"]
+                    },
+                    "details": {"type": "object"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "Note_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "NO_PERMISSION",
+                            "INVALID_URL_PATTERN",
+                            "NOT_SUPPORTED",
+                            "INVALID_DATA",
+                            "INVALID_REQUEST_METHOD",
+                            "REQUIRED_PARAM_MISSING",
+                            "INVALID_TOKEN",
+                            "INTERNAL_ERROR",
+                            "MANDATORY_NOT_FOUND"
+                        ]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "The module name given seems to be invalid",
+                            "record not deleted",
+                            "invalid oauth token",
+                            "Please check if the URL trying to access is a correct one",
+                            "One of the expected parameter is missing",
+                            "Internal server error occurred.",
+                            "the id given seems to be invalid",
+                            "The http request method type is not a valid one"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "permissions": {
+                                "type": "array",
+                                "items": {"type": "string"}
+                            },
+                            "api_name": {"type": "string"},
+                            "param": {"type": "string"},
+                            "id": {"type": "string"},
+                            "json_path": {"type": "string"},
+                            "resource_path_index": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "param_name": {"type": "string"}
+                        }
+                    }
+                }
+            }
+        },
+        "parameters": {
+            "id": {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "page": {
+                "name": "page",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "per_page": {
+                "name": "per_page",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "ids": {
+                "name": "ids",
+                "in": "query",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "If-Modified-Since": {
+                "name": "If-Modified-Since",
+                "in": "header",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "fields": {
+                "name": "fields",
+                "in": "query",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "sort_by": {
+                "name": "sort_by",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "sort_order": {
+                "name": "sort_order",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            }
+        },
+        "headers": {},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

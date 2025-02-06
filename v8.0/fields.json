@@ -1,0 +1,2161 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "fields",
+        "description": "Fields",
+        "version": "v8.0"
+    },
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
+    "paths": {
+        "/crm/v8/settings/fields": {
+            "get": {
+                "operationId": "Get Fields",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    },
+                    {
+                        "$ref": "#/components/parameters/data_type"
+                    },
+                    {
+                        "$ref": "#/components/parameters/type"
+                    },
+                    {
+                        "$ref": "#/components/parameters/include"
+                    },
+                    {
+                        "$ref": "#/components/parameters/feature_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/component"
+                    },
+                    {
+                        "$ref": "#/components/parameters/layout_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ZOHO-SERVICE"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Fields"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RRootResponse"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "Create Field",
+                "parameters": [
+                    {
+                        "name": "module",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "201": {
+                        "$ref": "#/components/responses/CreateSuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            },
+            "patch": {
+                "operationId": "Update Fields",
+                "parameters": [
+                    {
+                        "name": "module",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            }
+        },
+        "/crm/v8/settings/fields/{field}": {
+            "get": {
+                "operationId": "Get Field",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/module"
+                    },
+                    {
+                        "$ref": "#/components/parameters/field"
+                    },
+                    {
+                        "$ref": "#/components/parameters/include"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ZCSRF-TOKEN"
+                    },
+                    {
+                        "$ref": "#/components/parameters/X-ZOHO-SERVICE"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "200": {
+                        "$ref": "#/components/responses/Fields"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RRootResponse"
+                    }
+                }
+            },
+            "patch": {
+                "operationId": "Update Field",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/field"
+                    },
+                    {
+                        "name": "module",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/body"
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ErrorResponse"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "Delete Field",
+                "parameters": [
+                    {
+                        "name": "module",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/field"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/SuccessResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/RootResponse"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.fields.read",
+                "ZohoCRM.settings.fields.all",
+                "ZohoCRM.settings.all"
+            ]
+        }
+    ],
+    "components": {
+        "schemas": {
+            "Minified_Field": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "id"
+                ]
+            },
+            "email_parser": {
+                "type": "object",
+                "properties": {
+                    "fields_update_supported": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "record_operations_supported": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "fields_update_supported",
+                    "record_operations_supported"
+                ]
+            },
+            "profile": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "permission_type": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name",
+                    "id",
+                    "permission_type"
+                ]
+            },
+            "view_type": {
+                "type": "object",
+                "properties": {
+                    "view": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "edit": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "quick_create": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "create": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "view",
+                    "edit",
+                    "quick_create",
+                    "create"
+                ]
+            },
+            "pick_list_values": {
+                "type": "object",
+                "properties": {
+                    "colour_code": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "actual_value": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "unused",
+                            "used"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "sequence_number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "display_value": {
+                        "type": "string"
+                    },
+                    "reference_value": {
+                        "type": "string"
+                    },
+                    "deal_category": {
+                        "type": "string"
+                    },
+                    "probability": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "forecast_category": {
+                        "$ref": "#/components/schemas/Forecast_Category"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    },
+                    "sys_ref_name": {
+                        "type": "string"
+                    },
+                    "forecast_type": {
+                        "type": "string"
+                    },
+                    "maps": {
+                        "items": {
+                            "$ref": "#/components/schemas/Maps"
+                        },
+                        "type": "array"
+                    },
+                    "_delete": {
+                        "type": "boolean"
+                    },
+                    "show_value": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "colour_code",
+                    "actual_value",
+                    "type",
+                    "id",
+                    "sequence_number",
+                    "display_value"
+                ]
+            },
+            "Maps": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "pick_list_values": {
+                        "items": {
+                            "$ref": "#/components/schemas/pick_list_values"
+                        },
+                        "type": "array"
+                    }
+                }
+            },
+            "Forecast_Category": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "multiselectlookup": {
+                "type": "object",
+                "properties": {
+                    "display_label": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "linking_module": {
+                        "$ref": "./modules.json#/components/schemas/Minified_Module"
+                    },
+                    "connected_module": {
+                        "$ref": "./modules.json#/components/schemas/Minified_Module"
+                    },
+                    "lookup_apiname": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "connectedfield_apiname": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "connectedlookup_apiname": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "record_access": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "display_label",
+                    "linking_module",
+                    "connected_module",
+                    "lookup_apiname",
+                    "api_name",
+                    "connectedfield_apiname",
+                    "connectedlookup_apiname",
+                    "id",
+                    "record_access"
+                ]
+            },
+            "auto_number": {
+                "type": "object",
+                "properties": {
+                    "starting_number_length": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "prefix": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "suffix": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "start_number": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "starting_number_length",
+                    "prefix",
+                    "suffix",
+                    "start_number"
+                ]
+            },
+            "subform": {
+                "type": "object",
+                "properties": {
+                    "module": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "module",
+                    "id"
+                ]
+            },
+            "currency": {
+                "type": "object",
+                "properties": {
+                    "rounding_option": {
+                        "type": "string",
+                        "enum": [
+                            "normal",
+                            "round_up",
+                            "round_off",
+                            "round_down"
+                        ]
+                    },
+                    "precision": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "rounding_option",
+                    "precision"
+                ]
+            },
+            "query_details": {
+                "type": "object",
+                "properties": {
+                    "query_id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "criteria": {
+                        "$ref": "#/components/schemas/Criteria"
+                    }
+                }
+            },
+            "Criteria": {
+                "type": "object",
+                "properties": {
+                    "comparator": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "field": {
+                        "$ref": "#/components/schemas/Minified_Field"
+                    },
+                    "value": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "group_operator": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "group": {
+                        "items": {
+                            "$ref": "#/components/schemas/Criteria"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "comparator",
+                    "field",
+                    "value",
+                    "group_operator",
+                    "group"
+                ]
+            },
+            "show_fields": {
+                "type": "object",
+                "properties": {
+                    "show_data": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "field": {
+                        "$ref": "#/components/schemas/Minified_Field"
+                    }
+                },
+                "required": [
+                    "show_data",
+                    "field"
+                ]
+            },
+            "lookup": {
+                "type": "object",
+                "properties": {
+                    "display_label": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "query_details": {
+                        "$ref": "#/components/schemas/query_details"
+                    },
+                    "module": {
+                        "$ref": "./modules.json#/components/schemas/Minified_Module"
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "revalidate_filter_during_edit": {
+                        "type": "boolean"
+                    },
+                    "show_fields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/show_fields"
+                        }
+                    }
+                },
+                "required": [
+                    "query_details",
+                    "module",
+                    "revalidate_filter_during_edit",
+                    "show_fields"
+                ]
+            },
+            "hipaa_compliance": {
+                "type": "object",
+                "properties": {
+                    "restricted_in_export": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "restricted": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "restricted_in_export",
+                    "restricted"
+                ]
+            },
+            "unique": {
+                "type": "object",
+                "properties": {
+                    "casesensitive": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "external": {
+                "type": "object",
+                "properties": {
+                    "show": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "allow_multiple_config": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "show",
+                    "type"
+                ]
+            },
+            "private": {
+                "type": "object",
+                "properties": {
+                    "restricted": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "export": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "restricted",
+                    "type",
+                    "export"
+                ]
+            },
+            "crypt": {
+                "type": "object",
+                "properties": {
+                    "mode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "column": {
+                        "type": "string"
+                    },
+                    "table": {
+                        "type": "string"
+                    },
+                    "encFldIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "notify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mode",
+                    "status"
+                ]
+            },
+            "tooltip": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "value"
+                ]
+            },
+            "history_tracking": {
+                "type": "object",
+                "properties": {
+                    "module": {
+                        "$ref": "#/components/schemas/HistoryTrackingModule"
+                    },
+                    "duration_configured_field": {
+                        "$ref": "./modules.json#/components/schemas/Minified_Module"
+                    }
+                },
+                "required": [
+                    "module",
+                    "duration_configured_field"
+                ]
+            },
+            "multi_module_lookup": {
+                "type": "object",
+                "properties": {
+                    "display_label": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "modules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./modules.json#/components/schemas/Minified_Module"
+                        }
+                    }
+                },
+                "required": [
+                    "display_label",
+                    "api_name",
+                    "modules"
+                ]
+            },
+            "formula": {
+                "type": "object",
+                "properties": {
+                    "return_type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "expression": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "return_type",
+                    "expression"
+                ]
+            },
+            "sharing_properties": {
+                "type": "object",
+                "properties": {
+                    "scheduler_status": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "share_preference_enabled": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "share_permission": {
+                        "type": "string",
+                        "enum": [
+                            "read-write",
+                            "read-only",
+                            "full-access"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "scheduler_status",
+                    "share_preference_enabled",
+                    "share_permission"
+                ]
+            },
+            "refer_from_field": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "id",
+                    "api_name"
+                ]
+            },
+            "association_details": {
+                "type": "object",
+                "properties": {
+                    "related_field": {
+                        "$ref": "./modules.json#/components/schemas/Minified_Module"
+                    },
+                    "lookup_field": {
+                        "$ref": "./modules.json#/components/schemas/Minified_Module"
+                    }
+                },
+                "required": [
+                    "related_field",
+                    "lookup_field"
+                ]
+            },
+            "file_upolad_option": {
+                "type": "object",
+                "properties": {
+                    "actual_value": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "display_value": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "actual_value",
+                    "display_value"
+                ]
+            },
+            "empty": {
+                "type": "object",
+                "properties": {
+                    "dummy": {
+                        "type": "object",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "dummy"
+                ]
+            },
+            "Operation_type": {
+                "type": "object",
+                "properties": {
+                    "web_update": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "api_create": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "web_create": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "api_update": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "web_update",
+                    "api_create",
+                    "web_create",
+                    "api_update"
+                ]
+            },
+            "Rollup_Summary": {
+                "type": "object",
+                "properties": {
+                    "return_type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "expression": {
+                        "$ref": "#/components/schemas/Expression"
+                    },
+                    "based_on_module": {
+                        "$ref": "#/components/schemas/Minified_Field"
+                    },
+                    "related_list": {
+                        "$ref": "#/components/schemas/Minified_Field"
+                    },
+                    "rollup_based_on": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "return_type",
+                    "expression",
+                    "based_on_module",
+                    "related_list",
+                    "rollup_based_on"
+                ]
+            },
+            "Expression": {
+                "type": "object",
+                "properties": {
+                    "function_parameters": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "api_name": {
+                                    "type": "string",
+                                    "nullable": true
+                                }
+                            },
+                            "required": [
+                                "api_name"
+                            ]
+                        }
+                    },
+                    "criteria": {
+                        "$ref": "#/components/schemas/Rollup_Criteria"
+                    },
+                    "function": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "function_parameters",
+                    "criteria",
+                    "function"
+                ]
+            },
+            "HistoryTrackingModule": {
+                "type": "object",
+                "properties": {
+                    "layout": {
+                        "$ref": "./layouts.json#/components/schemas/layouts"
+                    },
+                    "display_label": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "module": {
+                        "$ref": "#/components/schemas/HistoryTrackingModule"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "module_name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Rollup_Criteria": {
+                "type": "object",
+                "properties": {
+                    "comparator": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "field": {
+                        "$ref": "#/components/schemas/Minified_Field"
+                    },
+                    "value": {
+                        "type": "object",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "comparator",
+                    "field",
+                    "value"
+                ]
+            },
+            "operation_type": {
+                "type": "object",
+                "properties": {
+                    "web_update": {
+                        "type": "boolean"
+                    },
+                    "api_create": {
+                        "type": "boolean"
+                    },
+                    "web_create": {
+                        "type": "boolean"
+                    },
+                    "api_update": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "web_update",
+                    "api_create",
+                    "web_create",
+                    "api_update"
+                ]
+            },
+            "Convert_Mapping": {
+                "type": "object",
+                "properties": {
+                    "Contacts": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Deals": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Accounts": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "layout_association": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "name",
+                    "id"
+                ]
+            },
+            "fields": {
+                "type": "object",
+                "properties": {
+                    "associated_module": {
+                        "$ref": "./modules.json#/components/schemas/Minified_Module"
+                    },
+                    "data_type": {
+                        "type": "string"
+                    },
+                    "operation_type": {
+                        "$ref": "#/components/schemas/operation_type"
+                    },
+                    "system_mandatory": {
+                        "type": "boolean"
+                    },
+                    "webhook": {
+                        "type": "boolean"
+                    },
+                    "sequence_number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "default_value": {
+                        "type": "string"
+                    },
+                    "blueprint_supported": {
+                        "type": "boolean"
+                    },
+                    "virtual_field": {
+                        "type": "boolean"
+                    },
+                    "field_read_only": {
+                        "type": "boolean"
+                    },
+                    "customizable_properties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "read_only": {
+                        "type": "boolean"
+                    },
+                    "custom_field": {
+                        "type": "boolean"
+                    },
+                    "businesscard_supported": {
+                        "type": "boolean"
+                    },
+                    "filterable": {
+                        "type": "boolean"
+                    },
+                    "visible": {
+                        "type": "boolean"
+                    },
+                    "available_in_user_layout": {
+                        "type": "boolean"
+                    },
+                    "display_field": {
+                        "type": "boolean"
+                    },
+                    "pick_list_values_sorted_lexically": {
+                        "type": "boolean"
+                    },
+                    "sortable": {
+                        "type": "boolean"
+                    },
+                    "layout_associations": {
+                        "items": {
+                            "$ref": "#/components/schemas/layout_association"
+                        },
+                        "type": "array"
+                    },
+                    "separator": {
+                        "type": "boolean"
+                    },
+                    "searchable": {
+                        "type": "boolean"
+                    },
+                    "enable_colour_code": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "mass_update": {
+                        "type": "boolean"
+                    },
+                    "json_type": {
+                        "type": "string"
+                    },
+                    "created_source": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "display_label": {
+                        "type": "string"
+                    },
+                    "column_name": {
+                        "type": "string"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "display_type": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "ui_type": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "colour_code_enabled_by_system": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "length": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "decimal_place": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "quick_sequence_number": {
+                        "type": "string"
+                    },
+                    "email_parser": {
+                        "$ref": "#/components/schemas/email_parser"
+                    },
+                    "rollup_summary": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "refer_from_field": {
+                        "$ref": "#/components/schemas/refer_from_field"
+                    },
+                    "created_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "modified_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "show_type": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "category": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "multi_module_lookup": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "sharing_properties": {
+                        "$ref": "./modules.json#/components/schemas/sharing_properties"
+                    },
+                    "currency": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "file_upolad_optionlist": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/file_upolad_option"
+                        }
+                    },
+                    "lookup": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "profiles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/profile"
+                        }
+                    },
+                    "view_type": {
+                        "$ref": "#/components/schemas/view_type"
+                    },
+                    "unique": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "sub_module": {
+                        "$ref": "./modules.json#/components/schemas/Minified_Module"
+                    },
+                    "subform": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "external": {
+                        "$ref": "#/components/schemas/external"
+                    },
+                    "formula": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "private": {
+                        "$ref": "#/components/schemas/private"
+                    },
+                    "convert_mapping": {
+                        "$ref": "#/components/schemas/Convert_Mapping"
+                    },
+                    "multiselectlookup": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "multiuserlookup": {
+                        "$ref": "#/components/schemas/multiselectlookup"
+                    },
+                    "autonumber": {
+                        "$ref": "#/components/schemas/auto_number"
+                    },
+                    "auto_number": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "pick_list_values": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/pick_list_values"
+                        }
+                    },
+                    "crypt": {
+                        "$ref": "#/components/schemas/crypt"
+                    },
+                    "tooltip": {
+                        "$ref": "#/components/schemas/tooltip"
+                    },
+                    "history_tracking": {
+                        "$ref": "#/components/schemas/history_tracking"
+                    },
+                    "association_details": {
+                        "$ref": "#/components/schemas/association_details"
+                    },
+                    "allowed_modules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./modules.json#/components/schemas/Minified_Module"
+                        }
+                    },
+                    "additional_column": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "field_label": {
+                        "type": "string"
+                    },
+                    "common.picklist": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "hipaa_compliance_enabled": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "hipaa_compliance": {
+                        "$ref": "#/components/schemas/hipaa_compliance"
+                    },
+                    "_update_existing_records": {
+                        "type": "boolean"
+                    },
+                    "number_separator": {
+                        "type": "boolean"
+                    },
+                    "textarea": {
+                        "$ref": "#/components/schemas/textarea"
+                    },
+                    "static_field": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "associated_module",
+                    "data_type",
+                    "operation_type",
+                    "system_mandatory",
+                    "webhook",
+                    "blueprint_supported",
+                    "virtual_field",
+                    "field_read_only",
+                    "customizable_properties",
+                    "read_only",
+                    "custom_field",
+                    "businesscard_supported",
+                    "filterable",
+                    "visible",
+                    "available_in_user_layout",
+                    "display_field",
+                    "pick_list_values_sorted_lexically",
+                    "sortable",
+                    "layout_associations",
+                    "separator",
+                    "searchable",
+                    "enable_colour_code",
+                    "mass_update",
+                    "json_type",
+                    "created_source",
+                    "type",
+                    "display_label",
+                    "column_name",
+                    "api_name",
+                    "display_type",
+                    "ui_type",
+                    "colour_code_enabled_by_system",
+                    "length",
+                    "decimal_place",
+                    "quick_sequence_number",
+                    "email_parser",
+                    "rollup_summary",
+                    "refer_from_field",
+                    "created_time",
+                    "modified_time",
+                    "show_type",
+                    "category",
+                    "id",
+                    "multi_module_lookup",
+                    "sharing_properties",
+                    "currency",
+                    "file_upolad_optionlist",
+                    "lookup",
+                    "profiles",
+                    "view_type",
+                    "unique",
+                    "sub_module",
+                    "subform",
+                    "external",
+                    "formula",
+                    "convert_mapping",
+                    "multiselectlookup",
+                    "multiuserlookup",
+                    "autonumber",
+                    "auto_number",
+                    "pick_list_values",
+                    "crypt",
+                    "tooltip",
+                    "history_tracking",
+                    "association_details",
+                    "allowed_modules",
+                    "additional_column",
+                    "field_label",
+                    "common.picklist",
+                    "hipaa_compliance_enabled",
+                    "hipaa_compliance",
+                    "_update_existing_records",
+                    "number_separator",
+                    "textarea",
+                    "static_field"
+                ]
+            },
+            "textarea": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "wrapper": {
+                "type": "object",
+                "properties": {
+                    "fields": {
+                        "items": {
+                            "$ref": "#/components/schemas/fields"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "fields"
+                ]
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "fields": {
+                        "items": {
+                            "$ref": "#/components/schemas/fields"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "fields"
+                ]
+            },
+            "details": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "SUCCESS"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "success"
+                        ],
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/details"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "SuccessWrapper": {
+                "type": "object",
+                "properties": {
+                    "fields": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/success"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "fields"
+                ]
+            },
+            "MandatoryDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "MandatoryError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "api_name",
+                            "json_path"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "InvalidParamDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_name"
+                ]
+            },
+            "InvalidParamError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_MODULE"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/InvalidParamDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/empty"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "MandatoryParamDetails": {
+                "type": "object",
+                "properties": {
+                    "param_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "param_name"
+                ]
+            },
+            "MandatoryParamError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/MandatoryParamDetails"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "InvalidTypeDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "json_path",
+                    "expected_data_type"
+                ]
+            },
+            "InvalidTypeError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/InvalidTypeDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "InvalidTypeErrorWrapper": {
+                "type": "object",
+                "properties": {
+                    "fields": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "fields"
+                ]
+            },
+            "DependeeDetails": {
+                "type": "object",
+                "properties": {
+                    "dependee": {
+                        "$ref": "#/components/schemas/MandatoryDetails"
+                    },
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dependee",
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "DependeeError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "DEPENDENT_FIELD_MISSING"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/DependeeDetails"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "MandatoryErrorWrapper": {
+                "type": "object",
+                "properties": {
+                    "fields": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/DependeeError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "fields"
+                ]
+            },
+            "InvalidValueError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA"
+                        ],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "json_path": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "api_name",
+                            "json_path"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "InvalidValueErrorWrapper": {
+                "type": "object",
+                "properties": {
+                    "fields": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "fields"
+                ]
+            },
+            "LimitError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "LIMIT_EXCEEDED"
+                        ]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "limit": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "limit_due_to": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/MandatoryDetails"
+                                }
+                            }
+                        },
+                        "required": [
+                            "limit",
+                            "limit_due_to"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "error"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "LimitErrorWrapper": {
+                "type": "object",
+                "properties": {
+                    "fields": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/LimitError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "fields"
+                ]
+            },
+            "MaxLengthWrapper": {
+                "type": "object",
+                "properties": {
+                    "fields": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MaxLengthError"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "fields"
+                ]
+            }
+        },
+        "responses": {
+            "Fields": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Response_Wrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "CreateSuccessResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "SuccessResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/SuccessWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "RootResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "RRootResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/MandatoryError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryParamError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeError"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueError"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "ErrorResponse": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/InvalidTypeErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MandatoryErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/InvalidValueErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/LimitErrorWrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MaxLengthWrapper"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "parameters": {
+            "layout_id": {
+                "name": "layout_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "include": {
+                "name": "include",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "component": {
+                "name": "component",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "module": {
+                "name": "module",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "data_type": {
+                "name": "data_type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "type": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "all",
+                        "unused",
+                        "used"
+                    ]
+                }
+            },
+            "feature_name": {
+                "name": "feature_name",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-ZCSRF-TOKEN": {
+                "name": "X-ZCSRF-TOKEN",
+                "in": "header",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-ZOHO-SERVICE": {
+                "name": "X-ZOHO-SERVICE",
+                "in": "header",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "crmmobile"
+                    ]
+                }
+            },
+            "field": {
+                "name": "field",
+                "in": "path",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "requestBodies": {
+            "body": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/wrapper"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "headers": {},
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
+    }
+}

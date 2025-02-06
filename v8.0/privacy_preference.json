@@ -1,0 +1,262 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "privacy_preference",
+        "description": "",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {"/crm/v8/settings/privacy_preferences": {"get": {
+        "operationId": "Get Preferences",
+        "responses": {"200": {"$ref": "#/components/responses/PrivacyPreferences"}}
+    }}},
+    "security": [{"iam-oauth2-schema": [""]}],
+    "components": {
+        "schemas": {
+            "preference": {
+                "type": "object",
+                "properties": {
+                    "consent_modules": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "restrict_tpt_fields": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "exclude_api_zoho": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "awaiting_period": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "consent_mail_send": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "exclude_export_fields": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "limit_actions": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "exclude_export": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "restrict_zoho_integ": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "exclude_api_zoho_fields": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "duration_timing": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "data_processing_duration": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "restrict_tpt_services": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "exclude_api_tpt_fields": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "restrict_zoho_integ_services": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "privacy_setting_status": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "double_opt_in": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "restrict_zoho_integ_fields": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "exclude_api_tpt": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "block_list": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "restrict_tpt": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "actions_while_awaiting": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "consent_modules",
+                    "restrict_tpt_fields",
+                    "exclude_api_zoho",
+                    "awaiting_period",
+                    "consent_mail_send",
+                    "exclude_export_fields",
+                    "limit_actions",
+                    "exclude_export",
+                    "restrict_zoho_integ",
+                    "exclude_api_zoho_fields",
+                    "duration_timing",
+                    "data_processing_duration",
+                    "restrict_tpt_services",
+                    "exclude_api_tpt_fields",
+                    "restrict_zoho_integ_services",
+                    "privacy_setting_status",
+                    "double_opt_in",
+                    "restrict_zoho_integ_fields",
+                    "exclude_api_tpt",
+                    "block_list",
+                    "restrict_tpt",
+                    "actions_while_awaiting"
+                ]
+            },
+            "tpt": {
+                "type": "object",
+                "properties": {
+                    "isEnabled": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "isSupported": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "isEnabled",
+                    "name",
+                    "isSupported"
+                ]
+            },
+            "option": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tooltip": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "suboptions": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    }
+                },
+                "required": [
+                    "name",
+                    "tooltip",
+                    "type",
+                    "suboptions"
+                ]
+            },
+            "section": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tooltip": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "show_type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "options": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/option"}
+                    }
+                },
+                "required": [
+                    "name",
+                    "tooltip",
+                    "show_type",
+                    "title",
+                    "options"
+                ]
+            },
+            "config": {
+                "type": "object",
+                "properties": {
+                    "tpt": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/tpt"}
+                    },
+                    "section": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/section"}
+                    },
+                    "zoho_integ": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/tpt"}
+                    }
+                },
+                "required": [
+                    "tpt",
+                    "section",
+                    "zoho_integ"
+                ]
+            },
+            "privacy_preference": {
+                "type": "object",
+                "properties": {
+                    "preference": {"$ref": "#/components/schemas/preference"},
+                    "config": {"$ref": "#/components/schemas/config"}
+                },
+                "required": [
+                    "preference",
+                    "config"
+                ]
+            },
+            "wrapper": {
+                "type": "object",
+                "properties": {"privacyPreference": {
+                    "items": {"$ref": "#/components/schemas/privacy_preference"},
+                    "type": "array"
+                }},
+                "required": ["privacyPreference"]
+            }
+        },
+        "responses": {"PrivacyPreferences": {
+            "description": "",
+            "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/wrapper"}]}}}
+        }},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

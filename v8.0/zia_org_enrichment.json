@@ -1,0 +1,606 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "zia_org_enrichment",
+        "description": "__zia_org_enrichment",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/__zia_org_enrichment": {
+            "get": {
+                "operationId": "Get Zia Org Enrichments",
+                "parameters": [
+                    {"$ref": "#/components/parameters/status"},
+                    {"$ref": "#/components/parameters/sort_order"},
+                    {"$ref": "#/components/parameters/sort_by"},
+                    {"$ref": "#/components/parameters/page"},
+                    {"$ref": "#/components/parameters/per_page"}
+                ],
+                "responses": {
+                    "204": {"description": ""},
+                    "200": {"$ref": "#/components/responses/ZiaOrgEnrichment"},
+                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                }
+            },
+            "post": {
+                "operationId": "Create Zia Org Enrichment",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module"},
+                    {"$ref": "#/components/parameters/record_id"}
+                ],
+                "requestBody": {"$ref": "#/components/requestBodies/OrgEnrichmentBody"},
+                "responses": {
+                    "202": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"},
+                    "403": {"$ref": "#/components/responses/NoPermissions"}
+                }
+            }
+        },
+        "/crm/v8/__zia_org_enrichment/{zia_org_enrichment_id}": {"get": {
+            "operationId": "Get Zia Org Enrichment",
+            "parameters": [{"$ref": "#/components/parameters/zia_org_enrichment_id"}],
+            "responses": {
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/ZiaOrgEnrichment"},
+                "400": {"$ref": "#/components/responses/RErrorResponse"}
+            }
+        }}
+    },
+    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.intelligence.All"]}],
+    "components": {
+        "schemas": {
+            "address": {
+                "type": "object",
+                "properties": {
+                    "country": {"type": "string"},
+                    "city": {"type": "string"},
+                    "pin_code": {"type": "string"},
+                    "state": {"type": "string"},
+                    "fill_address": {"type": "string"}
+                },
+                "required": [
+                    "country",
+                    "city",
+                    "pin_code",
+                    "state",
+                    "fill_address"
+                ]
+            },
+            "zia_org_enrichment": {
+                "type": "object",
+                "properties": {
+                    "enriched_data": {
+                        "type": "object",
+                        "properties": {
+                            "org_status": {"type": "string"},
+                            "description": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "title": {"type": "string"},
+                                        "description": {"type": "string"}
+                                    }
+                                }
+                            },
+                            "ceo": {"type": "string"},
+                            "secondary_email": {"type": "string"},
+                            "revenue": {"type": "string"},
+                            "years_in_industry": {"type": "string"},
+                            "other_contacts": {
+                                "type": "array",
+                                "items": {"type": "string"}
+                            },
+                            "techno_graphic_data": {"type": "string"},
+                            "logo": {"type": "string"},
+                            "secondary_contact": {"type": "string"},
+                            "id": {"type": "string"},
+                            "other_emails": {
+                                "type": "array",
+                                "items": {"type": "string"}
+                            },
+                            "sign_in": {"type": "string"},
+                            "website": {"type": "string"},
+                            "address": {
+                                "type": "array",
+                                "items": {"$ref": "#/components/schemas/address"}
+                            },
+                            "sign_up": {"type": "string"},
+                            "org_type": {"type": "string"},
+                            "head_quarters": {
+                                "type": "array",
+                                "items": {"$ref": "#/components/schemas/address"}
+                            },
+                            "no_of_employees": {"type": "string"},
+                            "territory_list": {
+                                "type": "array",
+                                "items": {"type": "string"}
+                            },
+                            "founding_year": {"type": "string"},
+                            "industries": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {"type": "string"},
+                                        "description": {"type": "string"}
+                                    }
+                                }
+                            },
+                            "name": {"type": "string"},
+                            "primary_email": {"type": "string"},
+                            "business_model": {
+                                "type": "array",
+                                "items": {"type": "string"}
+                            },
+                            "primary_contact": {"type": "string"},
+                            "social_media": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "media_type": {"type": "string"},
+                                        "media_url": {
+                                            "type": "array",
+                                            "items": {"type": "string"}
+                                        }
+                                    },
+                                    "required": [
+                                        "media_type",
+                                        "media_url"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "created_time": {"type": "string"},
+                    "id": {"type": "string"},
+                    "created_by": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "id": {"type": "string"}
+                        },
+                        "required": [
+                            "name",
+                            "id"
+                        ]
+                    },
+                    "status": {"type": "string"},
+                    "enrich_based_on": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "pattern": "[a-zA-Z]{5}",
+                                "maxLength": 150
+                            },
+                            "email": {
+                                "type": "string",
+                                "pattern": "[a-z]{7}[@]google[.]com"
+                            },
+                            "website": {
+                                "type": "string",
+                                "pattern": "www[.][a-z0-9]+[.][a-z]{3}"
+                            }
+                        },
+                        "required": ["name"]
+                    }
+                },
+                "required": [
+                    "created_time",
+                    "id",
+                    "created_by",
+                    "status",
+                    "enrich_based_on"
+                ]
+            },
+            "Info": {
+                "type": "object",
+                "properties": {
+                    "per_page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "count": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "more_records": {"type": "boolean"}
+                },
+                "required": [
+                    "per_page",
+                    "count",
+                    "page",
+                    "more_records"
+                ]
+            },
+            "ZiaOrg_Enrichment": {
+                "type": "object",
+                "properties": {
+                    "__zia_org_enrichment": {
+                        "items": {"$ref": "#/components/schemas/zia_org_enrichment"},
+                        "type": "array"
+                    },
+                    "info": {"$ref": "#/components/schemas/Info"}
+                }
+            },
+            "Org_Enrichment": {
+                "type": "object",
+                "properties": {"__zia_org_enrichment": {
+                    "items": {"$ref": "#/components/schemas/zia_org_enrichment"},
+                    "type": "array"
+                }},
+                "required": ["__zia_org_enrichment"]
+            },
+            "RESOURCE_NOT_FOUND": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["RESOURCE_NOT_FOUND"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object",
+                        "properties": {"resource": {"type": "string"}}
+                    }
+                }
+            },
+            "SUCCESS": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["SCHEDULED"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["Org Enrichment scheduled successfully"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"id": {"type": "string"}}
+                    }
+                }
+            },
+            "DETAIL_1": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "DETAIL_2": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "expected_data_type": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "DETAIL_4": {
+                "type": "object",
+                "properties": {
+                    "resource": {"type": "string"},
+                    "permissions_needed": {"type": "string"}
+                }
+            },
+            "DETAIL_5": {
+                "type": "object",
+                "properties": {
+                    "param": {"type": "string"},
+                    "supported_values": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    }
+                }
+            },
+            "DETAIL_6": {
+                "type": "object",
+                "properties": {"expected_fields": {
+                    "items": {"$ref": "#/components/schemas/DETAIL_1"},
+                    "type": "array"
+                }}
+            },
+            "DETAIL_7": {
+                "type": "object",
+                "properties": {
+                    "limit_due_to": {
+                        "items": {"$ref": "#/components/schemas/DETAIL_1"},
+                        "type": "array"
+                    },
+                    "limit": {"type": "string"}
+                }
+            },
+            "DETAIL_8": {
+                "type": "object",
+                "properties": {
+                    "maximum_length": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "DETAIL_9": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "expected_data_type": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "MANDATORY_NOT_FOUND": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["MANDATORY_NOT_FOUND"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/DETAIL_1"}
+                }
+            },
+            "EXPECTED_FIELD_MISSING": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["EXPECTED_FIELD_MISSING"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/DETAIL_6"}
+                }
+            },
+            "API_NOT_SUPPORTED": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["API_NOT_SUPPORTED"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object",
+                        "properties": {"supported_version": {
+                            "type": "integer",
+                            "format": "int32"
+                        }}
+                    }
+                }
+            },
+            "REQUIRED_PARAM_MISSING_EXCEPTION": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA",
+                            "REQUIRED_PARAM_MISSING",
+                            "NOT_ALLOWED",
+                            "INVALID_MODULE"
+                        ]
+                    },
+                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object",
+                        "properties": {"param_name": {"type": "string"}}
+                    }
+                }
+            },
+            "LIMIT_EXCEEDED": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["LIMIT_EXCEEDED"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/DETAIL_7"}
+                }
+            },
+            "INVALID_DATA": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "INVALID_DATA",
+                            "NOT_ALLOWED"
+                        ]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"oneOf": [
+                        {"$ref": "#/components/schemas/DETAIL_1"},
+                        {"$ref": "#/components/schemas/DETAIL_2"},
+                        {"$ref": "#/components/schemas/DETAIL_4"},
+                        {"$ref": "#/components/schemas/DETAIL_5"},
+                        {"$ref": "#/components/schemas/DETAIL_8"},
+                        {"$ref": "#/components/schemas/DETAIL_9"}
+                    ]}
+                }
+            },
+            "NO_PERMISSION": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["NO_PERMISSION"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["permission denied"]
+                    },
+                    "details": {"type": "object"}
+                }
+            }
+        },
+        "responses": {
+            "SuccessResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{
+                    "type": "object",
+                    "properties": {"__zia_org_enrichment": {
+                        "items": {"oneOf": [{"$ref": "#/components/schemas/SUCCESS"}]},
+                        "type": "array"
+                    }}
+                }]}}}
+            },
+            "ErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"__zia_org_enrichment": {
+                            "items": {"oneOf": [
+                                {"$ref": "#/components/schemas/MANDATORY_NOT_FOUND"},
+                                {"$ref": "#/components/schemas/INVALID_DATA"},
+                                {"$ref": "#/components/schemas/EXPECTED_FIELD_MISSING"},
+                                {"$ref": "#/components/schemas/LIMIT_EXCEEDED"}
+                            ]},
+                            "type": "array"
+                        }}
+                    },
+                    {"$ref": "#/components/schemas/MANDATORY_NOT_FOUND"},
+                    {"$ref": "#/components/schemas/INVALID_DATA"},
+                    {"$ref": "#/components/schemas/REQUIRED_PARAM_MISSING_EXCEPTION"},
+                    {"$ref": "#/components/schemas/NO_PERMISSION"},
+                    {"$ref": "#/components/schemas/API_NOT_SUPPORTED"}
+                ]}}}
+            },
+            "RErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/MANDATORY_NOT_FOUND"},
+                    {"$ref": "#/components/schemas/INVALID_DATA"},
+                    {"$ref": "#/components/schemas/REQUIRED_PARAM_MISSING_EXCEPTION"},
+                    {"$ref": "#/components/schemas/NO_PERMISSION"},
+                    {"$ref": "#/components/schemas/API_NOT_SUPPORTED"}
+                ]}}}
+            },
+            "ZiaOrgEnrichment": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/ZiaOrg_Enrichment"}]}}}
+            },
+            "NoPermissions": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/NO_PERMISSION"}]}}}
+            }
+        },
+        "parameters": {
+            "zia_org_enrichment_id": {
+                "name": "zia_org_enrichment_id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "module": {
+                "name": "module",
+                "in": "query",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "record_id": {
+                "name": "record_id",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "page": {
+                "name": "page",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "per_page": {
+                "name": "per_page",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "sort_by": {
+                "name": "sort_by",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "sort_order": {
+                "name": "sort_order",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "status": {
+                "name": "status",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "COMPLETED",
+                        "FAILED",
+                        "DATA_NOT_FOUND",
+                        "SCHEDULED"
+                    ]
+                }
+            }
+        },
+        "requestBodies": {"OrgEnrichmentBody": {
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Org_Enrichment"}}},
+            "required": true
+        }},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

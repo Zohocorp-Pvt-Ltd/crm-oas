@@ -1,0 +1,342 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "mail_merge",
+        "description": "mail_merge",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/{module}/{id}/actions/send_mail_merge": {"post": {
+            "operationId": "Send Mail Merge",
+            "parameters": [
+                {"$ref": "#/components/parameters/id"},
+                {"$ref": "#/components/parameters/module"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Mail_Merge_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"send_mail_merge": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                                    {"$ref": "#/components/schemas/Invalid_Data"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                        {"$ref": "#/components/schemas/Invalid_Data"}
+                    ]}}}
+                }
+            }
+        }},
+        "/crm/v8/{module}/{id}/actions/download_mail_merge": {"post": {
+            "operationId": "Download Mail Merge",
+            "parameters": [
+                {"$ref": "#/components/parameters/id"},
+                {"$ref": "#/components/parameters/module"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Download_Mail_Merge_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{
+                        "type": "object",
+                        "properties": {"file": {"type": "object"}}
+                    }]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                        {"$ref": "#/components/schemas/Invalid_Data"}
+                    ]}}}
+                }
+            }
+        }},
+        "/crm/v8/{module}/{id}/actions/sign_mail_merge": {"post": {
+            "operationId": "Sign Mail Merge",
+            "parameters": [
+                {"$ref": "#/components/parameters/id"},
+                {"$ref": "#/components/parameters/module"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Sign_Mail_Merge_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Sign_Success_Wrapper"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"sign_mail_merge": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                                    {"$ref": "#/components/schemas/Invalid_Data"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                        {"$ref": "#/components/schemas/Invalid_Data"}
+                    ]}}}
+                }
+            }
+        }}
+    },
+    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.modules.ALL"]}],
+    "components": {
+        "schemas": {
+            "Mail_Merge_Template": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "name": {"type": "string"}
+                }
+            },
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "type": {"type": "string"},
+                    "value": {"type": "string"}
+                }
+            },
+            "Mail_Merge": {
+                "type": "object",
+                "properties": {
+                    "mail_merge_template": {"$ref": "#/components/schemas/Mail_Merge_Template"},
+                    "from_address": {"$ref": "#/components/schemas/Address"},
+                    "to_address": {
+                        "items": {"$ref": "#/components/schemas/Address"},
+                        "type": "array"
+                    },
+                    "cc_email": {
+                        "items": {"$ref": "#/components/schemas/Address"},
+                        "type": "array"
+                    },
+                    "bcc_email": {
+                        "items": {"$ref": "#/components/schemas/Address"},
+                        "type": "array"
+                    },
+                    "subject": {"type": "string"},
+                    "message": {"type": "string"},
+                    "type": {"type": "string"},
+                    "attachment_name": {"type": "string"}
+                }
+            },
+            "Mail_Merge_Wrapper": {
+                "type": "object",
+                "properties": {"send_mail_merge": {
+                    "items": {"$ref": "#/components/schemas/Mail_Merge"},
+                    "type": "array"
+                }}
+            },
+            "Download_Mail_Merge": {
+                "type": "object",
+                "properties": {
+                    "mail_merge_template": {"$ref": "#/components/schemas/Mail_Merge_Template"},
+                    "output_format": {
+                        "type": "string",
+                        "enum": [
+                            "pdf",
+                            "html",
+                            "docx"
+                        ]
+                    },
+                    "file_name": {
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "password": {"type": "string"}
+                }
+            },
+            "Download_Mail_Merge_Wrapper": {
+                "type": "object",
+                "properties": {"download_mail_merge": {
+                    "items": {"$ref": "#/components/schemas/Download_Mail_Merge"},
+                    "type": "array"
+                }}
+            },
+            "Signers": {
+                "type": "object",
+                "properties": {
+                    "recipient_name": {"type": "string"},
+                    "action_type": {
+                        "type": "string",
+                        "enum": [
+                            "approve",
+                            "sign"
+                        ]
+                    },
+                    "recipient": {"$ref": "#/components/schemas/Address"}
+                }
+            },
+            "Sign_Mail_Merge": {
+                "type": "object",
+                "properties": {
+                    "mail_merge_template": {"$ref": "#/components/schemas/Mail_Merge_Template"},
+                    "sign_in_order": {"type": "boolean"},
+                    "file_name": {
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "signers": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/Signers"}
+                    }
+                }
+            },
+            "Sign_Mail_Merge_Wrapper": {
+                "type": "object",
+                "properties": {"sign_mail_merge": {
+                    "items": {"$ref": "#/components/schemas/Sign_Mail_Merge"},
+                    "type": "array"
+                }}
+            },
+            "Success_Response": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object",
+                        "properties": {"report_link": {"type": "string"}}
+                    }
+                }
+            },
+            "Success_Wrapper": {
+                "type": "object",
+                "properties": {"send_mail_merge": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
+                    "type": "array"
+                }}
+            },
+            "Sign_Success_Wrapper": {
+                "type": "object",
+                "properties": {"sign_mail_merge": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
+                    "type": "array"
+                }}
+            },
+            "Expected_Data_Type": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "expected_data_type": {"type": "string"}
+                }
+            },
+            "Expected_Regex": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "expected_data_type": {"type": "string"},
+                    "regex": {"type": "string"}
+                }
+            },
+            "Supported_Values": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "supported_values": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    }
+                }
+            },
+            "Error_Detail": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "Invalid_Id": {
+                "type": "object",
+                "properties": {"resource_path_index": {
+                    "type": "integer",
+                    "format": "int32"
+                }}
+            },
+            "Mandatory_Not_Found": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["MANDATORY_NOT_FOUND"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/Error_Detail"}
+                }
+            },
+            "Invalid_Data": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"oneOf": [
+                        {"$ref": "#/components/schemas/Expected_Data_Type"},
+                        {"$ref": "#/components/schemas/Error_Detail"},
+                        {"$ref": "#/components/schemas/Invalid_Id"},
+                        {"$ref": "#/components/schemas/Supported_Values"},
+                        {"$ref": "#/components/schemas/Expected_Regex"}
+                    ]}
+                }
+            }
+        },
+        "parameters": {
+            "module": {
+                "name": "module",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "id": {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            }
+        },
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

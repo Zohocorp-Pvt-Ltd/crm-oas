@@ -1,0 +1,994 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "tags",
+        "description": "tags",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/settings/tags": {
+            "get": {
+                "operationId": "Get Tags",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module"},
+                    {"$ref": "#/components/parameters/my_tags"},
+                    {"$ref": "#/components/parameters/include"}
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [
+                            {"$ref": "#/components/schemas/Invalid_Module"},
+                            {"$ref": "#/components/schemas/Required_Param_Missing"}
+                        ]}}}
+                    }
+                }
+            },
+            "post": {
+                "operationId": "Create Tags",
+                "parameters": [
+                    {"$ref": "#/components/parameters/module"},
+                    {"$ref": "#/components/parameters/color_code"}
+                ],
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [
+                            {"$ref": "#/components/schemas/Action_Wrapper"},
+                            {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                            {"$ref": "#/components/schemas/Required_Param_Missing"},
+                            {"$ref": "#/components/schemas/Invalid_Module"},
+                            {"$ref": "#/components/schemas/Invalid_Data"}
+                        ]}}}
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Update Tags",
+                "parameters": [{
+                    "name": "module",
+                    "in": "query",
+                    "required": true,
+                    "schema": {"type": "string"}
+                }],
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [
+                            {"$ref": "#/components/schemas/Action_Wrapper"},
+                            {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                            {"$ref": "#/components/schemas/Required_Param_Missing"},
+                            {"$ref": "#/components/schemas/Invalid_Module"},
+                            {"$ref": "#/components/schemas/Invalid_Data"}
+                        ]}}}
+                    }
+                }
+            }
+        },
+        "/crm/v8/settings/tags/{id}": {
+            "put": {
+                "operationId": "Update Tag",
+                "parameters": [
+                    {"$ref": "#/components/parameters/id"},
+                    {
+                        "name": "module",
+                        "in": "query",
+                        "required": true,
+                        "schema": {"type": "string"}
+                    }
+                ],
+                "requestBody": {
+                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [
+                            {"$ref": "#/components/schemas/Action_Wrapper"},
+                            {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                            {"$ref": "#/components/schemas/Required_Param_Missing"},
+                            {"$ref": "#/components/schemas/Invalid_Module"},
+                            {"$ref": "#/components/schemas/Invalid_Data"}
+                        ]}}}
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "Delete Tag",
+                "parameters": [{"$ref": "#/components/parameters/id"}],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                    },
+                    "400": {
+                        "description": "",
+                        "content": {"application/json": {"schema": {"oneOf": [
+                            {"$ref": "#/components/schemas/Action_Wrapper"},
+                            {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                            {"$ref": "#/components/schemas/Required_Param_Missing"},
+                            {"$ref": "#/components/schemas/Invalid_Module"},
+                            {"$ref": "#/components/schemas/Invalid_Data"}
+                        ]}}}
+                    }
+                }
+            }
+        },
+        "/crm/v8/settings/tags/{id}/actions/merge": {"post": {
+            "operationId": "Merge Tags",
+            "parameters": [{"$ref": "#/components/parameters/id"}],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Merge_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Action_Wrapper"},
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                        {"$ref": "#/components/schemas/Required_Param_Missing"},
+                        {"$ref": "#/components/schemas/Invalid_Module"},
+                        {"$ref": "#/components/schemas/Invalid_Data"}
+                    ]}}}
+                }
+            }
+        }},
+        "/crm/v8/{module_api_name}/{record_id}/actions/add_tags": {"post": {
+            "operationId": "Add Tags",
+            "parameters": [
+                {"$ref": "#/components/parameters/over_write"},
+                {"$ref": "#/components/parameters/record_id"},
+                {"$ref": "#/components/parameters/module_api_name"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/New_Tag_Request_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Record_Success_Wrapper"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Record_Action_Wrapper_Error"},
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                        {"$ref": "#/components/schemas/Invalid_Module"},
+                        {"$ref": "#/components/schemas/Invalid_Data"},
+                        {"$ref": "#/components/schemas/Expected_Field_Missing"}
+                    ]}}}
+                }
+            }
+        }},
+        "/crm/v8/{module_api_name}/{record_id}/actions/remove_tags": {"post": {
+            "operationId": "Remove Tags",
+            "parameters": [
+                {"$ref": "#/components/parameters/record_id"},
+                {"$ref": "#/components/parameters/module_api_name"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Existing_Tag_Request_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Record_Success_Wrapper"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Record_Action_Wrapper_Error"},
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                        {"$ref": "#/components/schemas/Invalid_Module"},
+                        {"$ref": "#/components/schemas/Invalid_Data"},
+                        {"$ref": "#/components/schemas/Expected_Field_Missing"}
+                    ]}}}
+                }
+            }
+        }},
+        "/crm/v8/{module_api_name}/actions/add_tags": {"post": {
+            "operationId": "Add Tags To Multiple Records",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/over_write"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/New_Tag_Request_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Record_Success_Wrapper"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Record_Action_Wrapper_Error"},
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                        {"$ref": "#/components/schemas/Invalid_Module"},
+                        {"$ref": "#/components/schemas/Invalid_Data"},
+                        {"$ref": "#/components/schemas/Expected_Field_Missing"}
+                    ]}}}
+                }
+            }
+        }},
+        "/crm/v8/{module_api_name}/actions/remove_tags": {"post": {
+            "operationId": "Remove Tags From Multiple Records",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/ids"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Existing_Tag_Request_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Record_Success_Wrapper"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Record_Action_Wrapper_Error"},
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                        {"$ref": "#/components/schemas/Invalid_Module"},
+                        {"$ref": "#/components/schemas/Invalid_Data"},
+                        {"$ref": "#/components/schemas/Expected_Field_Missing"}
+                    ]}}}
+                }
+            }
+        }},
+        "/crm/v8/settings/tags/{id}/actions/records_count": {"get": {
+            "operationId": "Get Record Count For Tag",
+            "parameters": [
+                {"$ref": "#/components/parameters/id"},
+                {"$ref": "#/components/parameters/module"}
+            ],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{
+                        "type": "object",
+                        "properties": {"count": {"type": "string"}},
+                        "required": ["count"]
+                    }]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Invalid_Module"},
+                        {"$ref": "#/components/schemas/Required_Param_Missing"}
+                    ]}}}
+                }
+            },
+            "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.tags.all"]}]
+        }}
+    },
+    "security": [{"iam-oauth2-schema": ["ZohoCRM.settings.tags.all"]}],
+    "components": {
+        "schemas": {
+            "Tag": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 25
+                    },
+                    "color_code": {
+                        "type": "string",
+                        "enum": [
+                            "#57B1FD",
+                            "#879BFC",
+                            "#658BA8",
+                            "#FD87BD",
+                            "#969696",
+                            "#F48435",
+                            "#1DB9B4",
+                            "#E7A826",
+                            "#63C57E",
+                            "#F17574",
+                            "#D297EE",
+                            "#A8C026",
+                            "#B88562"
+                        ],
+                        "nullable": true
+                    },
+                    "created_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "modified_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "modified_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name",
+                    "color_code",
+                    "created_time",
+                    "modified_time",
+                    "modified_by",
+                    "created_by",
+                    "id"
+                ]
+            },
+            "Success_Response": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "tags created successfully",
+                            "tags deleted successfully",
+                            "tags updated successfully"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "created_time": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "modified_time": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "modified_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                            "id": {"type": "string"},
+                            "created_by": {"$ref": "./users.json#/components/schemas/Minified_User"},
+                            "color_code": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "required": [
+                            "created_time",
+                            "modified_time",
+                            "modified_by",
+                            "id",
+                            "created_by",
+                            "color_code"
+                        ]
+                    }
+                },
+                "required": [
+                    "code",
+                    "status",
+                    "details"
+                ]
+            },
+            "Existing_Tag_Request_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "tags": {
+                        "items": {"$ref": "#/components/schemas/Existing_Tag"},
+                        "type": "array"
+                    },
+                    "ids": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    }
+                },
+                "required": [
+                    "tags",
+                    "ids"
+                ]
+            },
+            "Existing_Tag": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {"type": "string"}
+                },
+                "required": ["id"]
+            },
+            "New_Tag_Request_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "tags": {
+                        "items": {"$ref": "#/components/schemas/Tag"},
+                        "type": "array"
+                    },
+                    "over_write": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "ids": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    }
+                },
+                "required": [
+                    "tags",
+                    "over_write",
+                    "ids"
+                ]
+            },
+            "Success_Wrapper": {
+                "type": "object",
+                "properties": {"tags": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
+                    "type": "array"
+                }},
+                "required": ["tags"]
+            },
+            "Record_Detail_Tag": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "name": {"type": "string"},
+                    "color_code": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "color_code"
+                ]
+            },
+            "Record_Success_Detail": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "tags": {
+                        "items": {"$ref": "#/components/schemas/Record_Detail_Tag"},
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "tags"
+                ]
+            },
+            "Record_Success_Response": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/Record_Success_Detail"}
+                },
+                "required": [
+                    "code",
+                    "status",
+                    "message",
+                    "details"
+                ]
+            },
+            "Info": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "allowed_count": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "count",
+                    "allowed_count"
+                ]
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "tags": {
+                        "items": {"$ref": "#/components/schemas/Tag"},
+                        "type": "array"
+                    },
+                    "info": {"$ref": "#/components/schemas/Info"}
+                },
+                "required": [
+                    "tags",
+                    "info"
+                ]
+            },
+            "Body_Wrapper": {
+                "type": "object",
+                "properties": {"tags": {
+                    "items": {"$ref": "#/components/schemas/Tag"},
+                    "type": "array"
+                }}
+            },
+            "Conflict_Wrapper": {
+                "type": "object",
+                "properties": {"conflict_id": {"type": "string"}},
+                "required": ["conflict_id"]
+            },
+            "Merge_Wrapper": {
+                "type": "object",
+                "properties": {"tags": {
+                    "items": {"$ref": "#/components/schemas/Conflict_Wrapper"},
+                    "type": "array"
+                }},
+                "required": ["tags"]
+            },
+            "Record_Success_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "items": {"oneOf": [{"$ref": "#/components/schemas/Record_Success_Response"}]},
+                        "type": "array"
+                    },
+                    "wf_scheduler": {"type": "boolean"},
+                    "success_count": {"type": "string"},
+                    "locked_count": {"type": "string"}
+                }
+            },
+            "Associated_Places": {
+                "type": "object",
+                "properties": {
+                    "type": {"type": "string"},
+                    "resources": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    }
+                }
+            },
+            "Not_Allowed_Detail": {
+                "type": "object",
+                "properties": {"associated_places": {
+                    "items": {"$ref": "#/components/schemas/Associated_Places"},
+                    "type": "array"
+                }}
+            },
+            "Not_Allowed": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["NOT_ALLOWED"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/Not_Allowed_Detail"}
+                }
+            },
+            "Invalid_Data_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": ["invalid data"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "api_name": {"type": "string"},
+                            "json_path": {"type": "string"}
+                        }
+                    }
+                }
+            },
+            "Record_Action_Wrapper_Error": {
+                "type": "object",
+                "properties": {"data": {
+                    "items": {"oneOf": [
+                        {"$ref": "#/components/schemas/Required_Param_Missing"},
+                        {"$ref": "#/components/schemas/Invalid_Module"},
+                        {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
+                        {"$ref": "#/components/schemas/Not_Allowed"}
+                    ]},
+                    "type": "array"
+                }}
+            },
+            "ErrorDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "Expected_Detail": {
+                "type": "object",
+                "properties": {"expected_fields": {
+                    "items": {"$ref": "#/components/schemas/ErrorDetails"},
+                    "type": "array"
+                }}
+            },
+            "Expected_Field_Missing": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["EXPECTED_FIELD_MISSING"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/Expected_Detail"}
+                }
+            },
+            "Maximum_Length": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "maximum_length": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "json_path",
+                    "maximum_length"
+                ]
+            },
+            "Expected_Data_Type": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "expected_data_type": {"type": "string"}
+                },
+                "required": [
+                    "api_name",
+                    "json_path",
+                    "expected_data_type"
+                ]
+            },
+            "Error_Detail": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                },
+                "required": [
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "Invalid_Id": {
+                "type": "object",
+                "properties": {"resource_path_index": {
+                    "type": "integer",
+                    "format": "int32"
+                }},
+                "required": ["resource_path_index"]
+            },
+            "Mandatory_Not_Found": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["MANDATORY_NOT_FOUND"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/Error_Detail"}
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Invalid_Tag": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"],
+                        "nullable": true
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "type": "object",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Invalid_Data": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"oneOf": [
+                        {"$ref": "#/components/schemas/Maximum_Length"},
+                        {"$ref": "#/components/schemas/Expected_Data_Type"},
+                        {"$ref": "#/components/schemas/Error_Detail"},
+                        {"$ref": "#/components/schemas/Invalid_Id"}
+                    ]}
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Duplicate_Data": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"],
+                        "nullable": true
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["DUPLICATE_DATA"],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "api_name": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "api_name"
+                        ]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Resource_Detail": {
+                "type": "object",
+                "properties": {"associations": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                }},
+                "required": ["associations"]
+            },
+            "Resources": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {"$ref": "#/components/schemas/Resource_Detail"}
+                },
+                "required": [
+                    "name",
+                    "id",
+                    "details"
+                ]
+            },
+            "Required_Param_Missing": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["REQUIRED_PARAM_MISSING"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {
+                        "type": "object",
+                        "properties": {"param": {"type": "string"}},
+                        "required": ["param"]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Invalid_Module": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_MODULE"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"type": "object"}
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Action_Wrapper": {
+                "type": "object",
+                "properties": {"tags": {
+                    "items": {"oneOf": [
+                        {"$ref": "#/components/schemas/Required_Param_Missing"},
+                        {"$ref": "#/components/schemas/Invalid_Module"},
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found"},
+                        {"$ref": "#/components/schemas/Invalid_Data"},
+                        {"$ref": "#/components/schemas/Duplicate_Data"},
+                        {"$ref": "#/components/schemas/Not_Allowed"}
+                    ]},
+                    "type": "array"
+                }},
+                "required": ["tags"]
+            }
+        },
+        "parameters": {
+            "id": {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "over_write": {
+                "name": "over_write",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "my_tags": {
+                "name": "my_tags",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "module": {
+                "name": "module",
+                "in": "query",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "module_api_name": {
+                "name": "module_api_name",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "record_id": {
+                "name": "record_id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "ids": {
+                "name": "ids",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "include": {
+                "name": "include",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "color_code": {
+                "name": "color_code",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            }
+        },
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

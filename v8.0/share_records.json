@@ -1,0 +1,365 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "share_records",
+        "description": "Share Records",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {"/crm/v8/{module_api_name}/{record_id}/actions/share": {
+        "get": {
+            "operationId": "Get Shared Record Details",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/record_id"},
+                {"$ref": "#/components/parameters/sharedTo"},
+                {"$ref": "#/components/parameters/view"}
+            ],
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/Response_Wrapper"},
+                    {"$ref": "#/components/schemas/Share_Record_API_Exception"}
+                ]}}}
+            }},
+            "security": [{"iam-oauth2-schema": [
+                "ZohoCRM.share.{module_api_name}.ALL",
+                "ZohoCRM.share.{module_api_name}.READ"
+            ]}]
+        },
+        "post": {
+            "operationId": "Share Record",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/record_id"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "required": true
+            },
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "share": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/Share_Record_API_Exception"}
+                                ]},
+                                "type": "array"
+                            },
+                            "notify": {"type": "boolean"}
+                        },
+                        "required": ["share"]
+                    },
+                    {"$ref": "#/components/schemas/Share_Record_API_Exception"}
+                ]}}}
+            }},
+            "security": [{"iam-oauth2-schema": [
+                "ZohoCRM.share.{module_api_name}.ALL",
+                "ZohoCRM.share.{module_api_name}.CREATE"
+            ]}]
+        },
+        "put": {
+            "operationId": "Update Share Permissions",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/record_id"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "required": true
+            },
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "share": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Success_Response"},
+                                    {"$ref": "#/components/schemas/Share_Record_API_Exception"}
+                                ]},
+                                "type": "array"
+                            },
+                            "notify": {"type": "boolean"}
+                        },
+                        "required": ["share"]
+                    },
+                    {"$ref": "#/components/schemas/Share_Record_API_Exception"}
+                ]}}}
+            }},
+            "security": [{"iam-oauth2-schema": [
+                "ZohoCRM.share.{module_api_name}.ALL",
+                "ZohoCRM.share.{module_api_name}.UPDATE"
+            ]}]
+        },
+        "delete": {
+            "operationId": "Revoke Shared Record",
+            "parameters": [
+                {"$ref": "#/components/parameters/module_api_name"},
+                {"$ref": "#/components/parameters/record_id"}
+            ],
+            "responses": {"200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"share": {"oneOf": [
+                            {"$ref": "#/components/schemas/Success_Response"},
+                            {"$ref": "#/components/schemas/Share_Record_API_Exception"}
+                        ]}},
+                        "required": ["share"]
+                    },
+                    {"$ref": "#/components/schemas/Share_Record_API_Exception"}
+                ]}}}
+            }},
+            "security": [{"iam-oauth2-schema": [
+                "ZohoCRM.share.{module_api_name}.ALL",
+                "ZohoCRM.share.{module_api_name}.DELETE"
+            ]}]
+        }
+    }},
+    "components": {
+        "schemas": {
+            "Shared_Through": {
+                "type": "object",
+                "properties": {
+                    "module": {"$ref": "#/components/schemas/Module"},
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "entity_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {"type": "string"}
+                },
+                "required": [
+                    "module",
+                    "id",
+                    "entity_name"
+                ]
+            },
+            "Module": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "api_name": {"type": "string"},
+                    "id": {"type": "string"}
+                }
+            },
+            "Share_Record": {
+                "type": "object",
+                "properties": {
+                    "shared_with": {"$ref": "./users.json#/components/schemas/users"},
+                    "share_related_records": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "shared_through": {"$ref": "#/components/schemas/Shared_Through"},
+                    "shared_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "permission": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "shared_by": {"$ref": "./users.json#/components/schemas/users"},
+                    "user": {"$ref": "./users.json#/components/schemas/users"},
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "private",
+                            "public"
+                        ]
+                    }
+                },
+                "required": [
+                    "share_related_records",
+                    "shared_through",
+                    "shared_time",
+                    "permission",
+                    "shared_by",
+                    "user"
+                ]
+            },
+            "Success_Response": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "record will be shared successfully",
+                            "Sharing Revoked"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"id": {"type": "string"}},
+                        "required": ["id"]
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "details"
+                ]
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "share": {
+                        "items": {"$ref": "#/components/schemas/Share_Record"},
+                        "type": "array"
+                    },
+                    "shareable_user": {
+                        "items": {"$ref": "./users.json#/components/schemas/users"},
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "share",
+                    "shareable_user"
+                ]
+            },
+            "Body_Wrapper": {
+                "type": "object",
+                "properties": {
+                    "share": {
+                        "items": {"$ref": "#/components/schemas/Share_Record"},
+                        "type": "array"
+                    },
+                    "notify_on_completion": {"type": "boolean"},
+                    "notify": {"type": "boolean"}
+                },
+                "required": ["share"]
+            },
+            "Dependee": {
+                "type": "object",
+                "properties": {
+                    "json_path": {"type": "string"},
+                    "api_name": {"type": "string"}
+                }
+            },
+            "Share_Record_API_Exception": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "DUPLICATE_DATA",
+                            "OAUTH_SCOPE_MISMATCH",
+                            "INVALID_URL_PATTERN",
+                            "SHARE_LIMIT_EXCEEDED",
+                            "INVALID_DATA",
+                            "BAD_REQUEST",
+                            "INVALID_REQUEST_METHOD",
+                            "INVALID_TOKEN",
+                            "LIMIT_EXCEEDED",
+                            "INVALID_MODULE",
+                            "MANDATORY_NOT_FOUND",
+                            "ENTITY_ID_INVALID"
+                        ]
+                    },
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "record not deleted",
+                            "Scheduler is running",
+                            "Cannot share a record to more than 10 users.",
+                            "Please check if the URL trying to access is a correct one.",
+                            "No sharing through this record is available to revoke.",
+                            "Please check if the URL trying to access is a correct one",
+                            "The http request method type is not a valid one",
+                            "ENTITY_ID_INVALID",
+                            "invalid oauth scope to access this URL",
+                            "invalid oauth token",
+                            "the related id given seems to be invalid",
+                            "cannot share to the user",
+                            "The relation name given seems to be invalid.",
+                            "Permission is invalid",
+                            "record is already visible to the user."
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "permissions": {
+                                "type": "array",
+                                "items": {"type": "string"}
+                            },
+                            "dependee": {"$ref": "#/components/schemas/Dependee"},
+                            "ambiguity_due_to": {
+                                "items": {"$ref": "#/components/schemas/Dependee"},
+                                "type": "array"
+                            },
+                            "json_path": {"type": "string"},
+                            "resource_path_index": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "status",
+                    "code",
+                    "message"
+                ]
+            }
+        },
+        "parameters": {
+            "sharedTo": {
+                "name": "sharedTo",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "view": {
+                "name": "view",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "module_api_name": {
+                "name": "module_api_name",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "record_id": {
+                "name": "record_id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

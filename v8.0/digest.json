@@ -1,0 +1,293 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "digest",
+        "description": "Digest",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {"/crm/v8/__digest": {"post": {
+        "operationId": "Create Digest",
+        "requestBody": {
+            "content": {"application/json": {}},
+            "required": true
+        },
+        "responses": {
+            "207": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{
+                    "type": "object",
+                    "properties": {"__digest": {
+                        "items": {"oneOf": [
+                            {"$ref": "#/components/schemas/Digest_Created"},
+                            {"$ref": "#/components/schemas/Dependent_Field_API_Exception"}
+                        ]},
+                        "type": "array"
+                    }},
+                    "required": ["__digest"]
+                }]}}}
+            },
+            "200": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{
+                    "type": "object",
+                    "properties": {"__digest": {
+                        "items": {"oneOf": [{"$ref": "#/components/schemas/Digest_Created"}]},
+                        "type": "array"
+                    }},
+                    "required": ["__digest"]
+                }]}}}
+            },
+            "400": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"__digest": {
+                            "items": {"oneOf": [
+                                {"$ref": "#/components/schemas/Dependent_Field_API_Exception"},
+                                {"$ref": "#/components/schemas/Mandatory_API_Exception"},
+                                {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
+                                {"$ref": "#/components/schemas/Invalid_Data_Type_API_Exception"},
+                                {"$ref": "#/components/schemas/Permission_Denied"}
+                            ]},
+                            "type": "array"
+                        }},
+                        "required": ["__digest"]
+                    },
+                    {"$ref": "#/components/schemas/Dependent_Field_API_Exception"},
+                    {"$ref": "#/components/schemas/Invalid_Data_API_Exception"},
+                    {"$ref": "#/components/schemas/Mandatory_API_Exception"},
+                    {"$ref": "#/components/schemas/Invalid_Data_Type_API_Exception"}
+                ]}}}
+            }
+        }
+    }}},
+    "security": [{}],
+    "components": {"schemas": {
+        "Digest": {
+            "type": "object",
+            "properties": {
+                "record_id": {"type": "string"},
+                "type": {"type": "string"},
+                "module": {"type": "string"}
+            },
+            "required": [
+                "record_id",
+                "type",
+                "module"
+            ]
+        },
+        "Digest_Created": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "enum": ["success"]
+                },
+                "code": {
+                    "type": "string",
+                    "enum": ["SUCCESS"]
+                },
+                "message": {
+                    "type": "string",
+                    "enum": ["Digest has been successfully generated"]
+                },
+                "details": {
+                    "type": "object",
+                    "properties": {"digest_code": {"type": "string"}},
+                    "required": ["digest_code"]
+                }
+            },
+            "required": [
+                "status",
+                "code",
+                "message",
+                "details"
+            ]
+        },
+        "Mandatory_API_Exception": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "enum": ["error"]
+                },
+                "code": {
+                    "type": "string",
+                    "enum": ["MANDATORY_NOT_FOUND"]
+                },
+                "message": {
+                    "type": "string",
+                    "enum": ["required field not found"]
+                },
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "api_name": {"type": "string"},
+                        "json_path": {"type": "string"}
+                    },
+                    "required": [
+                        "api_name",
+                        "json_path"
+                    ]
+                }
+            },
+            "required": [
+                "status",
+                "code",
+                "message",
+                "details"
+            ]
+        },
+        "Invalid_Data_API_Exception": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "enum": ["error"]
+                },
+                "code": {
+                    "type": "string",
+                    "enum": ["INVALID_DATA"]
+                },
+                "message": {
+                    "type": "string",
+                    "enum": ["required field not found"]
+                },
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "api_name": {"type": "string"},
+                        "json_path": {"type": "string"}
+                    },
+                    "required": [
+                        "api_name",
+                        "json_path"
+                    ]
+                }
+            },
+            "required": [
+                "status",
+                "code",
+                "message",
+                "details"
+            ]
+        },
+        "Invalid_Data_Type_API_Exception": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "enum": ["error"]
+                },
+                "code": {
+                    "type": "string",
+                    "enum": ["INVALID_DATA"]
+                },
+                "message": {
+                    "type": "string",
+                    "enum": ["required field not found"]
+                },
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "api_name": {"type": "string"},
+                        "json_path": {"type": "string"},
+                        "expected_data_type": {"type": "string"},
+                        "maximum_length": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    "required": [
+                        "api_name",
+                        "json_path",
+                        "expected_data_type",
+                        "maximum_length"
+                    ]
+                }
+            },
+            "required": [
+                "status",
+                "code",
+                "message",
+                "details"
+            ]
+        },
+        "Permission_Denied": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "enum": ["error"]
+                },
+                "code": {
+                    "type": "string",
+                    "enum": ["NO_PERMISSION"]
+                },
+                "message": {
+                    "type": "string",
+                    "enum": ["Permission Denied."]
+                },
+                "details": {
+                    "type": "object",
+                    "properties": {"permissions": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    }},
+                    "required": ["permissions"]
+                }
+            },
+            "required": [
+                "status",
+                "code",
+                "message",
+                "details"
+            ]
+        },
+        "Dependent_Field_API_Exception": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "enum": ["DEPENDENT_PARAM_MISSING"]
+                },
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "api_name": {"type": "string"},
+                        "json_path": {"type": "string"},
+                        "dependee": {
+                            "type": "object",
+                            "properties": {
+                                "api_name": {"type": "string"},
+                                "json_path": {"type": "string"}
+                            },
+                            "required": [
+                                "api_name",
+                                "json_path"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "api_name",
+                        "json_path",
+                        "dependee"
+                    ]
+                },
+                "message": {"type": "string"},
+                "status": {
+                    "type": "string",
+                    "enum": ["error"]
+                }
+            },
+            "required": [
+                "code",
+                "details",
+                "message",
+                "status"
+            ]
+        }
+    }}
+}

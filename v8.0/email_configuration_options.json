@@ -1,0 +1,406 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "email_configuration_options",
+        "description": "EMAILCONFIGURATION OPTIONS",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {"/crm/email/v8/settings/compose/configuration_options": {
+        "get": {
+            "operationId": "Get Email Configuration Options",
+            "parameters": [{"$ref": "#/components/parameters/X-ZCSRF-TOKEN"}],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{
+                        "type": "object",
+                        "properties": {"configuration_options": {
+                            "items": {"$ref": "#/components/schemas/ConfigurationOptions"},
+                            "type": "array"
+                        }},
+                        "required": ["configuration_options"]
+                    }]}}}
+                },
+                "400": {"$ref": "#/components/responses/RErrorResponse"}
+            }
+        },
+        "put": {
+            "operationId": "Update Email Configuration Options",
+            "parameters": [{"$ref": "#/components/parameters/X-ZCSRF-TOKEN"}],
+            "requestBody": {"$ref": "#/components/requestBodies/body"},
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{
+                        "type": "object",
+                        "properties": {"configuration_options": {
+                            "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
+                            "type": "array"
+                        }},
+                        "required": ["configuration_options"]
+                    }]}}}
+                },
+                "400": {"$ref": "#/components/responses/ErrorResponse"}
+            }
+        }
+    }},
+    "security": [{"iam-oauth2-schema": ["ZohoCRM.emails.compose.ALL"]}],
+    "components": {
+        "schemas": {
+            "ConfigurationOptions": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "values": {
+                        "items": {"$ref": "#/components/schemas/ValueDetails"},
+                        "type": "array"
+                    },
+                    "data_type": {
+                        "type": "string",
+                        "enum": [
+                            "jsonobject",
+                            "text"
+                        ],
+                        "readOnly": true
+                    },
+                    "properties": {
+                        "items": {"$ref": "#/components/schemas/PropertyDetails"},
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "name",
+                    "values",
+                    "data_type",
+                    "properties"
+                ]
+            },
+            "PropertyDetails": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "values": {
+                        "items": {"$ref": "#/components/schemas/ValueDetails"},
+                        "type": "array"
+                    },
+                    "data_type": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "properties": {
+                        "items": {"$ref": "#/components/schemas/PropertyDetails"},
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "name",
+                    "values",
+                    "data_type",
+                    "properties"
+                ]
+            },
+            "ValueDetails": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "value": {"type": "object"},
+                    "_delete": {
+                        "type": "boolean",
+                        "writeOnly": true
+                    }
+                },
+                "required": [
+                    "type",
+                    "value"
+                ]
+            },
+            "Success_Response": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"],
+                        "nullable": true
+                    },
+                    "details": {
+                        "type": "object",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "ErrorDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "range": {
+                        "type": "object",
+                        "properties": {
+                            "from": {"type": "string"},
+                            "to": {"type": "string"}
+                        },
+                        "required": [
+                            "from",
+                            "to"
+                        ]
+                    },
+                    "supported_values": {"type": "object"}
+                },
+                "required": [
+                    "api_name",
+                    "json_path",
+                    "range",
+                    "supported_values"
+                ]
+            },
+            "ErrorDetails1": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "range": {
+                        "type": "object",
+                        "properties": {
+                            "from": {"type": "string"},
+                            "to": {"type": "string"}
+                        },
+                        "required": [
+                            "from",
+                            "to"
+                        ]
+                    },
+                    "supported_values": {"type": "object"}
+                },
+                "required": [
+                    "api_name",
+                    "json_path",
+                    "range",
+                    "supported_values"
+                ]
+            },
+            "InvalidError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {"$ref": "#/components/schemas/ErrorDetails1"}
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "LimitExceedError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["LIMIT_EXCEEDED"]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "limit": {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            "limit_due_to": {
+                                "items": {"$ref": "#/components/schemas/ErrorDetails"},
+                                "type": "array"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "DependentMismatchError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["DEPENDENT_MISMATCH"]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {"$ref": "#/components/schemas/DependeeStructure"}
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "DependeeStructure": {
+                "type": "object",
+                "properties": {
+                    "dependee": {
+                        "type": "object",
+                        "properties": {"dependee_value": {"type": "string"}},
+                        "required": ["dependee_value"]
+                    },
+                    "supported_values": {"type": "object"},
+                    "expected_data_type": {"type": "string"},
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "range": {
+                        "type": "object",
+                        "properties": {
+                            "from": {"type": "string"},
+                            "to": {"type": "string"}
+                        },
+                        "required": [
+                            "from",
+                            "to"
+                        ]
+                    }
+                },
+                "required": [
+                    "dependee",
+                    "supported_values",
+                    "expected_data_type",
+                    "api_name",
+                    "json_path",
+                    "range"
+                ]
+            },
+            "MandatoryError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "NOT_ALLOWED",
+                            "MANDATORY_NOT_FOUND"
+                        ]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {"$ref": "#/components/schemas/ErrorDetails1"}
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "InvalidTypeError": {
+                "type": "object",
+                "properties": {
+                    "details": {
+                        "type": "object",
+                        "properties": {"expected_data_type": {"type": "string"}},
+                        "required": ["expected_data_type"]
+                    },
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "details",
+                    "code",
+                    "message",
+                    "status"
+                ]
+            }
+        },
+        "responses": {
+            "ErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"configuration_options": {
+                            "items": {"oneOf": [
+                                {"$ref": "#/components/schemas/InvalidError"},
+                                {"$ref": "#/components/schemas/MandatoryError"},
+                                {"$ref": "#/components/schemas/InvalidTypeError"},
+                                {"$ref": "#/components/schemas/LimitExceedError"},
+                                {"$ref": "#/components/schemas/DependentMismatchError"},
+                                {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}
+                            ]},
+                            "type": "array"
+                        }},
+                        "required": ["configuration_options"]
+                    },
+                    {"$ref": "#/components/schemas/InvalidError"},
+                    {"$ref": "#/components/schemas/MandatoryError"},
+                    {"$ref": "#/components/schemas/InvalidTypeError"},
+                    {"$ref": "#/components/schemas/DependentMismatchError"},
+                    {"$ref": "#/components/schemas/LimitExceedError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}
+                ]}}}
+            },
+            "RErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/InvalidError"},
+                    {"$ref": "#/components/schemas/MandatoryError"}
+                ]}}}
+            }
+        },
+        "parameters": {"X-ZCSRF-TOKEN": {
+            "name": "X-ZCSRF-TOKEN",
+            "in": "header",
+            "required": false,
+            "schema": {"type": "string"}
+        }},
+        "requestBodies": {"body": {
+            "content": {"application/json": {}},
+            "required": true
+        }},
+        "headers": {},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

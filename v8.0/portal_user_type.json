@@ -1,0 +1,425 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "portal_user_type",
+        "description": "",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/settings/portals/{portal}/user_type": {
+            "get": {
+                "operationId": "Get User Types",
+                "parameters": [
+                    {"$ref": "#/components/parameters/portal"},
+                    {"$ref": "#/components/parameters/include"}
+                ],
+                "responses": {
+                    "200": {"$ref": "#/components/responses/UserType"},
+                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                }
+            },
+            "post": {
+                "operationId": "Create User Type",
+                "parameters": [{"$ref": "#/components/parameters/portal"}],
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            }
+        },
+        "/crm/v8/settings/portals/{portal}/user_type/{user_type_id}": {
+            "get": {
+                "operationId": "Get User Type",
+                "parameters": [
+                    {"$ref": "#/components/parameters/portal"},
+                    {"$ref": "#/components/parameters/user_type_id"}
+                ],
+                "responses": {
+                    "204": {"description": ""},
+                    "200": {"$ref": "#/components/responses/UserType"},
+                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                }
+            },
+            "put": {
+                "operationId": "Update User Type",
+                "parameters": [
+                    {"$ref": "#/components/parameters/portal"},
+                    {"$ref": "#/components/parameters/user_type_id"}
+                ],
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            },
+            "delete": {
+                "operationId": "Delete User Type",
+                "parameters": [
+                    {"$ref": "#/components/parameters/portal"},
+                    {"$ref": "#/components/parameters/user_type_id"}
+                ],
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            }
+        }
+    },
+    "security": [{"iam-oauth2-schema": [""]}],
+    "components": {
+        "schemas": {
+            "owner": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name",
+                    "id"
+                ]
+            },
+            "personality_module": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "id": {"type": "string"},
+                    "plural_label": {"type": "string"}
+                },
+                "required": [
+                    "api_name",
+                    "id",
+                    "plural_label"
+                ]
+            },
+            "permissions": {
+                "type": "object",
+                "properties": {
+                    "view": {"type": "boolean"},
+                    "edit": {"type": "boolean"},
+                    "edit_shared_records": {"type": "boolean"},
+                    "create": {"type": "boolean"},
+                    "delete": {"type": "boolean"},
+                    "delete_attachment": {"type": "boolean"},
+                    "create_attachment": {"type": "boolean"}
+                },
+                "required": [
+                    "view",
+                    "edit",
+                    "edit_shared_records",
+                    "create",
+                    "delete",
+                    "delete_attachment",
+                    "create_attachment"
+                ]
+            },
+            "fields": {
+                "type": "object",
+                "properties": {
+                    "read_only": {"type": "boolean"},
+                    "api_name": {"type": "string"},
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "read_only",
+                    "api_name",
+                    "id"
+                ]
+            },
+            "layouts": {
+                "type": "object",
+                "properties": {
+                    "display_label": {"type": "string"},
+                    "name": {"type": "string"},
+                    "id": {"type": "string"},
+                    "_default_view": {"$ref": "#/components/schemas/views"}
+                },
+                "required": [
+                    "display_label",
+                    "name",
+                    "id",
+                    "_default_view"
+                ]
+            },
+            "filters": {
+                "type": "object",
+                "properties": {
+                    "display_label": {"type": "string"},
+                    "api_name": {"type": "string"},
+                    "id": {"type": "string"}
+                },
+                "required": [
+                    "display_label",
+                    "api_name",
+                    "id"
+                ]
+            },
+            "views": {
+                "type": "object",
+                "properties": {
+                    "display_label": {"type": "string"},
+                    "name": {"type": "string"},
+                    "id": {"type": "string"},
+                    "type": {"type": "string"}
+                },
+                "required": [
+                    "display_label",
+                    "name",
+                    "id",
+                    "type"
+                ]
+            },
+            "modules": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "plural_label": {"type": "string"},
+                    "shared_type": {"type": "string"},
+                    "api_name": {"type": "string"},
+                    "filters": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/filters"}
+                    },
+                    "fields": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/fields"}
+                    },
+                    "layouts": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/layouts"}
+                    },
+                    "views": {"$ref": "#/components/schemas/views"},
+                    "permissions": {"$ref": "#/components/schemas/permissions"}
+                },
+                "required": [
+                    "id",
+                    "plural_label",
+                    "shared_type",
+                    "api_name",
+                    "filters",
+                    "fields",
+                    "layouts",
+                    "views",
+                    "permissions"
+                ]
+            },
+            "user_type": {
+                "type": "object",
+                "properties": {
+                    "personality_module": {"$ref": "#/components/schemas/personality_module"},
+                    "created_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "modified_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "modified_by": {"$ref": "#/components/schemas/owner"},
+                    "created_by": {"$ref": "#/components/schemas/owner"},
+                    "name": {"type": "string"},
+                    "active": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "default": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "no_of_users": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "id": {"type": "string"},
+                    "modules": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/modules"}
+                    }
+                },
+                "required": [
+                    "personality_module",
+                    "created_time",
+                    "modified_time",
+                    "modified_by",
+                    "created_by",
+                    "name",
+                    "active",
+                    "default",
+                    "no_of_users",
+                    "id",
+                    "modules"
+                ]
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {"user_type": {
+                    "items": {"$ref": "#/components/schemas/user_type"},
+                    "type": "array"
+                }},
+                "required": ["user_type"]
+            },
+            "wrapper": {
+                "type": "object",
+                "properties": {"user_type": {
+                    "items": {"$ref": "#/components/schemas/user_type"},
+                    "type": "array"
+                }},
+                "required": ["user_type"]
+            },
+            "SuccessWrapper": {
+                "type": "object",
+                "properties": {"user_type": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/success"}]},
+                    "type": "array"
+                }},
+                "required": ["user_type"]
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"]
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"id": {"type": "string"}},
+                        "required": ["id"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "API_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {"type": "string"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {"id": {"type": "string"}},
+                        "required": ["id"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "status",
+                    "details"
+                ]
+            },
+            "InvalidUrlDetails": {
+                "type": "object",
+                "properties": {"resource_path_index": {
+                    "type": "integer",
+                    "format": "int32"
+                }}
+            },
+            "InvalidUrlError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/InvalidUrlDetails"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            }
+        },
+        "responses": {
+            "UserType": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+            },
+            "UnsupportedVersionResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"},
+                    {"$ref": "#/components/schemas/InvalidUrlError"}
+                ]}}}
+            },
+            "SuccessResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/SuccessWrapper"}]}}}
+            },
+            "ErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {"user_type": {
+                            "items": {"oneOf": [{"$ref": "#/components/schemas/API_Exception"}]},
+                            "type": "array"
+                        }},
+                        "required": ["user_type"]
+                    },
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}
+                ]}}}
+            },
+            "RErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/MandatoryError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidValueError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/InvalidTypeError"}
+                ]}}}
+            }
+        },
+        "parameters": {
+            "portal": {
+                "name": "portal",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "user_type_id": {
+                "name": "user_type_id",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "include": {
+                "name": "include",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            }
+        },
+        "requestBodies": {"body": {
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/wrapper"}}},
+            "required": true
+        }},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

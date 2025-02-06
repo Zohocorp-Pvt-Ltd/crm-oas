@@ -1,0 +1,465 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "portals",
+        "description": "",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {
+        "/crm/v8/settings/portals": {
+            "get": {
+                "operationId": "Get Portals",
+                "responses": {
+                    "200": {"$ref": "#/components/responses/GetPortals"},
+                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                }
+            },
+            "post": {
+                "operationId": "Create Portal",
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            }
+        },
+        "/crm/v8/settings/portals/{portal_name}": {
+            "get": {
+                "operationId": "Get Portal",
+                "parameters": [{"$ref": "#/components/parameters/portal_name"}],
+                "responses": {
+                    "204": {"description": ""},
+                    "200": {"$ref": "#/components/responses/GetPortals"},
+                    "400": {"$ref": "#/components/responses/RErrorResponse"}
+                }
+            },
+            "put": {
+                "operationId": "Update Portal",
+                "parameters": [{"$ref": "#/components/parameters/portal_name"}],
+                "requestBody": {"$ref": "#/components/requestBodies/body"},
+                "responses": {
+                    "200": {"$ref": "#/components/responses/SuccessResponse"},
+                    "400": {"$ref": "#/components/responses/ErrorResponse"}
+                }
+            }
+        }
+    },
+    "security": [{"iam-oauth2-schema": [""]}],
+    "components": {
+        "schemas": {
+            "owner": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name",
+                    "id"
+                ]
+            },
+            "portals": {
+                "type": "object",
+                "properties": {
+                    "created_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "modified_time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "modified_by": {"$ref": "#/components/schemas/owner"},
+                    "created_by": {"$ref": "#/components/schemas/owner"},
+                    "zaid": {"type": "string"},
+                    "name": {
+                        "type": "string",
+                        "minLength": 6,
+                        "maxLength": 30
+                    },
+                    "active": {"type": "boolean"}
+                },
+                "required": [
+                    "created_time",
+                    "modified_time",
+                    "modified_by",
+                    "created_by",
+                    "zaid",
+                    "name",
+                    "active"
+                ]
+            },
+            "wrapper": {
+                "type": "object",
+                "properties": {"portals": {
+                    "items": {"$ref": "#/components/schemas/portals"},
+                    "type": "array"
+                }},
+                "required": ["portals"]
+            },
+            "details": {
+                "type": "object",
+                "properties": {"name": {
+                    "type": "string",
+                    "nullable": true
+                }},
+                "required": ["name"]
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["SUCCESS"],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {"$ref": "#/components/schemas/details"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "Action_Wrapper": {
+                "type": "object",
+                "properties": {"portals": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/success"}]},
+                    "type": "array"
+                }},
+                "required": ["portals"]
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {"portals": {
+                    "items": {"$ref": "#/components/schemas/portals"},
+                    "type": "array"
+                }}
+            },
+            "MandatoryDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                },
+                "required": [
+                    "api_name",
+                    "json_path"
+                ]
+            },
+            "MandatoryError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["MANDATORY_NOT_FOUND"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/MandatoryDetails"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "MandatoryErrorWrapper": {
+                "type": "object",
+                "properties": {"portals": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/MandatoryError"}]},
+                    "type": "array"
+                }},
+                "required": ["portals"]
+            },
+            "UniqueError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["MANDATORY_NOT_FOUND"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/MandatoryDetails"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "UniqueErrorWrapper": {
+                "type": "object",
+                "properties": {"portals": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/UniqueError"}]},
+                    "type": "array"
+                }},
+                "required": ["portals"]
+            },
+            "InvalidDataError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"type": "object"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "MinLengthDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "minimum_length": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "json_path",
+                    "minimum_length"
+                ]
+            },
+            "MinLengthError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/MinLengthDetails"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "MinLengthErrorWrapper": {
+                "type": "object",
+                "properties": {"portals": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/MinLengthError"}]},
+                    "type": "array"
+                }},
+                "required": ["portals"]
+            },
+            "MaxLengthDetails": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "json_path": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "maximum_length": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "json_path",
+                    "maximum_length"
+                ]
+            },
+            "MaxLengthError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"],
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {"$ref": "#/components/schemas/MaxLengthDetails"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "MaxLengthErrorWrapper": {
+                "type": "object",
+                "properties": {"portals": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/MaxLengthError"}]},
+                    "type": "array"
+                }},
+                "required": ["portals"]
+            },
+            "InvalidPatternDetails": {
+                "type": "object",
+                "properties": {"api_name": {"type": "string"}},
+                "required": ["api_name"]
+            },
+            "InvalidPatternError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["PATTERN_NOT_MATCHED"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"$ref": "#/components/schemas/InvalidPatternDetails"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "JsonError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["JSON_PARSE_ERROR"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"type": "object"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            },
+            "InvalidPortalError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "message": {"type": "string"},
+                    "details": {"type": "object"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                },
+                "required": [
+                    "code",
+                    "message",
+                    "details",
+                    "status"
+                ]
+            }
+        },
+        "responses": {
+            "SuccessResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Action_Wrapper"}]}}}
+            },
+            "GetPortals": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+            },
+            "ErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/UniqueErrorWrapper"},
+                    {"$ref": "#/components/schemas/MandatoryError"},
+                    {"$ref": "#/components/schemas/MandatoryErrorWrapper"},
+                    {"$ref": "#/components/schemas/MinLengthErrorWrapper"},
+                    {"$ref": "#/components/schemas/MaxLengthErrorWrapper"},
+                    {"$ref": "#/components/schemas/InvalidPatternError"},
+                    {"$ref": "#/components/schemas/InvalidPortalError"},
+                    {"$ref": "#/components/schemas/JsonError"},
+                    {"$ref": "#/components/schemas/InvalidDataError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}
+                ]}}}
+            },
+            "RErrorResponse": {
+                "description": "",
+                "content": {"application/json": {"schema": {"oneOf": [
+                    {"$ref": "#/components/schemas/MandatoryError"},
+                    {"$ref": "#/components/schemas/InvalidPatternError"},
+                    {"$ref": "#/components/schemas/InvalidPortalError"},
+                    {"$ref": "#/components/schemas/JsonError"},
+                    {"$ref": "#/components/schemas/InvalidDataError"},
+                    {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/schemas/UnsupportedVersionError"}
+                ]}}}
+            }
+        },
+        "parameters": {"portal_name": {
+            "name": "portal_name",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string"}
+        }},
+        "requestBodies": {"body": {
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/wrapper"}}},
+            "required": true
+        }},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

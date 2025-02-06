@@ -1,0 +1,402 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "find_and_merge",
+        "description": "Find And Merge",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {"/crm/v8/{module}/{masterrecordid}/actions/merge": {
+        "get": {
+            "operationId": "Get Record Merge",
+            "parameters": [
+                {"$ref": "#/components/parameters/job_id"},
+                {"$ref": "#/components/parameters/masterrecordid"},
+                {"$ref": "#/components/parameters/module"}
+            ],
+            "responses": {
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {"$ref": "#/components/schemas/Invalid_Data_Exception"},
+                        {"$ref": "#/components/schemas/Invalid_Module_Exception"}
+                    ]}}}
+                },
+                "204": {"description": ""},
+                "200": {"$ref": "#/components/responses/Merge_Response"}
+            }
+        },
+        "post": {
+            "operationId": "Merge Records",
+            "parameters": [
+                {"$ref": "#/components/parameters/masterrecordid"},
+                {"$ref": "#/components/parameters/module"}
+            ],
+            "requestBody": {
+                "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                "required": true
+            },
+            "responses": {
+                "201": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Action_Wrapper"}]}}}
+                },
+                "400": {
+                    "description": "",
+                    "content": {"application/json": {"schema": {"oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {"merge": {
+                                "items": {"oneOf": [
+                                    {"$ref": "#/components/schemas/Mandatory_Not_Found_Exception"},
+                                    {"$ref": "#/components/schemas/Not_Allowed_Exception"},
+                                    {"$ref": "#/components/schemas/Invalid_Data_Exception"},
+                                    {"$ref": "#/components/schemas/Duplicate_Data_Exception"},
+                                    {"$ref": "#/components/schemas/Dependent_Field_Missing_Exception"},
+                                    {"$ref": "#/components/schemas/Limit_Exceeded_Exception"},
+                                    {"$ref": "#/components/schemas/Filter_Criteria_Not_Satisfied"}
+                                ]},
+                                "type": "array"
+                            }}
+                        },
+                        {"$ref": "#/components/schemas/Mandatory_Not_Found_Exception"},
+                        {"$ref": "#/components/schemas/Not_Allowed_Exception"},
+                        {"$ref": "#/components/schemas/Invalid_Data_Exception"},
+                        {"$ref": "#/components/schemas/Duplicate_Data_Exception"},
+                        {"$ref": "#/components/schemas/Dependent_Field_Missing_Exception"},
+                        {"$ref": "#/components/schemas/Invalid_Module_Exception"}
+                    ]}}}
+                }
+            }
+        }
+    }},
+    "security": [{"iam-oauth2-schema": [""]}],
+    "components": {
+        "schemas": {
+            "merge": {
+                "type": "object",
+                "properties": {
+                    "job_id": {"type": "string"},
+                    "status": {"type": "string"},
+                    "data": {
+                        "items": {"$ref": "#/components/schemas/Merge_Data"},
+                        "type": "array"
+                    },
+                    "master_record_fields": {
+                        "items": {"$ref": "#/components/schemas/Master_Record_Fields"},
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "data",
+                    "master_record_fields"
+                ]
+            },
+            "Response_Wrapper": {
+                "type": "object",
+                "properties": {"merge": {
+                    "items": {"$ref": "#/components/schemas/merge"},
+                    "type": "array"
+                }}
+            },
+            "Body_Wrapper": {
+                "type": "object",
+                "properties": {"merge": {
+                    "items": {"$ref": "#/components/schemas/merge"},
+                    "type": "array"
+                }},
+                "required": ["merge"]
+            },
+            "Master_Record_Fields": {
+                "type": "object",
+                "properties": {
+                    "api_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "_data": {
+                        "items": {"$ref": "#/components/schemas/Image_Data"},
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "api_name",
+                    "_data"
+                ]
+            },
+            "Merge_Data": {
+                "type": "object",
+                "properties": {
+                    "_fields": {
+                        "items": {"$ref": "#/components/schemas/Data_Fields"},
+                        "type": "array"
+                    },
+                    "id": {"type": "string"}
+                }
+            },
+            "Data_Fields": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "_data": {
+                        "items": {"$ref": "#/components/schemas/Image_Data"},
+                        "type": "array"
+                    }
+                }
+            },
+            "Image_Data": {
+                "type": "object",
+                "properties": {"id": {
+                    "type": "string",
+                    "nullable": true
+                }},
+                "required": ["id"]
+            },
+            "Action_Wrapper": {
+                "type": "object",
+                "properties": {"merge": {
+                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
+                    "type": "array"
+                }}
+            },
+            "Success_Response": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": [
+                            "SUCCESS",
+                            "SCHEDULED"
+                        ]
+                    },
+                    "details": {
+                        "type": "object",
+                        "properties": {
+                            "id": {"type": "string"},
+                            "job_id": {"type": "string"}
+                        }
+                    },
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["success"]
+                    }
+                }
+            },
+            "Mandatory_Not_Found_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["MANDATORY_NOT_FOUND"]
+                    },
+                    "details": {"$ref": "#/components/schemas/Mandatory_Details"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "Filter_Criteria_Not_Satisfied": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["FILTER_CRITERIA_NOT_SATISFIED"]
+                    },
+                    "details": {"$ref": "#/components/schemas/Mandatory_Details"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "Not_Allowed_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["NOT_ALLOWED"]
+                    },
+                    "details": {"oneOf": [
+                        {"$ref": "#/components/schemas/Resource_Path_Index"},
+                        {"$ref": "#/components/schemas/Mandatory_Details"},
+                        {"$ref": "#/components/schemas/Index_Api_Name"}
+                    ]},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "Index_Api_Name": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "Invalid_Data_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_DATA"]
+                    },
+                    "details": {"oneOf": [
+                        {"$ref": "#/components/schemas/Resource_Path_Index"},
+                        {"$ref": "#/components/schemas/Maximum_Length_Details"},
+                        {"$ref": "#/components/schemas/Minimum_Length_Exception"},
+                        {"$ref": "#/components/schemas/Expected_Data_Type_Details"},
+                        {"$ref": "#/components/schemas/Mandatory_Details"}
+                    ]},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "Duplicate_Data_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["DUPLICATE_DATA"]
+                    },
+                    "details": {"$ref": "#/components/schemas/Mandatory_Details"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "Dependent_Field_Missing_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["DEPENDENT_FIELD_MISSING"]
+                    },
+                    "details": {"$ref": "#/components/schemas/Dependent_Details"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "Invalid_Module_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["INVALID_MODULE"]
+                    },
+                    "details": {"$ref": "#/components/schemas/Resource_Path_Index"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "Limit_Exceeded_Exception": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "enum": ["LIMIT_EXCEEDED"]
+                    },
+                    "details": {"$ref": "#/components/schemas/Maximum_Length_Details"},
+                    "message": {"type": "string"},
+                    "status": {
+                        "type": "string",
+                        "enum": ["error"]
+                    }
+                }
+            },
+            "Dependent_Details": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "dependee": {"$ref": "#/components/schemas/Mandatory_Details"}
+                }
+            },
+            "Expected_Data_Type_Details": {
+                "type": "object",
+                "properties": {
+                    "expected_data_type": {"type": "string"},
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "Maximum_Length_Details": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "maximum_length": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "Minimum_Length_Exception": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"},
+                    "minimum_length": {"type": "string"}
+                }
+            },
+            "Mandatory_Details": {
+                "type": "object",
+                "properties": {
+                    "api_name": {"type": "string"},
+                    "json_path": {"type": "string"}
+                }
+            },
+            "Resource_Path_Index": {
+                "type": "object",
+                "properties": {"resource_path_index": {
+                    "type": "integer",
+                    "format": "int32"
+                }}
+            }
+        },
+        "responses": {"Merge_Response": {
+            "description": "",
+            "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+        }},
+        "parameters": {
+            "module": {
+                "name": "module",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            },
+            "job_id": {
+                "name": "job_id",
+                "in": "query",
+                "required": false,
+                "schema": {"type": "string"}
+            },
+            "masterrecordid": {
+                "name": "masterrecordid",
+                "in": "path",
+                "required": true,
+                "schema": {"type": "string"}
+            }
+        },
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}

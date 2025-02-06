@@ -1,0 +1,180 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "email_compose_meta",
+        "description": "",
+        "version": "v8.0"
+    },
+    "servers": [{"url": "https://zohoapis.com"}],
+    "paths": {"/crm/v8/__internal/__emailcompose_meta": {"get": {
+        "operationId": "GET CONFIGURATIONS",
+        "responses": {"200": {"$ref": "#/components/responses/Get_Configurations"}}
+    }}},
+    "security": [{"iam-oauth2-schema": [""]}],
+    "components": {
+        "schemas": {
+            "from_address": {
+                "type": "object",
+                "properties": {
+                    "user_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "type": {"type": "string"},
+                    "email": {"type": "string"},
+                    "id": {"type": "string"},
+                    "default": {
+                        "type": "boolean",
+                        "enum": [true]
+                    }
+                },
+                "required": [
+                    "user_name",
+                    "type",
+                    "email",
+                    "id",
+                    "default"
+                ]
+            },
+            "features_available": {
+                "type": "object",
+                "properties": {
+                    "zsurvey_enabled": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "inline_compose_window": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "Schedule_Mail": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "EMAIL_CLOUD_PICKER": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "form_integration_enabled": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "isPrivacyEnabled": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "auto_suggestion": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "UNSUBSCRIBE_LINK": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "best_time_to_contact": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "attach_teamdrive": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "isLiveDeskEnabled": {
+                        "type": "boolean",
+                        "enum": [true]
+                    },
+                    "subject_line_suggestion": {"type": "boolean"},
+                    "EMAIL_PREFERENCE": {"type": "boolean"},
+                    "ATTACHMENT": {"type": "boolean"},
+                    "mandateUnsubLink": {"type": "boolean"},
+                    "OLD_COMPOSE_REVERT": {"type": "boolean"}
+                },
+                "required": [
+                    "zsurvey_enabled",
+                    "inline_compose_window",
+                    "Schedule_Mail",
+                    "EMAIL_CLOUD_PICKER",
+                    "form_integration_enabled",
+                    "isPrivacyEnabled",
+                    "auto_suggestion",
+                    "UNSUBSCRIBE_LINK",
+                    "best_time_to_contact",
+                    "attach_teamdrive",
+                    "isLiveDeskEnabled",
+                    "subject_line_suggestion",
+                    "EMAIL_PREFERENCE",
+                    "ATTACHMENT",
+                    "mandateUnsubLink",
+                    "OLD_COMPOSE_REVERT"
+                ]
+            },
+            "signature": {
+                "type": "object",
+                "properties": {
+                    "mode": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sign": {"type": "string"}
+                },
+                "required": [
+                    "mode",
+                    "sign"
+                ]
+            },
+            "user": {
+                "type": "object",
+                "properties": {
+                    "full_name": {"type": "string"},
+                    "email": {"type": "string"},
+                    "zuid": {"type": "string"},
+                    "zgid": {"type": "string"},
+                    "signature": {"$ref": "#/components/schemas/signature"}
+                },
+                "required": [
+                    "full_name",
+                    "email",
+                    "zuid",
+                    "zgid",
+                    "signature"
+                ]
+            },
+            "dataMap": {
+                "type": "object",
+                "properties": {
+                    "user": {"$ref": "#/components/schemas/user"},
+                    "features_available": {"$ref": "#/components/schemas/features_available"},
+                    "from_address": {
+                        "type": "array",
+                        "items": {"$ref": "#/components/schemas/from_address"}
+                    },
+                    "relay_domains": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "mergeFieldsData": {"type": "string"}
+                },
+                "required": [
+                    "user",
+                    "features_available",
+                    "from_address",
+                    "relay_domains",
+                    "mergeFieldsData"
+                ]
+            },
+            "data": {
+                "type": "object",
+                "properties": {"data": {
+                    "type": "array",
+                    "items": {"$ref": "#/components/schemas/dataMap"}
+                }},
+                "required": ["data"]
+            }
+        },
+        "responses": {"Get_Configurations": {
+            "description": "",
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/data"}}}
+        }},
+        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+    }
+}
