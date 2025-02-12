@@ -1546,7 +1546,8 @@
                     "name": {
                         "type": "string"
                     }
-                }
+                },
+                "additionalProperties": true
             },
             "Consent": {
                 "type": "object",
