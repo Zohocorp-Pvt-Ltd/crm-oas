@@ -288,22 +288,7 @@
                         },
                         "type": "array"
                     }
-                },
-                "required": [
-                    "channel_id",
-                    "notify_url",
-                    "events",
-                    "token",
-                    "fields",
-                    "notify_on_related_action",
-                    "return_affected_field_values",
-                    "_delete_events",
-                    "resource_name",
-                    "channel_expiry",
-                    "resource_id",
-                    "resource_uri",
-                    "notification_condition"
-                ]
+                }
             },
             "info": {
                 "type": "object",
