@@ -435,11 +435,7 @@
                             "ics"
                         ]
                     }
-                },
-                "required": [
-                    "callback",
-                    "query"
-                ]
+                }
             },
             "Response_Wrapper": {
                 "type": "object",

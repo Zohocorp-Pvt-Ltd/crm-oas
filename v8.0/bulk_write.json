@@ -389,10 +389,7 @@
                     }
                 },
                 "required": [
-                    "character_encoding",
-                    "operation",
-                    "callback",
-                    "resource"
+                    "operation"
                 ]
             },
             "Result": {
