@@ -207,11 +207,7 @@
                             "post"
                         ]
                     }
-                },
-                "required": [
-                    "url",
-                    "method"
-                ]
+                }
             },
             "default_value": {
                 "type": "object",
@@ -298,10 +294,7 @@
                                     "type": "integer",
                                     "format": "int32"
                                 }
-                            },
-                            "required": [
-                                "api_name"
-                            ]
+                            }
                         }
                     },
                     "file": {
@@ -336,29 +329,9 @@
                                 "type": "integer",
                                 "format": "int32"
                             }
-                        },
-                        "required": [
-                            "status",
-                            "name",
-                            "added_count",
-                            "skipped_count",
-                            "updated_count",
-                            "total_count"
-                        ]
+                        }
                     }
-                },
-                "required": [
-                    "status",
-                    "type",
-                    "module",
-                    "code",
-                    "file_id",
-                    "file_names",
-                    "ignore_empty",
-                    "find_by",
-                    "field_mappings",
-                    "file"
-                ]
+                }
             },
             "Request_Wrapper": {
                 "type": "object",
@@ -387,10 +360,7 @@
                     "ignore_empty": {
                         "type": "boolean"
                     }
-                },
-                "required": [
-                    "operation"
-                ]
+                }
             },
             "Result": {
                 "type": "object",
@@ -437,17 +407,7 @@
                     "callback": {
                         "$ref": "#/components/schemas/CallBack"
                     }
-                },
-                "required": [
-                    "status",
-                    "resource",
-                    "id",
-                    "result",
-                    "created_by",
-                    "operation",
-                    "created_time",
-                    "callback"
-                ]
+                }
             },
             "File_Body_Wrapper": {
                 "type": "object",
