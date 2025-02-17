@@ -13,6 +13,11 @@
     "paths": {
         "/crm/v8/upload": {
             "post": {
+                "servers": [
+                    {
+                        "url": "https://content.zohoapis.com"
+                    }
+                ],
                 "operationId": "Upload File",
                 "parameters": [
                     {
@@ -51,12 +56,7 @@
                         }
                     }
                 }
-            },
-            "servers": [
-                {
-                    "url": "https://content.zohoapis.com"
-                }
-            ]
+            }
         },
         "/crm/bulk/v8/write": {
             "post": {
