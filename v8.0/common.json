@@ -1077,7 +1077,7 @@
                         "refreshUrl": "https://accounts.zoho.com/oauth/v2.0/token",
                         "scopes": {
                             "ZohoCRM.settings.map_dependency.ALL": "Configure and manage dependencies between CRM fields.",
-                            "ZohoCRM.settings.ZohoCRM.settings.currencies.all": "Create and manage currencies within your Zoho CRM.",
+                            "ZohoCRM.settings.currencies.all": "Create and manage currencies within your Zoho CRM.",
                             "ZohoCRM.settings.modules.read": "Retrieve Zoho CRM modules specific information.",
                             "ZohoCRM.settings.modules.all": "Perform actions on Zoho CRM modules.",
                             "ZohoCRM.settings.custom_views.All": "To access and manipulate custom view metadata.",
