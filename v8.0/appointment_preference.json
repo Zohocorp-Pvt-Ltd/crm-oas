@@ -137,7 +137,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                "ZohoCRM"
+                "ZohoCRM.modules.appointments.ALL"
             ]
         }
     ],

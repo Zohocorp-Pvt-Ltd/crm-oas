@@ -334,7 +334,6 @@
                     "code": {
                         "type": "string",
                         "enum": [
-                            "",
                             "SYNTAX_ERROR",
                             "INVALID_QUERY"
                         ]

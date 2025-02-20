@@ -335,7 +335,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.settings.users_unavailability.ALL"
             ]
         }
     ],

@@ -238,7 +238,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.settings.global_picklist.ALL"
             ]
         }
     ],

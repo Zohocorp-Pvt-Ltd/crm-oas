@@ -178,7 +178,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.settings.pipeline.ALL"
             ]
         }
     ],

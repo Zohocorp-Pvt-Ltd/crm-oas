@@ -24,7 +24,14 @@
                     "400": {
                         "$ref": "#/components/responses/ErrorResponse"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "iam-oauth2-schema": [
+                            "ZohoCRM.mass_convert.{module_API_name}.CREATE"
+                        ]
+                    }
+                ]
             },
             "get": {
                 "operationId": "Get Job Status",
@@ -40,17 +47,17 @@
                     "400": {
                         "$ref": "#/components/responses/RErrorResponse"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "iam-oauth2-schema": [
+                            "ZohoCRM.mass_convert.{module_API_name}.READ"
+                        ]
+                    }
+                ]
             }
         }
     },
-    "security": [
-        {
-            "iam-oauth2-schema": [
-                ""
-            ]
-        }
-    ],
     "components": {
         "schemas": {
             "move_attachments_to": {

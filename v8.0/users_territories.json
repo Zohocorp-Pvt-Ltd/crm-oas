@@ -132,7 +132,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.settings.territories.All"
             ]
         }
     ],

@@ -90,7 +90,8 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.modules.{module_API_name}.READ",
+                "ZohoCRM.modules.emails.READ"
             ]
         }
     ],

@@ -28,7 +28,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.settings.currencies.{operation_type}"
             ]
         }
     ],

@@ -85,7 +85,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.settings.clientportal.ALL"
             ]
         }
     ],
@@ -392,7 +392,6 @@
                                 "language": {
                                     "type": "string",
                                     "enum": [
-                                        "",
                                         "it_IT",
                                         "ru_RU",
                                         "pl_PL",
@@ -584,7 +583,6 @@
                 "schema": {
                     "type": "string",
                     "enum": [
-                        "",
                         "it_IT",
                         "ru_RU",
                         "pl_PL",

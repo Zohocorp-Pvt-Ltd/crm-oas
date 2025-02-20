@@ -5,44 +5,96 @@
         "description": "record_locking",
         "version": "v8.0"
     },
-    "servers": [{"url": "https://zohoapis.com"}],
+    "servers": [
+        {
+            "url": "https://zohoapis.com"
+        }
+    ],
     "paths": {
         "/crm/v8/{module_name}/{record_id}/Locking_Information__s": {
             "get": {
                 "operationId": "Get Record Locking Informations",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module_name"},
-                    {"$ref": "#/components/parameters/record_id"},
-                    {"$ref": "#/components/parameters/fields"},
-                    {"$ref": "#/components/parameters/page_token"},
-                    {"$ref": "#/components/parameters/page"},
-                    {"$ref": "#/components/parameters/per_page"},
-                    {"$ref": "#/components/parameters/ids"}
+                    {
+                        "$ref": "#/components/parameters/module_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/page_token"
+                    },
+                    {
+                        "$ref": "#/components/parameters/page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/per_page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ids"
+                    }
                 ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "400": {"$ref": "#/components/responses/RError_Response"}
+                    "400": {
+                        "$ref": "#/components/responses/RError_Response"
+                    }
                 }
             },
             "post": {
                 "operationId": "Lock Records",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module_name"},
-                    {"$ref": "#/components/parameters/record_id"}
+                    {
+                        "$ref": "#/components/parameters/module_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    }
                 ],
                 "requestBody": {
-                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "201": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "400": {"$ref": "#/components/responses/Error_Response"}
+                    "400": {
+                        "$ref": "#/components/responses/Error_Response"
+                    }
                 }
             }
         },
@@ -50,68 +102,144 @@
             "get": {
                 "operationId": "Get Record Locking Information",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module_name"},
-                    {"$ref": "#/components/parameters/record_id"},
-                    {"$ref": "#/components/parameters/lock_id"},
-                    {"$ref": "#/components/parameters/fields"}
+                    {
+                        "$ref": "#/components/parameters/module_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/lock_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    }
                 ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Response_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Response_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "400": {"$ref": "#/components/responses/RError_Response"}
+                    "400": {
+                        "$ref": "#/components/responses/RError_Response"
+                    }
                 }
             },
             "put": {
                 "operationId": "Update Record Locking Information",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module_name"},
-                    {"$ref": "#/components/parameters/record_id"},
-                    {"$ref": "#/components/parameters/lock_id"}
+                    {
+                        "$ref": "#/components/parameters/module_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/lock_id"
+                    }
                 ],
                 "requestBody": {
-                    "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_Wrapper"}}},
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_Wrapper"
+                            }
+                        }
+                    },
                     "required": true
                 },
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "400": {"$ref": "#/components/responses/Error_Response"}
+                    "400": {
+                        "$ref": "#/components/responses/Error_Response"
+                    }
                 }
             },
             "delete": {
                 "operationId": "Unlock Record",
                 "parameters": [
-                    {"$ref": "#/components/parameters/module_name"},
-                    {"$ref": "#/components/parameters/record_id"},
-                    {"$ref": "#/components/parameters/lock_id"}
+                    {
+                        "$ref": "#/components/parameters/module_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/lock_id"
+                    }
                 ],
                 "responses": {
                     "200": {
                         "description": "",
-                        "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Success_Wrapper"}]}}}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success_Wrapper"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
-                    "400": {"$ref": "#/components/responses/Error_Response"}
+                    "400": {
+                        "$ref": "#/components/responses/Error_Response"
+                    }
                 }
             }
         }
     },
-    "security": [{"iam-oauth2-schema": [""]}],
+    "security": [
+        {
+            "iam-oauth2-schema": [
+                "ZohoCRM.settings.record_locking_configurations.ALL"
+            ]
+        }
+    ],
     "components": {
         "schemas": {
             "Locked_For_s": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"},
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
                     "module": {
                         "type": "object",
                         "properties": {
-                            "api_name": {"type": "string"},
-                            "id": {"type": "string"}
+                            "api_name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -119,12 +247,16 @@
             "Info": {
                 "type": "object",
                 "properties": {
-                    "call": {"type": "boolean"},
+                    "call": {
+                        "type": "boolean"
+                    },
                     "per_page": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "next_page_token": {"type": "string"},
+                    "next_page_token": {
+                        "type": "string"
+                    },
                     "count": {
                         "type": "integer",
                         "format": "int32"
@@ -133,15 +265,25 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "previous_page_token": {"type": "string"},
+                    "previous_page_token": {
+                        "type": "string"
+                    },
                     "page_token_expiry": {
                         "type": "string",
                         "format": "date-time"
                     },
-                    "email": {"type": "boolean"},
-                    "more_records": {"type": "boolean"},
-                    "sort_by": {"type": "string"},
-                    "sort_order": {"type": "string"}
+                    "email": {
+                        "type": "boolean"
+                    },
+                    "more_records": {
+                        "type": "boolean"
+                    },
+                    "sort_by": {
+                        "type": "string"
+                    },
+                    "sort_order": {
+                        "type": "string"
+                    }
                 }
             },
             "Record_Lock": {
@@ -154,10 +296,18 @@
                             "Automatic"
                         ]
                     },
-                    "locked_by__s": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"},
-                    "locked_for_s": {"$ref": "#/components/schemas/Locked_For_s"},
-                    "locked_reason__s": {"type": "string"},
-                    "Locked_time__s": {"type": "string"},
+                    "locked_by__s": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
+                    "locked_for_s": {
+                        "$ref": "#/components/schemas/Locked_For_s"
+                    },
+                    "locked_reason__s": {
+                        "type": "string"
+                    },
+                    "Locked_time__s": {
+                        "type": "string"
+                    },
                     "record_locking_configuration_id__s": {
                         "type": "integer",
                         "format": "int64"
@@ -170,98 +320,152 @@
                         "type": "integer",
                         "format": "int64"
                     },
-                    "Created_By": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"},
+                    "Created_By": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
                     "Created_Time": {
                         "type": "string",
                         "format": "date-time"
                     },
-                    "Modified_By": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"},
+                    "Modified_By": {
+                        "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                    },
                     "Modified_Time": {
                         "type": "string",
                         "format": "date-time"
                     },
                     "Tag": {
-                        "items": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/tags.json#/components/schemas/Tag"},
+                        "items": {
+                            "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/tags.json#/components/schemas/Tag"
+                        },
                         "type": "array"
                     },
-                    "name": {"type": "string"}
+                    "name": {
+                        "type": "string"
+                    }
                 }
             },
             "Body_Wrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"$ref": "#/components/schemas/Lock_Record"},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "$ref": "#/components/schemas/Lock_Record"
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Lock_Record": {
                 "type": "object",
-                "properties": {"Locked_Reason__s": {"type": "string"}}
+                "properties": {
+                    "Locked_Reason__s": {
+                        "type": "string"
+                    }
+                }
             },
             "Response_Wrapper": {
                 "type": "object",
                 "properties": {
                     "data": {
-                        "items": {"$ref": "#/components/schemas/Record_Lock"},
+                        "items": {
+                            "$ref": "#/components/schemas/Record_Lock"
+                        },
                         "type": "array"
                     },
-                    "info": {"$ref": "#/components/schemas/Info"}
+                    "info": {
+                        "$ref": "#/components/schemas/Info"
+                    }
                 }
             },
             "Record_Action_Locked_Detail_1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "action": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "action": {
+                        "type": "string"
+                    }
                 }
             },
             "Record_Action_Locked_Detail_2": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "action": {"type": "string"}
+                    "id": {
+                        "type": "string"
+                    },
+                    "action": {
+                        "type": "string"
+                    }
                 }
             },
             "Error_Wrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{
-                        "type": "array",
+                "properties": {
+                    "data": {
                         "items": {
-                            "type": "object",
-                            "properties": {
-                                "code": {
-                                    "type": "string",
-                                    "enum": ["RECORD_LOCKED"]
-                                },
-                                "status": {
-                                    "type": "string",
-                                    "enum": ["error"]
-                                },
-                                "message": {"type": "string"},
-                                "details": {"oneOf": [
-                                    {"$ref": "#/components/schemas/Record_Action_Locked_Detail_1"},
-                                    {"$ref": "#/components/schemas/Record_Action_Locked_Detail_2"}
-                                ]}
-                            }
-                        }
-                    }]},
-                    "type": "array"
-                }}
+                            "oneOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "code": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "RECORD_LOCKED"
+                                                ]
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "error"
+                                                ]
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            },
+                                            "details": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Record_Action_Locked_Detail_1"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Record_Action_Locked_Detail_2"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Success_Response": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["success"]
+                        "enum": [
+                            "success"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["SUCCESS"]
+                        "enum": [
+                            "SUCCESS"
+                        ]
                     },
-                    "duplicate_field": {"type": "string"},
+                    "duplicate_field": {
+                        "type": "string"
+                    },
                     "action": {
                         "type": "string",
                         "enum": [
@@ -289,29 +493,47 @@
                                 "type": "string",
                                 "format": "date-time"
                             },
-                            "Modified_By": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"},
+                            "Modified_By": {
+                                "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                            },
                             "Created_Time": {
                                 "type": "string",
                                 "format": "date-time"
                             },
-                            "id": {"type": "string"},
-                            "Created_By": {"$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"}
+                            "id": {
+                                "type": "string"
+                            },
+                            "Created_By": {
+                                "$ref": "https://github.com/Zohocorp-Pvt-Ltd/crm-oas/raw/refs/heads/main/v8.0/users.json#/components/schemas/Minified_User"
+                            }
                         }
                     }
                 }
             },
             "Success_Wrapper": {
                 "type": "object",
-                "properties": {"data": {
-                    "items": {"oneOf": [{"$ref": "#/components/schemas/Success_Response"}]},
-                    "type": "array"
-                }}
+                "properties": {
+                    "data": {
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Success_Response"
+                                }
+                            ]
+                        },
+                        "type": "array"
+                    }
+                }
             },
             "Limit_Exceeded_1": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "limit": {
                         "type": "integer",
                         "format": "int32"
@@ -325,7 +547,9 @@
             "Limit_Exceeded_2": {
                 "type": "object",
                 "properties": {
-                    "param": {"type": "string"},
+                    "param": {
+                        "type": "string"
+                    },
                     "limit": {
                         "type": "integer",
                         "format": "int32"
@@ -335,8 +559,12 @@
             "Limit_Exceeded_3": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
                     "maximum_length": {
                         "type": "integer",
                         "format": "int32"
@@ -348,18 +576,32 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["LIMIT_EXCEEDED"]
+                        "enum": [
+                            "LIMIT_EXCEEDED"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Limit_Exceeded_1"},
-                        {"$ref": "#/components/schemas/Limit_Exceeded_2"},
-                        {"$ref": "#/components/schemas/Limit_Exceeded_3"}
-                    ]}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Limit_Exceeded_1"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Limit_Exceeded_2"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Limit_Exceeded_3"
+                            }
+                        ]
+                    }
                 }
             },
             "Required_Param_Missing": {
@@ -367,24 +609,38 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["REQUIRED_PARAM_MISSING"]
+                        "enum": [
+                            "REQUIRED_PARAM_MISSING"
+                        ]
                     },
-                    "message": {"type": "string"},
+                    "message": {
+                        "type": "string"
+                    },
                     "details": {
                         "type": "object",
-                        "properties": {"param": {"type": "string"}}
+                        "properties": {
+                            "param": {
+                                "type": "string"
+                            }
+                        }
                     }
                 }
             },
             "Invalid_API_Name": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             },
             "MANDATORY_NOT_FOUND": {
@@ -392,17 +648,25 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["MANDATORY_NOT_FOUND"]
+                        "enum": [
+                            "MANDATORY_NOT_FOUND"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["required field not found"]
+                        "enum": [
+                            "required field not found"
+                        ]
                     },
-                    "details": {"$ref": "#/components/schemas/Invalid_API_Name"}
+                    "details": {
+                        "$ref": "#/components/schemas/Invalid_API_Name"
+                    }
                 }
             },
             "Invalid_Module": {
@@ -410,14 +674,22 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_MODULE"]
+                        "enum": [
+                            "INVALID_MODULE"
+                        ]
                     },
-                    "message": {"type": "string"},
-                    "details": {"type": "object"}
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "object"
+                    }
                 }
             },
             "INVALID_DATA": {
@@ -425,42 +697,72 @@
                 "properties": {
                     "status": {
                         "type": "string",
-                        "enum": ["error"]
+                        "enum": [
+                            "error"
+                        ]
                     },
                     "code": {
                         "type": "string",
-                        "enum": ["INVALID_DATA"]
+                        "enum": [
+                            "INVALID_DATA"
+                        ]
                     },
                     "message": {
                         "type": "string",
-                        "enum": ["Invalid data"]
+                        "enum": [
+                            "Invalid data"
+                        ]
                     },
-                    "details": {"oneOf": [
-                        {"$ref": "#/components/schemas/Invalid_Param_Name"},
-                        {"$ref": "#/components/schemas/Invalid_API_Name"},
-                        {"$ref": "#/components/schemas/Maximum_Length"},
-                        {"$ref": "#/components/schemas/Expected_Data_Type"},
-                        {"$ref": "#/components/schemas/Invalid_ID"}
-                    ]}
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/Invalid_Param_Name"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Invalid_API_Name"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Maximum_Length"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Expected_Data_Type"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Invalid_ID"
+                            }
+                        ]
+                    }
                 }
             },
             "Invalid_Param_Name": {
                 "type": "object",
-                "properties": {"param_name": {"type": "string"}}
+                "properties": {
+                    "param_name": {
+                        "type": "string"
+                    }
+                }
             },
             "Invalid_ID": {
                 "type": "object",
-                "properties": {"resource_path_index": {
-                    "type": "integer",
-                    "format": "int32"
-                }}
+                "properties": {
+                    "resource_path_index": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
             },
             "Expected_Data_Type": {
                 "type": "object",
                 "properties": {
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"},
-                    "expected_data_type": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    },
+                    "expected_data_type": {
+                        "type": "string"
+                    }
                 }
             },
             "Maximum_Length": {
@@ -470,32 +772,70 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "api_name": {"type": "string"},
-                    "json_path": {"type": "string"}
+                    "api_name": {
+                        "type": "string"
+                    },
+                    "json_path": {
+                        "type": "string"
+                    }
                 }
             }
         },
         "responses": {
             "Error_Response": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/Error_Wrapper"},
-                    {"$ref": "#/components/schemas/INVALID_DATA"},
-                    {"$ref": "#/components/schemas/Invalid_Module"},
-                    {"$ref": "#/components/schemas/MANDATORY_NOT_FOUND"},
-                    {"$ref": "#/components/schemas/LIMIT_EXCEEDED"},
-                    {"$ref": "#/components/schemas/Required_Param_Missing"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/Error_Wrapper"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/INVALID_DATA"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Module"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MANDATORY_NOT_FOUND"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/LIMIT_EXCEEDED"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Required_Param_Missing"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RError_Response": {
                 "description": "",
-                "content": {"application/json": {"schema": {"oneOf": [
-                    {"$ref": "#/components/schemas/INVALID_DATA"},
-                    {"$ref": "#/components/schemas/Invalid_Module"},
-                    {"$ref": "#/components/schemas/MANDATORY_NOT_FOUND"},
-                    {"$ref": "#/components/schemas/LIMIT_EXCEEDED"},
-                    {"$ref": "#/components/schemas/Required_Param_Missing"}
-                ]}}}
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/components/schemas/INVALID_DATA"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Invalid_Module"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/MANDATORY_NOT_FOUND"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/LIMIT_EXCEEDED"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/Required_Param_Missing"
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "parameters": {
@@ -503,7 +843,9 @@
                 "name": "record_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "module_name": {
                 "name": "module_name",
@@ -511,32 +853,42 @@
                 "required": true,
                 "schema": {
                     "type": "string",
-                    "enum": ["Leads"]
+                    "enum": [
+                        "Leads"
+                    ]
                 }
             },
             "lock_id": {
                 "name": "lock_id",
                 "in": "path",
                 "required": true,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "fields": {
                 "name": "fields",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "ids": {
                 "name": "ids",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "page_token": {
                 "name": "page_token",
                 "in": "query",
                 "required": false,
-                "schema": {"type": "string"}
+                "schema": {
+                    "type": "string"
+                }
             },
             "page": {
                 "name": "page",
@@ -557,6 +909,10 @@
                 }
             }
         },
-        "securitySchemes": {"iam-oauth2-schema": {"$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"}}
+        "securitySchemes": {
+            "iam-oauth2-schema": {
+                "$ref": "https://raw.githubusercontent.com/Zohocorp-Pvt-Ltd/crm-oas/refs/heads/main/v8.0/common.json#/components/securitySchemes/iam-oauth2-schema"
+            }
+        }
     }
 }

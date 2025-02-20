@@ -69,7 +69,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.templates.inventory.READ"
             ]
         }
     ],

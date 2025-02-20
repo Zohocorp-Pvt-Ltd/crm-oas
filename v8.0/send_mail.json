@@ -42,7 +42,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.send_mail.all.CREATE"
             ]
         }
     ],

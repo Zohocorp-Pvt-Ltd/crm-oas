@@ -57,7 +57,8 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.modules.emails.{module_API_name}.ALL",
+                "ZohoCRM.modules.emails.ALL"
             ]
         }
     ],

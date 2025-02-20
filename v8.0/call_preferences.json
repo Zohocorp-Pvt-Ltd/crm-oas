@@ -53,7 +53,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.settings.modules.ALL"
             ]
         }
     ],

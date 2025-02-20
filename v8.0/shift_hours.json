@@ -136,7 +136,7 @@
     "security": [
         {
             "iam-oauth2-schema": [
-                ""
+                "ZohoCRM.settings.business_hours.ALL"
             ]
         }
     ],
